@@ -17,10 +17,27 @@ const Header = () => {
         />
 
         <div className="text-slate-gray flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
-          <p className="cursor-pointer py-1 px-2 rounded-lg hover:bg-[#e4e9f1]">Accueil</p>
-          <p className="cursor-pointer py-1 px-2 rounded-lg hover:bg-[#e4e9f1] ">Acheter</p>
-          <p className="cursor-pointer py-1 px-2 rounded-lg hover:bg-[#e4e9f1] ">Vendre</p>
-          <p className="cursor-pointer py-1 px-2 rounded-lg hover:bg-[#e4e9f1]">Concept</p>
+          <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1]">
+            Accueil
+          </p>
+          <div className="group relative">
+            <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1] ">
+              Acheter
+            </p>
+            <div className="absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 ring-1 shadow-xl ring-slate-900/5 group-hover:block">
+              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] text-[#0160ee] ">Tous les produits</p>
+              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Tableaux</p>
+              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
+              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Bijoux</p>
+              <p className="mt-1 py-1 pl-2 mb-1 hover:bg-[#e4e9f1] ">Livres</p>
+            </div>
+          </div>
+          <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1] ">
+            Vendre
+          </p>
+          <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1]">
+            Concept
+          </p>
         </div>
 
         <div className="hidden max-lg:block">
