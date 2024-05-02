@@ -11,7 +11,7 @@ const SideBar = () => {
   const { openSidebar, setOpenSidebar } = globalState1();
 
   return (
-    <div style={{ display: "flex", height: "100%" }}>
+    <div className="prose" style={{ display: "flex", height: "100%" }}>
       <Sidebar
         backgroundColor="#ededed"
         breakPoint="all"
@@ -19,7 +19,7 @@ const SideBar = () => {
         toggled={openSidebar} //qd j'ouvre la sidebar et que je met false manuellement puis true, la transition duration marche
         transitionDuration={1300}
       >
-        <div className="pl-52 pt-3 pb-3">
+        <div className="pl-52 mb-[-7px]">
           <img src={cross} alt="Sortie" width={20} onClick={()=>setOpenSidebar(false)}/>
         </div>
         <Menu>
@@ -31,7 +31,7 @@ const SideBar = () => {
           </MenuItem>
 
           <SubMenu icon={<SlBasket size={18} />} label="Acheter">
-            <MenuItem>Tous les produits</MenuItem>
+            <MenuItem style={{color:'#0160ee'}}>Tous les produits</MenuItem>
             <MenuItem>Tableaux</MenuItem>
             <MenuItem>Décoration</MenuItem>
             <MenuItem>Bijoux</MenuItem>

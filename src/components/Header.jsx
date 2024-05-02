@@ -6,7 +6,7 @@ const Header = () => {
   const { openSidebar, setOpenSidebar } = globalState1();
 
   return (
-    <header className="padding-x w-full py-1">
+    <header className="font-roboto padding-x w-full py-1">
       <nav className="max-container flex items-center justify-between">
         <img
           className="cursor-pointer"
@@ -24,7 +24,7 @@ const Header = () => {
             <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1] ">
               Acheter
             </p>
-            <div className="absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 ring-1 shadow-xl ring-slate-900/5 group-hover:block">
+            <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 ring-1 shadow-xl ring-slate-900/5 group-hover:block">
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] text-[#0160ee] ">Tous les produits</p>
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Tableaux</p>
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
