@@ -16,11 +16,11 @@ const Header = () => {
           height={29}
         />
 
-        <div className="text-slate-gray flex flex-1 items-center justify-center gap-16 text-lg leading-normal max-lg:hidden">
-          <p className="cursor-pointer hover:text-blue-500">Accueil</p>
-          <p className="cursor-pointer hover:text-blue-500">Acheter</p>
-          <p className="cursor-pointer hover:text-blue-500">Vendre</p>
-          <p className="cursor-pointer hover:text-blue-500">Concept</p>
+        <div className="text-slate-gray flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
+          <p className="cursor-pointer py-1 px-2 rounded-lg hover:bg-[#e4e9f1]">Accueil</p>
+          <p className="cursor-pointer py-1 px-2 rounded-lg hover:bg-[#e4e9f1] ">Acheter</p>
+          <p className="cursor-pointer py-1 px-2 rounded-lg hover:bg-[#e4e9f1] ">Vendre</p>
+          <p className="cursor-pointer py-1 px-2 rounded-lg hover:bg-[#e4e9f1]">Concept</p>
         </div>
 
         <div className="hidden max-lg:block">
