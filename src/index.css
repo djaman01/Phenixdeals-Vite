@@ -18,6 +18,12 @@
 
 /* Pour créer des classes uniques, qui comprennent plusieurs properties */
 @layer utilities {
+
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
   .padding {
     @apply px-8 py-12 sm:px-16;
   }

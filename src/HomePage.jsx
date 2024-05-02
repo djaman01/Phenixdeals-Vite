@@ -1,25 +1,19 @@
+import Header from "./components/Header";
 
 const HomePage = () => {
   return (
     <main>
       <header>
-
+        <Header />
       </header>
 
-      <section>
+      <section></section>
 
-      </section>
+      <section></section>
 
-      <section>
-
-      </section>
-
-      <footer>
-
-      </footer>
-
+      <footer></footer>
     </main>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
