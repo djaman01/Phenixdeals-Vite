@@ -1,7 +1,10 @@
+import { globalState1 } from "../ContextComp";
 import { hamburger } from "../assets/icons";
 import { logoPhenix } from "../assets/images";
-
+import SideBar from "./SideBar";
 const Header = () => {
+  const { openSidebar, setOpenSidebar } = globalState1();
+
   return (
     <header className="padding-x w-full py-1">
       <nav className="max-container flex items-center justify-between">
@@ -21,13 +24,18 @@ const Header = () => {
         </div>
 
         <div className="hidden max-lg:block">
-          <img
-            src={hamburger}
-            alt="menu-hamburger"
-            width={25}
-            height={25}
-            className="cursor-pointer"
-          />
+          {openSidebar === false ? (
+            <img
+              src={hamburger}
+              alt="menu-hamburger"
+              width={25}
+              height={25}
+              className="cursor-pointer"
+              onClick={() => setOpenSidebar(true)}
+            />
+          ) : (
+            <SideBar className="lg:hidden" /> //Pour que si on oublie de la fermer, elle n'appraisse pas en grand écran
+          )}
         </div>
       </nav>
     </header>
