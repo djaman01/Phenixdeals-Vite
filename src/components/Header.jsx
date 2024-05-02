@@ -1,3 +1,4 @@
+import { hamburger } from "../assets/icons";
 import { logoPhenix } from "../assets/images";
 
 const Header = () => {
@@ -17,6 +18,16 @@ const Header = () => {
           <p className="cursor-pointer hover:text-blue-500">Acheter</p>
           <p className="cursor-pointer hover:text-blue-500">Vendre</p>
           <p className="cursor-pointer hover:text-blue-500">Concept</p>
+        </div>
+
+        <div className="hidden max-lg:block">
+          <img
+            src={hamburger}
+            alt="menu-hamburger"
+            width={25}
+            height={25}
+            className="cursor-pointer"
+          />
         </div>
       </nav>
     </header>
