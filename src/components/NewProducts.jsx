@@ -4,7 +4,7 @@ const NewProducts = () => {
   return (
     <section>
       <CardGrid 
-        title="Les 10 Nouveaux Articles" 
+        title="Les 20 Nouveaux Articles" 
       />
     </section>
   );
