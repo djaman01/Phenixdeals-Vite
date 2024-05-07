@@ -35,7 +35,6 @@ const SideBar = () => {
             <MenuItem>Tableaux</MenuItem>
             <MenuItem>Décoration</MenuItem>
             <MenuItem>Bijoux</MenuItem>
-            <MenuItem>Livres</MenuItem>
           </SubMenu>
 
           <MenuItem icon={<TfiMoney size={18} />}>Vendre</MenuItem>
