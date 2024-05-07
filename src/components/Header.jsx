@@ -25,7 +25,7 @@ const Header = () => {
               Acheter
             </p>
             <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 ring-1 shadow-xl ring-slate-900/5 group-hover:block">
-              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] text-[#0160ee] ">Tous les produits</p>
+              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] text-[#0160ee] ">Tous les articles</p>
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Tableaux</p>
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Bijoux</p>

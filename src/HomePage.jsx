@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import NewProducts from "./components/NewProducts";
 
 const HomePage = () => {
   return (
@@ -7,7 +8,9 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section></section>
+      <section className="padding">
+        <NewProducts />
+      </section>
 
       <section></section>
 

@@ -31,7 +31,7 @@ const SideBar = () => {
           </MenuItem>
 
           <SubMenu icon={<SlBasket size={18} />} label="Acheter">
-            <MenuItem style={{color:'#0160ee'}}>Tous les produits</MenuItem>
+            <MenuItem style={{color:'#0160ee'}}>Tous les articles</MenuItem>
             <MenuItem>Tableaux</MenuItem>
             <MenuItem>Décoration</MenuItem>
             <MenuItem>Bijoux</MenuItem>
