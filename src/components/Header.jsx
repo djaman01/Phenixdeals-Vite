@@ -28,7 +28,7 @@ const Header = () => {
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] text-[#0160ee] ">Tous les articles</p>
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Tableaux</p>
               <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
-              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Bijoux</p>
+              <p className="mt-1 py-1 pl-2 mb-1 hover:bg-[#e4e9f1] ">Bijoux</p>
             </div>
           </div>
           <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1] ">

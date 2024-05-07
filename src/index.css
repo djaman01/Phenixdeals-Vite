@@ -12,12 +12,6 @@
   scroll-behavior: smooth;
 }
 
-/* Styles pour les components réutilisable */
-@layer components {
-  .input {
-    @apply text-slate-gray max-sm:border-slate-gray border pl-5 text-base leading-normal outline-none max-sm:w-full max-sm:rounded-full max-sm:p-5 sm:flex-1 sm:border-none;
-  }
-}
 
 /* Pour créer des classes uniques, qui comprennent plusieurs properties */
 @layer utilities {
