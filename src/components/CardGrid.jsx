@@ -11,7 +11,7 @@ const CardGrid = ({
   return (
     <main>
 
-      <div className="text-center">
+      <div className="font-roboto text-center">
         <h1>{title}</h1>
       </div>
 
