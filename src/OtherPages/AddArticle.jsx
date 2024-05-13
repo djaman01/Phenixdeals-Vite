@@ -46,18 +46,16 @@ const AddArticle = () => {
       <Header />
       <div className="bg-[#e8e8e8]">
         <div className="flex h-screen flex-col items-center justify-center">
-          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-md">
-           
+          <div className="w-full max-w-md rounded-lg border border-gray-300 bg-white p-6 shadow-md">
             <h2 className="mb-4 text-2xl font-bold text-gray-900">
               Add Article
             </h2>
 
             <form className="flex flex-col">
-
               <input
                 required
                 type="text"
-                className="mb-4 rounded-md border-0 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Type de l'article"
                 value={type}
                 onChange={(e) => setType(e.target.value)}
@@ -65,7 +63,7 @@ const AddArticle = () => {
               <input
                 required
                 type="text"
-                className="mb-4 rounded-md border-0 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Auteur"
                 value={auteur}
                 onChange={(e) => setAuteur(e.target.value)}
@@ -73,7 +71,7 @@ const AddArticle = () => {
               <input
                 required
                 type="text"
-                className="mb-4 rounded-md border-0 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Info Article"
                 value={type}
                 onChange={(e) => setInfoArticle(e.target.value)}
@@ -81,7 +79,7 @@ const AddArticle = () => {
               <input
                 required
                 type="text"
-                className="mb-4 rounded-md border-0 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Prix"
                 value={prix}
                 onChange={(e) => setPrix(e.target.value)}
@@ -89,7 +87,7 @@ const AddArticle = () => {
               <input
                 required
                 type="text"
-                className="mb-4 rounded-md border-0 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Achat ou Dépôt"
                 value={etat}
                 onChange={(e) => setEtat(e.target.value)}
@@ -97,7 +95,7 @@ const AddArticle = () => {
               <input
                 required
                 type="text"
-                className="mb-4 rounded-md border-0 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Code Article"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
@@ -108,7 +106,10 @@ const AddArticle = () => {
                 onDrop={(acceptedFiles) => setImageUrl(acceptedFiles[0])}
               >
                 {({ getRootProps, getInputProps }) => (
-                  <div className="border border-slate-400 h-16 flex justify-center items-center" {...getRootProps()}>
+                  <div
+                    className="flex h-16 items-center justify-center border border-slate-400"
+                    {...getRootProps()}
+                  >
                     <input {...getInputProps()} />
                     <p>Drag & drop an image here, or click to select one</p>
                   </div>
@@ -122,8 +123,13 @@ const AddArticle = () => {
               >
                 Send Article
               </button>
-
             </form>
+          </div>
+          <div>
+            <img
+              src={imageUrl && URL.createObjectURL(imageUrl)}
+              alt="image uploaded"
+            />
           </div>
         </div>
       </div>

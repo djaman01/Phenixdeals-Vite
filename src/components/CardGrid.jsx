@@ -24,7 +24,7 @@ const CardGrid = ({
         {/*!!! pl-12 dans input, permet de déplacer le départ pour écrire*/}
         <input
           type="text"
-          className="relative w-full rounded-full border border-gray-300 py-3 pl-12 hover:shadow-md focus:border-blue-500 focus:outline-none"
+          className="relative w-full rounded-full border border-gray-400 py-3 pl-12 hover:shadow-md focus:border-blue-500 focus:outline-none"
           placeholder={placeholder}
           value={value}
           onChange={onChange}
