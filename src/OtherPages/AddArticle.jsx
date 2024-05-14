@@ -15,7 +15,9 @@ const AddArticle = () => {
 
   //To submit all form data to the server with .post
   const handleSubmit = async (e) => {
-    //Pour interdire l'envoie si on ne rempli pas un champ de addProduct
+    e.preventDefault() //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
+    
+    //Pour interdire l'envoie si on ne rempli pas un champ de addProdz
     if (imageUrl && auteur && type && infoArticle && prix && etat && code) {
       const formData = new FormData(); //Vu qu'on envoie un file, on utilise la method FormData() pour créer un objet avec key-values, et tout envoyer en 1 fois
       formData.append("file", imageUrl); // 'file"=property / imageUrl= Value qui est une state variable
@@ -27,11 +29,17 @@ const AddArticle = () => {
       formData.append("code", code);
 
       try {
-        const response = await axios.post(
-          "http://localhost:3005/upload",
-          formData,
-        ); //On envoie tout en 1 fois
-        alert("Product submitted to DataBase");
+        const response = await axios.post("http://localhost:3005/upload", formData); //On envoie tout en 1 fois
+        console.log("création article", response.data);
+        alert("Article submitted to DataBase");
+        // Réinitialisation des états du formulaire manuellement pour garder les console.log et alert 
+        setImageUrl("");
+        setAuteur("");
+        setType("");
+        setInfoArticle("");
+        setPrix("");
+        setEtat("");
+        setCode("");
       } catch (error) {
         console.error("Error uploading file:", error);
       }
@@ -117,13 +125,13 @@ const AddArticle = () => {
                 </Dropzone>
 
                 <button
-                  type="submit"
                   className="mt-4 rounded-md bg-gradient-to-r from-indigo-500 to-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-indigo-600 hover:to-blue-600"
                   onClick={handleSubmit}
                 >
                   Send Article
                 </button>
               </form>
+
               <div className="ml-16 mt-6 flex h-96 w-96 items-center justify-center border border-gray-400 ">
                 {/*Pour que l'image n'apparaisse que si imageURL contient une image */}
                 {imageUrl && (
