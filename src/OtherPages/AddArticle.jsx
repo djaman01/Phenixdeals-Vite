@@ -47,11 +47,11 @@ const AddArticle = () => {
       <div className="bg-[#e8e8e8]">
         <div className="flex h-screen flex-col items-center justify-center">
           <div className="w-3/4 rounded-lg border border-gray-300 bg-white p-6 shadow-md">
-            <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            <h2 className="mb-4 ml-10 text-2xl font-bold text-gray-900">
               Add Article
             </h2>
-            <div className="grid grid-cols-2 gap-10 ">
-              <form className="flex flex-col">
+            <div className="grid grid-cols-2  ">
+              <form className="ml-10 flex flex-col">
                 <input
                   required
                   type="text"
@@ -124,13 +124,13 @@ const AddArticle = () => {
                   Send Article
                 </button>
               </form>
-              <div className="flex items-center border border-gray-400 ">
+              <div className="ml-16 mt-6 flex h-96 w-96 items-center justify-center border border-gray-400 ">
                 {/*Pour que l'image n'apparaisse que si imageURL contient une image */}
                 {imageUrl && (
                   <img
                     src={URL.createObjectURL(imageUrl)}
                     alt="image uploaded"
-                    className="max-w-full"
+                    className="max-h-full max-w-full"
                   />
                 )}
               </div>
