@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SlMagnifier } from "react-icons/sl";
 
 const CardGrid = ({
@@ -8,6 +9,16 @@ const CardGrid = ({
   error,
   filteredProducts,
 }) => {
+
+  const [valueInput, setValueInput] = useState("")
+  const handleInput = (e) => {
+    setValueInput(e.target.value)
+  }
+
+    //Pour que le search inpu soit lié au produit qui apparaissent sur le site
+    const filteredArr = filteredProducts.filter((e) => e.auteur.toLowerCase().includes(valueInput.toLowerCase()))
+
+
   return (
     <main>
 
@@ -29,6 +40,22 @@ const CardGrid = ({
           value={value}
           onChange={onChange}
         />
+      </div>
+
+      <div>
+        {error ? <p>Error: {error}</p> :
+          <div>
+            {filteredArr.map((e)=>
+              <div key={e._id}>
+                <div>
+                  <h1>{e.type}</h1>
+                  <h2>{e.auteur}</h2>
+                </div>
+
+              </div>
+            )}
+          </div>
+        }
       </div>
 
     </main>
