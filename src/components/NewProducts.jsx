@@ -13,7 +13,7 @@ const NewProducts = () => {
   useEffect(() => {
     const fetchData = () => {
       axios
-        .get("http://localhost:3005/homeProducts?limit=20") // Add the query parameter for limiting the results
+        .get("http://localhost:3005/homeProducts?limit=16") // Add the query parameter for limiting the results
         .then((response) => {
           console.log("Last 20 products fetched", response.data);
           setArticleObject(response.data);
@@ -30,10 +30,11 @@ const NewProducts = () => {
     e.type.toLowerCase().includes(articleType.toLowerCase()),
   );
 
+  
   return (
     <section>
       <CardGrid
-        title="Les 20 Nouveaux Articles"
+        title="Les 16 Nouveaux Articles"
         value={articleType}
         onChange={handleArticleType}
         error={error}

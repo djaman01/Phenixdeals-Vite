@@ -9,10 +9,8 @@ const CardGrid = ({
   error,
   filteredArticles,
 }) => {
-
   return (
     <main>
-
       <div className="font-roboto text-center">
         <h1>{title}</h1>
       </div>
@@ -26,7 +24,7 @@ const CardGrid = ({
         {/*!!! pl-12 dans input, permet de déplacer le départ pour écrire*/}
         <input
           type="text"
-          className="relative w-full rounded-full border border-gray-400 py-3 pl-12 hover:shadow-md transition duration-150 ease-in-out focus:outline-none focus:ring-1 focus:ring-blue-500"
+          className="relative w-full rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500"
           placeholder={placeholder}
           value={value}
           onChange={onChange}
@@ -34,21 +32,27 @@ const CardGrid = ({
       </div>
 
       <div>
-        {error ? <p>Error: {error}</p> :
-          <div>
-            {filteredArticles.map((e)=>
+        {error ? (
+          <p>Error: {error}</p>
+        ) : (
+          <div className="grid grid-cols-4">
+            {filteredArticles.map((e) => (
               <div key={e._id}>
                 <div>
+                  <img
+                    src={`http://localhost:3005/${e.imageUrl}`}
+                    alt={e.auteur}
+                  />
                   <h1>{e.type}</h1>
+                  <h2>{e.infoArticle}</h2>
                   <h2>{e.auteur}</h2>
+                  <h2>{e.prix}</h2>
                 </div>
-
               </div>
-            )}
+            ))}
           </div>
-        }
+        )}
       </div>
-
     </main>
   );
 };
