@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {//utiliser shadow-custom, car tailwind ajoute automatiquement le nom de la propriété css
+        'custom':'0 0 20px 15px rgba(0, 0, 0, 0.1)',
+      }
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 }
