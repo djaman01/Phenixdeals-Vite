@@ -35,13 +35,13 @@ const CardGrid = ({
         {error ? (
           <p>Error: {error}</p>
         ) : (
-          <div className="mt-24 grid grid-cols-4 justify-center gap-12 mx-20">
+          <div className="mx-20 mt-14 grid grid-cols-4 gap-12">
             {filteredArticles.map((e) => (
               <div
                 key={e._id}
-                className="h-[415px] w-full rounded-lg border border-gray-400 bg-white transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
+                className="rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
               >
-                <div className="h-[240px] w-full">
+                <div className="h-52 w-full">
                   <img
                     className="h-full w-full rounded-t-lg object-cover"
                     src={`http://localhost:3005/${e.imageUrl}`}
@@ -49,14 +49,10 @@ const CardGrid = ({
                   />
                 </div>
                 <div className="text-center">
-                  <h3 className="mb-[15px] mt-[15px] font-sans text-blue-600">
-                    {e.type}
-                  </h3>
-                  <h4 className="mb-[-10px] mt-[-5px] flex h-[38px] items-center justify-center font-mono text-base text-gray-800">
-                    {e.infoArticle}
-                  </h4>
-                  <h4 className="font-mono text-red-600">{e.auteur}</h4>
-                  <h4 className="font-sans text-blue-600">{e.prix}</h4>
+                  <h3 className="mt-1 mb-1 font-mono text-blue-600">{e.type}</h3>
+                  <h4 className="mb-1 font-roboto text-gray-800">{e.infoArticle}</h4>
+                  <h4 className="mb-1 font-roboto text-red-500">{e.auteur}</h4>
+                  <h4 className="mb-1 font-mono text-blue-600">{e.prix}</h4>
                 </div>
               </div>
             ))}
