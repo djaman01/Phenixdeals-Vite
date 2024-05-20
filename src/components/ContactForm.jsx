@@ -9,31 +9,27 @@ import emailjs from "@emailjs/browser";
 //Destructuring the rest of the props with the spread operator (...props) enables us to use any valid props in the input like: name, type, or placeholder.
 
 const MyTextInput = ({ label, ...props }) => {
-
   const [field, meta] = useField(props);
 
   return (
     <div className="mb-2">
-
       <label htmlFor={props.id || props.name}>{label}</label>
       <input className="text-input" {...field} {...props} />
 
       {meta.touched && meta.error ? (
         <div className="error text-sm text-red-500 ">{meta.error}</div>
       ) : null}
-
     </div>
   );
 };
 
 const ContactForm = () => {
-
   const form = useRef();
 
   const sendEmail = () => {
     return emailjs.sendForm(
       "service_pjw8ixl", //service_id => A trouver dans Section Email services
-      "template_4371vsw", //template_id => A trouver dans section Email templates => Settings
+      "template_yp3au9f", //template_id => A trouver dans section Email templates => Settings
       form.current,
       {
         publicKey: "jbn6FFUwLocXKxqvT", //publicKey: A trouver dans account => API Keys
@@ -44,12 +40,15 @@ const ContactForm = () => {
   return (
     <>
       <div className=" mx-auto mb-4 max-w-md rounded bg-gray-50 px-8 pb-8 pt-6 shadow-2xl max-lg:border max-lg:border-slate-400">
+        <div className="prose mb-4 text-center">
+          <h2 className="text-blue-500">Quelle est votre demande ?</h2>
+        </div>
+
         {/* The initialValues in Formik are used to define the default values for the form fields */}
         <Formik
           initialValues={{
             lastName: "",
             firstName: "",
-            companyName: "",
             email: "",
             phone: "",
             message: "",
@@ -60,9 +59,6 @@ const ContactForm = () => {
               .required("Requis"),
             firstName: Yup.string()
               .max(20, "Doit comporter 20 caractères maximum")
-              .required("Requis"),
-            companyName: Yup.string()
-              .max(25, "Doit comporter 25 caractères maximum")
               .required("Requis"),
             email: Yup.string()
               .email("Invalid email address")
@@ -100,14 +96,6 @@ const ContactForm = () => {
               name="firstName"
               type="text"
               placeholder="Votre Prénom"
-              className=" block  w-full rounded border-2 px-3 py-2 leading-tight focus:border-blue-500 focus:outline-none"
-            />
-
-            <MyTextInput
-              label="Société"
-              name="companyName"
-              type="text"
-              placeholder="Nom de votre société"
               className=" block  w-full rounded border-2 px-3 py-2 leading-tight focus:border-blue-500 focus:outline-none"
             />
 
