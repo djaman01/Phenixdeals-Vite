@@ -64,6 +64,20 @@ useEffect(() => {
             </div>
 
             <div
+              data-aos="flip-right"
+              className=" flex h-60 w-72 flex-col items-center justify-center rounded-lg border border-gray-400 bg-gray-100 text-gray-700"
+            >
+              <div className=" mb-4 mt-[-45px] flex justify-center rounded-full bg-red-400 px-3 py-3">
+                <IoShareSocialOutline color="white" size={20} />
+              </div>
+              <h2 className="mb-3 text-2xl font-semibold">Réseaux Sociaux</h2>
+              <div className=" flex w-28 items-center justify-around">
+                <FaFacebook size={28} className="cursor-pointer" />
+                <BiLogoInstagramAlt size={32} className="cursor-pointer" />
+              </div>
+            </div>
+
+            <div
               data-aos="flip-up"
               className="flex h-60 w-72 flex-col items-center justify-center rounded-lg border border-gray-400 bg-gray-100"
             >
@@ -78,19 +92,7 @@ useEffect(() => {
               </p>
             </div>
 
-            <div
-              data-aos="flip-right"
-              className=" flex h-60 w-72 flex-col items-center justify-center rounded-lg border border-gray-400 bg-gray-100 text-gray-700"
-            >
-              <div className=" mb-4 mt-[-45px] flex justify-center rounded-full bg-red-400 px-3 py-3">
-                <IoShareSocialOutline color="white" size={20} />
-              </div>
-              <h2 className="mb-3 text-2xl font-semibold">Réseaux Sociaux</h2>
-              <div className=" flex w-28 items-center justify-around">
-                <FaFacebook size={28} className="cursor-pointer" />
-                <BiLogoInstagramAlt size={32} className="cursor-pointer" />
-              </div>
-            </div>
+          
           </div>
 
           <div>

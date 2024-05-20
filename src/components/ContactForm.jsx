@@ -41,7 +41,7 @@ const ContactForm = () => {
     <>
       <div className=" mx-auto mb-4 max-w-md rounded bg-gray-50 px-8 pb-8 pt-6 shadow-2xl max-lg:border max-lg:border-slate-400">
         <div className="prose mb-4 text-center">
-          <h2 className="text-blue-500">Quelle est votre demande ?</h2>
+          <h2 className="text-green-500">Quelle est votre demande ?</h2>
         </div>
 
         {/* The initialValues in Formik are used to define the default values for the form fields */}
@@ -136,7 +136,7 @@ const ContactForm = () => {
               type="submit"
               className="mt-5 rounded  bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none focus:ring-blue-500"
             >
-              Submit
+              Envoyer
             </button>
           </Form>
         </Formik>
