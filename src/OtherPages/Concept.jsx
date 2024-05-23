@@ -59,10 +59,10 @@ const Concept = () => {
 
         {/* Vendre Card */}
         <div
-          className="h-96 group prose relative mx-auto w-4/5 overflow-hidden rounded-2xl border bg-[#95DEE3] px-5 hover:text-white"
+          className="h-full group prose relative mx-auto w-4/5 overflow-hidden rounded-2xl border bg-[#A0DAA9] px-5 hover:text-white"
           data-aos="fade-down"
         >
-          <div className="absolute inset-0 translate-y-full transform bg-[#384c6c] transition-transform duration-500 ease-in-out group-hover:translate-y-0">
+          <div className="absolute inset-0 translate-y-full transform bg-[#00A170] transition-transform duration-500 ease-in-out group-hover:translate-y-0">
             {/* This div acts as the green overlay */}
           </div>
 
@@ -73,7 +73,7 @@ const Concept = () => {
               prenons 15% de commission sur le prix de vente
             </p>
 
-            <button className=" montserrat-regular mb-5 flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">
+            <button className=" montserrat-regular mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
               <b>Contactez-nous</b>
               <img
                 src={arrowRight}
