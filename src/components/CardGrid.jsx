@@ -35,7 +35,7 @@ const CardGrid = ({
         {error ? (
           <p>Error: {error}</p>
         ) : (
-          <div className="mt-14 grid grid-cols-4 gap-16 mx-20 ">
+          <div className="mt-14 grid grid-cols-4 gap-16 mx-20">
             {filteredArticles.map((e) => (
               <div
                 key={e._id}

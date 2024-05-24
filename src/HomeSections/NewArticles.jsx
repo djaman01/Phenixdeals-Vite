@@ -31,7 +31,7 @@ const NewArticles = () => {
   );
 
   return (
-    <section>
+    <>
       <CardGrid
         title="Les 16 Nouveaux Articles"
         value={articleType}
@@ -39,7 +39,7 @@ const NewArticles = () => {
         error={error}
         filteredArticles={filteredArticles}
       />
-    </section>
+    </>
   );
 };
 
