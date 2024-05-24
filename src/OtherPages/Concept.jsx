@@ -35,7 +35,7 @@ const Concept = () => {
           </div>
           {/* This div contains the actual content and it's relative z-10 to appear above the overlay */}
           <div className="relative z-10">
-            <p className="text-3xl font-bold">Activité</p>
+            <p className="text-center text-3xl font-bold">Activité</p>
             <p className="text-lg">
               <b>phenixdeals.com</b> est une plateforme d'intérmédiation,
               spécialisé dans la vente d'objets d'arts, de décoration et de
@@ -46,7 +46,7 @@ const Concept = () => {
               tous en rapport avec l'art et la décoration.
             </p>
 
-            <button className=" montserrat-regular mb-5 flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">
+            <button className=" montserrat-regular mx-auto mb-5 flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">
               <b>Nouveaux produits</b>
               <img
                 src={arrowRight}
@@ -59,21 +59,25 @@ const Concept = () => {
 
         {/* Vendre Card */}
         <div
-          className="h-full group prose relative mx-auto w-4/5 overflow-hidden rounded-2xl border bg-[#A0DAA9] px-5 hover:text-white"
-          data-aos="fade-down"
+          className="group prose relative mx-auto h-full w-4/5 overflow-hidden rounded-2xl border bg-[#A0DAA9] px-5 hover:text-white"
+          data-aos="fade-up"
         >
           <div className="absolute inset-0 translate-y-full transform bg-[#00A170] transition-transform duration-500 ease-in-out group-hover:translate-y-0">
             {/* This div acts as the green overlay */}
           </div>
 
           <div className="relative z-10">
-            <p className="text-3xl font-bold">Vendez sur notre site !</p>
-            <p className="text-lg">
-              Postez vos bien sur le site sans frais: Une fois vendu, nous
-              prenons 15% de commission sur le prix de vente
+            <p className="text-center text-3xl  font-bold">
+              Vendez sur notre site !
+            </p>
+            <p className="mt-16 text-lg">
+              <b>Postez vos bien sur le site sans frais: </b> <br />
+              <br />
+              Une fois vendu, nous prenons <u>15% de commission</u> sur le prix
+              de vente
             </p>
 
-            <button className=" montserrat-regular mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
+            <button className=" montserrat-regular mx-auto mt-[115px] flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
               <b>Contactez-nous</b>
               <img
                 src={arrowRight}
@@ -84,19 +88,36 @@ const Concept = () => {
           </div>
         </div>
 
-        {/* Social Media */}
+        {/* Social Media Card */}
         <div
+          className="group prose relative mx-auto h-full w-4/5 overflow-hidden rounded-2xl border bg-[#FDAC53] px-5 hover:text-white"
           data-aos="fade-down"
-          className=" mx-auto flex h-24 w-80 cursor-pointer items-center justify-around rounded-full bg-[#f2f2f2] p-7 hover:shadow-custom"
         >
-          <SocialIcon
-            url="https://www.instagram.com/phenixdeals/"
-            target="_blank"
-          />
-          <SocialIcon
-            url="https://web.facebook.com/profile.php?id=100090243464213"
-            target="_blank"
-          />
+          <div className="absolute inset-0 translate-y-full transform bg-[#FE840E] transition-transform duration-500 ease-in-out group-hover:translate-y-0">
+            {/* This div acts as the green overlay */}
+          </div>
+
+          <div className="relative z-10">
+            <p className="text-center text-3xl  font-bold">
+              Abonnez-vous à nos réseaux sociaux
+            </p>
+            <p className="mt-[-10px] text-lg">
+             <b> Rejoignez notre communauté</b> de passionnés d'art: <br />
+              Restez informés de nos nouveautés en temps réel, ainsi que des événements
+              artistiques à <b>Casablanca</b>
+            </p>
+
+            <div className="mt-12 mx-auto flex h-24 w-80 cursor-pointer items-center justify-around rounded-full bg-orange-500 p-7 hover:shadow-custom">
+              <SocialIcon
+                url="https://www.instagram.com/phenixdeals/"
+                target="_blank"
+              />
+              <SocialIcon
+                url="https://web.facebook.com/profile.php?id=100090243464213"
+                target="_blank"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </>
