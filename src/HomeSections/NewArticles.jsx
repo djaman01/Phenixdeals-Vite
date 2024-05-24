@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CardGrid from "../HomeSections/CardGrid";
+import CardGrid from "../components/CardGrid";
 import axios from "axios";
 
 const NewProducts = () => {
@@ -13,7 +13,7 @@ const NewProducts = () => {
   useEffect(() => {
     const fetchData = () => {
       axios
-        .get("http://localhost:3005/homeProducts?limit=16") // Add the query parameter for limiting the results
+        .get("http://localhost:3005/homeArticles?limit=16") // Add the query parameter for limiting the results
         .then((response) => {
           console.log("Last 20 products fetched", response.data);
           setArticleObject(response.data);
@@ -30,7 +30,6 @@ const NewProducts = () => {
     e.type.toLowerCase().includes(articleType.toLowerCase()),
   );
 
-  
   return (
     <section>
       <CardGrid

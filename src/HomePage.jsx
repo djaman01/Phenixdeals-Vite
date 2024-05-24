@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import NewProducts from "./components/NewProducts";
+import NewProducts from "./HomeSections/NewArticles";
 
 const HomePage = () => {
   return (
