@@ -1,30 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
-import { useParams } from "react-router-dom";
 import CardGrid from "../components/CardGrid";
 
 const Tableaux = () => {
   const [article, setArticle] = useState([]);
   const [error, setError] = useState("");
 
-  const { type } = useParams();
-
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/articles/${type}`)
-      .then((response) => setArticle(response.data))
-      .catch((error) => {
-        console.error("Front-end error:", error.message);
-        setError("An error occurred while fetching data");
+      .get(`http://localhost:3005/tableaux`)
+      .then((response) => {
+        setArticle(response.data);
+        console.log("Tableaux articles fetched", response.data);
       })
       .catch((error) => {
         console.error(
-          error.response &&
-            `${error.response.status}: ${error.response.data.message}`,
+          error.response //si error.response = error from the server
+            ? `${error.response.status}: ${error.response.data.message}` //server side error
+            : `Error: ${error.message}`, //client-side error
         );
+        setError("An error occurred while fetching data"); //
       });
-  }, [type]);
+  }, []);
 
   const [articleAuteur, setArticleAuteur] = useState("");
 

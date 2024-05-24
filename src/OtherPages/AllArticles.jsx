@@ -3,16 +3,17 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import CardGrid from "../components/CardGrid";
 
-const Bijoux = () => {
+
+const AllArticles = () => {
   const [article, setArticle] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/bijoux`)
+      .get(`http://localhost:3005/allArticles`)
       .then((response) => {
         setArticle(response.data);
-        console.log("Bijoux articles fetched", response.data);
+        console.log("All articles fetched", response.data);
       })
       .catch((error) => {
         console.error(
@@ -31,22 +32,21 @@ const Bijoux = () => {
   const filteredArticles = article.filter((e) =>
     e.auteur.toLowerCase().includes(articleAuteur.toLowerCase()),
   );
-
   return (
     <>
-      <Header />
+    <Header />
 
-      <div className="padding">
-        <CardGrid
-          title="Tous les Bijoux"
-          value={articleAuteur}
-          onChange={handleArticleAuteur}
-          error={error}
-          filteredArticles={filteredArticles}
-        />
-      </div>
-    </>
+    <div className="padding">
+      <CardGrid
+        title="Tous les Articles "
+        value={articleAuteur}
+        onChange={handleArticleAuteur}
+        error={error}
+        filteredArticles={filteredArticles}
+      />
+    </div>
+  </>
   )
 }
 
-export default Bijoux
+export default AllArticles

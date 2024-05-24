@@ -4,7 +4,6 @@ import { hamburger } from "../assets/icons";
 import { logoPhenix } from "../assets/images";
 import SideBar from "./SideBar";
 
-
 const Header = () => {
   const { openSidebar, setOpenSidebar } = globalState1();
 
@@ -20,35 +19,44 @@ const Header = () => {
         />
 
         <div className="text-slate-gray flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
-          <Link to='/'>
-          <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1]">
-            Accueil
-          </p>
+          <Link to="/">
+            <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1]">
+              Accueil
+            </p>
           </Link>
           <div className="group relative">
             <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1] ">
               Acheter
             </p>
-            <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 ring-1 shadow-xl ring-slate-900/5 group-hover:block">
-              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] text-[#0160ee] ">Tous les articles</p>
-              <Link to="/articles/Tableau"> {/*Je définis le paramètre que useParams va capter */}
-              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Tableaux</p>
+            <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 shadow-xl ring-1 ring-slate-900/5 group-hover:block">
+              <Link to="/allArticles">
+                <p className="mt-1 py-1 pl-2 text-[#0160ee] hover:bg-[#e4e9f1] ">
+                  Tous les articles
+                </p>
               </Link>
-              <Link to="/articles/Décoration">
-              <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
+              <Link to="/tableaux">
+                <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Tableaux</p>
               </Link>
-              <Link to="/articles/Bijoux">
-              <p className="mt-1 py-1 pl-2 mb-1 hover:bg-[#e4e9f1] ">Bijoux</p>
+              <Link to="/decorations">
+                <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
+              </Link>
+              <Link to="/bijoux">
+                <p className="mb-1 mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">
+                  Bijoux
+                </p>
               </Link>
             </div>
-
           </div>
+          <Link to="/vendre">
           <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1] ">
             Vendre
           </p>
+          </Link>
+          <Link to="/concept">
           <p className="cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1]">
             Concept
           </p>
+          </Link>
         </div>
 
         <div className="hidden max-lg:block">

@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import CardGrid from "../components/CardGrid";
 
-const Bijoux = () => {
+const Decoration = () => {
   const [article, setArticle] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/bijoux`)
+      .get(`http://localhost:3005/decorations`)
       .then((response) => {
         setArticle(response.data);
-        console.log("Bijoux articles fetched", response.data);
+        console.log("Décorations articles fetched", response.data);
       })
       .catch((error) => {
         console.error(
@@ -32,13 +32,14 @@ const Bijoux = () => {
     e.auteur.toLowerCase().includes(articleAuteur.toLowerCase()),
   );
 
+
   return (
     <>
       <Header />
 
       <div className="padding">
         <CardGrid
-          title="Tous les Bijoux"
+          title="Tous Objets de Décoration"
           value={articleAuteur}
           onChange={handleArticleAuteur}
           error={error}
@@ -49,4 +50,4 @@ const Bijoux = () => {
   )
 }
 
-export default Bijoux
+export default Decoration

@@ -18,8 +18,14 @@ const NewArticles = () => {
           console.log("Last 20 articles fetched", response.data);
           setArticleObject(response.data);
         })
+
         .catch((error) => {
-          setError("An error occurred while fetching data.");
+          console.error(
+            error.response //si error.response = error from the server
+              ? `${error.response.status}: ${error.response.data.message}` //server side error
+              : `Error: ${error.message}`, //client-side error
+          );
+          setError("An error occurred while fetching data"); //
         });
     };
 
@@ -31,7 +37,7 @@ const NewArticles = () => {
   );
 
   return (
-    <>
+    <section>
       <CardGrid
         title="Les 16 Nouveaux Articles"
         value={articleType}
@@ -39,7 +45,7 @@ const NewArticles = () => {
         error={error}
         filteredArticles={filteredArticles}
       />
-    </>
+    </section>
   );
 };
 
