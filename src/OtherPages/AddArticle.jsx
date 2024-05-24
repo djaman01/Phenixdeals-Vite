@@ -45,7 +45,7 @@ const AddArticle = () => {
       }
     } else {
       e.preventDefault();
-      alert("Add all products before Submit");
+      alert("Add all articles before Submit");
     }
   };
 

@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import NewProducts from "./HomeSections/NewArticles";
+import NewArticles from "./HomeSections/NewArticles";
 
 const HomePage = () => {
   return (
@@ -9,7 +9,7 @@ const HomePage = () => {
       </header>
 
       <section className="padding">
-        <NewProducts />
+        <NewArticles />
       </section>
 
       <section></section>

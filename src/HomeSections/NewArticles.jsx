@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CardGrid from "../components/CardGrid";
 import axios from "axios";
 
-const NewProducts = () => {
+const NewArticles = () => {
   const [articleObject, setArticleObject] = useState([]); //State variable ou on va store tous les objets représentants les articles
   const [error, setError] = useState("");
 
@@ -15,7 +15,7 @@ const NewProducts = () => {
       axios
         .get("http://localhost:3005/homeArticles?limit=16") // Add the query parameter for limiting the results
         .then((response) => {
-          console.log("Last 20 products fetched", response.data);
+          console.log("Last 20 articles fetched", response.data);
           setArticleObject(response.data);
         })
         .catch((error) => {
@@ -43,4 +43,4 @@ const NewProducts = () => {
   );
 };
 
-export default NewProducts;
+export default NewArticles;
