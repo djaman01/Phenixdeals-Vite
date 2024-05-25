@@ -1,52 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import CardGrid from "../components/CardGrid";
+import ArticleCategory from "./ArticleCategory";
 
-const Tableaux = () => {
-  const [article, setArticle] = useState([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3005/tableaux`)
-      .then((response) => {
-        setArticle(response.data);
-        console.log("Tableaux articles fetched", response.data);
-      })
-      .catch((error) => {
-        console.error(
-          error.response //si error.response = error from the server
-            ? `${error.response.status}: ${error.response.data.message}` //server side error
-            : `Error: ${error.message}`, //client-side error
-        );
-        setError("An error occurred while fetching data"); //
-      });
-  }, []);
-
-  const [articleAuteur, setArticleAuteur] = useState("");
-
-  const handleArticleAuteur = (e) => setArticleAuteur(e.target.value);
-
-  const filteredArticles = article.filter((e) =>
-    e.auteur.toLowerCase().includes(articleAuteur.toLowerCase()),
-  );
-
-  return (
-    <>
-      <Header />
-
-      <div className="padding">
-        <CardGrid
-          title="Tous les Tableaux"
-          value={articleAuteur}
-          onChange={handleArticleAuteur}
-          error={error}
-          filteredArticles={filteredArticles}
-        />
-      </div>
-    </>
-  );
-};
+const Tableaux = () => (
+<ArticleCategory type="tableaux" title="Tous les Tableaux" searchKey="auteur" />  
+);
 
 export default Tableaux;
