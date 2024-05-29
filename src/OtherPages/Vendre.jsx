@@ -10,6 +10,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer";
 
 const Vendre = () => {
   useEffect(() => {
@@ -41,7 +42,7 @@ const Vendre = () => {
         </div>
 
         <div className="grid grid-cols-2">
-          <div className="mt-5 ml-32 grid grid-cols-2 grid-rows-3 gap-8">
+          <div className="ml-32 mt-5 grid grid-cols-2 grid-rows-3 gap-8">
             <div
               data-aos="flip-left"
               className="flex h-60 w-full flex-col items-center justify-center rounded-lg border border-gray-400 bg-blue-100"
@@ -90,6 +91,8 @@ const Vendre = () => {
           </div>
         </div>
       </main>
+
+      <Footer />
     </>
   );
 };

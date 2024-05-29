@@ -7,6 +7,8 @@ import { useEffect } from "react";
 
 import { SocialIcon } from "react-social-icons";
 import { arrowRight } from "../assets/icons";
+import Footer from "../components/Footer";
+
 
 const Concept = () => {
   useEffect(() => {
@@ -119,7 +121,10 @@ const Concept = () => {
             </div>
           </div>
         </div>
+        
       </div>
+      <Footer />
+    
     </>
   );
 };

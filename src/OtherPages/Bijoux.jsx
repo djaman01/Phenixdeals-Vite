@@ -1,7 +1,18 @@
+import Footer from "../components/Footer";
 import ArticleCategory from "./ArticleCategory";
 
-const Bijoux = () => (
-<ArticleCategory type="bijoux" title="Tous les Bijoux" searchKey="auteur" placeholder="Type de Bijoux" />  
-);
+const Bijoux = () => {
+  return (
+    <>
+      <ArticleCategory
+        type="bijoux"
+        title="Tous les Bijoux"
+        searchKey="auteur"
+        placeholder="Type de Bijoux"
+      />
 
+      <Footer />
+    </>
+  );
+};
 export default Bijoux;

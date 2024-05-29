@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import CardGrid from "../components/CardGrid";
+import Footer from "../components/Footer";
+
 
 
 const AllArticles = () => {
@@ -45,6 +47,8 @@ const AllArticles = () => {
         filteredArticles={filteredArticles}
       />
     </div>
+
+    <Footer />
   </>
   )
 }

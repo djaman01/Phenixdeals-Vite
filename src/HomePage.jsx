@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import NewArticles from "./HomeSections/NewArticles";
 
@@ -14,7 +15,9 @@ const HomePage = () => {
 
       <section></section>
 
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </main>
   );
 };
