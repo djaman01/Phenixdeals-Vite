@@ -12,9 +12,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="padding-x grid grid-cols-4">
-      <div className="max-sm:w-48">
-        <h4 className=" font-montserrat mb-6 text-2xl font-medium leading-normal">
+    <footer className="padding-x grid grid-cols-3 bg-yellow-400 py-5">
+      <div className="border border-black flex flex-col items-center ">
+        <h4 className="font-montserrat mb-6 text-2xl font-medium leading-normal">
           Contact
         </h4>
 
@@ -29,7 +29,7 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div className="flex flex-col items-start">
+      <div className="flex flex-col items-center border border-black">
         <Link to="/">
           <img
             src={logoPhenix}
@@ -40,24 +40,22 @@ const Footer = () => {
             onClick={scrollToTop}
           />
         </Link>
-        <p className="mt-6 font-mono text-base leading-7 text-white-400 sm:max-w-sm">
+        <p className="mt-6 font-mono text-base leading-7 text-white-400 w-[400px]">
           Site spécialisé dans la vente d'objets d'art, de décoration et de
           bijoux.
         </p>
       </div>
 
-      <div className="max-sm:w-48">
+      <div className=" flex flex-col items-center border border-black">
         <h4 className="font-montserrat mb-6 text-2xl font-medium leading-normal">
         À propos
         </h4>
-        <Link to="/concept">
+        <Link to="/concept" onClick={scrollToTop}>
           <p className=" mt-3 cursor-pointer text-base leading-normal text-white-400 hover:text-slate-gray">
             Concept
           </p>
         </Link>
-      </div>
 
-      <div className="">
         <h4 className="font-montserrat mb-6 text-2xl font-medium leading-normal">Réseaux Sociaux</h4>
         <div className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white">
           <img
@@ -69,6 +67,10 @@ const Footer = () => {
           />
           <img src={instagram} alt="Instagram Logo" width={24} height={24} />
         </div>
+      </div>
+
+      <div className="">
+        
       </div>
     </footer>
   );
