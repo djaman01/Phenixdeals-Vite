@@ -9,7 +9,7 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="padding">
+      <section>
         <NewArticles />
       </section>
 

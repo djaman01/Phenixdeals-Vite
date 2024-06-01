@@ -44,7 +44,7 @@
   }
   
   .padding {
-    @apply px-8 py-12 sm:px-16;
+    @apply px-8 py-20 sm:px-16;
   }
 
   .padding-x {

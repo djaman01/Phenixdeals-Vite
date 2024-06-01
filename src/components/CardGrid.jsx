@@ -10,7 +10,7 @@ const CardGrid = ({
   filteredArticles,
 }) => {
   return (
-    <main>
+    <main className="padding">
       <div className="font-roboto text-center">
         <h1>{title}</h1>
       </div>

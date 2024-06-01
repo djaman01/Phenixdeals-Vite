@@ -24,7 +24,7 @@ const Concept = () => {
     <>
       <Header />
 
-      <div className="mt-16 grid grid-cols-3 items-center justify-center">
+      <div className=" padding mt-16 grid grid-cols-3 items-center justify-center">
         {/* Activity card: overflow-hidden cache l'overlay bleu, car avec transform translate-y-full, on l'a placer à l'exterieur du container, pour que quand on hover, il revient à sa place */}
         <div
           className="group prose relative mx-auto w-4/5 overflow-hidden rounded-2xl border bg-[#b5d9db] px-5 hover:text-white"
