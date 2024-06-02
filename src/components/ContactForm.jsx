@@ -65,7 +65,7 @@ const ContactForm = () => {
               .required("Requis"),
             phone: Yup.string().required("Requis"),
             message: Yup.string()
-              .min(40, "Doit comporter 40 caractères minimum")
+              .min(10, "Doit comporter 10 caractères minimum")
               .required("Requis"),
           })}
           onSubmit={(values, { setSubmitting, resetForm }) => {
