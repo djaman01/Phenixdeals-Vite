@@ -76,8 +76,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-[#b5d9db] py-1 text-sm text-center">
-        Copyright<CopyrightUpdate /> - Phenixdeals
+      <div className="bg-[#b5d9db] py-2 text-xs text-center">
+       <b>Copyright<CopyrightUpdate /> - Phenixdeals</b> 
       </div>
     </footer>
   );
