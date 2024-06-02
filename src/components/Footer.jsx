@@ -42,10 +42,12 @@ const Footer = () => {
               onClick={scrollToTop}
             />
           </Link>
+          <div className="">
           <p className="text-white-400 mt-6 w-[400px] font-mono text-base leading-7">
-            Site spécialisé dans la vente d'objets d'art, de décoration et de
-            bijoux.
+            Site spécialisé dans la vente d'objets d'art, <span className="flex justify-center">de décoration et de
+            bijoux.</span>
           </p>
+          </div>
         </div>
 
         <div className=" flex flex-col items-center ">
