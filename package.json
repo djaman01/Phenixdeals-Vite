@@ -14,6 +14,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
+    "copyright-update": "^1.19.0",
     "formik": "^2.4.6",
     "react": "^18.2.0",
     "react-data-table-component": "^7.6.2",

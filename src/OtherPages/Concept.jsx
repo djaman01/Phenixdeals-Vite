@@ -8,9 +8,18 @@ import { useEffect } from "react";
 import { SocialIcon } from "react-social-icons";
 import { arrowRight } from "../assets/icons";
 import Footer from "../components/Footer";
-
+import { Link } from "react-router-dom";
 
 const Concept = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant"
+    })
+  }
+
+
   useEffect(() => {
     Aos.init({
       once: true,
@@ -47,15 +56,16 @@ const Concept = () => {
               <b>Parcourez notre site:</b> Des articles variés sont disponibles,
               tous en rapport avec l'art et la décoration.
             </p>
-
+            <Link to="/" className="no-underline" onClick={scrollToTop}>
             <button className=" montserrat-regular mx-auto mb-5 flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">
-              <b>Nouveaux produits</b>
+              <b>Nouveaux Articles</b>
               <img
                 src={arrowRight}
                 alt="Right Arrow icon"
                 className="ml-2 h-5 w-5 rounded-full"
               />
             </button>
+            </Link>
           </div>
         </div>
 
@@ -78,15 +88,16 @@ const Concept = () => {
               Une fois vendu, nous prenons <u>15% de commission</u> sur le prix
               de vente
             </p>
-
-            <button className=" montserrat-regular mx-auto mt-[115px] flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
-              <b>Contactez-nous</b>
-              <img
-                src={arrowRight}
-                alt="Right Arrow icon"
-                className="ml-2 h-5 w-5 rounded-full"
-              />
-            </button>
+            <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
+              <button className=" montserrat-regular mx-auto mt-[142px] flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
+                <b>Contactez-nous</b>
+                <img
+                  src={arrowRight}
+                  alt="Right Arrow icon"
+                  className="ml-2 h-5 w-5 rounded-full"
+                />
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -104,12 +115,12 @@ const Concept = () => {
               Abonnez-vous à nos réseaux sociaux
             </p>
             <p className="mt-[-10px] text-lg">
-             <b> Rejoignez notre communauté</b> de passionnés d'art: <br />
-              Restez informés de nos nouveautés en temps réel, ainsi que des événements
-              artistiques à <b>Casablanca</b>
+              <b> Rejoignez notre communauté</b> de passionnés d'art: <br />
+              Restez informés de nos nouveautés en temps réel, ainsi que des
+              événements artistiques à <b>Casablanca</b>
             </p>
 
-            <div className="mt-12 mx-auto flex h-24 w-80 cursor-pointer items-center justify-around rounded-full bg-orange-500 p-7 hover:shadow-custom">
+            <div className="mx-auto mt-[75px] flex h-24 w-80 cursor-pointer items-center justify-around rounded-full bg-orange-500 p-7 hover:shadow-custom">
               <SocialIcon
                 url="https://www.instagram.com/phenixdeals/"
                 target="_blank"
@@ -121,10 +132,8 @@ const Concept = () => {
             </div>
           </div>
         </div>
-        
       </div>
       <Footer />
-    
     </>
   );
 };
