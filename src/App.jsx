@@ -7,6 +7,7 @@ import Tableaux from "./OtherPages/Tableaux";
 import Decoration from "./OtherPages/Decoration";
 import Bijoux from "./OtherPages/Bijoux";
 import AllArticles from "./OtherPages/AllArticles";
+import FicheArticle from "./OtherPages/FicheArticle";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/tableaux" element={<Tableaux/>}></Route>
         <Route path="/decorations" element={<Decoration/>}></Route>
         <Route path="/bijoux" element={<Bijoux/>}></Route>
+        <Route path="/ficheArticle/:articleId" element={<FicheArticle/>}></Route>
 
 
       </Routes>
