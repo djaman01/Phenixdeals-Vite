@@ -36,8 +36,7 @@ const ArticleCategory = ({ type, title, searchKey, placeholder }) => {
   return (
     <>
       <Header />
-
-      <div className="padding">
+    
         <CardGrid
           title={title}
           value={filter}
@@ -46,7 +45,7 @@ const ArticleCategory = ({ type, title, searchKey, placeholder }) => {
           error={error}
           filteredArticles={filteredArticles}
         />
-      </div>
+      
     </>
   );
 };
