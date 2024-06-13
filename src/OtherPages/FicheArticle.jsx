@@ -37,14 +37,16 @@ const FicheArticle = () => {
       <div>
         {errorText ? (
           <p>Error: {errorText}</p>
-        ) : article ? (
-          <div>
-            <img
-              src={`http://localhost:3005/${article.imageUrl}`}
-              alt={article.infoArticle}
-            />
-          </div>
-        ) : null}
+        ) : (
+          article && (
+            <div>
+              <img
+                src={`http://localhost:3005/${article.imageUrl}`}
+                alt={article.infoArticle}
+              />
+            </div>
+          )
+        )}
       </div>
 
       <Footer />

@@ -38,7 +38,7 @@ const AllArticles = () => {
     <>
     <Header />
 
-    <div className="padding">
+    
       <CardGrid
         title="Tous les Articles "
         value={articleAuteur}
@@ -46,7 +46,7 @@ const AllArticles = () => {
         error={error}
         filteredArticles={filteredArticles}
       />
-    </div>
+    
 
     <Footer />
   </>
