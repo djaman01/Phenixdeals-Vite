@@ -2,6 +2,7 @@ import axios from "axios";
 import Dropzone from "react-dropzone";
 import Header from "../components/Header";
 import { useState } from "react";
+import Footer from "../components/Footer";
 
 const AddArticle = () => {
   //Comme il y a l'image, faire un state avec un objet comme dans contact ne va pas marcher
@@ -15,8 +16,8 @@ const AddArticle = () => {
 
   //To submit all form data to the server with .post
   const handleSubmit = async (e) => {
-    e.preventDefault() //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
-    
+    e.preventDefault(); //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
+
     //Pour interdire l'envoie si on ne rempli pas un champ de addProdz
     if (imageUrl && auteur && type && infoArticle && prix && etat && code) {
       const formData = new FormData(); //Vu qu'on envoie un file, on utilise la method FormData() pour créer un objet avec key-values, et tout envoyer en 1 fois
@@ -29,10 +30,13 @@ const AddArticle = () => {
       formData.append("code", code);
 
       try {
-        const response = await axios.post("http://localhost:3005/upload", formData); //On envoie tout en 1 fois
+        const response = await axios.post(
+          "http://localhost:3005/upload",
+          formData,
+        ); //On envoie tout en 1 fois
         console.log("création article", response.data);
         alert("Article submitted to DataBase");
-        // Réinitialisation des états du formulaire manuellement pour garder les console.log et alert 
+        // Réinitialisation des états du formulaire manuellement pour garder les console.log et alert
         setImageUrl("");
         setAuteur("");
         setType("");
@@ -146,6 +150,8 @@ const AddArticle = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };

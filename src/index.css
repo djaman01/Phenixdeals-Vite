@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -12,17 +13,14 @@
   scroll-behavior: smooth;
 }
 
-
 /* Pour créer des classes uniques, qui comprennent plusieurs properties */
 @layer utilities {
-  
   .font-roboto {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
 
-  
   .montserrat-regular {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -35,14 +33,20 @@
     font-weight: 500;
     font-style: normal;
   }
-  
-  
+
+  .martian-mono-regular {
+    font-family: "Martian Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
 
   .max-container {
     max-width: 1440px;
     margin: 0 auto;
   }
-  
+
   .padding {
     @apply px-8 py-20 sm:px-16;
   }
@@ -70,5 +74,4 @@
   .padding-b {
     @apply pb-12 sm:pb-24;
   }
-
 }
