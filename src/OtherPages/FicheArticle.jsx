@@ -33,14 +33,14 @@ const FicheArticle = () => {
   return (
     <>
       <Header />
-      <div className="flex h-screen items-center bg-[#e8e8e8]">
-        <div className="ml-56">
+      <div className="flex h-screen items-center justify-center bg-[#e8e8e8]">
+        <div className="">
           {errorText ? (
             <p>Error: {errorText}</p>
           ) : (
             article && (
               <div className="flex gap-16">
-                <div className="h-[500px] w-[500px]">
+                <div className="h-[550px] w-[550px]">
                   <img
                     src={`http://localhost:3005/${article.imageUrl}`}
                     alt={article.infoArticle}
