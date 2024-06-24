@@ -47,28 +47,28 @@ const ScrollPage = () => {
   };
 
   return (
-    <div className="bg-[#e8e8e8]">
-      <div className="mx-auto max-w-[700px]">
-        <Slider {...settings}>
+    <div className="bg-[#e8e8e8] border border-yellow-500 w-[1600px] h-[1000px]">
+      <div className="">
+        <Slider {...settings} className="border border-red-500 ">
           <div>
             <img
               src={phenixVendre}
               alt="phenix vendre"
-              className="mx-auto h-auto max-w-full"
+              className="w-[1600px] h-[1000px]"
             />
           </div>
           <div>
             <img
               src={phenixAchat}
               alt="phenix Achat"
-              className="mx-auto h-auto max-w-full"
+              className="w-[1600px] h-[1000px]"
             />
           </div>
           <div>
             <img
               src={phenixPub}
               alt="phenix pub"
-              className="mx-auto h-auto max-w-full"
+              className="w-[1600px] h-[1000px]"
             />
           </div>
         </Slider>
