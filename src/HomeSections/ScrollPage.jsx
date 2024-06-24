@@ -47,33 +47,32 @@ const ScrollPage = () => {
   };
 
   return (
-    <div className="bg-[#e8e8e8] border border-yellow-500 w-[1600px] h-[1000px]">
-      <div className="">
+      <div>
         <Slider {...settings} className="border border-red-500 ">
           <div>
             <img
               src={phenixVendre}
               alt="phenix vendre"
-              className="w-[1600px] h-[1000px]"
+              className=""
             />
           </div>
           <div>
             <img
               src={phenixAchat}
               alt="phenix Achat"
-              className="w-[1600px] h-[1000px]"
+              className=""
             />
           </div>
           <div>
             <img
               src={phenixPub}
               alt="phenix pub"
-              className="w-[1600px] h-[1000px]"
+              className=""
             />
           </div>
         </Slider>
       </div>
-    </div>
+  
   );
 };
 
