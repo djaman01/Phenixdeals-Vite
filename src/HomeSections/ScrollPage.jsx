@@ -75,7 +75,7 @@ const ScrollPage = () => {
             <img
               src={phenixVendre}
               alt="phenix vendre"
-              className="h-full w-full object-fill rounded-2xl "
+              className="h-full w-full object-fill rounded-2xl border-4 border-black "
             />
           </div>
         </Link>
@@ -84,7 +84,7 @@ const ScrollPage = () => {
             <img
               src={phenixAchat}
               alt="phenix Achat"
-              className="h-full w-full object-fill rounded-2xl  "
+              className="h-full w-full object-fill rounded-2xl border-4 border-black  "
             />
           </div>
         </Link>
@@ -93,7 +93,7 @@ const ScrollPage = () => {
             <img
               src={phenixPub}
               alt="phenix pub"
-              className="h-full w-full object-fill rounded-2xl "
+              className="h-full w-full object-fill rounded-2xl border-4 border-black "
             />
           </div>
         </Link>
