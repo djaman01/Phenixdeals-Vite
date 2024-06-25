@@ -9,6 +9,7 @@ const CardGrid = ({
   placeholder,
   error,
   filteredArticles,
+  onClick
 }) => {
   return (
     <main className="padding">
@@ -48,6 +49,7 @@ const CardGrid = ({
                       className="h-full w-full rounded-t-lg object-cover"
                       src={`http://localhost:3005/${e.imageUrl}`}
                       alt={e.auteur}
+                      onClick={onClick}
                     />
                   </div>
                   <div className="h-36 text-center text-xl">

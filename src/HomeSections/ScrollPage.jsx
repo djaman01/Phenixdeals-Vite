@@ -69,9 +69,9 @@ const ScrollPage = () => {
 
   return (
     <div>
-      <Slider {...settings} className="mx-auto h-[700px] w-[1000px]">
+      <Slider {...settings} className="max-lg:mt-7 mx-auto lg:h-[700px] lg:w-[1000px]">
         <Link to="./concept">
-          <div className="h-[700px] px-2">
+          <div className="lg:h-[700px] px-2">
             <img
               src={phenixVendre}
               alt="phenix vendre"
@@ -80,16 +80,16 @@ const ScrollPage = () => {
           </div>
         </Link>
         <Link to="./allArticles">
-          <div className="h-[700px] px-2">
+          <div className="lg:h-[700px] px-2">
             <img
               src={phenixAchat}
               alt="phenix Achat"
-              className="h-full w-full object-fill rounded-2xl "
+              className="h-full w-full object-fill rounded-2xl  "
             />
           </div>
         </Link>
         <Link to='/vendre'>
-          <div className="h-[700px] px-2">
+          <div className="lg:h-[700px] px-2">
             <img
               src={phenixPub}
               alt="phenix pub"

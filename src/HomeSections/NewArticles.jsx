@@ -36,6 +36,14 @@ const NewArticles = () => {
     e.type.toLowerCase().includes(articleType.toLowerCase()),
   );
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  };
+
+
   return (
     <section>
       <CardGrid
@@ -44,6 +52,7 @@ const NewArticles = () => {
         onChange={handleArticleType}
         error={error}
         filteredArticles={filteredArticles}
+        onClick = {scrollToTop}
       />
     </section>
   );
