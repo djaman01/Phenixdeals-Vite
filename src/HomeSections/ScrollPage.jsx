@@ -5,8 +5,22 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+function Arrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "black", borderRadius: "100%", cursor: "pointer", paddingTop: "0.5px" }}
+      onClick={onClick}
+    />
+  );
+}
+
 const ScrollPage = () => {
   const settings = {
+    nextArrow: <Arrow />,
+    prevArrow: <Arrow />,
     dots: true,
     infinite: true,
     speed: 500,
@@ -48,26 +62,26 @@ const ScrollPage = () => {
 
   return (
       <div>
-        <Slider {...settings} className="border border-red-500 ">
+        <Slider {...settings} className="w-[1000px] mx-auto">
           <div>
             <img
               src={phenixVendre}
               alt="phenix vendre"
-              className=""
+              className="object-fit"
             />
           </div>
           <div>
             <img
               src={phenixAchat}
               alt="phenix Achat"
-              className=""
+               className="object-fit"
             />
           </div>
           <div>
             <img
               src={phenixPub}
               alt="phenix pub"
-              className=""
+               className="object-fit"
             />
           </div>
         </Slider>
