@@ -10,7 +10,7 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section>
+      <section className="bg-[#e8e8e8]">
         <ScrollPage />
       </section>
 

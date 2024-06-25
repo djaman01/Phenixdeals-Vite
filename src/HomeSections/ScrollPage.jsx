@@ -32,6 +32,7 @@ const ScrollPage = () => {
     centerMode: true,
     draggable: true,
     pauseOnFocus: true,
+    centerPadding: "60px",
     responsive: [
       {
         breakpoint: 1024,
@@ -62,26 +63,26 @@ const ScrollPage = () => {
 
   return (
       <div>
-        <Slider {...settings} className="w-[1000px] mx-auto">
-          <div>
+        <Slider {...settings} className="w-[1000px] mx-auto h-[700px]">
+          <div className="px-2">
             <img
               src={phenixVendre}
               alt="phenix vendre"
-              className="object-fit"
+              className="object-fit h-[700px] w-[1000px] "
             />
           </div>
-          <div>
+          <div className="px-2">
             <img
               src={phenixAchat}
               alt="phenix Achat"
-               className="object-fit"
+               className="object-fit h-[700px] w-[1000px] "
             />
           </div>
-          <div>
+          <div className="px-2">
             <img
               src={phenixPub}
               alt="phenix pub"
-               className="object-fit"
+               className="object-fit h-[700px] w-[1000px] "
             />
           </div>
         </Slider>
