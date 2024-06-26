@@ -85,8 +85,7 @@ const Concept = () => {
             <p className="mt-16 text-lg">
               <b>Postez vos bien sur le site sans frais: </b> <br />
               <br />
-              Une fois vendu, nous prenons <u>15% de commission</u> sur le prix
-              de vente
+              Nous ajoutons notre commission au prix que vous souhaitez sur votre bien.
             </p>
             <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
               <button className=" montserrat-regular mx-auto mt-[142px] flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">

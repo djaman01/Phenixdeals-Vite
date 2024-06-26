@@ -43,7 +43,7 @@ const ScrollPage = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
@@ -52,7 +52,7 @@ const ScrollPage = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -69,7 +69,7 @@ const ScrollPage = () => {
 
   return (
     <div>
-      <Slider {...settings} className="max-lg:mt-7 mx-auto lg:h-[700px] lg:w-[1000px]">
+      <Slider {...settings} className="max-lg:mt-7 mx-auto lg:h-[700px] lg:w-[900px]">
         <Link to="./concept">
           <div className="lg:h-[700px] px-2">
             <img
