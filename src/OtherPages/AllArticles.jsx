@@ -27,12 +27,12 @@ const AllArticles = () => {
       });
   }, []);
 
-  const [articleAuteur, setArticleAuteur] = useState("");
+  const [articleType, setArticleType] = useState("");
 
-  const handleArticleAuteur = (e) => setArticleAuteur(e.target.value);
+  const handleArticleType = (e) => setArticleType(e.target.value);
 
   const filteredArticles = article.filter((e) =>
-    e.auteur.toLowerCase().includes(articleAuteur.toLowerCase()),
+    e.type.toLowerCase().includes(articleType.toLowerCase()),
   );
   return (
     <>
@@ -42,8 +42,8 @@ const AllArticles = () => {
       <CardGrid
         title="Tous les Articles "
         placeholder="Tableau / Bijou / Décoration"
-        value={articleAuteur}
-        onChange={handleArticleAuteur}
+        value={articleType}
+        onChange={handleArticleType}
         error={error}
         filteredArticles={filteredArticles}
       />
