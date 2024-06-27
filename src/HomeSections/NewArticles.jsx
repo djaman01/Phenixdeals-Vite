@@ -48,6 +48,7 @@ const NewArticles = () => {
     <section>
       <CardGrid
         title="Les 16 Nouveaux Articles"
+        placeholder="Tableau / Bijou / Décoration"
         value={articleType}
         onChange={handleArticleType}
         error={error}

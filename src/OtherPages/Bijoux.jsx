@@ -7,8 +7,8 @@ const Bijoux = () => {
       <ArticleCategory
         type="bijoux"
         title="Tous les Bijoux"
-        searchKey="auteur"
-        placeholder="Type de Bijoux"
+        searchKey="infoArticle"
+        placeholder="Type de Bijoux: bracelet/bague/collier..."
       />
 
       <Footer />

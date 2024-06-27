@@ -41,6 +41,7 @@ const AllArticles = () => {
     
       <CardGrid
         title="Tous les Articles "
+        placeholder="Tableau / Bijou / Décoration"
         value={articleAuteur}
         onChange={handleArticleAuteur}
         error={error}
