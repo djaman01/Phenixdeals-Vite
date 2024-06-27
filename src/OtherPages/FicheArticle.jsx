@@ -44,11 +44,11 @@ const FicheArticle = () => {
                   <img
                     src={`http://localhost:3005/${article.imageUrl}`}
                     alt={article.infoArticle}
-                    className="h-full w-full bg-white object-contain"
+                    className="h-full w-full bg-white object-contain rounded-lg shadow-md border border-gray-300"
                   />
                 </div>
 
-                <div className="prose flex w-[500px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md">
+                <div className="prose flex w-[500px] h-[550px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md">
                   <h1 className="mt-10 text-[#0072B5] ">{article.auteur}</h1>
                   <hr className="my-0 w-11/12 border-gray-500" />
                   <h2 className="my-3">{article.infoArticle}</h2>
