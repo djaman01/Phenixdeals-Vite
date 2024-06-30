@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#c4ecee]">
-      <div className="padding-x grid grid-cols-3 py-5">
+      <div className="padding-x grid grid-cols-3 py-5 max-lg:grid-cols-1">
         <div className="flex flex-col items-center ">
           <h4 className="font-montserrat mb-4 text-2xl font-medium leading-normal">
             Contact

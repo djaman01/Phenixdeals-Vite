@@ -5,7 +5,8 @@ import ScrollPage from "./HomeSections/ScrollPage";
 
 const HomePage = () => {
   return (
-    <main>
+    //overflow-hidden pour ne pas avoir de scrollbar horizontale
+    <main className="overflow-hidden"> 
       <header>
         <Header />
       </header>
