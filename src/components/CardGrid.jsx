@@ -26,7 +26,7 @@ const CardGrid = ({
         {/*!!! pl-12 dans input, permet de déplacer le départ pour écrire*/}
         <input
           type="text"
-          className="relative w-full rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+          className="relative w-full rounded-full border border-gray-400 max-lg:pl-10 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500"
           placeholder={placeholder}
           value={value}
           onChange={onChange}
@@ -37,7 +37,7 @@ const CardGrid = ({
         {error ? (
           <p>Error: {error}</p>
         ) : (
-          <div className="mx-20 mt-14 grid grid-cols-4 gap-16 ">
+          <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:grid-cols-2 max-lg:mx-0 max-lg:gap-6 ">
             {filteredArticles.map((e) => (
               <Link to={`/ficheArticle/${e._id}`} key={e._id}>
                 <div
@@ -45,21 +45,21 @@ const CardGrid = ({
                   className="w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
                   onClick={onClick}
                 >
-                  <div className="h-60 w-full">
+                  <div className="h-60 w-full max-lg:h-52">
                     <img
                       className="h-full w-full rounded-t-lg object-cover"
                       src={`http://localhost:3005/${e.imageUrl}`}
                       alt={e.auteur}
                     />
                   </div>
-                  <div className="h-36 text-center text-xl">
-                    <h3 className="mb-2 mt-1 font-mono font-bold text-blue-600">
+                  <div className="h-36 text-center text-xl max-lg:h-40 ">
+                    <h3 className="max-lg:mb-1 mb-2 mt-1 font-mono font-bold text-blue-600">
                       {e.type}
                     </h3>
-                    <h4 className="font-roboto mb-2 text-gray-800">
+                    <h4 className="max-lg:mb-1 font-roboto mb-2 text-gray-800">
                       {e.infoArticle}
                     </h4>
-                    <h4 className="font-roboto mb-2 text-red-500">
+                    <h4 className="max-lg:mb-1 font-roboto mb-2 text-red-500">
                       {e.auteur}
                     </h4>
                     <h4 className="font-mono text-blue-600">{e.prix}</h4>
