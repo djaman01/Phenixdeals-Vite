@@ -31,21 +31,20 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center justify-center">
           <Link to="/">
             <img
               src={logoPhenix}
               alt="Phenix logo"
               width={150}
               height={46}
-              className="cursor-pointer rounded-lg bg-white px-2 py-2 max-sm:ml-20"
+              className="cursor-pointer rounded-lg bg-white px-2 py-2 max-lg:mt-5"
               onClick={scrollToTop}
             />
           </Link>
-          <div className="">
-          <p className="text-white-400 mt-6 w-[400px] font-mono text-base leading-7">
-            Site spécialisé dans la vente d'objets d'art, <span className="flex justify-center">de décoration et de
-            bijoux.</span>
+          <div className="max-lg:mb-3">
+          <p className="text-white-400 mt-6 w-[400px] font-mono text-base leading-7 max-lg:text-center max-lg:w-[350px] text-center ">
+            Site spécialisé dans la vente d'objets d'art, de décoration et de bijoux.
           </p>
           </div>
         </div>
