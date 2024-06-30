@@ -15,8 +15,8 @@ const Footer = () => {
   return (
     <footer className="bg-[#c4ecee]">
       <div className="padding-x grid grid-cols-3 py-5 max-lg:grid-cols-1">
-        <div className="flex flex-col items-center ">
-          <h4 className="font-montserrat mb-4 text-2xl font-medium leading-normal">
+        <div className="flex flex-col items-center max-lg:order-2 ">
+          <h4 className="font-montserrat mb-4 text-2xl font-medium leading-normal max-lg:mb-0">
             Contact
           </h4>
 
@@ -31,14 +31,14 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center max-lg:order-1">
           <Link to="/">
             <img
               src={logoPhenix}
               alt="Phenix logo"
               width={150}
               height={46}
-              className="cursor-pointer rounded-lg bg-white px-2 py-2 max-lg:mt-5"
+              className="cursor-pointer rounded-lg bg-white px-2 py-2"
               onClick={scrollToTop}
             />
           </Link>
@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className=" flex flex-col items-center ">
+        <div className=" flex flex-col items-center max-lg:order-3 ">
           <h4 className="font-montserrat mb-4 text-2xl font-medium leading-normal">
             À propos
           </h4>
