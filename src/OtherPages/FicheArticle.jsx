@@ -33,37 +33,34 @@ const FicheArticle = () => {
   return (
     <>
       <Header />
-      <div className="flex h-screen items-center justify-center bg-[#e8e8e8]">
-        <div className="">
-          {errorText ? (
-            <p>Error: {errorText}</p>
-          ) : (
-            article && (
-              <div className="flex gap-16">
-                <div className="h-[550px] w-[550px]">
-                  <img
-                    src={`http://localhost:3005/${article.imageUrl}`}
-                    alt={article.infoArticle}
-                    className="h-full w-full bg-white object-contain rounded-lg shadow-md border border-gray-300"
-                  />
-                </div>
 
-                <div className="prose flex w-[500px] h-[550px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md">
-                  <h1 className="mt-10 text-[#0072B5] ">{article.auteur}</h1>
-                  <hr className="my-0 w-11/12 border-gray-500" />
-                  <h2 className="my-3">{article.infoArticle}</h2>
-                  <hr className="my-0 w-11/12 border-gray-500" />
-                  <h2 className="my-3 text-[#00A170]">{article.prix}</h2>
-                  <hr className="my-0 w-11/12 border-gray-500" />
-                  <h3 className="martian-mono-regular my-3 text-[#ff0921] ">
-                    Réf: {article.code}
-                  </h3>
-                </div>
-              </div>
-            )
-          )}
-        </div>
-      </div>
+      {errorText ? (
+        <p>Error: {errorText}</p>
+      ) : (
+        article && (
+          <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8]">
+            <div className="h-[550px] w-[550px]">
+              <img
+                src={`http://localhost:3005/${article.imageUrl}`}
+                alt={article.infoArticle}
+                className="h-full w-full rounded-lg border border-gray-300 bg-white object-contain shadow-md"
+              />
+            </div>
+
+            <div className="prose flex h-[550px] w-[500px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md">
+              <h1 className="mt-10 text-[#0072B5] ">{article.auteur}</h1>
+              <hr className="my-0 w-11/12 border-gray-500" />
+              <h2 className="my-3">{article.infoArticle}</h2>
+              <hr className="my-0 w-11/12 border-gray-500" />
+              <h2 className="my-3 text-[#00A170]">{article.prix}</h2>
+              <hr className="my-0 w-11/12 border-gray-500" />
+              <h3 className="martian-mono-regular my-3 text-[#ff0921] ">
+                Réf: {article.code}
+              </h3>
+            </div>
+          </div>
+        )
+      )}
 
       <Footer />
     </>
