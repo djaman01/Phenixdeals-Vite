@@ -10,6 +10,7 @@ const Header = () => {
   return (
     <header className="font-roboto padding-x w-full py-1">
       <nav className="max-container flex items-center justify-between">
+        <Link to="/">
         <img
           className="cursor-pointer"
           src={logoPhenix}
@@ -17,6 +18,7 @@ const Header = () => {
           width={130}
           height={29}
         />
+        </Link>
 
         <div className="mr-24 text-slate-gray flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
           <Link to="/">

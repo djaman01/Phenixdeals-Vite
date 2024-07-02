@@ -38,16 +38,16 @@ const FicheArticle = () => {
         <p>Error: {errorText}</p>
       ) : (
         article && (
-          <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8]">
-            <div className="h-[550px] w-[550px]">
+          <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
+            <div className="h-[550px] w-[550px] max-lg:h-[360px] max-lg:w-[360px]">
               <img
                 src={`http://localhost:3005/${article.imageUrl}`}
                 alt={article.infoArticle}
-                className="h-full w-full rounded-lg border border-gray-300 bg-white object-contain shadow-md"
+                className="h-full w-full rounded-lg border border-gray-300 bg-white object-contain shadow-md max-lg:object-contain"
               />
             </div>
 
-            <div className="prose flex h-[550px] w-[500px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md">
+            <div className="prose flex h-[550px] w-[500px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]">
               <h1 className="mt-10 text-[#0072B5] ">{article.auteur}</h1>
               <hr className="my-0 w-11/12 border-gray-500" />
               <h2 className="my-3">{article.infoArticle}</h2>
