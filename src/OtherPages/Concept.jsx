@@ -33,7 +33,7 @@ const Concept = () => {
     <>
       <Header />
 
-      <div className=" padding grid grid-cols-3 items-center justify-center">
+      <div className=" padding grid grid-cols-3 items-center justify-center max-lg:grid-cols-1 max-lg:px-0 max-lg:py-10 max-lg:gap-y-5">
         {/* Activity card: overflow-hidden cache l'overlay bleu, car avec transform translate-y-full, on l'a placer à l'exterieur du container, pour que quand on hover, il revient à sa place */}
         <div
           className="group prose relative mx-auto w-4/5 overflow-hidden rounded-2xl border bg-[#b5d9db] px-5 hover:text-white"
@@ -44,9 +44,9 @@ const Concept = () => {
           <div className="absolute inset-0 translate-y-full transform bg-[#384c6c] transition-transform duration-500 ease-in-out group-hover:translate-y-0">
             {/* This div acts as the blue overlay */}
           </div>
-          {/* This div contains the actual content and it's relative z-10 to appear above the overlay */}
+          {/* This div contains the actual content and it's relative z-10 to appear above the  colored overlay */}
           <div className="relative z-10">
-            <p className="text-center text-3xl font-bold">Activité</p>
+            <p className="text-center text-3xl font-bold max-lg:mt-7">Activité</p>
             <p className="text-lg">
               <b>phenixdeals.com</b> est une plateforme d'intérmédiation,
               spécialisé dans la vente d'objets d'arts, de décoration et de
@@ -79,16 +79,16 @@ const Concept = () => {
           </div>
 
           <div className="relative z-10">
-            <p className="text-center text-3xl  font-bold">
+            <p className="text-center text-3xl font-bold max-lg:mt-7">
               Vendez sur notre site !
             </p>
-            <p className="mt-16 text-lg">
+            <p className="mt-16 text-lg max-lg:mt-10">
               <b>Postez vos bien sur le site sans frais: </b> <br />
               <br />
               Nous ajoutons notre commission au prix que vous souhaitez sur votre bien.
             </p>
             <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto mt-[142px] flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
+              <button className=" montserrat-regular mx-auto mt-[142px] max-lg:mt-10 max-lg:mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
                 <b>Contactez-nous</b>
                 <img
                   src={arrowRight}
@@ -110,7 +110,7 @@ const Concept = () => {
           </div>
 
           <div className="relative z-10">
-            <p className="text-center text-3xl  font-bold">
+            <p className="text-center text-3xl font-bold max-lg:mt-7 max-lg:text-l ">
               Abonnez-vous à nos réseaux sociaux
             </p>
             <p className="mt-[-10px] text-lg">
@@ -119,7 +119,7 @@ const Concept = () => {
               événements artistiques à <b>Casablanca</b>
             </p>
 
-            <div className="mx-auto mt-[75px] flex h-24 w-80 cursor-pointer items-center justify-around rounded-full bg-orange-500 p-7 hover:shadow-custom">
+            <div className="mx-auto mt-[75px] max-lg:mt-10 max-lg:mb-5 flex h-24 w-80 max-lg:w-auto cursor-pointer items-center justify-around rounded-full bg-orange-500 p-7 hover:shadow-custom">
               <SocialIcon
                 url="https://www.instagram.com/phenixdeals/"
                 target="_blank"
