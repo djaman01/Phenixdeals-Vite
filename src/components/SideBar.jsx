@@ -19,8 +19,13 @@ const SideBar = () => {
         toggled={openSidebar} //qd j'ouvre la sidebar et que je met false manuellement puis true, la transition duration marche
         transitionDuration={1300}
       >
-        <div className="pl-52 mb-[-7px]">
-          <img src={cross} alt="Sortie" width={20} onClick={()=>setOpenSidebar(false)}/>
+        <div className="mb-[-7px] pl-52">
+          <img
+            src={cross}
+            alt="Sortie"
+            width={20}
+            onClick={() => setOpenSidebar(false)}
+          />
         </div>
         <Menu>
           <MenuItem
@@ -31,15 +36,33 @@ const SideBar = () => {
           </MenuItem>
 
           <SubMenu icon={<SlBasket size={18} />} label="Acheter">
-            <MenuItem style={{color:'#0160ee'}}>Tous les articles</MenuItem>
-            <MenuItem>Tableaux</MenuItem>
-            <MenuItem>Décoration</MenuItem>
-            <MenuItem>Bijoux</MenuItem>
+            <MenuItem
+              style={{ color: "#0160ee" }}
+              component={<Link to="/allArticles" />}
+            >
+              Tous les articles
+            </MenuItem>
+            <MenuItem component={<Link to="/tableaux" />}>Tableaux</MenuItem>
+            <MenuItem component={<Link to="/decorations" />}>
+              {" "}
+              Décoration{" "}
+            </MenuItem>
+            <MenuItem component={<Link to="/bijoux" />}>Bijoux</MenuItem>
           </SubMenu>
 
-          <MenuItem icon={<TfiMoney size={18} />}>Vendre</MenuItem>
+          <MenuItem
+            icon={<TfiMoney size={18} />}
+            component={<Link to="/vendre" />}
+          >
+            Vendre
+          </MenuItem>
 
-          <MenuItem icon={<BsQuestionSquare size={18} />}>À propos</MenuItem>
+          <MenuItem
+            icon={<BsQuestionSquare size={18} />}
+            component={<Link to="/concept" />}
+          >
+            Concept
+          </MenuItem>
         </Menu>
       </Sidebar>
     </div>

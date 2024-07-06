@@ -11,25 +11,26 @@ const Header = () => {
     <header className="font-roboto padding-x w-full py-1">
       <nav className="max-container flex items-center justify-between">
         <Link to="/">
-        <img
-          className="cursor-pointer"
-          src={logoPhenix}
-          alt="Logo Phenix"
-          width={130}
-          height={29}
-        />
+          <img
+            className="cursor-pointer"
+            src={logoPhenix}
+            alt="Logo Phenix"
+            width={130}
+            height={29}
+          />
         </Link>
 
-        <div className="mr-24 text-slate-gray flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
+        <div className="text-slate-gray mr-24 flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
           <Link to="/">
-            <p className="text-xl cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1]">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1]">
               Accueil
             </p>
           </Link>
           <div className="group relative">
-            <p className="text-xl cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1] ">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] ">
               Acheter
             </p>
+
             <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 shadow-xl ring-1 ring-slate-900/5 group-hover:block">
               <Link to="/allArticles">
                 <p className="mt-1 py-1 pl-2 text-[#0160ee] hover:bg-[#e4e9f1] ">
@@ -50,14 +51,14 @@ const Header = () => {
             </div>
           </div>
           <Link to="/vendre">
-          <p className="text-xl cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1] ">
-            Vendre
-          </p>
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] ">
+              Vendre
+            </p>
           </Link>
           <Link to="/concept">
-          <p className="text-xl cursor-pointer rounded-lg px-2 py-1 hover:bg-[#e4e9f1]">
-            Concept
-          </p>
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1]">
+              Concept
+            </p>
           </Link>
         </div>
 

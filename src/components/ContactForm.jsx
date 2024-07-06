@@ -39,7 +39,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <div className=" mx-auto mb-4 max-w-md rounded bg-gray-50 px-8 pb-8 pt-6 shadow-2xl max-lg:border max-lg:border-slate-400">
+      <div className=" mx-auto mb-4 max-w-md rounded bg-gray-50 px-8 pb-8 pt-6 shadow-2xl max-lg:mx-6 max-lg:mb-12 max-lg:border max-lg:border-slate-400">
         <div className="prose mb-4 text-center">
           <h2 className="text-green-500">Quelle est votre demande ?</h2>
         </div>
