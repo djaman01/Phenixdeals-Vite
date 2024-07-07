@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { FaWhatsapp } from "react-icons/fa";
 
 const FicheArticle = () => {
   //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
@@ -57,6 +58,21 @@ const FicheArticle = () => {
               <h3 className="martian-mono-regular my-3 text-[#ff0921] ">
                 Réf: {article.code}
               </h3>
+              <div className="mt-3 flex h-32 w-full flex-col items-center justify-around max-lg:mt-1 ">
+                <a
+                  href="https://wa.link/le9dry"
+                  target="_blank"
+                  className="no-underline"
+                >
+                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white">
+                    <FaWhatsapp size={20} /> Réserver
+                  </button>
+                </a>
+
+                <button className="flex h-10 w-60 cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
+                  Tous les {article.auteur}
+                </button>
+              </div>
             </div>
           </div>
         )
