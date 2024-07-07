@@ -69,7 +69,7 @@ const FicheArticle = () => {
                   </button>
                 </a>
 
-                <button className="flex h-10 w-60 cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
+                <button className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
                   Tous les {article.auteur}
                 </button>
               </div>
