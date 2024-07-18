@@ -13,7 +13,7 @@ const CardGrid = ({
 }) => {
   return (
     <main className="padding">
-      <div className="martian-mono mb-10 mt-[-10px] text-center text-3xl text-[#FA7A35]">
+      <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35]">
         <h1>{title}</h1>
       </div>
 
