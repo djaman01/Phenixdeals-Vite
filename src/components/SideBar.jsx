@@ -38,9 +38,9 @@ const SideBar = () => {
           <SubMenu icon={<SlBasket size={18} />} label="Acheter">
             <MenuItem
               style={{ color: "#0160ee" }}
-              component={<Link to="/allArticles" />}
+              component={<Link to="/allArtists" />}
             >
-              Tous les articles
+              Tous les Artistes
             </MenuItem>
             <MenuItem component={<Link to="/tableaux" />}>Tableaux</MenuItem>
             <MenuItem component={<Link to="/decorations" />}>

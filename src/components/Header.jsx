@@ -32,9 +32,9 @@ const Header = () => {
             </p>
 
             <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 shadow-xl ring-1 ring-slate-900/5 group-hover:block">
-              <Link to="/allArticles">
+              <Link to="/allArtists">
                 <p className="mt-1 py-1 pl-2 text-[#0160ee] hover:bg-[#e4e9f1] ">
-                  Tous les articles
+                  Tous les Artistes
                 </p>
               </Link>
               <Link to="/tableaux">
