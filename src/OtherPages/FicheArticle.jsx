@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
@@ -68,10 +68,11 @@ const FicheArticle = () => {
                     <FaWhatsapp size={20} /> Réserver
                   </button>
                 </a>
-
-                <button className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
-                  Tous les {article.auteur}
-                </button>
+              
+                  <button className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
+                    Tous les {article.auteur}
+                  </button>
+             
               </div>
             </div>
           </div>
