@@ -9,6 +9,7 @@ import Bijoux from "./OtherPages/Bijoux";
 import AllArticles from "./OtherPages/AllArticles";
 import FicheArticle from "./OtherPages/FicheArticle";
 import AllArtists from "./OtherPages/AllArtists";
+import PageArtist from "./OtherPages/PageArtist";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/concept" element={<Concept/>}></Route>
         <Route path="/allArticles" element={<AllArticles/>}></Route>
         <Route path="/allArtists" element={<AllArtists/>}></Route>
+        <Route path="/pageArtist/:auteur" element={<PageArtist/>}></Route>
         <Route path="/tableaux" element={<Tableaux/>}></Route>
         <Route path="/decorations" element={<Decoration/>}></Route>
         <Route path="/bijoux" element={<Bijoux/>}></Route>

@@ -2,6 +2,7 @@ import axios from "axios";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const AllArtists = () => {
   const [artists, setArtists] = useState([]);
@@ -58,7 +59,11 @@ const AllArtists = () => {
                   {/* On fait <ul> pour ne pas qu'il y ait de point avant chaque nom d'artiste */}
                   <ul>
                     {groupedArtists[letter].map((e, index) => ( //On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter]
-                      <li key={index}>{e.auteur}</li>
+                      <li key={index}>
+                        <Link  to={`/pageArtist/${e.auteur}`} >
+                          {e.auteur}
+                        </Link>
+                      </li>
                     ))}
                   </ul>
                 </div>
