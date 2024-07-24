@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { SlMagnifier } from "react-icons/sl";
 
 const AllArtists = () => {
   const [artists, setArtists] = useState([]);
@@ -25,8 +26,19 @@ const AllArtists = () => {
       });
   }, []);
 
-  //Array Operation: Group artists by the first letter of their name (les noms des artistes sont dans l'array artists)
-  const groupedArtists = artists.reduce((acc, curr) => {// curr = élément actuel de l'array 'artists' sur lequel la fonction va être appliquée
+  //state qui va store la value de l'input
+  const [artistName, setArtistName] = useState("");
+
+  //Donne la value à la state artistName = valeur qu'on écrit dans l'input (donc attribut value de l'input ={artistName})
+  const handleArtistName = (e) => setArtistName(e.target.value);
+
+  //Array operation pour transformer l'array artists sur laquelle on va Mapper, en array qui ne va inclure que les noms des artistes qui contiennent les lettres qu'on écrit dans l'input = valeur de artistName = (donc si on n'écrit rien dans l'input, on voit tous les noms d'artiste)
+  const filteredArtistNames = artists.filter((e)=>e.auteur.toLowerCase().includes(artistName.toLowerCase()))
+
+
+  //Array Operation: Group artists by the first letter of their name: On utilise filteredArtistNames, car après return on ne veut mapper que sur les noms d'artistes qui contiennent les lettres qu'on écrit dans l'input (donc si on n'écrit rien dans l'input, on voit tous les noms d'artiste)
+  const groupedArtists = filteredArtistNames.reduce((acc, curr) => {
+    // curr = élément actuel de l'array 'artists' sur lequel la fonction va être appliquée
     const firstLetter = curr.auteur[0].toUpperCase(); // Accède à la 1ère lettre du nom de l'artiste qui a pour property 'auteur' (voir model-doc.js dans back-end)
 
     // Si acc[firstLetter] n'existe pas encore, l'initialiser avec un tableau vide, sinon passe à l'étape suivante d'ajout du nom de l'artiste dans l'array déjà existante
@@ -39,12 +51,27 @@ const AllArtists = () => {
     return acc;
   }, {}); // !!! {} On initialise l'accumulateur comme un objet vide
 
+
   return (
     <>
       <Header />
       <div className="padding">
         <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35]">
           <h1>Tous les Artistes</h1>
+        </div>
+
+        <div className="relative mx-auto mt-4 w-1/4 max-lg:w-3/4 mb-9">
+          <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
+            <SlMagnifier color="black" />
+          </div>
+
+          <input
+            type="text"
+            className="relative w-full rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:pl-10"
+            placeholder="Nom de l'artiste"
+            value={artistName}
+            onChange={handleArtistName}
+          />
         </div>
 
         <div className="text-center">
@@ -58,13 +85,16 @@ const AllArtists = () => {
                   <h2 className="text-2xl">{letter}</h2>
                   {/* On fait <ul> pour ne pas qu'il y ait de point avant chaque nom d'artiste */}
                   <ul>
-                    {groupedArtists[letter].map((e, index) => ( //On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter]
-                      <li key={index}>
-                        <Link  to={`/pageArtist/${e.auteur}`} >
-                          {e.auteur}
-                        </Link>
-                      </li>
-                    ))}
+                    {groupedArtists[letter].map(
+                      (
+                        e,
+                        index, //On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter]
+                      ) => (
+                        <li key={index}>
+                          <Link to={`/pageArtist/${e.auteur}`}>{e.auteur}</Link>
+                        </li>
+                      ),
+                    )}
                   </ul>
                 </div>
               ))
@@ -77,4 +107,3 @@ const AllArtists = () => {
 };
 
 export default AllArtists;
-
