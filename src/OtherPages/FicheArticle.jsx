@@ -70,7 +70,7 @@ const FicheArticle = () => {
                 </a>
                 <Link to={`/pageArtist/${article.auteur}`} className="no-underline">
                   <button className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
-                    Tous les {article.auteur}
+                    Autres {article.auteur}
                   </button>
                 </Link>
               </div>
