@@ -39,7 +39,8 @@ const [prix, setPrix] =useState("");
 
 const handlePrix = (e) => setPrix(e.target.value);
 
-const filteredPrix = oeuvre.filter((e)=>e.prix.includes(prix))
+//On va mapper sur une nouvelle array qui ne contient que des prix qu'on a écrit dans l'input (si on n'écrit rien on voit tous les prix)
+const filteredPrix = oeuvre.filter((e)=>e.prix.toLowerCase().replace(/\s+/g, '').includes(prix.toLowerCase().replace(/\s+/g, ''))) //replace permet d'enlever les espaces entre les prix, pour que si le client écrit un nombre sans espace, il verra quand même les prix écrits avec un espace
 
   return (
     <>
