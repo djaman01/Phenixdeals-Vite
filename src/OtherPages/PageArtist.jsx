@@ -35,15 +35,23 @@ const PageArtist = () => {
     });
   };
 
+const [prix, setPrix] =useState("");
+
+const handlePrix = (e) => setPrix(e.target.value);
+
+const filteredPrix = oeuvre.filter((e)=>e.prix.includes(prix))
+
   return (
     <>
       <Header />
 
       <CardGrid
         title="Toutes les oeuvres de l'Artiste "
-        placeholder="Laissez vide"
+        placeholder="Prix du Tableau"
         error={errorText}
-        filteredArticles={oeuvre}
+        value={prix}
+        onChange={handlePrix}
+        filteredArticles={filteredPrix}
         onClick = {scrollToTop}
       />
       <Footer />

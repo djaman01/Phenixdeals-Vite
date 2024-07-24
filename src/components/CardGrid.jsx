@@ -17,7 +17,7 @@ const CardGrid = ({
         <h1>{title}</h1>
       </div>
 
-      <div className="relative mx-auto mt-4 w-1/4 max-lg:w-3/4">
+      <div className="relative mx-auto mt-4 w-1/4 max-lg:w-auto">
         {/* top-1/2 positionne le top du div à la moitié de son parent (donc il parait bas): c'est pourquoi on rajoute transform et -translate-y-1/2 pour le bouger en haut by the half of it's own height */}
         <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
           <SlMagnifier color="black" />
