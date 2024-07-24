@@ -82,7 +82,7 @@ const AllArtists = () => {
               .sort() //Même si tout est déjà dans l'ordre, ça ajoute une confirmation
               .map((letter) => (
                 <div key={letter} className="mb-5">
-                  <h2 className="text-2xl">{letter}</h2>
+                  <h2 className="text-2xl text-blue-800">{letter}</h2>
                   {/* On fait <ul> pour ne pas qu'il y ait de point avant chaque nom d'artiste */}
                   <ul>
                     {groupedArtists[letter].map(
