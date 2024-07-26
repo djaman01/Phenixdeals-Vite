@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CardGrid from "../components/CardGrid";
+import RangeGrid from "../components/RangeGrid";
 
 const PageArtist = () => {
   const { auteur } = useParams();
@@ -16,6 +16,7 @@ const PageArtist = () => {
       .get(`http://localhost:3005/pageArtist/${auteur}`)
       .then((response) => {
         setOeuvre(response.data);
+        setFilteredArticles(response.data); // Initialize with all artworks
         console.log("Oeuvre Fetched", response.data);
       })
       .catch((error) => {
@@ -35,25 +36,62 @@ const PageArtist = () => {
     });
   };
 
-const [prix, setPrix] =useState("");
+  const [prixMin, setPrixMin] = useState("");
+  const [prixMax, setPrixMax] = useState("");
 
-const handlePrix = (e) => setPrix(e.target.value);
+  const handlePrixMin = (e) => setPrixMin(e.target.value);
+  const handlePrixMax = (e) => setPrixMax(e.target.value);
 
-//On va mapper sur une nouvelle array qui ne contient que les éléments qui passent cette comparaison: que le prix en minuscule et sans espace de l'élément = le prix en minuscule et sans espace écrit par l'utilisateur dans l'input (s'il n'écrit rien dans l'input on voit tout les éléments)
-const filteredPrix = oeuvre.filter((e)=>e.prix.toLowerCase().replace(/\s+/g, '').includes(prix.toLowerCase().replace(/\s+/g, ''))) //replace permet, lors de la comparaisons, d'enlever les espaces entre les prix des éléments et celui écrit par l'utilisateur dans l'input, pour que quelque soit la manière dont le client écrit le prix dans l'input (avec ou sans espace), il verra quand même les prix correspondant dans les éléments
+  const [filteredArticles, setFilteredArticles] = useState([]);
+
+  const handleFilter = () => {
+    
+    const minPrice = prixMin
+      ? parseFloat(prixMin.replace(/\s+/g, ""))
+      : -Infinity;
+
+    const maxPrice = prixMax
+      ? parseFloat(prixMax.replace(/\s+/g, ""))
+      : Infinity;
+  
+    const filtered = oeuvre.filter((e) => {
+      const price = parseFloat(e.prix.replace(/\s+/g, ""));
+      return price >= minPrice && price <= maxPrice;
+    });
+  
+    // Sort filtered articles by price in ascending order
+    const sortedFiltered = filtered.sort((a, b) => {
+      const priceA = parseFloat(a.prix.replace(/\s+/g, ""));
+      const priceB = parseFloat(b.prix.replace(/\s+/g, ""));
+      return priceA - priceB;
+    });
+  
+    setFilteredArticles(sortedFiltered);
+  };
+  
+ 
+  const handleReset = () => {
+    setPrixMin("");
+    setPrixMax("");
+    setFilteredArticles(oeuvre);
+  };
 
   return (
     <>
       <Header />
 
-      <CardGrid
-        title="Toutes les oeuvres de l'Artiste "
+      <RangeGrid
+        title="Toutes les oeuvres de l'Artiste"
         placeholder="Prix du Tableau"
         error={errorText}
-        value={prix}
-        onChange={handlePrix}
-        filteredArticles={filteredPrix}
-        onClick = {scrollToTop}
+        minValue={prixMin}
+        maxValue={prixMax}
+        ChangePrixMin={handlePrixMin}
+        ChangePrixMax={handlePrixMax}
+        filteredArticles={filteredArticles}
+        onFilter={handleFilter}
+        onClick={scrollToTop}
+        reset={handleReset}
       />
       <Footer />
     </>
