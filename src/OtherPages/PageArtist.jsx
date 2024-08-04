@@ -27,14 +27,13 @@ const PageArtist = () => {
         setErrorText("An error occurred while fetching data");
       });
   }, [auteur]);
-  
 
   return (
     <>
       <Header />
 
       <RangeGrid
-        title= {`Toutes les oeuvres de ${auteur}`}
+        title={<>Toutes les oeuvres de <span style={{color:'#000000'}}>{auteur}</span></>}
         allValues={oeuvres}
         error={errorText}
       />

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import CardGrid from "../components/CardGrid";
+import RangeGrid from "../components/RangeGrid";
 
 const ArticleCategory = ({ type, title, searchKey, placeholder }) => {
 
@@ -37,13 +38,10 @@ const ArticleCategory = ({ type, title, searchKey, placeholder }) => {
     <>
       <Header />
     
-        <CardGrid
+        <RangeGrid
           title={title}
-          value={filter}
-          onChange={handleFilterChange}
-          placeholder={placeholder}  // Pass the placeholder prop here so that we can give it's value later in a Component
+          allValues={filteredArticles}
           error={error}
-          filteredArticles={filteredArticles}
         />
       
     </>
