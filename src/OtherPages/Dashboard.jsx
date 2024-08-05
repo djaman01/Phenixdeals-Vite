@@ -1,0 +1,170 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import DataTable from "react-data-table-component"
+
+import { StyleSheetManager } from 'styled-components'; //Pour eviter les erreurs de styled props dans la console
+
+import { FaRegPenToSquare } from "react-icons/fa6";
+import { FaRegTrashAlt } from "react-icons/fa";
+import Header from "../components/Header";
+
+
+
+export default function Dashboard() {
+
+
+  const [articles, setArticles] = useState([]); //A mettre dans data attribute du <DataTable /> Component dans return
+  const [error, setError] = useState('') 
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3005/allArticles`)
+      .then((response) => {
+        setArticles(response.data);
+        console.log("All articles fetched", response.data);
+      })
+      .catch((error) => {
+        console.error(
+          error.response //si error.response = error from the server
+            ? `${error.response.status}: ${error.response.data.message}` //server side error
+            : `Error: ${error.message}`, //client-side error
+        );
+        setError("An error occurred while fetching data"); 
+      });
+  }, [articles]); //[articles] va appeler GET a chaque changement dans la state products, donc quand on va faire un chgt dans un produit, ça va réafficher le chgt sans actualiser la page
+
+  
+  //Pour PUT request et modifier certains élements selectionnés
+  const [articlePrice, setArticlePrice] = useState('');
+  const [articleQuantity, setArticleQuantity] = useState('');
+
+  //Pour que quand on clique sur stylo ou cancel, apporte des changements
+  const [articleId, setArticleId] = useState(null);
+
+  //Function to set the articleId and initial values for quantity and price
+  const handleEditClick = (row) => {
+    setArticleId(row._id);  //Pour définir qu'on voit l'input quand on clique sur le stylo ou cancel
+    setArticleQuantity(row.quantity);
+    setArticlePrice(row.prix);
+  };
+
+  //On donne aux VALEURS de la propriété prix de la database, les 2 states variables précédentes que l'on peut changer
+  const updatedProductData = {
+    prix: articlePrice,
+  }
+  //C'est le bouton update qui doit appeler cette function, avec pour argument row._id, pour appliquer la modif.
+  const handleUpdates = (articleId) => {
+    axios.put(`http://localhost:3005/putDash/${articleId}`, updatedProductData)
+      .then((response) => {
+        console.log(response.data)//Montre ce qu'on a codé dans le server: res.json({message:'', stateProduc}), dans la console du browser
+        setArticleId(null);
+      })
+      .catch((error) => {
+        console.error("Front-end error:", error.message);
+      })
+      .catch((error) => { console.error( error.response &&
+          `${error.response.status}: ${error.response.data.message}`
+        );
+      });
+      
+  }
+
+  //Pour DELETE request et supprimer un élement selectionné; donc stocker l'arrow function dans une variable qu'on va appeler avec un paramètre pour cibler le produit
+
+  const handleDelete = (articleId) => {
+    axios.delete(`http://localhost:3005/deleteArticle/${articleId}`)
+      .then((response) => {
+        setArticles(articles.filter((article) => article._id !== articleId)) //productId a pour valeur l'id du produit, donc on le compare à element._id
+        console.log(response.data); //message = property codé dans res.status(200).json({message:""}) = ok dans le server
+      })
+      .catch((error) => {
+        console.error("Front-end error or unexpected issue:", error.message);
+      })
+      .catch((error) => { console.error( error.response &&
+        `${error.response.status}: ${error.response.data.message}`
+      );
+    });
+  }
+
+  //Création database avec npm react data table component--------------------------------------
+  const columns = [
+    {
+      name: 'Image',
+      selector: row => row.imageUrl,//même nom que dans base de donnée pour extraire info
+      cell: row => <img className='my-3' src={`http://localhost:3005/${row.imageUrl}`} alt={row.auteur} />
+    },
+    {
+      name: 'Auteur',
+      selector: row => row.auteur,
+      sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
+    },
+    {
+      name: 'Type',
+      selector: row => row.type,
+    },
+
+    {
+      name: 'info Article',
+      selector: row => row.infoArticle,
+    },
+    {
+      name: 'Etat',
+      selector: row => row.etat,
+    },
+   
+    {
+      name: 'Prix',
+      selector: row => row.prix,
+      //Objectif: Quand on clique sur stylo: articleId===row._id => Donc si articleId===row._id fait apparaitre un input pour changer la valeur, sinon on ne voit que le prix
+      cell: row => articleId === row._id ?
+        <div>
+          <input
+            placeholder="New Price"
+            value={articlePrice}
+            onChange={(e) => setArticlePrice(e.target.value)} //productPrice se met à jour en même temps que ce qu'on écrit dans l'input
+          />
+        </div>
+        :
+        row.prix
+    },
+
+    {
+      name: 'Actions',
+      selector: row => row._id,//_id donné par MongoDB: Pour selectionner 1 produit spécifique
+
+      //Obligé de faire dans cet ordre pour que ça n’affecte que la row selectionnée
+      cell: row => articleId === row._id ?
+        <div>
+          <p role="button" onClick={() => handleUpdates(row._id)}> Update </p>
+          <p role="button" onClick={() => setArticleId(null)} > Cancel </p>
+        </div>
+        :
+        <div className="flex w-[70px] justify-around cursor-pointer">
+          <FaRegPenToSquare size={17} onClick={() => handleEditClick(row)} />  {/* Click sur stylo= appel functiin handleEditClick avec argument row selectionnée*/}
+          <FaRegTrashAlt size={17} onClick={() => handleDelete(row._id)} />
+        </div>
+
+    },
+  ];
+
+  const shouldForwardProp = (prop) => prop !== 'sortActive'; //Pour éviter les erreurs des styled components, dans la console
+
+  return (
+    <>
+    
+    <Header />
+    
+      {error ? <p style={{ color: 'red' }}>{error}</p> :
+
+        <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+          <DataTable
+            columns={columns}
+            data={articles}
+            pagination
+          />
+        </StyleSheetManager>
+      }
+    </>
+
+  )
+}
