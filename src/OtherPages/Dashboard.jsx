@@ -149,10 +149,28 @@ export default function Dashboard() {
 
   const shouldForwardProp = (prop) => prop !== 'sortActive'; //Pour éviter les erreurs des styled components, dans la console
 
+  //Pour donner un style aux titre et aux contenus des colonnes (voir customStyles property de la dataTable Component après return)
+  const customStyles = {
+    headCells: {
+      style: {
+        justifyContent: 'center',
+        fontSize: '20px',
+        marginTop: '90px'
+      }
+    }
+  }
+  
   return (
     <>
     
     <Header />
+
+    <div className="flex justify-center text-lg mt-5">
+      <button className="mr-52 border bg-green-500 py-1 px-3 rounded-md text-white active:bg-green-800">Accueil</button>
+      <button className="mr-52 border bg-blue-500 py-1 px-3 rounded-md text-white active:bg-blue-800">Add Product</button>
+      <button className="border bg-red-500 py-1 px-3 rounded-md text-white active:bg-red-800">Log Out</button>
+   
+    </div>
     
       {error ? <p style={{ color: 'red' }}>{error}</p> :
 
@@ -160,6 +178,7 @@ export default function Dashboard() {
           <DataTable
             columns={columns}
             data={articles}
+            customStyles={customStyles}
             pagination
           />
         </StyleSheetManager>
