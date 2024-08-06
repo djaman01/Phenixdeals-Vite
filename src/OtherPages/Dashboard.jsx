@@ -7,6 +7,7 @@ import { StyleSheetManager } from 'styled-components'; //Pour eviter les erreurs
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { FaRegTrashAlt } from "react-icons/fa";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 
 
@@ -108,7 +109,7 @@ export default function Dashboard() {
       selector: row => row.infoArticle,
     },
     {
-      name: 'Etat',
+      name: 'Propriété',
       selector: row => row.etat,
     },
    
@@ -134,13 +135,17 @@ export default function Dashboard() {
 
       //Obligé de faire dans cet ordre pour que ça n’affecte que la row selectionnée
       cell: row => articleId === row._id ?
-        <div>
-          <p role="button" onClick={() => handleUpdates(row._id)}> Update </p>
-          <p role="button" onClick={() => setArticleId(null)} > Cancel </p>
+        <div className=" h-20 flex flex-col items-center justify-around">
+          <p className=" bg-green-500 w-[66px] text-center py-1 px-2 rounded-md text-white font-medium active:bg-green-800" role="button" onClick={() => handleUpdates(row._id)}>
+            Update 
+          </p>
+          <p className=" bg-red-500 w-[66px] text-center py-1 px-2 rounded-md text-white font-medium active:bg-red-800" role="button" onClick={() => setArticleId(null)} >
+            Cancel
+          </p>
         </div>
         :
         <div className="flex w-[70px] justify-around cursor-pointer">
-          <FaRegPenToSquare size={17} onClick={() => handleEditClick(row)} />  {/* Click sur stylo= appel functiin handleEditClick avec argument row selectionnée*/}
+          <FaRegPenToSquare size={17} onClick={() => handleEditClick(row)} />  {/* Click sur stylo= appel function handleEditClick avec argument row selectionnée*/}
           <FaRegTrashAlt size={17} onClick={() => handleDelete(row._id)} />
         </div>
 
@@ -155,7 +160,17 @@ export default function Dashboard() {
       style: {
         justifyContent: 'center',
         fontSize: '20px',
-        marginTop: '90px'
+        marginTop: '90px',
+        fontWeight: 'bold',
+        color:'blue'
+      }
+    },
+
+    cells: {
+      style: {
+        justifyContent:'center',
+        fontSize: '15px',
+        fontWeight: 'bold'
       }
     }
   }
@@ -166,9 +181,21 @@ export default function Dashboard() {
     <Header />
 
     <div className="flex justify-center text-lg mt-5">
-      <button className="mr-52 border bg-green-500 py-1 px-3 rounded-md text-white active:bg-green-800">Accueil</button>
-      <button className="mr-52 border bg-blue-500 py-1 px-3 rounded-md text-white active:bg-blue-800">Add Product</button>
-      <button className="border bg-red-500 py-1 px-3 rounded-md text-white active:bg-red-800">Log Out</button>
+      <Link to="/">
+        <button className="w-[115px] mr-52 border bg-green-500 py-1 px-3 rounded-md text-white active:bg-green-800">
+          Accueil
+        </button>
+      </Link>
+
+      <Link to="/addArticle">
+        <button className="w-[115px] mr-52 border bg-blue-500 py-1 px-3 rounded-md text-white active:bg-blue-800">
+          Add Article
+        </button>
+      </Link>
+
+      <button className="w-[115px] border bg-red-500 py-1 px-3 rounded-md text-white active:bg-red-800">
+        Log Out
+      </button>
    
     </div>
     
