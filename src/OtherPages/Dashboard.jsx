@@ -37,21 +37,22 @@ export default function Dashboard() {
   
   //Pour PUT request et modifier certains élements selectionnés
   const [articlePrice, setArticlePrice] = useState('');
-  const [articleQuantity, setArticleQuantity] = useState('');
+  const [articleInfos, setArticleInfos] = useState('');
 
   //Pour que quand on clique sur stylo ou cancel, apporte des changements
   const [articleId, setArticleId] = useState(null);
 
-  //Function to set the articleId and initial values for quantity and price
+  //Function to set the articleId and initial values for infoArticle and price
   const handleEditClick = (row) => {
     setArticleId(row._id);  //Pour définir qu'on voit l'input quand on clique sur le stylo ou cancel
-    setArticleQuantity(row.quantity);
+    setArticleInfos(row.infoArticle);
     setArticlePrice(row.prix);
   };
 
   //On donne aux VALEURS de la propriété prix de la database, les 2 states variables précédentes que l'on peut changer
   const updatedProductData = {
     prix: articlePrice,
+    infoArticle: articleInfos
   }
   //C'est le bouton update qui doit appeler cette function, avec pour argument row._id, pour appliquer la modif.
   const handleUpdates = (articleId) => {
@@ -107,7 +108,19 @@ export default function Dashboard() {
     {
       name: 'info Article',
       selector: row => row.infoArticle,
+      cell: row => articleId=== row._id ?
+      <div>
+        <input 
+          placeholder="New infos" 
+          value={articleInfos}
+          onChange={(e)=> setArticleInfos(e.target.value)}
+         className="border-2 border-black rounded-md text-center"
+          />
+      </div>
+      :
+      row.infoArticle
     },
+
     {
       name: 'Propriété',
       selector: row => row.etat,
@@ -123,6 +136,7 @@ export default function Dashboard() {
             placeholder="New Price"
             value={articlePrice}
             onChange={(e) => setArticlePrice(e.target.value)} //productPrice se met à jour en même temps que ce qu'on écrit dans l'input
+            className="border-2 border-black rounded-md text-center"
           />
         </div>
         :
