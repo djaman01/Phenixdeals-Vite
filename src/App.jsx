@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
-import AddArticle from "./OtherPages/AddArticle";
+import AddArticle from "./AdminPages/AddArticle";
 import Vendre from "./OtherPages/Vendre";
 import Concept from "./OtherPages/Concept";
 import Tableaux from "./OtherPages/Tableaux";
@@ -10,7 +10,9 @@ import AllArticles from "./OtherPages/AllArticles";
 import FicheArticle from "./OtherPages/FicheArticle";
 import AllArtists from "./OtherPages/AllArtists";
 import PageArtist from "./OtherPages/PageArtist";
-import Dashboard from "./OtherPages/Dashboard";
+import Dashboard from "./AdminPages/Dashboard";
+import Login from "./AdminPages/Login";
+
 
 export default function App() {
   return (
@@ -28,6 +30,7 @@ export default function App() {
         <Route path="/decorations" element={<Decoration/>}></Route>
         <Route path="/bijoux" element={<Bijoux/>}></Route>
         <Route path="/ficheArticle/:articleId" element={<FicheArticle/>}></Route>
+        <Route path="/toLogin" element={<Login/>}></Route>
         <Route path="/toDashboard" element={<Dashboard/>}></Route>
 
 
