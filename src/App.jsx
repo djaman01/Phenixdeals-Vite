@@ -11,7 +11,9 @@ import FicheArticle from "./OtherPages/FicheArticle";
 import AllArtists from "./OtherPages/AllArtists";
 import PageArtist from "./OtherPages/PageArtist";
 import Dashboard from "./AdminPages/Dashboard";
+import SignUp from "./AdminPages/SignUp";
 import Login from "./AdminPages/Login";
+
 
 
 export default function App() {
@@ -30,6 +32,7 @@ export default function App() {
         <Route path="/decorations" element={<Decoration/>}></Route>
         <Route path="/bijoux" element={<Bijoux/>}></Route>
         <Route path="/ficheArticle/:articleId" element={<FicheArticle/>}></Route>
+        <Route path="/toSignUp" element={<SignUp/>}></Route>
         <Route path="/toLogin" element={<Login/>}></Route>
         <Route path="/toDashboard" element={<Dashboard/>}></Route>
 

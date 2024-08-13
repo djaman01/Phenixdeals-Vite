@@ -16,9 +16,10 @@ const AddArticle = () => {
 
   //To submit all form data to the server with .post
   const handleSubmit = async (e) => {
+    
     e.preventDefault(); //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
 
-    //Pour interdire l'envoie si on ne rempli pas un champ de addProdz
+    //Pour interdire l'envoie si on ne rempli pas un champ de addArticle
     if (imageUrl && auteur && type && infoArticle && prix && etat && code) {
       const formData = new FormData(); //Vu qu'on envoie un file, on utilise la method FormData() pour créer un objet avec key-values, et tout envoyer en 1 fois
       formData.append("file", imageUrl); // 'file"=property / imageUrl= Value qui est une state variable
@@ -36,7 +37,7 @@ const AddArticle = () => {
         ); //On envoie tout en 1 fois
         console.log("création article", response.data);
         alert("Article submitted to DataBase");
-        // Réinitialisation des états du formulaire manuellement pour garder les console.log et alert
+        // Réinitialisation des états du formulaire pour que les champs se vident
         setImageUrl("");
         setAuteur("");
         setType("");

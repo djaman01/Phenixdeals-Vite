@@ -6,7 +6,16 @@ const Login = () => {
   return (
     <>
       <Header />
-      <LoginForm />
+
+      <LoginForm
+        route="logIn"
+        successRedirect="/toDashboard"
+        heading="Log in"
+        SignOrLog1="Don't have an account ? "
+        SignOrLog2="Sign up"
+        SignOrLog3="Log in"
+      />
+
       <Footer />
     </>
   );
