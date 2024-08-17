@@ -7,19 +7,20 @@ const SignUp = () => {
     <>
       <Header />
 
-      <LoginForm 
+      <LoginForm
         route="signUp"
         success="Identifiants enregistrés"
-        successRedirect='/toLogin'
-        heading="Sign up" 
+        successRedirect="/toLogin"
+        heading="Sign up"
         SignOrLog1="Already have an Account ? "
-        SignOrLog2= "Sign in"
-        SignOrLog3="Sign up" 
+        link="/toLogin"
+        SignOrLog2="Sign in"
+        SignOrLog3="Sign up"
       />
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;

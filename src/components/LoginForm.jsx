@@ -8,6 +8,7 @@ const LoginForm = ({
   successRedirect,
   heading,
   SignOrLog1,
+  link,
   SignOrLog2,
   SignOrLog3,
 }) => {
@@ -24,21 +25,18 @@ const LoginForm = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (email && password) {
-      const formData = new FormData();
-      formData.append("email", email);
-      formData.append("password", password);
+    if (email && password) { //pas besoin de formData car on envoie pas de file, juste des texte
 
       try {
 
         //On stocke le .post dans la variable "response" pour pouvoir accéder à la data dans le console.log(response.data)
-        const response = await axios.post( `http://localhost:3005/${route}`, formData);
+        const response = await axios.post( `http://localhost:3005/${route}`, {email, password});
         
         console.log("Identifiants envoyés", response.data);
         alert({success});
         setEmail(""); //clear field Email
         setPassword(""); //clear field Password
-        successRedirect && navigate(successRedirect); // Redirect based on successRedirect
+        successRedirect && navigate(successRedirect); // Si le props success Redirect a une valeuyr, alors => navigate vers cette valeur
       } catch (error) {
         console.error("Erreur lors de l'envoi des identifiants", error);
       }
@@ -89,7 +87,7 @@ const LoginForm = ({
             <p className="text-md mt-8 text-gray-900">
               {SignOrLog1}
               <a
-                href="#"
+                href= {link}
                 className=" text-md ml-5 text-blue-500 hover:underline"
               >
                 {SignOrLog2}

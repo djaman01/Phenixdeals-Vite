@@ -12,6 +12,7 @@ const Login = () => {
         successRedirect="/toDashboard"
         heading="Log in"
         SignOrLog1="Don't have an account ? "
+        link="/toSignUp"
         SignOrLog2="Sign up"
         SignOrLog3="Log in"
       />

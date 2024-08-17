@@ -21,7 +21,7 @@ const AddArticle = () => {
 
     //Pour interdire l'envoie si on ne rempli pas un champ de addArticle
     if (imageUrl && auteur && type && infoArticle && prix && etat && code) {
-      const formData = new FormData(); //Vu qu'on envoie un file, on utilise la method FormData() pour créer un objet avec key-values, et tout envoyer en 1 fois
+      const formData = new FormData(); //FormData: This is useful when you need to handle file uploads: FormData() crée un objet avec key-values pour tout envoyer en 1 fois
       formData.append("file", imageUrl); // 'file"=property / imageUrl= Value qui est une state variable
       formData.append("auteur", auteur);
       formData.append("type", type);
