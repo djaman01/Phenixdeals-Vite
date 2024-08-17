@@ -28,12 +28,12 @@ const LoginForm = ({
     if (email && password) { //pas besoin de formData car on envoie pas de file, juste des texte
 
       try {
-
+        //On utilise aussi .post pour le login car: The POST method is used to send data to the server to be processed. Even though you're not creating or modifying database records, you are sending login credentials for the server to verify. The POST method is appropriate for this kind of operation 
         //On stocke le .post dans la variable "response" pour pouvoir accéder à la data dans le console.log(response.data)
         const response = await axios.post( `http://localhost:3005/${route}`, {email, password});
         
         console.log("Identifiants envoyés", response.data);
-        alert({success});
+        (route==='signUp') &&  alert({success}); //pour que ça ne mette pas d'alerte quand on login succesfully
         setEmail(""); //clear field Email
         setPassword(""); //clear field Password
         successRedirect && navigate(successRedirect); // Si le props success Redirect a une valeuyr, alors => navigate vers cette valeur
