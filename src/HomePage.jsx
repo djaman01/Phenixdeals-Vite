@@ -11,7 +11,7 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="bg-[#e8e8e8] rounded-2xl">
+      <section className="bg-[#EDF1FF] rounded-2xl">
         <ScrollPage />
       </section>
 

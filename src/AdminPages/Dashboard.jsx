@@ -17,6 +17,10 @@ export default function Dashboard() {
   const [articles, setArticles] = useState([]); //A mettre dans data attribute du <DataTable /> Component dans return
   const [error, setError] = useState('') 
 
+  const [refreshKey, setRefreshKey] = useState(0);
+
+
+
   useEffect(() => {
     axios
       .get(`http://localhost:3005/allArticles`)
@@ -32,7 +36,7 @@ export default function Dashboard() {
         );
         setError("An error occurred while fetching data"); 
       });
-  }, [articles]); //[articles] va appeler GET a chaque changement dans la state products, donc quand on va faire un chgt dans un produit, ça va réafficher le chgt sans actualiser la page
+  }, [refreshKey]); //[refreshkey] va appeler GET a chaque changement dans la state refreshKey, qui elle se met à jour après avoir appuyer sur le bouton update
 
   
   //Pour PUT request et modifier certains élements selectionnés
@@ -42,24 +46,25 @@ export default function Dashboard() {
   //Pour que quand on clique sur stylo ou cancel, apporte des changements
   const [articleId, setArticleId] = useState(null);
 
-  //Function to set the articleId and initial values for infoArticle and price
+  //Pour changer la valeur de l'id, la valeur de infoArticle et le prix
   const handleEditClick = (row) => {
-    setArticleId(row._id);  //Pour définir qu'on voit l'input quand on clique sur le stylo ou cancel
-    setArticleInfos(row.infoArticle);
-    setArticlePrice(row.prix);
+    setArticleId(row._id);  //Pour voir un input pour modifier les valeurs, après avoir cliquer sur le stylo ou cancel
+    setArticleInfos(row.infoArticle); //Modification de infoArticle
+    setArticlePrice(row.prix); //Modification du prix
   };
 
-  //On donne aux VALEURS de la propriété prix de la database, les 2 states variables précédentes que l'on peut changer
+  //On donne aux VALEURS de la propriété prix et infoArticle de la database, les 2 states variables précédentes que l'on va changer
   const updatedProductData = {
     prix: articlePrice,
     infoArticle: articleInfos
   }
-  //C'est le bouton update qui doit appeler cette function, avec pour argument row._id, pour appliquer la modif.
+  //Pour appliquer les modification dans updatedProductData: le paramètre articleId aura pour valeur row._id
   const handleUpdates = (articleId) => {
     axios.put(`http://localhost:3005/putDash/${articleId}`, updatedProductData)
       .then((response) => {
         console.log(response.data)//Montre ce qu'on a codé dans le server: res.json({message:'', stateProduc}), dans la console du browser
-        setArticleId(null);
+        setArticleId(null); //Pour qu'après avoir cliquer sur update, on revoit les icones stylo et poubelle
+        setRefreshKey( e => e+1 ); //Variable qui a pour valeur initial 0 et qui se modifie à chaque fois qu'on appuie sur Update => on l'utilise dans la dependency Array du useEffect du .get, pour que tout change automatiquement sans actualiser la page
       })
       .catch((error) => {
         console.error("Front-end error:", error.message);
