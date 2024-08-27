@@ -7,8 +7,7 @@ import { StyleSheetManager } from 'styled-components'; //Pour eviter les erreurs
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { FaRegTrashAlt } from "react-icons/fa";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Dashboard() {
@@ -20,23 +19,28 @@ export default function Dashboard() {
   const [refreshKey, setRefreshKey] = useState(0);
 
 
-
   useEffect(() => {
-    axios
-      .get(`http://localhost:3005/allArticles`)
-      .then((response) => {
+
+    const fetchAllArticles = async () => {
+      try {
+        const response = await axios.get('http://localhost:3005/allArticles');
         setArticles(response.data);
-        console.log("All articles fetched", response.data);
-      })
-      .catch((error) => {
+        console.log('All articles fetched', response.data);
+      } 
+
+      catch (error) {
         console.error(
-          error.response //si error.response = error from the server
-            ? `${error.response.status}: ${error.response.data.message}` //server side error
-            : `Error: ${error.message}`, //client-side error
+          error.response
+            ? `${error.response.status}: ${error.response.data.message}` // Server-side error
+            : `Error: ${error.message}` // Client-side error
         );
-        setError("An error occurred while fetching data"); 
-      });
-  }, [refreshKey]); //[refreshkey] va appeler GET a chaque changement dans la state refreshKey, qui elle se met à jour après avoir appuyer sur le bouton update
+        setError('An error occurred while fetching data');
+      }
+    };
+
+    fetchAllArticles();
+
+  }, [refreshKey]); // The effect will run whenever refreshKey changes
 
   
   //Pour PUT request et modifier certains élements selectionnés
@@ -58,40 +62,64 @@ export default function Dashboard() {
     prix: articlePrice,
     infoArticle: articleInfos
   }
-  //Pour appliquer les modification dans updatedProductData: le paramètre articleId aura pour valeur row._id
-  const handleUpdates = (articleId) => {
-    axios.put(`http://localhost:3005/putDash/${articleId}`, updatedProductData)
-      .then((response) => {
-        console.log(response.data)//Montre ce qu'on a codé dans le server: res.json({message:'', stateProduc}), dans la console du browser
-        setArticleId(null); //Pour qu'après avoir cliquer sur update, on revoit les icones stylo et poubelle
-        setRefreshKey( e => e+1 ); //Variable qui a pour valeur initial 0 et qui se modifie à chaque fois qu'on appuie sur Update => on l'utilise dans la dependency Array du useEffect du .get, pour que tout change automatiquement sans actualiser la page
-      })
-      .catch((error) => {
-        console.error("Front-end error:", error.message);
-      })
-      .catch((error) => { console.error( error.response &&
-          `${error.response.status}: ${error.response.data.message}`
-        );
-      });
-      
-  }
+
+  //PUT Request: Pour appliquer les modification dans updatedProductData; le paramètre articleId aura pour valeur row._id
+  const handleUpdates = async (articleId) => {
+    try {
+      const response = await axios.put(`http://localhost:3005/putDash/${articleId}`, updatedProductData);
+      console.log(response.data); // Show what was sent from the server: res.json({message:'', stateProduct}), in the browser console
+      setArticleId(null); // Reset articleId to show the pencil and trash icons again after update
+      setRefreshKey(prevKey => prevKey + 1); // Increment refreshKey to trigger re-fetching of data and update the page without refreshing
+    } 
+
+    catch (error) {
+      console.error("Error during update:", 
+        error.response 
+          ? `${error.response.status}: ${error.response.data.message}` // Server-side error
+          : error.message // Client-side error
+      );
+    }
+  };
+
 
   //Pour DELETE request et supprimer un élement selectionné; donc stocker l'arrow function dans une variable qu'on va appeler avec un paramètre pour cibler le produit
+  const handleDelete = async (articleId) => {
+    try {
+      const response = await axios.delete(`http://localhost:3005/deleteArticle/${articleId}`);
+      setArticles(articles.filter((article) => article._id !== articleId)); // Remove the deleted article from the state
+      console.log(response.data); // Log the server's response message
+    } 
 
-  const handleDelete = (articleId) => {
-    axios.delete(`http://localhost:3005/deleteArticle/${articleId}`)
-      .then((response) => {
-        setArticles(articles.filter((article) => article._id !== articleId)) //productId a pour valeur l'id du produit, donc on le compare à element._id
-        console.log(response.data); //message = property codé dans res.status(200).json({message:""}) = ok dans le server
-      })
-      .catch((error) => {
-        console.error("Front-end error or unexpected issue:", error.message);
-      })
-      .catch((error) => { console.error( error.response &&
-        `${error.response.status}: ${error.response.data.message}`
+    catch (error) {
+      console.error("Error during delete operation:", 
+        error.response 
+          ? `${error.response.status}: ${error.response.data.message}` // Server-side error
+          : error.message // Client-side error
       );
-    });
+    }
+  };
+  
+
+//Get Request to logout
+const navigate = useNavigate()
+
+const handleLogout = async () => {
+  try {
+    const response = await axios.get('http://localhost:3005/logout');
+
+    if (response.data.status === "Success") {
+  
+      navigate('/'); // Redirect to home page after loging out
+    } else {
+      console.log(`Logout Failed: ${response.data.message}`);
+    }
+  } 
+  
+  catch (error) {
+    console.error('Logout Error:', error);
   }
+};
+
 
   //Création database avec npm react data table component--------------------------------------
   const columns = [
@@ -212,7 +240,10 @@ export default function Dashboard() {
         </button>
       </Link>
 
-      <button className="w-[115px] border bg-red-500 py-1 px-3 rounded-md text-white active:bg-red-800">
+      <button
+       className="w-[115px] border bg-red-500 py-1 px-3 rounded-md text-white active:bg-red-800"
+       onClick={handleLogout}
+       >
         Log Out
       </button>
    

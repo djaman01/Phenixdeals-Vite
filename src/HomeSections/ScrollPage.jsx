@@ -44,7 +44,7 @@ const ScrollPage = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 3,
+          slidesToScroll: 1, //ça marche comme ça, si on met plus que 1 ça fait une erreur
           infinite: true,
           dots: true,
         },
@@ -53,7 +53,7 @@ const ScrollPage = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },

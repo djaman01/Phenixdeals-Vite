@@ -12,6 +12,10 @@ const LoginForm = ({
   SignOrLog2,
   SignOrLog3,
 }) => {
+
+//!!!!!!!!!!!!!!! Pour activer le code qui store le token dans le cookie
+  axios.defaults.withCredentials = true; 
+  
   //State variable pour stocker les valeurs des inputs email et password
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -37,7 +41,8 @@ const LoginForm = ({
         setEmail(""); //clear field Email
         setPassword(""); //clear field Password
         successRedirect && navigate(successRedirect); // Si le props success Redirect a une valeuyr, alors => navigate vers cette valeur
-      } catch (error) {
+      } 
+      catch (error) {
         console.error("Erreur lors de l'envoi des identifiants", error);
       }
 
