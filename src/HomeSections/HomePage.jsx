@@ -1,7 +1,7 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import NewArticles from "./HomeSections/NewArticles";
-import ScrollPage from "./HomeSections/ScrollPage";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import NewArticles from "./NewArticles";
+import ScrollPage from "./ScrollPage";
 
 const HomePage = () => {
   return (

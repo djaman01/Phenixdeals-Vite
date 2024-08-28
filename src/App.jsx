@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./HomePage";
+
+import HomePage from "./HomeSections/HomePage";
 import AddArticle from "./AdminPages/AddArticle";
 import Vendre from "./OtherPages/Vendre";
 import Concept from "./OtherPages/Concept";
@@ -13,6 +14,7 @@ import PageArtist from "./OtherPages/PageArtist";
 import Dashboard from "./AdminPages/Dashboard";
 import SignUp from "./AdminPages/SignUp";
 import Login from "./AdminPages/Login";
+
 
 
 
