@@ -12,21 +12,27 @@ const PageArtist = () => {
   const [errorText, setErrorText] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3005/pageArtist/${auteur}`)
-      .then((response) => {
+
+    const fetchPageArtist = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3005/pageArtist/${auteur}`);
         setOeuvres(response.data);
         console.log("Oeuvre Fetched", response.data);
-      })
-      .catch((error) => {
+
+      }
+       catch (error) {
         console.error(
           error.response
             ? `${error.response.status}: ${error.response.data.message}` //server-side error
             : `Error: ${error.message}`, //client-side error
         );
         setErrorText("An error occurred while fetching data");
-      });
-  }, [auteur]);
+      }
+    }
+
+    fetchPageArtist();
+
+  }, [auteur])
 
   return (
     <>

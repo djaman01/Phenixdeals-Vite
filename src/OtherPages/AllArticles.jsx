@@ -7,25 +7,35 @@ import Footer from "../components/Footer";
 
 
 const AllArticles = () => {
+  
   const [article, setArticle] = useState([]);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3005/allArticles`)
-      .then((response) => {
-        setArticle(response.data);
-        console.log("All articles fetched", response.data);
-      })
-      .catch((error) => {
-        console.error(
-          error.response //si error.response = error from the server
-            ? `${error.response.status}: ${error.response.data.message}` //server side error
-            : `Error: ${error.message}`, //client-side error
-        );
-        setError("An error occurred while fetching data"); //
-      });
-  }, []);
+
+useEffect(() => {
+
+  const fetchAllArticles = async () => {
+
+    try {
+      const response = await axios.get (`http://localhost:3005/allArticles`);
+      setArticle(response.data);
+      console.log("All articles fetched: ", response.data);
+    } 
+    catch (error) {
+      console.error(
+        error.response //si error.response = error from the server
+          ? `${error.response.status}: ${error.response.data.message}` //server side error
+          : `Error: ${error.message}`, //client-side error
+      );
+      setError("An error occurred while fetching data"); //apparait sur la page web si erreur
+    }
+  }
+
+  fetchAllArticles();
+ 
+}, [])
+
+
 
   const [articleType, setArticleType] = useState("");
 

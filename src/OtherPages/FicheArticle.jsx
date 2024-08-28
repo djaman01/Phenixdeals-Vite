@@ -14,22 +14,27 @@ const FicheArticle = () => {
   const [article, setArticle] = useState(null);
   const [errorText, setErrorText] = useState("");
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3005/article/${articleId}`)
-      .then((response) => {
+
+  useEffect(()=> {
+    const fetchFicheArticle = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3005/article/${articleId}`);
         setArticle(response.data);
         console.log("Article Fetched", response.data);
-      })
-      .catch((error) => {
+      }
+       catch (error) {
         console.error(
           error.response
             ? `${error.response.status}: ${error.response.data.message}` //server-side error
             : `Error: ${error.message}`, //client-side error
         );
         setErrorText("An error occurred while fetching data");
-      });
-  }, [articleId]);
+      }
+    }
+
+    fetchFicheArticle();
+
+  }, [articleId])
 
   return (
     <>

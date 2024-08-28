@@ -1,30 +1,35 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
-import CardGrid from "../components/CardGrid";
 import RangeGrid from "../components/RangeGrid";
 
-const ArticleCategory = ({ type, title, searchKey, placeholder }) => {
+const ArticleCategory = ({ type, title, searchKey}) => {
 
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3005/${type}`)
-      .then((response) => {
+  useEffect(()=> {
+    const fecthByCategory = async () => {
+
+      try {
+        const response = await axios.get(`http://localhost:3005/${type}`);
         setArticles(response.data);
         console.log(`${title} articles fetched`, response.data);
-      })
-      .catch((error) => {
+      } 
+
+      catch (error) {
         console.error(
           error.response
             ? `${error.response.status}: ${error.response.data.message}` //server-side error
             : `Error: ${error.message}`, //client-side error
         );
         setError("An error occurred while fetching data");
-      });
-  }, [type, title]);
+      }
+    }
+
+    fecthByCategory();
+
+  }, [type, title])
 
   const [filter, setFilter] = useState("");
 

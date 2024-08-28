@@ -48,7 +48,9 @@ const AddArticle = () => {
       } catch (error) {
         console.error("Error uploading file:", error);
       }
-    } else {
+    } 
+    
+    else {
       e.preventDefault();
       alert("Add all articles before Submit");
     }

@@ -9,21 +9,27 @@ const AllArtists = () => {
   const [artists, setArtists] = useState([]);
   const [error, setError] = useState("");
 
+
   useEffect(() => {
-    axios
-      .get(`http://localhost:3005/allArtists`) //3005 car dans le back-end on a set up the server to listen on the port = 3005
-      .then((response) => {
+
+    const fetchAllArtists = async () => {
+
+      try {
+        const response = await axios.get(`http://localhost:3005/allArtists`);
         setArtists(response.data);
         console.log("All artists fetched", response.data);
-      })
-      .catch((error) => {
+      } 
+      catch (error) {
         console.error(
           error.response //si error.response = error from the server
             ? `${error.response.status}: ${error.response.data.message}` //server side error
             : `Error: ${error.message}`, //client-side error
         );
         setError("An error occurred while fetching data"); //apparait sur la page si erreur
-      });
+      }
+    };
+
+    fetchAllArtists()
   }, []);
 
   //state qui va store la value de l'input
@@ -33,8 +39,9 @@ const AllArtists = () => {
   const handleArtistName = (e) => setArtistName(e.target.value);
 
   //Array operation pour transformer l'array artists sur laquelle on va Mapper, en array qui ne va inclure que les noms des artistes qui contiennent les lettres qu'on écrit dans l'input = valeur de artistName = (donc si on n'écrit rien dans l'input, on voit tous les noms d'artiste)
-  const filteredArtistNames = artists.filter((e)=>e.auteur.toLowerCase().includes(artistName.toLowerCase()))
-
+  const filteredArtistNames = artists.filter((e) =>
+    e.auteur.toLowerCase().includes(artistName.toLowerCase()),
+  );
 
   //Array Operation: Group artists by the first letter of their name: On utilise filteredArtistNames, car après return on ne veut mapper que sur les noms d'artistes qui contiennent les lettres qu'on écrit dans l'input (donc si on n'écrit rien dans l'input, on voit tous les noms d'artiste)
   const groupedArtists = filteredArtistNames.reduce((acc, curr) => {
@@ -51,7 +58,6 @@ const AllArtists = () => {
     return acc;
   }, {}); // !!! {} On initialise l'accumulateur comme un objet vide
 
-
   return (
     <>
       <Header />
@@ -60,7 +66,7 @@ const AllArtists = () => {
           <h1>Tous les Artistes</h1>
         </div>
 
-        <div className="relative mx-auto mt-4 w-1/4 max-lg:w-3/4 mb-9">
+        <div className="relative mx-auto mb-9 mt-4 w-1/4 max-lg:w-3/4">
           <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
             <SlMagnifier color="black" />
           </div>
