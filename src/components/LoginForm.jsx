@@ -1,53 +1,14 @@
-import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({
-  route,
-  success,
-  successRedirect,
+  submitProps,
+  emailProps,
+  passwordProps,
   heading,
   SignOrLog1,
   link,
   SignOrLog2,
   SignOrLog3,
 }) => {
-
-//!!!!!!!!!!!!!!! Pour activer le code qui store le token dans le cookie
-  axios.defaults.withCredentials = true; 
-  
-  //State variable pour stocker les valeurs des inputs email et password
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-
-  const navigate = useNavigate(); //Function qui permet de mener vers un lien sous condition / Si condition vraie, navigate(/...) pour aller au login si sign up bien
-
-  //Pour donner des values aux states qu'on va envoyer avec post dans la base de donnée
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (email && password) { //pas besoin de formData car on envoie pas de file, juste des texte
-
-      try {
-        //On utilise aussi .post pour le login car: The POST method is used to send data to the server to be processed. Even though you're not creating or modifying database records, you are sending login credentials for the server to verify. The POST method is appropriate for this kind of operation 
-        //On stocke le .post dans la variable "response" pour pouvoir accéder à la data dans le console.log(response.data)
-        const response = await axios.post( `http://localhost:3005/${route}`, {email, password});
-        
-        console.log("Identifiants envoyés", response.data);
-        (route==='signUp') &&  alert({success}); //pour que ça ne mette pas d'alerte quand on login succesfully
-        setEmail(""); //clear field Email
-        setPassword(""); //clear field Password
-        successRedirect && navigate(successRedirect); // Si le props success Redirect a une valeuyr, alors => navigate vers cette valeur
-      } 
-      catch (error) {
-        console.error("Erreur lors de l'envoi des identifiants", error);
-      }
-
-    }
-  };
 
   return (
     <>
@@ -57,13 +18,13 @@ const LoginForm = ({
             {heading}
           </h2>
 
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+          <form className="flex flex-col" onSubmit={submitProps}>
             <input
               type="email"
               name="email" //!!! Pour lier la valeur de l'input à la key: email
               className="mb-4 rounded-md border-0 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
               placeholder="Email address"
-              onChange={handleEmail}
+              onChange={emailProps}
               required
             />
             <input
@@ -71,7 +32,7 @@ const LoginForm = ({
               name="password"
               className="mb-4 rounded-md border-0 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
               placeholder="Password"
-              onChange={handlePassword}
+              onChange={passwordProps}
               required
             />
             <div className="flex flex-wrap items-center justify-between">
