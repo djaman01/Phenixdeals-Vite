@@ -22,9 +22,7 @@ export default function Dashboard() {
   useEffect(() => {
     const authenticate = async () => {
       try {
-        const response = await axios.get('http://localhost:3005/authentication', {
-          withCredentials: true // Include cookies in the request
-        });
+        const response = await axios.get('http://localhost:3005/authentication', {withCredentials: true}); //xithCredentials:true => Include cookies in the request
         if (response.data.message !== "Authenticated") {
           navigate('/');
         }
@@ -35,12 +33,12 @@ export default function Dashboard() {
             ? `${error.response.status}: ${error.response.data.message}` // Server-side error
             : error.message // Client-side error
         );
-        navigate('/'); // Redirect on authentication failure
+        navigate('/'); // If authentication failure, redirect to HomePage
       }
     };
   
     authenticate();
-  }, [navigate]); // Add `navigate` to the dependency array
+  }, [navigate]); 
 
   
   useEffect(() => {
