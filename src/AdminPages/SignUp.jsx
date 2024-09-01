@@ -9,8 +9,8 @@ const SignUp = () => {
 
   
   //State variable pour stocker les valeurs des inputs email et password
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate(); //Function qui permet de mener vers un lien sous condition / Si condition vraie, navigate(/...) pour aller au login si sign up bien
 

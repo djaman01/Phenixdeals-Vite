@@ -11,8 +11,8 @@ const Login = () => {
   axios.defaults.withCredentials = true; 
   
   //State variable pour stocker les valeurs des inputs email et password
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate(); //Function qui permet de mener vers un lien sous condition / Si condition vraie, navigate(/...) pour aller au login si sign up bien
 
@@ -28,7 +28,8 @@ const Login = () => {
       try {
         //On utilise aussi .post pour le login car: The POST method is used to send data to the server to be processed. Even though you're not creating or modifying database records, you are sending login credentials for the server to verify. The POST method is appropriate for this kind of operation 
         const response = await axios.post( `http://localhost:3005/logIn`, {email, password});
-        (response.data.message==='Login Success') ? navigate('/toDashboard') : alert('Error during login');
+        console.log(response.data);
+        (response.data.status==='Success') ? navigate('/toDashboard') : alert('Error during login');
       } 
       catch (error) {
         console.error("Erreur lors du login", error);

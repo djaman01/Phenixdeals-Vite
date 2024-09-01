@@ -12,13 +12,37 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
 
+  const navigate = useNavigate()
 
   const [articles, setArticles] = useState([]); //A mettre dans data attribute du <DataTable /> Component dans return
   const [error, setError] = useState('') 
 
   const [refreshKey, setRefreshKey] = useState(0);
 
+  useEffect(() => {
+    const authenticate = async () => {
+      try {
+        const response = await axios.get('http://localhost:3005/authentication', {
+          withCredentials: true // Include cookies in the request
+        });
+        if (response.data.message !== "Authenticated") {
+          navigate('/');
+        }
+      } 
+      catch (error) {
+        console.error('Error during authentication:', 
+          error.response 
+            ? `${error.response.status}: ${error.response.data.message}` // Server-side error
+            : error.message // Client-side error
+        );
+        navigate('/'); // Redirect on authentication failure
+      }
+    };
+  
+    authenticate();
+  }, [navigate]); // Add `navigate` to the dependency array
 
+  
   useEffect(() => {
 
     const fetchAllArticles = async () => {
@@ -101,7 +125,7 @@ export default function Dashboard() {
   
 
 //Get Request to logout
-const navigate = useNavigate()
+
 
 const handleLogout = async () => {
   try {
