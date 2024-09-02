@@ -1,10 +1,38 @@
 import axios from "axios";
 import Dropzone from "react-dropzone";
 import Header from "../components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddArticle = () => {
+  axios.defaults.withCredentials = true; //To include the cookies in the request globally (pour ne pas avoir à écrire; {withCredentials: true} dans chaque axios.get, car on en a besoin pour la requete de authenticate et de logout pour que ça puisse logout même si on part sur une autre page et qu'on revient sur dashboard)
+
+  const navigate = useNavigate();
+
+  //To make the access to this component protected by the authentification route: So the /addArticle defined in App.jsx to access this component becomes a protected route
+  useEffect(() => {
+    const authenticate = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3005/authentication",
+        );
+        if (response.data.message !== "Authenticated") {
+          navigate("/");
+        }
+      } catch (error) {
+        console.error(
+          "Error during authentication:",
+          error.response
+            ? `${error.response.status}: ${error.response.data.message}` // Server-side error
+            : error.message, // Client-side error
+        );
+        navigate("/"); // If authentication failure, redirect to HomePage
+      }
+    };
+
+    authenticate();
+  }, []);
   //Comme il y a l'image, faire un state avec un objet comme dans contact ne va pas marcher
   const [imageUrl, setImageUrl] = useState(""); //setImage dans dropzone
   const [auteur, setAuteur] = useState(""); //setAuteur dans onChange
@@ -16,7 +44,6 @@ const AddArticle = () => {
 
   //To submit all form data to the server with .post
   const handleSubmit = async (e) => {
-    
     e.preventDefault(); //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
 
     //Pour interdire l'envoie si on ne rempli pas un champ de addArticle
@@ -48,9 +75,7 @@ const AddArticle = () => {
       } catch (error) {
         console.error("Error uploading file:", error);
       }
-    } 
-    
-    else {
+    } else {
       e.preventDefault();
       alert("Add all articles before Submit");
     }
@@ -131,12 +156,20 @@ const AddArticle = () => {
                   )}
                 </Dropzone>
 
-                <button
-                  className="mt-4 rounded-md bg-gradient-to-r from-indigo-500 to-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-indigo-600 hover:to-blue-600"
-                  onClick={handleSubmit}
-                >
-                  Send Article
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    className="mr-10 mt-4 w-32 rounded-md bg-gradient-to-r from-indigo-500 to-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-indigo-600 hover:to-blue-600"
+                    onClick={handleSubmit}
+                  >
+                    Send Article
+                  </button>
+
+                  <Link to="/toDashboard">
+                    <button className="mt-4 w-32 rounded-md bg-green-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600 ">
+                      Dashboard
+                    </button>
+                  </Link>
+                </div>
               </form>
 
               <div className="ml-16 mt-6 flex h-96 w-96 items-center justify-center border border-gray-400 ">

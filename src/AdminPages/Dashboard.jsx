@@ -12,6 +12,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
 
+  axios.defaults.withCredentials = true; //To include the cookies in the request globally (pour ne pas avoir à écrire; {withCredentials: true} dans chaque axios.get, car on en a besoin pour la requete de authenticate et de logout pour que ça puisse logout même si on part sur une autre page et qu'on revient sur dashboard)
+
   const navigate = useNavigate()
 
   const [articles, setArticles] = useState([]); //A mettre dans data attribute du <DataTable /> Component dans return
@@ -22,7 +24,7 @@ export default function Dashboard() {
   useEffect(() => {
     const authenticate = async () => {
       try {
-        const response = await axios.get('http://localhost:3005/authentication', {withCredentials: true}); //xithCredentials:true => Include cookies in the request
+        const response = await axios.get('http://localhost:3005/authentication'); 
         if (response.data.message !== "Authenticated") {
           navigate('/');
         }
@@ -38,7 +40,7 @@ export default function Dashboard() {
     };
   
     authenticate();
-  }, [navigate]); 
+  }, []); 
 
   
   useEffect(() => {
@@ -128,7 +130,6 @@ export default function Dashboard() {
 const handleLogout = async () => {
   try {
     const response = await axios.get('http://localhost:3005/logout');
-
     if (response.data.status === "Success") {
   
       navigate('/'); // Redirect to home page after loging out
