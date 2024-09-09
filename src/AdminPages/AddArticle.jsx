@@ -14,13 +14,12 @@ const AddArticle = () => {
   useEffect(() => {
     const authenticate = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3005/authentication",
-        );
+        const response = await axios.get("http://localhost:3005/authentication");
         if (response.data.message !== "Authenticated") {
           navigate("/");
         }
-      } catch (error) {
+      } 
+      catch (error) {
         console.error(
           "Error during authentication:",
           error.response
@@ -33,6 +32,7 @@ const AddArticle = () => {
 
     authenticate();
   }, []);
+
   //Comme il y a l'image, faire un state avec un objet comme dans contact ne va pas marcher
   const [imageUrl, setImageUrl] = useState(""); //setImage dans dropzone
   const [auteur, setAuteur] = useState(""); //setAuteur dans onChange
@@ -58,10 +58,7 @@ const AddArticle = () => {
       formData.append("code", code);
 
       try {
-        const response = await axios.post(
-          "http://localhost:3005/upload",
-          formData,
-        ); //On envoie tout en 1 fois
+        const response = await axios.post("http://localhost:3005/upload", formData); //On envoie tout en 1 fois
         console.log("création article", response.data);
         alert("Article submitted to DataBase");
         // Réinitialisation des états du formulaire pour que les champs se vident
@@ -72,7 +69,8 @@ const AddArticle = () => {
         setPrix("");
         setEtat("");
         setCode("");
-      } catch (error) {
+      } 
+      catch (error) {
         console.error("Error uploading file:", error);
       }
     } else {

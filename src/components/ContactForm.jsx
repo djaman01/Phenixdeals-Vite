@@ -24,18 +24,25 @@ const MyTextInput = ({ label, ...props }) => {
 };
 
 const ContactForm = () => {
-  const form = useRef();
+
+  const formValues = useRef(); //référence à donner au <Form ref={formValues}, pour capturer les infos entrés par le visiteur du site
 
   const sendEmail = () => {
+
+    console.log("sendEmail function called")
+
     return emailjs.sendForm(
       "service_pjw8ixl", //service_id => A trouver dans Section Email services
       "template_yp3au9f", //template_id => A trouver dans section Email templates => Settings
-      form.current,
+      formValues.current, //= valeurs du formulaire: Lorsqu'on a attaché la ref "formValues" au formulaire qui est un élément du DOM, React garde les valeurs de cet éléments dans formValues.current. Ces valeurs vont restés accessibles tant que le formulaire lui-même n'est pas complètement effacé
       {
         publicKey: "jbn6FFUwLocXKxqvT", //publicKey: A trouver dans account => API Keys
       },
     );
   };
+
+
+  
 
   return (
     <>
@@ -68,21 +75,30 @@ const ContactForm = () => {
               .min(10, "Doit comporter 10 caractères minimum")
               .required("Requis"),
           })}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            alert("Formulaire envoyé:\nNous vous répondrons dès que possible");
-            sendEmail();
-            resetForm()
-              .then(() => {
-                setSubmitting(false);
-              })
-              .catch((error) => {
-                console.error("FAILED...", error);
-                setSubmitting(false);
-              });
-          }}
+
+          onSubmit= { async (values, {setSubmitting, resetForm}) => { //Formik collecte d'abord les valeurs des champs et les stocke dans l'objet values, donc même si on reset l'affichage du formulaire avant l'envoie, les données sont déjà collectés
+
+            alert('Formulaire envoyé:\nNous vous répondrons dès que possible'); //Affiche l'alert immédiatement après avoir cliqué sur submit
+            console.log('Form submitted with values: ', values);
+            resetForm();//Change seulement l'affichage des champs du formulaire sur la page; mais les valeurs sont déjà capturées dans values et on peut les lire dans formValues.current pour envoie dans email.js
+
+            try {
+              const result = await sendEmail(); // Attends la résolution de la promesse qui est l'application de la function sendEmail
+              console.log('Email sent successfully', result);
+             
+            } 
+            catch (error) {
+              console.error('Error sending Email:', error); 
+            }
+            finally{
+              setSubmitting(false); //Assure de stopper onSubmit
+            }
+          }
+        } //1)1) Formik capture les valeurs du formulaire et les stock dans values 2) L'alert s'active puis l'affichage des valeurs du formulaire s'effacent (Cela n'affecte pas les valeurs déjà capturées par Formik dans values ou la référence du formulaire dans formValues.current) 3) Et enfin, l'email s'envoi 
+      
         >
           {/* !!! The name property in the MyTextInput component is crucial for Formik to link the input field to its corresponding value in initialValues. Without it it'd not work correctly  */}
-          <Form ref={form}>
+          <Form ref={formValues}>
             <MyTextInput
               label="Nom"
               name="lastName"

@@ -21,7 +21,7 @@ const Vendre = () => {
       easing: "ease-in-out",
       // delay: 100,
     });
-  });
+  }, []);
 
   return (
     <>
