@@ -4,27 +4,26 @@ import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   
-  const sendEmail = (form) => { //We'll pass to the form parameter all the Form element? when we will call the sendEmail function like this const result = await sendEmail(document.querySelector("form")); 
-
-    return emailjs.sendForm(//sendForm est une method de emailJs
+  //function pour envoyer données formulaire à emailJs
+  const sendEmail = (data) => { //we pass to the "data" parameter, the values of the Form captured by Formik thanks to the "values" property in onSubmit
+    return emailjs.send( //respecter cet ordre: 1)service_id 2) template_id 3) values du formulaire 4) publicKey
       "service_pjw8ixl", // service_id => A trouver dans Section Email services
       "template_yp3au9f", // template_id => A trouver dans section Email templates => Settings
-      form, //.sendForm va extraire automatiquement toutes les valeurs du formulaire qu'on a passé au paramètre form
-      {
-        publicKey: "jbn6FFUwLocXKxqvT", // publicKey: A trouver dans account => API Keys
-      }
+      data, //values of the Form
+      "jbn6FFUwLocXKxqvT", // publicKey: A trouver dans account => API Keys
     );
-
   };
 
   return (
     <>
       <div className="mx-auto mb-4 max-w-md rounded bg-gray-50 px-8 pb-8 pt-6 shadow-2xl max-lg:mx-6 max-lg:mb-12 max-lg:border max-lg:border-slate-400">
+        
         <div className="prose mb-4 text-center">
           <h2 className="text-green-500">Quelle est votre demande ?</h2>
         </div>
 
         <Formik
+
           initialValues={{
             lastName: "",
             firstName: "",
@@ -32,6 +31,7 @@ const ContactForm = () => {
             phone: "",
             message: "",
           }}
+
           validationSchema={Yup.object({
             lastName: Yup.string()
               .max(30, "Doit comporter 30 caractères maximum")
@@ -44,25 +44,26 @@ const ContactForm = () => {
               .required("Requis"),
             phone: Yup.string().required("Requis"),
             message: Yup.string()
-              .min(10, "Doit comporter 10 caractères minimum")
+              .min(30, "Doit comporter 30 caractères minimum")
               .required("Requis"),
           })}
-          onSubmit={async (values, { setSubmitting, resetForm }) => {
+
+          onSubmit={async (values, { resetForm }) => {// En 1er: le paramètre "values" capture les valeurs écrites dans le formulaire, donc même si on reset le form avant envoie, values stockera toujours les valeurs
             alert('Formulaire envoyé:\nNous vous répondrons dès que possible'); 
-            console.log('Form submitted with values: ', values); //Permet de voir dans la console ce qui a été rempli dans le formulaire, après avoir cliquer sur envoyer
-            resetForm();
+            console.log('Form submitted with values: ', values); //Permet de voir dans la console ce qui a été rempli dans le formulaire après avoir cliquer sur envoyer
+            resetForm(); //Reset l'affichage des valeurs sur la page, mais values store toujours les valeurs écrites dans le formulaire
 
             try {
-              const result = await sendEmail(document.querySelector("form"));//Pour envoyer au parametre form de la fonction sendEmail, toutes les valeurs inscrites dans le formulaire
+              const result = await sendEmail(values);//Appel de la function sendEmail avec pour argument 'values' => valeurs du formulaire capturés par Formik
               console.log('Email sent successfully', result);
-            } catch (error) {
+            } 
+            catch (error) {
               console.error('Error sending Email:', error);
-            } finally {
-              setSubmitting(false);
-            }
+            } 
           }}
         >
           <Form>
+
             <div className="mb-2">
               <label htmlFor="lastName">Nom</label>
               <Field
@@ -131,7 +132,9 @@ const ContactForm = () => {
             >
               Envoyer
             </button>
+
           </Form>
+
         </Formik>
       </div>
     </>
