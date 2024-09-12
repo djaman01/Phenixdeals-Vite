@@ -118,12 +118,12 @@ const RangeGrid = ({
                       alt={e.auteur}
                     />
                   </div>
-                  <div className="h-[158px] text-center text-xl max-lg:h-[164px] ">
+                  <div className="h-[173px] text-center text-xl max-lg:h-[164px] ">
                     <h3 className="my-1 flex h-7 items-center justify-center font-mono font-bold text-blue-600  ">
                       {e.type}
                     </h3>
                     <div className="mx-auto w-1/2 border-b border-gray-300"></div>
-                    <h4 className=" font-roboto my-1 flex h-9 items-center justify-center text-gray-800 max-lg:h-10 ">
+                    <h4 className=" font-roboto my-3 flex h-9 items-center justify-center text-gray-800 max-lg:h-10 ">
                       {e.infoArticle}
                     </h4>
                     <div className=" mx-auto my-1 w-1/2 border-b border-gray-300"></div>

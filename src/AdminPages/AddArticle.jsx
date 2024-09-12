@@ -155,18 +155,21 @@ const AddArticle = () => {
                 </Dropzone>
 
                 <div className="flex justify-center">
+
+                <Link to="/toDashboard">
+                    <button className="mt-4 w-32 rounded-md px-4 py-2 bg-blue-500 font-bold text-white transition duration-150 ease-in-out hover:bg-blue-600">
+                      Dashboard
+                    </button>
+                  </Link>
+
                   <button
-                    className="mr-10 mt-4 w-32 rounded-md bg-gradient-to-r from-indigo-500 to-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-indigo-600 hover:to-blue-600"
+                    className="ml-10 mt-4 w-32 rounded-md bg-gradient-to-r bg-green-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600"
                     onClick={handleSubmit}
                   >
                     Send Article
                   </button>
 
-                  <Link to="/toDashboard">
-                    <button className="mt-4 w-32 rounded-md bg-green-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600 ">
-                      Dashboard
-                    </button>
-                  </Link>
+             
                 </div>
               </form>
 

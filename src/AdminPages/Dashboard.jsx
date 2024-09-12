@@ -70,6 +70,7 @@ export default function Dashboard() {
   //Pour PUT request et modifier certains élements selectionnés
   const [articlePrice, setArticlePrice] = useState('');
   const [articleInfos, setArticleInfos] = useState('');
+  const [articleCode, setArticleCode] = useState('');
 
   //Pour que quand on clique sur stylo ou cancel, apporte des changements
   const [articleId, setArticleId] = useState(null);
@@ -79,12 +80,14 @@ export default function Dashboard() {
     setArticleId(row._id);  //Pour voir un input pour modifier les valeurs, après avoir cliquer sur le stylo ou cancel
     setArticleInfos(row.infoArticle); //Modification de infoArticle
     setArticlePrice(row.prix); //Modification du prix
+    setArticleCode(row.code)
   };
 
   //On donne aux VALEURS de la propriété prix et infoArticle de la database, les 2 states variables précédentes que l'on va changer
   const updatedProductData = {
     prix: articlePrice,
-    infoArticle: articleInfos
+    infoArticle: articleInfos,
+    code: articleCode
   }
 
   //PUT Request: Pour appliquer les modification dans updatedProductData; le paramètre articleId aura pour valeur row._id
@@ -154,11 +157,12 @@ const handleLogout = async () => {
     {
       name: 'Auteur',
       selector: row => row.auteur,
-      sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
+      sortable: true //Pour ordonner par ordre alphabétic ou l'inverse
     },
     {
       name: 'Type',
       selector: row => row.type,
+      sortable: true
     },
 
     {
@@ -170,7 +174,7 @@ const handleLogout = async () => {
           placeholder="New infos" 
           value={articleInfos}
           onChange={(e)=> setArticleInfos(e.target.value)}
-         className="border-2 border-black rounded-md text-center"
+         className="border-2 border-black rounded-md text-center w-full"
           />
       </div>
       :
@@ -180,11 +184,13 @@ const handleLogout = async () => {
     {
       name: 'Propriété',
       selector: row => row.etat,
+      sortable: true
     },
    
     {
       name: 'Prix',
       selector: row => row.prix,
+      sortable: true,
       //Objectif: Quand on clique sur stylo: articleId===row._id => Donc si articleId===row._id fait apparaitre un input pour changer la valeur, sinon on ne voit que le prix
       cell: row => articleId === row._id ?
         <div>
@@ -192,11 +198,29 @@ const handleLogout = async () => {
             placeholder="New Price"
             value={articlePrice}
             onChange={(e) => setArticlePrice(e.target.value)} //productPrice se met à jour en même temps que ce qu'on écrit dans l'input
-            className="border-2 border-black rounded-md text-center"
+            className="border-2 border-black rounded-md text-center w-full"
           />
         </div>
         :
         row.prix
+    },
+
+    {
+      name: 'Code',
+      selector: row => row.code,
+      sortable: true,
+      cell: row => articleId === row._id ?
+      <div>
+      <input
+        placeholder="New Code"
+        value={articleCode}
+        onChange={(e) => setArticleCode(e.target.value)} //productPrice se met à jour en même temps que ce qu'on écrit dans l'input
+        className="border-2 border-black rounded-md text-center w-full"
+      />
+    </div>
+    :
+    row.code
+
     },
 
     {
@@ -252,13 +276,13 @@ const handleLogout = async () => {
 
     <div className="flex justify-center text-lg mt-5">
       <Link to="/">
-        <button className="w-[115px] mr-52 border bg-green-500 py-1 px-3 rounded-md text-white active:bg-green-800">
+        <button className="w-[115px] mr-52 border bg-blue-500 py-1 px-3 rounded-md text-white active:bg-blue-600">
           Accueil
         </button>
       </Link>
 
       <Link to="/addArticle">
-        <button className="w-[115px] mr-52 border bg-blue-500 py-1 px-3 rounded-md text-white active:bg-blue-800">
+        <button className="w-[115px] mr-52 border bg-green-500 py-1 px-3 rounded-md text-white active:bg-green-600">
           Add Article
         </button>
       </Link>
