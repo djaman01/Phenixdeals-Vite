@@ -31,7 +31,9 @@ const Concept = () => {
 
   return (
     <>
+    <div className="mt-3 mb-3">
       <Header />
+    </div>
 
       <div className=" padding grid grid-cols-3 items-center justify-center max-lg:grid-cols-1 max-lg:px-0 max-lg:py-10 max-lg:gap-y-5">
         {/* Activity card: overflow-hidden cache l'overlay bleu, car avec transform translate-y-full, on l'a placer à l'exterieur du container, pour que quand on hover, il revient à sa place */}
@@ -132,7 +134,10 @@ const Concept = () => {
           </div>
         </div>
       </div>
-      <Footer />
+
+      <footer className="pt-8">
+        <Footer />
+      </footer>
     </>
   );
 };

@@ -38,7 +38,9 @@ const FicheArticle = () => {
 
   return (
     <>
+    <div className="mt-3 mb-5">
       <Header />
+    </div>
 
       {errorText ? (
         <p>Error: {errorText}</p>

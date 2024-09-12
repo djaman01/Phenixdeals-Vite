@@ -25,9 +25,9 @@ const Vendre = () => {
 
   return (
     <>
-      <header>
-        <Header />
-      </header>
+   <div className="mt-3 mb-3">
+      <Header />
+    </div>
 
       <main>
         <div>
@@ -42,7 +42,7 @@ const Vendre = () => {
         </div>
 
         <div className="grid grid-cols-2 max-lg:grid-cols-1">
-          <div className="ml-32 mt-5 grid grid-cols-2 grid-rows-3 gap-8 max-lg:mx-14 max-lg:mb-10 max-lg:grid-cols-1">
+          <div className="ml-32 mt-12 grid grid-cols-2 grid-rows-3 gap-8 max-lg:mx-14 max-lg:mb-10 max-lg:grid-cols-1">
             <div
               data-aos="flip-left"
               className="flex h-60 w-full flex-col items-center justify-center rounded-lg border border-gray-400 bg-blue-100"
@@ -86,13 +86,15 @@ const Vendre = () => {
             </div>
           </div>
 
-          <div data-aos="fade-left">
+          <div data-aos="fade-left" className="mt-3">
             <ContactForm />
           </div>
         </div>
       </main>
 
-      <Footer />
+      <div className="mt-[-60px]">
+        <Footer />
+      </div>
     </>
   );
 };

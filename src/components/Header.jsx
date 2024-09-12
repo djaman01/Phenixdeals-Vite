@@ -20,7 +20,7 @@ const Header = () => {
           />
         </Link>
 
-        <div className="text-slate-gray mr-24 flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
+        <div className="text-slate-gray mr-24 flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden mt-2">
           <Link to="/">
             <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1]">
               Accueil

@@ -60,7 +60,10 @@ const AllArtists = () => {
 
   return (
     <>
+     <div className="mt-3">
       <Header />
+    </div>
+
       <div className="padding">
         <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35]">
           <h1>Tous les Artistes</h1>
@@ -104,7 +107,10 @@ const AllArtists = () => {
           )}
         </div>
       </div>
-      <Footer />
+      
+      <div className="pt-8">
+        <Footer />
+      </div>
     </>
   );
 };

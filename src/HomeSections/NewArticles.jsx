@@ -16,7 +16,7 @@ const NewArticles = () => {
     const fetchHomeArticles= async () => {
 
       try {
-        const response = await axios.get("http://localhost:3005/homeArticles?limit=16"); // Add the query parameter for limiting the results
+        const response = await axios.get("http://localhost:3005/homeArticles?limit=20"); // Add the query parameter for limiting the results
         console.log("Last 20 articles fetched", response.data);
         setArticleObject(response.data);
       } 
@@ -51,7 +51,7 @@ const NewArticles = () => {
   return (
     <section>
       <CardGrid
-        title="Les 16 Nouveaux Articles"
+        title="Les 20 Nouveaux Articles"
         placeholder="Tableau / Bijou / Décoration"
         value={articleType}
         onChange={handleArticleType}

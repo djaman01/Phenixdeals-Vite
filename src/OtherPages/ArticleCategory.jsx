@@ -42,15 +42,18 @@ const ArticleCategory = ({ type, title, searchKey}) => {
 
   return (
     <>
+     <div className="mt-3">
       <Header />
+    </div>
     
         <RangeGrid
           title={title}
           allValues={filteredArticles}
           error={error}
         />
-      
-      <Footer />
+      <div className="pt-8">
+        <Footer />
+      </div>
       
     </>
   );

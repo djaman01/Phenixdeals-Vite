@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     //overflow-hidden pour ne pas avoir de scrollbar horizontale
     <main className="overflow-hidden"> 
-      <header>
+      <header className="mt-3 mb-5">
         <Header />
       </header>
 
@@ -15,14 +15,15 @@ const HomePage = () => {
         <ScrollPage />
       </section>
 
-      <section>
+      <section className="mt-5">
         <NewArticles />
       </section>
 
 
-      <footer>
+      <footer className="pt-8">
         <Footer />
       </footer>
+
     </main>
   );
 };
