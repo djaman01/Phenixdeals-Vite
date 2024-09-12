@@ -90,12 +90,9 @@ const AllArtists = () => {
                 <div key={letter} className="mb-5">
                   <h2 className="text-2xl text-blue-800">{letter}</h2>
                   {/* On fait <ul> pour ne pas qu'il y ait de point avant chaque nom d'artiste */}
-                  <ul>
-                    {groupedArtists[letter].map(
-                      (
-                        e,
-                        index, //On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter]
-                      ) => (
+                  <ul> 
+                    {/*On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter] */}
+                    {groupedArtists[letter].map((e,index) => (
                         <li key={index}>
                           <Link to={`/pageArtist/${e.auteur}`}>{e.auteur}</Link>
                         </li>

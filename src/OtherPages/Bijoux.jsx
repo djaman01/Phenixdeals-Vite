@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import ArticleCategory from "./ArticleCategory";
 
 const Bijoux = () => {
@@ -11,7 +10,7 @@ const Bijoux = () => {
         placeholder="Type de Bijoux: bracelet/bague/collier..."
       />
 
-      <Footer />
+    
     </>
   );
 };

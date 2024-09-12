@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import ArticleCategory from "./ArticleCategory";
 
 const Decoration = () => {
@@ -11,7 +10,6 @@ const Decoration = () => {
         searchKey="infoArticle"
       />
 
-      <Footer />
     </>
   );
 };

@@ -127,7 +127,7 @@ const ContactForm = () => {
             </div>
 
             <button
-              type="submit"
+              type="submit" //Dans un Formulaire Formik, lorsqu'on clique sur un bouton de type="submit", il appelle automatquement la fonction onSubmit définie dans le composant Formik
               className="mt-5 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none focus:ring-blue-500"
             >
               Envoyer

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import RangeGrid from "../components/RangeGrid";
+import Footer from "../components/Footer";
 
 const ArticleCategory = ({ type, title, searchKey}) => {
 
@@ -48,6 +49,8 @@ const ArticleCategory = ({ type, title, searchKey}) => {
           allValues={filteredArticles}
           error={error}
         />
+      
+      <Footer />
       
     </>
   );
