@@ -6,8 +6,10 @@ const Bijoux = () => {
       <ArticleCategory
         type="bijoux"
         title="Tous les Bijoux"
-        searchKey="infoArticle"
         placeholder="Type de Bijoux: bracelet/bague/collier..."
+        showSearchInput={true}
+        typeObjet='Bague, Bracelet, Collier...'
+
       />
 
     

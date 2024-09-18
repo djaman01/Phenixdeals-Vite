@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import RangeGrid from "../components/RangeGrid";
 import Footer from "../components/Footer";
 
-const ArticleCategory = ({ type, title, searchKey}) => {
+const ArticleCategory = ({ type, title, showSearchInput, typeObjet}) => {
 
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
@@ -32,13 +32,6 @@ const ArticleCategory = ({ type, title, searchKey}) => {
 
   }, [type, title])
 
-  const [filter, setFilter] = useState("");
-
-  const handleFilterChange = (e) => setFilter(e.target.value);
-
-  const filteredArticles = articles.filter((e) =>
-    e[searchKey].toLowerCase().includes(filter.toLowerCase()),
-  );
 
   return (
     <>
@@ -48,9 +41,12 @@ const ArticleCategory = ({ type, title, searchKey}) => {
     
         <RangeGrid
           title={title}
-          allValues={filteredArticles}
+          allValues={articles}
           error={error}
+          showSearchInput={showSearchInput}
+          typeObjet={typeObjet}
         />
+
       <div className="pt-8">
         <Footer />
       </div>

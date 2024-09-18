@@ -7,9 +7,9 @@ const Decoration = () => {
         placeholder="Type d'objet: table/vase/miroir..."
         type="decorations"
         title="Tous les Objets de Décoration"
-        searchKey="infoArticle"
+        showSearchInput={true}
+        typeObjet="Vase, Fauteuil, Tapis..."
       />
-
     </>
   );
 };

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import { Link } from "react-router-dom";
 

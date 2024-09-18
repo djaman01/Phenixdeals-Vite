@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
-import { SlMagnifier } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import { SlMagnifier } from "react-icons/sl";
 
-const RangeGrid = ({
-  title,
-  error,
-  allValues
-}) => {
+const RangeGrid = ({title, error, allValues, showSearchInput, typeObjet}) => {
 
-  
+  //Pour créer un filtre par prix min et max
   const [prixMin, setPrixMin] = useState("");
   const [prixMax, setPrixMax] = useState("");
 
   const handlePrixMin = (e) => setPrixMin(e.target.value);
   const handlePrixMax = (e) => setPrixMax(e.target.value);
-  
-  const [filteredArticles, setFilteredArticles] = useState(allValues);
+
+  //State pour store les values de l'input où le visiteur va écrire le type d'objet qu'il cherche et qu'on va comparer pa rapport à la valeur infoArticle de l'élément
+  const [inputSearch, setInputSearch] = useState("");
+
+  const [filteredArticles, setFilteredArticles] = useState(allValues); //On va map sur filteredArticles
 
   //Quand on utilise un "props" dans le initial value d'une state variable, on est obligé d'utiliser useEffect, pour que la state variable se mette à jour quand le props change, sinon React ne comprend pas
   useEffect(() => {
@@ -23,19 +22,23 @@ const RangeGrid = ({
   }, [allValues])
   
   
-  const handleFilter = () => {
-    
+  const handleFilter = () => {//Quand on va cliquer sur le bouton filtrer, ça va activer ce code qui au final va changer la valeur de filteredArticles qui est l'array sur laquel on map, et donc va filtrer les élemenst en fonction de la selection faite
+
+    //To replace the number written by the visitor, with another number with no space, so we can compare them
     const minPrice = prixMin
-      ? parseFloat(prixMin.replace(/\s+/g, ""))
-      : -Infinity;
+      ? parseFloat(prixMin.replace(/\s+/g, "")) //Transform the number written by the visitor with a string with no spaces so we can compare numbers / then convert the cleaned string back into a number using parseFloat
+      : -Infinity; //If prixMin is not provided, set minPrice to -Infinity to ensure any comparison will succeed
 
     const maxPrice = prixMax
       ? parseFloat(prixMax.replace(/\s+/g, ""))
       : Infinity;
   
     const filtered = allValues.filter((e) => {
-      const price = parseFloat(e.prix.replace(/\s+/g, ""));
-      return price >= minPrice && price <= maxPrice;
+      const price = parseFloat(e.prix.replace(/\s+/g, "")); //Prix de l'élément qu'on remplace au même format que les prix min et max précédents
+      const filterByPrice = price >= minPrice && price <= maxPrice;
+      const filterByInfoArticle = e.infoArticle.toLowerCase().includes(inputSearch.toLowerCase());
+
+      return filterByPrice && filterByInfoArticle;
     });
   
     // Sort filtered articles by price in ascending order
@@ -46,12 +49,14 @@ const RangeGrid = ({
     });
   
     setFilteredArticles(sortedFiltered);
+
   };
 
   const handleReset = () => {
     setPrixMin("");
     setPrixMax("");
-    setFilteredArticles(allValues)
+    setInputSearch("");
+    setFilteredArticles(allValues) //Pour revoir tous les éléments sans filtre
   }
 
   const scrollToTop = () => {
@@ -70,20 +75,56 @@ const RangeGrid = ({
       </div>
 
       <div className="relative mx-auto mt-4 flex justify-center w-1/4 max-lg:w-auto">
+
+      {/* Je veux que ce 1er input n'apparaisse que pour déco et Bijoux, donc je vais faire une condition avec un props */}
+
+      {showSearchInput &&
+        <div className="relative">
+          {/* top-1/2 positionne le top du div à la moitié de son parent (donc il parait bas): c'est pourquoi on rajoute transform et -translate-y-1/2 pour le bouger en haut by the half of it's own height */}
+          <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
+            <SlMagnifier color="black" />
+          </div>
+
+          {/*!!! pl-12 dans input, permet de déplacer le départ pour écrire*/}
+          <input 
+            type="text"
+            className="relative mr-10 rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:pl-10"
+            placeholder={typeObjet}
+            value={inputSearch}
+            onChange={(e)=>setInputSearch(e.target.value)}
+          />
+        </div>
+      }
+
+      <div className="relative">
+        <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
+          <SlMagnifier color="black" />
+        </div>
+        
         <input
           type="text"
-          className="relative mr-10 w-96 rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:pl-10"
+          className="relative mr-10 rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:pl-10"
           placeholder="Prix minimum"
           value={prixMin}
           onChange={handlePrixMin}
         />
+      </div>
+
+      <div className="relative">
+
+        <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
+          <SlMagnifier color="black" />
+        </div>
+
         <input
           type="text"
-          className="relative w-96 rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:pl-10"
+          className="relative rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:pl-10"
           placeholder="Prix Maximum"
           value={prixMax}
           onChange={handlePrixMax}
         />
+
+      </div>
 
         <button
           className="ml-4 rounded-full bg-blue-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md"
@@ -105,6 +146,7 @@ const RangeGrid = ({
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
             {filteredArticles.map((e) => (
+
               <Link to={`/ficheArticle/${e._id}`} key={e._id}>
                 <div
                   key={e._id}
