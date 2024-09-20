@@ -51,7 +51,7 @@ const CardGrid = ({
                       alt={e.auteur}
                     />
                   </div>
-                  <div className="h-[173px] text-center text-xl max-lg:h-[184px]">
+                  <div className="h-[173px] text-center text-xl max-lg:h-[186px]">
                     <h3 className="my-1 flex h-7 items-center justify-center font-mono font-bold text-blue-600  ">
                       {e.type}
                     </h3>

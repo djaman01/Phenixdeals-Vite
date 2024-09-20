@@ -44,7 +44,7 @@ const Header = () => {
                 <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
               </Link>
               <Link to="/bijoux">
-                <p className="mb-1 mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">
+                <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">
                   Bijoux
                 </p>
               </Link>

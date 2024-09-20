@@ -68,7 +68,8 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
 
   return (
     <main className="padding">
-      <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35] max-lg:text-[27px]">
+
+      <div className="martian-mono mb-10 max-lg:mb-8 text-center text-3xl text-[#FA7A35] max-lg:text-[27px] max-lg:mx-[-10px]">
         <h1>{title}</h1>
       </div>
 
@@ -156,7 +157,7 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
                       alt={e.auteur}
                     />
                   </div>
-                  <div className="h-[173px] text-center text-xl max-lg:h-[184px]">
+                  <div className="h-[173px] text-center text-xl max-lg:h-[186px]">
                     <h3 className="my-1 flex h-7 items-center justify-center font-mono font-bold text-blue-600  ">
                       {e.type}
                     </h3>
@@ -171,7 +172,7 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
                     </h4>
                     <div className=" mx-auto my-1 w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="flex h-7 items-center justify-center font-mono font-bold text-[#00A170] ">
+                    <h4 className="flex h-7 items-center justify-center font-mono font-bold text-[#00A170]">
                       {e.prix}
                     </h4>
                   </div>
