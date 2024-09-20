@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { SlMagnifier } from "react-icons/sl";
 
 const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
-
   //Pour créer un filtre par prix min et max
   const [prixMin, setPrixMin] = useState("");
   const [prixMax, setPrixMax] = useState("");
@@ -68,10 +67,8 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
   };
 
   return (
-
     <main className="padding">
-
-      <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35]">
+      <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35] max-lg:text-[27px]">
         <h1>{title}</h1>
       </div>
 
@@ -174,7 +171,7 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
                     </h4>
                     <div className=" mx-auto my-1 w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="flex h-7 items-center justify-center font-mono text-blue-600 ">
+                    <h4 className="flex h-7 items-center justify-center font-mono font-bold text-[#00A170] ">
                       {e.prix}
                     </h4>
                   </div>
@@ -184,7 +181,6 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
           </div>
         )}
       </div>
-      
     </main>
   );
 };
