@@ -20,7 +20,7 @@ const Header = () => {
           />
         </Link>
 
-        <div className="text-slate-gray mr-24 flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden mt-2">
+        <div className="text-slate-gray mr-24 mt-2 flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
           <Link to="/">
             <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1]">
               Accueil
@@ -44,9 +44,7 @@ const Header = () => {
                 <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
               </Link>
               <Link to="/bijoux">
-                <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">
-                  Bijoux
-                </p>
+                <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Bijoux</p>
               </Link>
             </div>
           </div>
@@ -63,18 +61,7 @@ const Header = () => {
         </div>
 
         <div className="hidden max-lg:block">
-          {openSidebar === false ? (
-            <img
-              src={hamburger}
-              alt="menu-hamburger"
-              width={25}
-              height={25}
-              className="cursor-pointer"
-              onClick={() => setOpenSidebar(true)}
-            />
-          ) : (
-            <SideBar className="lg:hidden" /> //Pour que si on oublie de la fermer, elle n'appraisse pas en grand écran
-          )}
+          <SideBar className="lg:hidden" />
         </div>
       </nav>
     </header>

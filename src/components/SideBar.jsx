@@ -6,28 +6,24 @@ import { SlBasket } from "react-icons/sl";
 import { TfiMoney } from "react-icons/tfi";
 import { BsQuestionSquare } from "react-icons/bs";
 import { cross } from "../assets/icons";
+import { useState } from "react";
+import { hamburger } from "../assets/icons";
 
 const SideBar = () => {
   const { openSidebar, setOpenSidebar } = globalState1();
+
+  const [toggled, setToggled] = useState(false);
 
   return (
     <div className="prose" style={{ display: "flex", height: "100%" }}>
       <Sidebar
         backgroundColor="#ededed"
         breakPoint="all"
-        onBackdropClick={() => setOpenSidebar(false)} //permet de mettre faux quand on clique hors de la sidebar
-        toggled={openSidebar} //qd j'ouvre la sidebar et que je met false manuellement puis true, la transition duration marche
-        transitionDuration={1300}
+        onBackdropClick={() => setToggled(false)} //permet de mettre faux quand on clique hors de la sidebar
+        toggled={toggled} //qd j'ouvre la sidebar et que je met false manuellement puis true, la transition duration marche
+        transitionDuration={600}
       >
-        <div className="mb-[-7px] pl-52">
-          <img
-            src={cross}
-            alt="Sortie"
-            width={20}
-            onClick={() => setOpenSidebar(false)}
-          />
-        </div>
-        <Menu>
+        <Menu className="mt-20">
           <MenuItem
             component={<Link to="/" />}
             icon={<IoHomeOutline size={18} />}
@@ -65,6 +61,16 @@ const SideBar = () => {
           </MenuItem>
         </Menu>
       </Sidebar>
+
+      <button className="sb-button" onClick={() => setToggled(!toggled)}>
+        <img
+          src={hamburger}
+          alt="menu-hamburger"
+          width={25}
+          height={25}
+          className="cursor-pointer"
+        />
+      </button>
     </div>
   );
 };
