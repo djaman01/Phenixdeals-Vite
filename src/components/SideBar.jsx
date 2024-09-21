@@ -5,9 +5,9 @@ import { IoHomeOutline } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
 import { TfiMoney } from "react-icons/tfi";
 import { BsQuestionSquare } from "react-icons/bs";
-import { cross } from "../assets/icons";
 import { useState } from "react";
-import { hamburger } from "../assets/icons";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross1 } from "react-icons/rx";
 
 const SideBar = () => {
   const { openSidebar, setOpenSidebar } = globalState1();
@@ -23,7 +23,7 @@ const SideBar = () => {
         toggled={toggled} //qd j'ouvre la sidebar et que je met false manuellement puis true, la transition duration marche
         transitionDuration={600}
       >
-        <Menu className="mt-20">
+        <Menu className="mt-10">
           <MenuItem
             component={<Link to="/" />}
             icon={<IoHomeOutline size={18} />}
@@ -61,15 +61,9 @@ const SideBar = () => {
           </MenuItem>
         </Menu>
       </Sidebar>
-
-      <button className="sb-button" onClick={() => setToggled(!toggled)}>
-        <img
-          src={hamburger}
-          alt="menu-hamburger"
-          width={25}
-          height={25}
-          className="cursor-pointer"
-        />
+      {/* Le npm est codé de tel sorte à ce que le bouton apparaisse seul, puis quand on appuie la sidebar apparait */}
+      <button className="cursor-pointer" onClick={() => setToggled(!toggled)}>
+        {toggled ? <RxCross1 size={28} /> : <RxHamburgerMenu size={28} />} {/* //Si toggled==true fait apparaitre la Croix, sinon le menu Hamburger*/}
       </button>
     </div>
   );
