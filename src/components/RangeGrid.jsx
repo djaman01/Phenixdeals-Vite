@@ -124,13 +124,13 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
 
         <div className=" max-lg:mt-4 max-lg:flex max-lg:flex-row-reverse max-lg:justify-between">
           <button
-            className="ml-4 rounded-full bg-blue-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md"
+            className="ml-4 rounded-full bg-green-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md"
             onClick={handleFilter}
           >
             Filtrer
           </button>
           <button
-            className="ml-4 rounded-full bg-blue-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md max-lg:ml-0"
+            className="ml-4 rounded-full bg-red-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md max-lg:ml-0"
             onClick={handleReset}
           >
             Reset
