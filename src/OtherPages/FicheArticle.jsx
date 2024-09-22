@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaWhatsapp } from "react-icons/fa";
 
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 const FicheArticle = () => {
   //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
   //Avec useParams, on va extraire ce paramètre qui est unique, pour définir une route dynamic dans le back-end
@@ -36,6 +39,16 @@ const FicheArticle = () => {
 
   }, [articleId])
 
+  useEffect(() => {
+    Aos.init({
+      once: true,
+      offset: 100,
+      duration: 700,
+      easing: "ease-in-out",
+      // delay: 100,
+    });
+  }, []);
+
   return (
     <>
     <div className="mt-3 mb-5">
@@ -47,7 +60,7 @@ const FicheArticle = () => {
       ) : (
         article && (
           <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
-            <div className="h-[550px] w-[550px] max-lg:h-[360px] max-lg:w-[360px]">
+            <div data-aos="fade-right" className="h-[550px] w-[550px] max-lg:h-[360px] max-lg:w-[360px]">
               <img
                 src={`http://localhost:3005/${article.imageUrl}`}
                 alt={article.infoArticle}
@@ -55,7 +68,7 @@ const FicheArticle = () => {
               />
             </div>
 
-            <div className="prose flex h-[550px] w-[500px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]">
+            <div data-aos="fade-left" className="prose flex h-[550px] w-[500px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]">
               <h1 className="mt-10 text-[#0072B5] text-center ">{article.auteur}</h1>
               <hr className="my-0 w-11/12 border-gray-500" />
               <h2 className="my-3  text-center">{article.infoArticle}</h2>

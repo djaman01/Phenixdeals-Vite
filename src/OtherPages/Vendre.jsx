@@ -13,6 +13,7 @@ import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 
 const Vendre = () => {
+  
   useEffect(() => {
     Aos.init({
       once: true,
