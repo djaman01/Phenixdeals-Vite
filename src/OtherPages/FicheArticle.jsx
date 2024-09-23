@@ -43,7 +43,7 @@ const FicheArticle = () => {
     Aos.init({
       once: true,
       offset: 100,
-      duration: 700,
+      duration: 750,
       easing: "ease-in-out",
       // delay: 100,
     });

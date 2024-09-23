@@ -87,7 +87,7 @@ const Vendre = () => {
             </div>
           </div>
 
-          <div data-aos="fade-left" className="mt-3">
+          <div data-aos="fade-left" className="mt-3 max-lg:mb-24">
             <ContactForm />
           </div>
         </div>
