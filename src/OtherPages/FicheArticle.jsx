@@ -60,7 +60,7 @@ const FicheArticle = () => {
       ) : (
         article && (
           <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
-            <div data-aos="fade-right" className="h-[550px] w-[550px] max-lg:h-[360px] max-lg:w-[360px]">
+            <div data-aos="fade-right" className="h-[550px] w-[536px] max-lg:h-[360px] max-lg:w-[360px]">
               <img
                 src={`http://localhost:3005/${article.imageUrl}`}
                 alt={article.infoArticle}
