@@ -152,7 +152,7 @@ const handleLogout = async () => {
     {
       name: 'Image',
       selector: row => row.imageUrl,//même nom que dans base de donnée pour extraire info
-      cell: row => <img className='my-3' src={`http://localhost:3005/${row.imageUrl}`} alt={row.auteur} />
+      cell: row => <img className='my-3' src={row.imageUrl} alt={row.auteur} />
     },
     {
       name: 'Auteur',

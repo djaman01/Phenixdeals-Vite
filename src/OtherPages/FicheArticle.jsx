@@ -62,7 +62,7 @@ const FicheArticle = () => {
           <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
             <div data-aos="fade-right" className="h-[550px] w-[536px] max-lg:h-[360px] max-lg:w-[360px]">
               <img
-                src={`http://localhost:3005/${article.imageUrl}`}
+                src={article.imageUrl}//pas besoin de src={`http://localhost:3005/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
                 alt={article.infoArticle}
                 className="h-full w-full rounded-lg border border-gray-300 bg-white object-contain shadow-md max-lg:object-contain"
               />

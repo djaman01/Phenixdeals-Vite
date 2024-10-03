@@ -47,7 +47,7 @@ const CardGrid = ({
                   <div className="h-60 w-full max-lg:h-52">
                     <img
                       className="h-full w-full rounded-t-lg object-cover"
-                      src={`http://localhost:3005/${e.imageUrl}`}
+                      src={e.imageUrl}
                       alt={e.auteur}
                     />
                   </div>
