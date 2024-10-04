@@ -34,7 +34,7 @@ const AddArticle = () => {
   }, []);
 
   //Comme il y a l'image, faire un state avec un objet comme dans contact ne va pas marcher
-  const [imageUrl, setImageUrl] = useState(""); //setImage dans dropzone
+  const [imageFile, setImageFile] = useState(null); //setImage dans dropzone
   const [auteur, setAuteur] = useState(""); //setAuteur dans onChange
   const [type, setType] = useState("");
   const [infoArticle, setInfoArticle] = useState("");
@@ -47,9 +47,9 @@ const AddArticle = () => {
     e.preventDefault(); //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
 
     //Pour interdire l'envoie si on ne rempli pas un champ de addArticle
-    if (imageUrl && auteur && type && infoArticle && prix && etat && code) {
+    if (imageFile && auteur && type && infoArticle && prix && etat && code) {
       const formData = new FormData(); //FormData: This is useful when you need to handle file uploads: FormData() crée un objet avec key-values pour tout envoyer en 1 fois
-      formData.append("file", imageUrl); // 'file"=property / imageUrl= Value qui est une state variable
+      formData.append("file", imageFile); //'file"=property / imageFile= Value qui est une state variable
       formData.append("auteur", auteur);
       formData.append("type", type);
       formData.append("infoArticle", infoArticle);
@@ -62,7 +62,7 @@ const AddArticle = () => {
         console.log("création article", response.data);
         alert("Article submitted to DataBase");
         // Réinitialisation des états du formulaire pour que les champs se vident
-        setImageUrl("");
+        setImageFile(null);
         setAuteur("");
         setType("");
         setInfoArticle("");
@@ -139,9 +139,9 @@ const AddArticle = () => {
                   onChange={(e) => setCode(e.target.value)}
                 />
 
-                {/* Dropping the image will store it in the imageUrl state variable */}
+                {/* Dropping the image will store it in the imageFile state variable */}
                 <Dropzone
-                  onDrop={(acceptedFiles) => setImageUrl(acceptedFiles[0])}
+                  onDrop={(acceptedFiles) => setImageFile(acceptedFiles[0])}
                 >
                   {({ getRootProps, getInputProps }) => (
                     <div
@@ -174,10 +174,10 @@ const AddArticle = () => {
               </form>
 
               <div className="ml-16 mt-6 flex h-96 w-96 items-center justify-center border border-gray-400 ">
-                {/*Pour que l'image n'apparaisse que si imageURL contient une image */}
-                {imageUrl && (
+                {/*Pour que l'image n'apparaisse que si imageFile contient une image */}
+                {imageFile && (
                   <img
-                    src={URL.createObjectURL(imageUrl)}
+                    src={URL.createObjectURL(imageFile)}
                     alt="image uploaded"
                     className="max-h-full max-w-full"
                   />
