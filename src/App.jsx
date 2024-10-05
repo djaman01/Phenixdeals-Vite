@@ -13,6 +13,7 @@ import PageArtist from "./OtherPages/PageArtist";
 import Dashboard from "./AdminPages/Dashboard";
 import SignUp from "./AdminPages/SignUp";
 import Login from "./AdminPages/Login";
+import Deals from "./OtherPages/Deals";
 
 
 
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/vendre" element={<Vendre/>}></Route>
         <Route path="/addArticle" element={<AddArticle/>}></Route>
         <Route path="/concept" element={<Concept/>}></Route>
+        <Route path="/bestDeals" element={<Deals/>}></Route>
         <Route path="/allArtists" element={<AllArtists/>}></Route>
         <Route path="/pageArtist/:auteur" element={<PageArtist/>}></Route>
         <Route path="/tableaux" element={<Tableaux/>}></Route>

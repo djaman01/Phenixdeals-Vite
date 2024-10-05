@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { globalState1 } from "../ContextComp";
-import { hamburger } from "../assets/icons";
 import { logoPhenix } from "../assets/images";
 import SideBar from "./SideBar";
 
@@ -56,6 +55,12 @@ const Header = () => {
           <Link to="/concept">
             <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1]">
               Concept
+            </p>
+          </Link>
+
+          <Link to="/bestDeals">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl text-[#ff5722] hover:bg-[#00ff7f] hover:text-[#555555]">
+              Best Deals
             </p>
           </Link>
         </div>
