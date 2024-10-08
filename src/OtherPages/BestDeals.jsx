@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 
-const Deals = () => {
+const BestDeals = () => {
 
   const [articleObject, setArticleObject] = useState([]); //State variable ou on va store tous les objets représentants les articles
   const [error, setError] = useState("");
@@ -78,4 +78,4 @@ const Deals = () => {
   )
 }
 
-export default Deals
+export default BestDeals
