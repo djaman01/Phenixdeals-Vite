@@ -8,6 +8,7 @@ import { BsQuestionSquare } from "react-icons/bs";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
+import { FaRegThumbsUp } from "react-icons/fa";
 
 const SideBar = () => {
   const { openSidebar, setOpenSidebar } = globalState1();
@@ -58,6 +59,13 @@ const SideBar = () => {
             component={<Link to="/concept" />}
           >
             Concept
+          </MenuItem>
+
+          <MenuItem
+            icon={<FaRegThumbsUp size={18} />}
+            component={<Link to="/bestDeals" />}
+          >
+            Best Deals
           </MenuItem>
         </Menu>
       </Sidebar>
