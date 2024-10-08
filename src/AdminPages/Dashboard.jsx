@@ -70,23 +70,26 @@ export default function Dashboard() {
   //Pour PUT request et modifier certains élements selectionnés
   const [articlePrice, setArticlePrice] = useState('');
   const [articleInfos, setArticleInfos] = useState('');
+  const [bestDeal, setBestDeal] = useState('');
   const [articleCode, setArticleCode] = useState('');
 
   //Pour que quand on clique sur stylo ou cancel, apporte des changements
   const [articleId, setArticleId] = useState(null);
 
-  //Pour changer la valeur de l'id, la valeur de infoArticle et le prix
+  //Pour changer la valeur de l'id, la valeur de infoArticle, le prix ...etc.
   const handleEditClick = (row) => {
     setArticleId(row._id);  //Pour voir un input pour modifier les valeurs, après avoir cliquer sur le stylo ou cancel
     setArticleInfos(row.infoArticle); //Modification de infoArticle
     setArticlePrice(row.prix); //Modification du prix
+    setBestDeal(row.bestDeal); //Modification de la valeur de bestDeal
     setArticleCode(row.code)
   };
 
-  //On donne aux VALEURS de la propriété prix et infoArticle de la database, les 2 states variables précédentes que l'on va changer
+  //On donne aux VALEURS de la propriété prix, infoArticle..etc de la database, les states variables précédentes que l'on va changer
   const updatedProductData = {
     prix: articlePrice,
     infoArticle: articleInfos,
+    bestDeal: bestDeal,
     code: articleCode
   }
 
@@ -148,6 +151,7 @@ const handleLogout = async () => {
 
 
   //Création database avec npm react data table component--------------------------------------
+
   const columns = [
     {
       name: 'Image',
@@ -206,6 +210,24 @@ const handleLogout = async () => {
     },
 
     {
+      name: 'Best Deal ?',
+      selector: row => row.bestDeal,
+      sortable: true,
+      cell: row => articleId === row._id ?
+      <div>
+      <input
+        placeholder="Best Deal ?"
+        value={bestDeal}
+        onChange={(e) => setBestDeal(e.target.value)} 
+        className="border-2 border-black rounded-md text-center w-full"
+      />
+    </div>
+    :
+    row.bestDeal
+
+    },
+
+    {
       name: 'Code',
       selector: row => row.code,
       sortable: true,
@@ -214,7 +236,7 @@ const handleLogout = async () => {
       <input
         placeholder="New Code"
         value={articleCode}
-        onChange={(e) => setArticleCode(e.target.value)} //productPrice se met à jour en même temps que ce qu'on écrit dans l'input
+        onChange={(e) => setArticleCode(e.target.value)} 
         className="border-2 border-black rounded-md text-center w-full"
       />
     </div>

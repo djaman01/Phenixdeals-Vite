@@ -40,6 +40,7 @@ const AddArticle = () => {
   const [infoArticle, setInfoArticle] = useState("");
   const [prix, setPrix] = useState("");
   const [etat, setEtat] = useState("");
+  const [bestDeal, setBestDeal] = useState("");
   const [code, setCode] = useState("");
 
   //To submit all form data to the server with .post
@@ -47,7 +48,7 @@ const AddArticle = () => {
     e.preventDefault(); //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
 
     //Pour interdire l'envoie si on ne rempli pas un champ de addArticle
-    if (imageFile && auteur && type && infoArticle && prix && etat && code) {
+    if (imageFile && auteur && type && infoArticle && prix && etat && bestDeal && code) {
       const formData = new FormData(); //FormData: This is useful when you need to handle file uploads: FormData() crée un objet avec key-values pour tout envoyer en 1 fois
       formData.append("file", imageFile); //'file"=property / imageFile= Value qui est une state variable
       formData.append("auteur", auteur);
@@ -55,6 +56,7 @@ const AddArticle = () => {
       formData.append("infoArticle", infoArticle);
       formData.append("prix", prix);
       formData.append("etat", etat);
+      formData.append("bestDeal", bestDeal);
       formData.append("code", code);
 
       try {
@@ -68,6 +70,7 @@ const AddArticle = () => {
         setInfoArticle("");
         setPrix("");
         setEtat("");
+        setBestDeal("");
         setCode("");
       } 
       catch (error) {
@@ -129,6 +132,14 @@ const AddArticle = () => {
                   placeholder="Achat ou Dépôt"
                   value={etat}
                   onChange={(e) => setEtat(e.target.value)}
+                />
+                <input
+                  required
+                  type="text"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  placeholder="Best Deal ?"
+                  value={bestDeal}
+                  onChange={(e) => setBestDeal(e.target.value)}
                 />
                 <input
                   required

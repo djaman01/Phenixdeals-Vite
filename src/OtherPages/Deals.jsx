@@ -21,8 +21,8 @@ const Deals = () => {
     const fetchHomeArticles= async () => {
 
       try {
-        const response = await axios.get("http://localhost:3005/homeArticles?limit=20"); // Add the query parameter for limiting the results
-        console.log("Last 20 articles fetched", response.data);
+        const response = await axios.get("http://localhost:3005/bestDeals"); // Add the query parameter for limiting the results
+        console.log("Best Deals fetched", response.data);
         setArticleObject(response.data);
       } 
       catch (error) {
