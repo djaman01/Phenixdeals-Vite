@@ -68,6 +68,7 @@ export default function Dashboard() {
 
   
   //Pour PUT request et modifier certains élements selectionnés
+  const [auteurName, setAuteurName] = useState('');
   const [articlePrice, setArticlePrice] = useState('');
   const [articleInfos, setArticleInfos] = useState('');
   const [bestDeal, setBestDeal] = useState('');
@@ -79,14 +80,16 @@ export default function Dashboard() {
   //Pour changer la valeur de l'id, la valeur de infoArticle, le prix ...etc.
   const handleEditClick = (row) => {
     setArticleId(row._id);  //Pour voir un input pour modifier les valeurs, après avoir cliquer sur le stylo ou cancel
+    setAuteurName(row.auteur);//Pour corriger le nom de l'auteur en cas d'erreur
     setArticleInfos(row.infoArticle); //Modification de infoArticle
     setArticlePrice(row.prix); //Modification du prix
     setBestDeal(row.bestDeal); //Modification de la valeur de bestDeal
     setArticleCode(row.code)
   };
 
-  //On donne aux VALEURS de la propriété prix, infoArticle..etc de la database, les states variables précédentes que l'on va changer
+  //On donne aux VALEURS de la propriété auteur, prix, infoArticle..etc de la database, les states variables précédentes que l'on va changer
   const updatedProductData = {
+    auteur: auteurName,
     prix: articlePrice,
     infoArticle: articleInfos,
     bestDeal: bestDeal,
@@ -161,7 +164,18 @@ const handleLogout = async () => {
     {
       name: 'Auteur',
       selector: row => row.auteur,
-      sortable: true //Pour ordonner par ordre alphabétic ou l'inverse
+      sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
+      cell: row => articleId=== row._id ?
+      <div>
+        <input 
+          placeholder="Correct Name" 
+          value={auteurName}
+          onChange={(e)=> setAuteurName(e.target.value)}
+         className="border-2 border-black rounded-md text-center w-full"
+          />
+      </div>
+      :
+      row.auteur
     },
     {
       name: 'Type',

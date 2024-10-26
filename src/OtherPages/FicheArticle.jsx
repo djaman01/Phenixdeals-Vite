@@ -60,7 +60,7 @@ const FicheArticle = () => {
       ) : (
         article && (
           <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
-            <div data-aos="fade-right" className="h-[536px] w-[536px] max-lg:h-[360px] max-lg:w-[360px]">
+            <div data-aos="fade-right" className="h-[550px] w-[540px] max-lg:h-[360px] max-lg:w-[360px]">
               <img
                 src={article.imageUrl}//pas besoin de src={`http://localhost:3005/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
                 alt={article.infoArticle}
@@ -68,7 +68,7 @@ const FicheArticle = () => {
               />
             </div>
 
-            <div data-aos="fade-left" className="prose flex h-[536px] w-[536px] flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]">
+            <div data-aos="fade-left" className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]">
               <h1 className="mt-10 text-[#0072B5] text-center ">{article.auteur}</h1>
               <hr className="my-0 w-11/12 border-gray-500" />
               <h2 className="my-3  text-center">{article.infoArticle}</h2>
@@ -76,11 +76,11 @@ const FicheArticle = () => {
               <h2 className="my-3 text-[#00A170] text-center">{article.prix}</h2>
               <hr className="my-0 w-11/12 border-gray-500" />
               <h3 className="martian-mono-regular my-3 text-[#ff0921] text-center ">
-                Réf: {article.code}
+                Référence: {article.code}
               </h3>
               <div className="mt-3 flex h-32 w-full flex-col items-center justify-around max-lg:mt-1 ">
                 <a
-                  href="https://wa.link/le9dry"
+                  href="https://wa.link/4w1a28"
                   target="_blank"
                   className="no-underline"
                 >
