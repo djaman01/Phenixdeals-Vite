@@ -65,11 +65,11 @@ const AllArtists = () => {
     </div>
 
       <div className="padding">
-        <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35]">
+        <div className="martian-mono mb-[42px] text-center text-3xl text-[#FA7A35]">
           <h1>Tous les Artistes</h1>
         </div>
 
-        <div className="relative mx-auto mb-9 mt-4 w-1/4 max-lg:w-3/4">
+        <div className="relative mx-auto mb-9 w-1/4 max-lg:w-3/4">
           <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
             <SlMagnifier color="black" />
           </div>

@@ -32,7 +32,7 @@ const Header = () => {
 
             <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 shadow-xl ring-1 ring-slate-900/5 group-hover:block">
               <Link to="/allArtists">
-                <p className="mt-1 py-1 pl-2 text-[#0160ee] hover:bg-[#e4e9f1] ">
+                <p className="mt-2 py-1 pl-2 hover:bg-[#e4e9f1] ">
                   Tous les Artistes
                 </p>
               </Link>
@@ -59,7 +59,7 @@ const Header = () => {
           </Link>
 
           <Link to="/bestDeals">
-            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl text-[#ff5722] hover:bg-[#00ff7f] hover:text-black">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl text-[#ff5722] hover:bg-[#00ff7f] hover:text-white">
               Best Deals
             </p>
           </Link>
