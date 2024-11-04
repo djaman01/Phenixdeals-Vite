@@ -30,7 +30,7 @@ const Vendre = () => {
       <Header />
     </div>
 
-      <main>
+      <main className="overflow-hidden">
         <div>
           <h1 className="montserrat-regular text-center text-[45px] text-blue-700 max-lg:mt-5">
             Contactez-nous
@@ -83,7 +83,7 @@ const Vendre = () => {
               <h2 className=" mb-3 text-2xl font-semibold text-gray-700">
                 Téléphone
               </h2>
-              <p className="font-palanquin text-xl text-gray-500">/</p>
+              <p className="font-palanquin text-xl text-gray-500">06-19-63-53-36</p>
             </div>
           </div>
 

@@ -26,7 +26,7 @@ const Footer = () => {
               <b>Mail:</b> phenix.deals@gmail.com
             </li>
             <li className="font-roboto mt-3 text-lg leading-normal">
-              <b>Tel:</b> /
+              <b>Tel:</b> 06-19-63-53-36
             </li>
           </ul>
         </div>
