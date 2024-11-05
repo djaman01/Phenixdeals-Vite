@@ -55,8 +55,7 @@ const Concept = () => {
               Bijoux.
             </p>
             <p className="pb-5 pt-5 text-lg">
-              <b>Parcourez notre site:</b> Des articles variés sont disponibles,
-              tous en rapport avec l'art et la décoration.
+              <b>Parcourez notre site:</b> Des articles variés en rapport avec l'art et la décoration sont disponibles 
             </p>
             <Link to="/" className="no-underline" onClick={scrollToTop}>
             <button className=" montserrat-regular mx-auto mb-5 flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">

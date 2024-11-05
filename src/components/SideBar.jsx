@@ -33,10 +33,7 @@ const SideBar = () => {
           </MenuItem>
 
           <SubMenu icon={<SlBasket size={18} />} label="Acheter">
-            <MenuItem
-              style={{ color: "#0160ee" }}
-              component={<Link to="/allArtists" />}
-            >
+            <MenuItem component={<Link to="/allArtists" />}>
               Tous les Artistes
             </MenuItem>
             <MenuItem component={<Link to="/tableaux" />}>Tableaux</MenuItem>
@@ -71,7 +68,8 @@ const SideBar = () => {
       </Sidebar>
       {/* Le npm est codé de tel sorte à ce que le bouton apparaisse seul, puis quand on appuie la sidebar apparait */}
       <button className="cursor-pointer" onClick={() => setToggled(!toggled)}>
-        {toggled ? <RxCross1 size={28} /> : <RxHamburgerMenu size={28} />} {/* //Si toggled==true fait apparaitre la Croix, sinon le menu Hamburger*/}
+        {toggled ? <RxCross1 size={28} /> : <RxHamburgerMenu size={28} />}{" "}
+        {/* //Si toggled==true fait apparaitre la Croix, sinon le menu Hamburger*/}
       </button>
     </div>
   );

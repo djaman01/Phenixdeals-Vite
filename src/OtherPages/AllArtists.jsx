@@ -9,17 +9,15 @@ const AllArtists = () => {
   const [artists, setArtists] = useState([]);
   const [error, setError] = useState("");
 
-
   useEffect(() => {
-
     const fetchAllArtists = async () => {
-
       try {
-        const response = await axios.get(`http://localhost:3005/allArtists`);
+        const response = await axios.get(
+          `https://www.phenix-deals.com/allArtists`,
+        );
         setArtists(response.data);
         console.log("All artists fetched", response.data);
-      } 
-      catch (error) {
+      } catch (error) {
         console.error(
           error.response //si error.response = error from the server
             ? `${error.response.status}: ${error.response.data.message}` //server side error
@@ -29,7 +27,7 @@ const AllArtists = () => {
       }
     };
 
-    fetchAllArtists()
+    fetchAllArtists();
   }, []);
 
   //state qui va store la value de l'input
@@ -60,9 +58,9 @@ const AllArtists = () => {
 
   return (
     <>
-     <div className="mt-3">
-      <Header />
-    </div>
+      <div className="mt-3">
+        <Header />
+      </div>
 
       <div className="padding">
         <div className="martian-mono mb-[42px] text-center text-3xl text-[#FA7A35]">
@@ -93,21 +91,20 @@ const AllArtists = () => {
                 <div key={letter} className="mb-5">
                   <h2 className="text-2xl text-blue-800">{letter}</h2>
                   {/* On fait <ul> pour ne pas qu'il y ait de point avant chaque nom d'artiste */}
-                  <ul> 
+                  <ul>
                     {/*On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter] */}
-                    {groupedArtists[letter].map((e,index) => (
-                        <li key={index}>
-                          <Link to={`/pageArtist/${e.auteur}`}>{e.auteur}</Link>
-                        </li>
-                      ),
-                    )}
+                    {groupedArtists[letter].map((e, index) => (
+                      <li key={index}>
+                        <Link to={`/pageArtist/${e.auteur}`}>{e.auteur}</Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               ))
           )}
         </div>
       </div>
-      
+
       <div className="pt-8">
         <Footer />
       </div>

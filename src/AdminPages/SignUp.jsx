@@ -6,8 +6,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-
-  
   //State variable pour stocker les valeurs des inputs email et password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,22 +19,26 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (email && password) { //pas besoin de formData car on envoie pas de file, juste des texte
+    if (email && password) {
+      //pas besoin de formData car on envoie pas de file, juste des texte
 
       try {
         //On stocke le .post dans la variable "response" pour pouvoir accéder à la data dans le console.log(response.data)
-        const response = await axios.post( `http://localhost:3005/signUp`, {email, password});
-        
+        const response = await axios.post(
+          `https://www.phenix-deals.com/signUp`,
+          { email, password },
+        );
+
         console.log("Identifiants envoyés", response.data);
         alert("Signup Success");
-        (response.data.message==='Signup Success') ? navigate('/toLogin') : alert('Error during signup');
+        response.data.message === "Signup Success"
+          ? navigate("/toLogin")
+          : alert("Error during signup");
         setEmail(""); //clear field Email
         setPassword(""); //clear field Password
-      } 
-      catch (error) {
+      } catch (error) {
         console.error("Erreur lors de l'envoi des identifiants", error);
       }
-
     }
   };
 

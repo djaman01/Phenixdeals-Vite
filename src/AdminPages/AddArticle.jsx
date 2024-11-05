@@ -14,12 +14,13 @@ const AddArticle = () => {
   useEffect(() => {
     const authenticate = async () => {
       try {
-        const response = await axios.get("http://localhost:3005/authentication");
+        const response = await axios.get(
+          "https://www.phenix-deals.com/authentication",
+        );
         if (response.data.message !== "Authenticated") {
           navigate("/");
         }
-      } 
-      catch (error) {
+      } catch (error) {
         console.error(
           "Error during authentication:",
           error.response
@@ -48,7 +49,16 @@ const AddArticle = () => {
     e.preventDefault(); //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
 
     //Pour interdire l'envoie si on ne rempli pas un champ de addArticle
-    if (imageFile && auteur && type && infoArticle && prix && etat && bestDeal && code) {
+    if (
+      imageFile &&
+      auteur &&
+      type &&
+      infoArticle &&
+      prix &&
+      etat &&
+      bestDeal &&
+      code
+    ) {
       const formData = new FormData(); //FormData: This is useful when you need to handle file uploads: FormData() crée un objet avec key-values pour tout envoyer en 1 fois
       formData.append("file", imageFile); //'file"=property / imageFile= Value qui est une state variable
       formData.append("auteur", auteur);
@@ -60,7 +70,10 @@ const AddArticle = () => {
       formData.append("code", code);
 
       try {
-        const response = await axios.post("http://localhost:3005/upload", formData); //On envoie tout en 1 fois
+        const response = await axios.post(
+          "https://www.phenix-deals.com/upload",
+          formData,
+        ); //On envoie tout en 1 fois
         console.log("création article", response.data);
         alert("Article submitted to DataBase");
         // Réinitialisation des états du formulaire pour que les champs se vident
@@ -72,8 +85,7 @@ const AddArticle = () => {
         setEtat("");
         setBestDeal("");
         setCode("");
-      } 
-      catch (error) {
+      } catch (error) {
         console.error("Error uploading file:", error);
       }
     } else {
@@ -166,21 +178,18 @@ const AddArticle = () => {
                 </Dropzone>
 
                 <div className="flex justify-center">
-
-                <Link to="/toDashboard">
-                    <button className="mt-4 w-32 rounded-md px-4 py-2 bg-blue-500 font-bold text-white transition duration-150 ease-in-out hover:bg-blue-600">
+                  <Link to="/toDashboard">
+                    <button className="mt-4 w-32 rounded-md bg-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-blue-600">
                       Dashboard
                     </button>
                   </Link>
 
                   <button
-                    className="ml-10 mt-4 w-32 rounded-md bg-gradient-to-r bg-green-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600"
+                    className="ml-10 mt-4 w-32 rounded-md bg-green-500 bg-gradient-to-r px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600"
                     onClick={handleSubmit}
                   >
                     Send Article
                   </button>
-
-             
                 </div>
               </form>
 

@@ -17,15 +17,15 @@ const FicheArticle = () => {
   const [article, setArticle] = useState(null);
   const [errorText, setErrorText] = useState("");
 
-
-  useEffect(()=> {
+  useEffect(() => {
     const fetchFicheArticle = async () => {
       try {
-        const response = await axios.get(`http://localhost:3005/article/${articleId}`);
+        const response = await axios.get(
+          `https://www.phenix-deals.com/article/${articleId}`,
+        );
         setArticle(response.data);
         console.log("Article Fetched", response.data);
-      }
-       catch (error) {
+      } catch (error) {
         console.error(
           error.response
             ? `${error.response.status}: ${error.response.data.message}` //server-side error
@@ -33,11 +33,10 @@ const FicheArticle = () => {
         );
         setErrorText("An error occurred while fetching data");
       }
-    }
+    };
 
     fetchFicheArticle();
-
-  }, [articleId])
+  }, [articleId]);
 
   useEffect(() => {
     Aos.init({
@@ -51,31 +50,41 @@ const FicheArticle = () => {
 
   return (
     <>
-    <div className="mt-3 mb-5">
-      <Header />
-    </div>
+      <div className="mb-5 mt-3">
+        <Header />
+      </div>
 
       {errorText ? (
         <p>Error: {errorText}</p>
       ) : (
         article && (
           <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
-            <div data-aos="fade-right" className="h-[550px] w-[540px] max-lg:h-[360px] max-lg:w-[360px]">
+            <div
+              data-aos="fade-right"
+              className="h-[550px] w-[540px] max-lg:h-[360px] max-lg:w-[360px]"
+            >
               <img
-                src={article.imageUrl}//pas besoin de src={`http://localhost:3005/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
+                src={article.imageUrl} //pas besoin de src={`https://www.phenix-deals.com/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
                 alt={article.infoArticle}
                 className="h-full w-full rounded-lg border border-gray-300 bg-white object-contain shadow-md max-lg:object-contain"
               />
             </div>
 
-            <div data-aos="fade-left" className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]">
-              <h1 className="mt-10 text-[#0072B5] text-center ">{article.auteur}</h1>
+            <div
+              data-aos="fade-left"
+              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
+            >
+              <h1 className="mt-10 text-center text-[#0072B5] ">
+                {article.auteur}
+              </h1>
               <hr className="my-0 w-11/12 border-gray-500" />
               <h2 className="my-3  text-center">{article.infoArticle}</h2>
               <hr className="my-0 w-11/12 border-gray-500" />
-              <h2 className="my-3 text-[#00A170] text-center">{article.prix}</h2>
+              <h2 className="my-3 text-center text-[#00A170]">
+                {article.prix}
+              </h2>
               <hr className="my-0 w-11/12 border-gray-500" />
-              <h3 className="martian-mono-regular my-3 text-[#ff0921] text-center ">
+              <h3 className="martian-mono-regular my-3 text-center text-[#ff0921] ">
                 Référence: {article.code}
               </h3>
               <div className="mt-3 flex h-32 w-full flex-col items-center justify-around max-lg:mt-1 ">
@@ -88,7 +97,10 @@ const FicheArticle = () => {
                     <FaWhatsapp size={20} /> Réserver
                   </button>
                 </a>
-                <Link to={`/pageArtist/${article.auteur}`} className="no-underline">
+                <Link
+                  to={`/pageArtist/${article.auteur}`}
+                  className="no-underline"
+                >
                   <button className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
                     Autres {article.auteur}
                   </button>

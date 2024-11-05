@@ -10,17 +10,15 @@ const NewArticles = () => {
 
   const handleArticleType = (e) => setArticleType(e.target.value); //Event handler qui fait que la state articleType a pour valeur la value de l'input
 
-
   useEffect(() => {
-
-    const fetchHomeArticles= async () => {
-
+    const fetchHomeArticles = async () => {
       try {
-        const response = await axios.get("http://localhost:3005/homeArticles?limit=20"); // Add the query parameter for limiting the results
+        const response = await axios.get(
+          "https://www.phenix-deals.com/homeArticles?limit=20",
+        ); // Add the query parameter for limiting the results
         console.log("Last 20 articles fetched", response.data);
         setArticleObject(response.data);
-      } 
-      catch (error) {
+      } catch (error) {
         console.error(
           error.response
             ? `${error.response.status}: ${error.response.data.message}` // Server-side error
@@ -28,13 +26,10 @@ const NewArticles = () => {
         );
         setError("An error occurred while fetching data"); // Set the error message in case of failure
       }
-
     };
-  
+
     fetchHomeArticles();
-    
   }, []);
-  
 
   const filteredArticles = articleObject.filter((e) =>
     e.type.toLowerCase().includes(articleType.toLowerCase()),
@@ -47,7 +42,6 @@ const NewArticles = () => {
     });
   };
 
-
   return (
     <section>
       <CardGrid
@@ -57,7 +51,7 @@ const NewArticles = () => {
         onChange={handleArticleType}
         error={error}
         filteredArticles={filteredArticles}
-        onClick = {scrollToTop}
+        onClick={scrollToTop}
       />
     </section>
   );

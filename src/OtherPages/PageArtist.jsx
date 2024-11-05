@@ -12,15 +12,14 @@ const PageArtist = () => {
   const [errorText, setErrorText] = useState("");
 
   useEffect(() => {
-
     const fetchPageArtist = async () => {
       try {
-        const response = await axios.get(`http://localhost:3005/pageArtist/${auteur}`);
+        const response = await axios.get(
+          `https://www.phenix-deals.com/pageArtist/${auteur}`,
+        );
         setOeuvres(response.data);
         console.log("Oeuvre Fetched", response.data);
-
-      }
-       catch (error) {
+      } catch (error) {
         console.error(
           error.response
             ? `${error.response.status}: ${error.response.data.message}` //server-side error
@@ -28,18 +27,22 @@ const PageArtist = () => {
         );
         setErrorText("An error occurred while fetching data");
       }
-    }
+    };
 
     fetchPageArtist();
-
-  }, [auteur])
+  }, [auteur]);
 
   return (
     <>
       <Header />
 
       <RangeGrid
-        title={<>Toutes les oeuvres de <span style={{color:'#000000'}}>{auteur}</span></>}
+        title={
+          <>
+            Toutes les oeuvres de{" "}
+            <span style={{ color: "#000000" }}>{auteur}</span>
+          </>
+        }
         allValues={oeuvres}
         error={errorText}
       />

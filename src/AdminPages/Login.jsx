@@ -6,10 +6,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
   //!!!!!!!!!!!!!!! Pour activer le code qui store le token dans le cookie
-  axios.defaults.withCredentials = true; 
-  
+  axios.defaults.withCredentials = true;
+
   //State variable pour stocker les valeurs des inputs email et password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,22 +22,24 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (email && password) { //pas besoin de formData car on envoie pas de file, juste des texte
+    if (email && password) {
+      //pas besoin de formData car on envoie pas de file, juste des texte
 
       try {
-        //On utilise aussi .post pour le login car: The POST method is used to send data to the server to be processed. Even though you're not creating or modifying database records, you are sending login credentials for the server to verify. The POST method is appropriate for this kind of operation 
-        const response = await axios.post( `http://localhost:3005/logIn`, {email, password});
+        //On utilise aussi .post pour le login car: The POST method is used to send data to the server to be processed. Even though you're not creating or modifying database records, you are sending login credentials for the server to verify. The POST method is appropriate for this kind of operation
+        const response = await axios.post(
+          `https://www.phenix-deals.com/logIn`,
+          { email, password },
+        );
         console.log(response.data);
-        (response.data.status==='Success') ? navigate('/toDashboard') : alert('Error during login');
-      } 
-      catch (error) {
+        response.data.status === "Success"
+          ? navigate("/toDashboard")
+          : alert("Error during login");
+      } catch (error) {
         console.error("Erreur lors du login", error);
       }
-
     }
   };
-
-
 
   return (
     <>
