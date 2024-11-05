@@ -28,7 +28,7 @@ const Login = () => {
       try {
         //On utilise aussi .post pour le login car: The POST method is used to send data to the server to be processed. Even though you're not creating or modifying database records, you are sending login credentials for the server to verify. The POST method is appropriate for this kind of operation
         const response = await axios.post(
-          `https://www.phenix-deals.com/logIn`,
+          `https://phenixdeals-back.onrender.com/logIn`,
           { email, password },
         );
         console.log(response.data);

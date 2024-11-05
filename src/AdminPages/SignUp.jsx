@@ -25,7 +25,7 @@ const SignUp = () => {
       try {
         //On stocke le .post dans la variable "response" pour pouvoir accéder à la data dans le console.log(response.data)
         const response = await axios.post(
-          `https://www.phenix-deals.com/signUp`,
+          `https://phenixdeals-back.onrender.com/signUp`,
           { email, password },
         );
 

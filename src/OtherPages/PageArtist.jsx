@@ -15,7 +15,7 @@ const PageArtist = () => {
     const fetchPageArtist = async () => {
       try {
         const response = await axios.get(
-          `https://www.phenix-deals.com/pageArtist/${auteur}`,
+          `https://phenixdeals-back.onrender.com/pageArtist/${auteur}`,
         );
         setOeuvres(response.data);
         console.log("Oeuvre Fetched", response.data);

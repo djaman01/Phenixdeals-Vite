@@ -16,7 +16,7 @@ const BestDeals = () => {
     const fetchHomeArticles = async () => {
       try {
         const response = await axios.get(
-          "https://www.phenix-deals.com/bestDeals",
+          "https://phenixdeals-back.onrender.com/bestDeals",
         ); // Add the query parameter for limiting the results
         console.log("Best Deals fetched", response.data);
         setArticleObject(response.data);

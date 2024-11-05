@@ -12,7 +12,7 @@ const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
     const fecthByCategory = async () => {
       try {
         const response = await axios.get(
-          `https://www.phenix-deals.com/${type}`,
+          `https://phenixdeals-back.onrender.com/${type}`,
         );
         setArticles(response.data);
         console.log(`${title} articles fetched`, response.data);

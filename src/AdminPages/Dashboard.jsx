@@ -23,7 +23,7 @@ export default function Dashboard() {
     const authenticate = async () => {
       try {
         const response = await axios.get(
-          "https://www.phenix-deals.com/authentication",
+          "https://phenixdeals-back.onrender.com/authentication",
         );
         if (response.data.message !== "Authenticated") {
           navigate("/");
@@ -46,7 +46,7 @@ export default function Dashboard() {
     const fetchAllArticles = async () => {
       try {
         const response = await axios.get(
-          "https://www.phenix-deals.com/allArticles",
+          "https://phenixdeals-back.onrender.com/allArticles",
         );
         setArticles(response.data);
         console.log("All articles fetched", response.data);
@@ -96,7 +96,7 @@ export default function Dashboard() {
   const handleUpdates = async (articleId) => {
     try {
       const response = await axios.put(
-        `https://www.phenix-deals.com/putDash/${articleId}`,
+        `https://phenixdeals-back.onrender.com/putDash/${articleId}`,
         updatedProductData,
       );
       console.log(response.data); // Show what was sent from the server: res.json({message:'', stateProduct}), in the browser console
@@ -116,7 +116,7 @@ export default function Dashboard() {
   const handleDelete = async (articleId) => {
     try {
       const response = await axios.delete(
-        `https://www.phenix-deals.com/deleteArticle/${articleId}`,
+        `https://phenixdeals-back.onrender.com/deleteArticle/${articleId}`,
       );
       setArticles(articles.filter((article) => article._id !== articleId)); // Remove the deleted article from the state
       console.log(response.data); // Log the server's response message
@@ -134,7 +134,9 @@ export default function Dashboard() {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.get("https://www.phenix-deals.com/logout");
+      const response = await axios.get(
+        "https://phenixdeals-back.onrender.com/logout",
+      );
       if (response.data.status === "Success") {
         navigate("/"); // Redirect to home page after loging out
       } else {

@@ -21,7 +21,7 @@ const FicheArticle = () => {
     const fetchFicheArticle = async () => {
       try {
         const response = await axios.get(
-          `https://www.phenix-deals.com/article/${articleId}`,
+          `https://phenixdeals-back.onrender.com/article/${articleId}`,
         );
         setArticle(response.data);
         console.log("Article Fetched", response.data);
@@ -64,7 +64,7 @@ const FicheArticle = () => {
               className="h-[550px] w-[540px] max-lg:h-[360px] max-lg:w-[360px]"
             >
               <img
-                src={article.imageUrl} //pas besoin de src={`https://www.phenix-deals.com/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
+                src={article.imageUrl} //pas besoin de src={`https://phenixdeals-back.onrender.com/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
                 alt={article.infoArticle}
                 className="h-full w-full rounded-lg border border-gray-300 bg-white object-contain shadow-md max-lg:object-contain"
               />

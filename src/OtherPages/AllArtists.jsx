@@ -13,7 +13,7 @@ const AllArtists = () => {
     const fetchAllArtists = async () => {
       try {
         const response = await axios.get(
-          `https://www.phenix-deals.com/allArtists`,
+          `https://phenixdeals-back.onrender.com/allArtists`,
         );
         setArtists(response.data);
         console.log("All artists fetched", response.data);

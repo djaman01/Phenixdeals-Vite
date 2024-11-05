@@ -14,7 +14,7 @@ const NewArticles = () => {
     const fetchHomeArticles = async () => {
       try {
         const response = await axios.get(
-          "https://www.phenix-deals.com/homeArticles?limit=20",
+          "https://phenixdeals-back.onrender.com/homeArticles?limit=20",
         ); // Add the query parameter for limiting the results
         console.log("Last 20 articles fetched", response.data);
         setArticleObject(response.data);

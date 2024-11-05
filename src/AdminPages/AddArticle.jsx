@@ -15,7 +15,7 @@ const AddArticle = () => {
     const authenticate = async () => {
       try {
         const response = await axios.get(
-          "https://www.phenix-deals.com/authentication",
+          "https://phenixdeals-back.onrender.com/authentication",
         );
         if (response.data.message !== "Authenticated") {
           navigate("/");
@@ -71,7 +71,7 @@ const AddArticle = () => {
 
       try {
         const response = await axios.post(
-          "https://www.phenix-deals.com/upload",
+          "https://phenixdeals-back.onrender.com/upload",
           formData,
         ); //On envoie tout en 1 fois
         console.log("création article", response.data);
