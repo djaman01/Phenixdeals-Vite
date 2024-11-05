@@ -101,7 +101,7 @@ const FicheArticle = () => {
                   to={`/pageArtist/${article.auteur}`}
                   className="no-underline"
                 >
-                  <button className="flex h-11 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
+                  <button className="flex h-11 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-tight text-white">
                     Autres {article.auteur}
                   </button>
                 </Link>
