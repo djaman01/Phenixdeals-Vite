@@ -48,6 +48,13 @@ const FicheArticle = () => {
     });
   }, []);
 
+  const whatsappLink = () => {
+    const message = `Bonjour,\nJe suis intéressé par le ${article.type} de ${article.auteur}, référence N°${article.code}`;
+    const phone = "+212619635336";
+
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; //The encodeURIComponent function ensures the message is URL-friendly, handling spaces, line breaks (\n), and special characters.
+  };
+
   return (
     <>
       <div className="mb-5 mt-3">
@@ -89,7 +96,7 @@ const FicheArticle = () => {
               </h3>
               <div className="mt-3 flex h-32 w-full flex-col items-center justify-around max-lg:mt-1 ">
                 <a
-                  href="https://wa.link/4w1a28"
+                  href={whatsappLink()}
                   target="_blank"
                   className="no-underline"
                 >
@@ -101,7 +108,7 @@ const FicheArticle = () => {
                   to={`/pageArtist/${article.auteur}`}
                   className="no-underline"
                 >
-                  <button className="leading-5 flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold text-white">
+                  <button className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white">
                     Autres {article.auteur}
                   </button>
                 </Link>
