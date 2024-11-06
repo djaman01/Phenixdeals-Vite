@@ -55,7 +55,7 @@ const CardGrid = ({
                     <h3 className="my-1 flex h-7 items-center justify-center font-mono font-bold text-blue-600 max-lg:text-lg  ">
                       {e.type}
                     </h3>
-                    <div className="mx-auto w-1/2 border-b border-gray-300"></div>
+                    <div className="mx-auto w-1/2 border-b border-gray-300"></div> {/* ligne de séparation */}
                     <h4 className=" font-roboto my-3 flex h-8 items-center justify-center leading-tight text-gray-800 max-lg:h-10 ">
                       {e.infoArticle}
                     </h4>
