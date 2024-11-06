@@ -66,7 +66,7 @@ const FicheArticle = () => {
         <p>Error: {errorText}</p>
       ) : (
         article && (
-          <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
+          <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11 overflow-hidden">
             <div
               data-aos="fade-right"
               className="h-[550px] w-[540px] max-lg:h-[360px] max-lg:w-[360px]"
