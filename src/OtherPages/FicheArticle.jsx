@@ -48,8 +48,9 @@ const FicheArticle = () => {
     });
   }, []);
 
+  //\n= retour à la ligne \n\n = retour à la ligne + espace entre les 2 paragraphes
   const whatsappLink = () => {
-    const message = `De phenix-deals.com,\nJe suis intéressé par le ${article.type} de ${article.auteur}, référence N°${article.code}`;
+    const message = `De phenix-deals.com,\n\nJe suis intéressé par le ${article.type} de ${article.auteur}, référence N°${article.code}`;
     const phone = "+212619635336";
 
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; //The encodeURIComponent function ensures the message is URL-friendly, handling spaces, line breaks (\n), and special characters.
