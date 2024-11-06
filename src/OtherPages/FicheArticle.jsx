@@ -49,7 +49,7 @@ const FicheArticle = () => {
   }, []);
 
   const whatsappLink = () => {
-    const message = `Bonjour,\nJe suis intéressé par le ${article.type} de ${article.auteur}, référence N°${article.code}`;
+    const message = `De phenix-deals.com,\nJe suis intéressé par le ${article.type} de ${article.auteur}, référence N°${article.code}`;
     const phone = "+212619635336";
 
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; //The encodeURIComponent function ensures the message is URL-friendly, handling spaces, line breaks (\n), and special characters.
