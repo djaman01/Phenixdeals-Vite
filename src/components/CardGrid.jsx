@@ -56,7 +56,7 @@ const CardGrid = ({
                       {e.type}
                     </h3>
                     <div className="mx-auto w-1/2 border-b border-gray-300"></div>
-                    <h4 className=" font-roboto my-3 flex h-8 items-center justify-center leading-tight text-gray-800 max-lg:h-12 ">
+                    <h4 className=" font-roboto my-3 flex h-8 items-center justify-center leading-tight text-gray-800 max-lg:h-10 ">
                       {e.infoArticle}
                     </h4>
                     <div className=" mx-auto my-1 w-1/2 border-b border-gray-300"></div>
@@ -66,7 +66,7 @@ const CardGrid = ({
                     </h4>
                     <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="flex h-7 items-center justify-center font-mono font-bold text-[#00A170] max-lg:text-lg ">
+                    <h4 className="flex h-7 items-center justify-center font-mono font-bold text-[#00A170] max-lg:h-8 max-lg:text-lg ">
                       {e.prix}
                     </h4>
                   </div>
