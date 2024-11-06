@@ -51,8 +51,8 @@ const CardGrid = ({
                       alt={e.auteur}
                     />
                   </div>
-                  <div className="h-[165px] text-center text-xl max-lg:h-[186px]">
-                    <h3 className="my-1 flex h-7 items-center justify-center font-mono font-bold text-blue-600  ">
+                  <div className="h-[167px] text-center text-xl max-lg:h-[186px]">
+                    <h3 className="my-1 flex h-7 items-center justify-center font-mono font-bold text-blue-600 max-lg:text-lg  ">
                       {e.type}
                     </h3>
                     <div className="mx-auto w-1/2 border-b border-gray-300"></div>
@@ -66,7 +66,7 @@ const CardGrid = ({
                     </h4>
                     <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="flex h-7 items-center justify-center font-mono font-bold text-[#00A170] ">
+                    <h4 className="flex h-7 items-center justify-center font-mono font-bold text-[#00A170] max-lg:text-lg ">
                       {e.prix}
                     </h4>
                   </div>
