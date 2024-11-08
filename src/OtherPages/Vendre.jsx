@@ -13,7 +13,6 @@ import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 
 const Vendre = () => {
-  
   useEffect(() => {
     Aos.init({
       once: true,
@@ -26,9 +25,9 @@ const Vendre = () => {
 
   return (
     <>
-   <div className="mt-3 mb-3">
-      <Header />
-    </div>
+      <div className="mb-3 mt-3">
+        <Header />
+      </div>
 
       <main className="overflow-hidden">
         <div>
@@ -68,8 +67,18 @@ const Vendre = () => {
               </div>
               <h2 className="mb-3 text-2xl font-semibold">Réseaux Sociaux</h2>
               <div className=" flex w-28 items-center justify-around">
-                <FaFacebook size={28} className="cursor-pointer" />
-                <BiLogoInstagramAlt size={32} className="cursor-pointer" />
+                <a
+                  href="https://www.instagram.com/phenixdeals/"
+                  target="_blank"
+                >
+                  <BiLogoInstagramAlt size={32} className="cursor-pointer" />
+                </a>
+                <a
+                  href="https://web.facebook.com/profile.php?id=100090243464213"
+                  target="_blank"
+                >
+                  <FaFacebook size={28} className="cursor-pointer" />
+                </a>
               </div>
             </div>
 
@@ -83,7 +92,9 @@ const Vendre = () => {
               <h2 className=" mb-3 text-2xl font-semibold text-gray-700">
                 Téléphone
               </h2>
-              <p className="font-palanquin text-xl text-gray-500">06-19-63-53-36</p>
+              <p className="font-palanquin text-xl text-gray-500">
+                06-19-63-53-36
+              </p>
             </div>
           </div>
 
