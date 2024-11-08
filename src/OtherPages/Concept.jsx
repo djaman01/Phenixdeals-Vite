@@ -86,10 +86,10 @@ const Concept = () => {
             <p className="text-lg max-lg:mt-10">
               <b>Mettez vos biens en vente <u>sans frais</u>: </b> <br />
               <br />
-              Nous prenons une commission après la vente
+              Nous prenons notre commission après la vente
             </p>
             <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto mt-[142px] max-lg:mt-10 max-lg:mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
+              <button className=" montserrat-regular mx-auto mb-5 max-lg:mt-10 max-lg:mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
                 <b>Contactez-nous</b>
                 <img
                   src={arrowRight}
