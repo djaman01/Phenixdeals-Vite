@@ -83,8 +83,8 @@ const Concept = () => {
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Vendez sur notre site !
             </p>
-            <p className="mt-16 text-lg max-lg:mt-10">
-              <b>Mettez vos biens en vente sur notre site <u>sans frais</u>: </b> <br />
+            <p className="text-lg max-lg:mt-10">
+              <b>Mettez vos biens en vente <u>sans frais</u>: </b> <br />
               <br />
               Nous prenons une commission après la vente
             </p>
