@@ -79,7 +79,7 @@ const ScrollPage = () => {
             />
           </div>
         </Link>
-        <Link to="./allArtists">
+        <Link to="./tableaux">
           <div className="lg:h-[700px] px-2">
             <img
               src={phenixAchat}

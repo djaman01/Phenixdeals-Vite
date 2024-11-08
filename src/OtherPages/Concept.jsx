@@ -84,8 +84,10 @@ const Concept = () => {
               Vendez sur notre site !
             </p>
             <p className="mt-16 text-lg max-lg:mt-10">
-              <b>Mettez vos biens en vente sur notre site: </b> <br />
+              <b>Mettez vos biens en vente sur notre site sans frais: </b> <br />
               <br />
+              Nous prenons une commission après avoir vendu votre bien<br />.
+              <br/>
               Contactez-nous pour plus de détails
             </p>
             <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
