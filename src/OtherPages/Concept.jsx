@@ -52,7 +52,7 @@ const Concept = () => {
             <p className="text-lg">
               <b>phenixdeals.com</b> est une plateforme d'intérmédiation,
               spécialisé dans la vente d'objets d'arts, de décoration et de
-              Bijoux.
+              bijoux.
             </p>
             <p className="pb-5 pt-5 text-lg">
               <b>Parcourez notre site:</b> Des articles variés en rapport avec l'art et la décoration sont disponibles 
