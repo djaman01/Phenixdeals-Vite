@@ -89,7 +89,7 @@ const Concept = () => {
               Nous prenons notre commission après la vente
             </p>
             <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto mt-28 max-lg:mt-10 max-lg:mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
+              <button className=" montserrat-regular mx-auto mt-[10.5rem] max-lg:mt-10 max-lg:mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
                 <b>Contactez-nous</b>
                 <img
                   src={arrowRight}
