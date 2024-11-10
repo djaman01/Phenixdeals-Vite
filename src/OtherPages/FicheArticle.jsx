@@ -56,6 +56,13 @@ const FicheArticle = () => {
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; //The encodeURIComponent function ensures the message is URL-friendly, handling spaces, line breaks (\n), and special characters.
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  };
+
   return (
     <>
       <div className="mb-5 mt-3">
@@ -66,7 +73,7 @@ const FicheArticle = () => {
         <p>Error: {errorText}</p>
       ) : (
         article && (
-          <div className="flex h-screen items-center justify-center gap-16 bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11 overflow-hidden">
+          <div className="flex h-screen items-center justify-center gap-16 overflow-hidden bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
             <div
               data-aos="fade-right"
               className="h-[550px] w-[540px] max-lg:h-[360px] max-lg:w-[360px]"
@@ -109,7 +116,10 @@ const FicheArticle = () => {
                   to={`/pageArtist/${article.auteur}`}
                   className="no-underline"
                 >
-                  <button className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white">
+                  <button
+                    onClick={scrollToTop}
+                    className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white"
+                  >
                     Autres {article.auteur}
                   </button>
                 </Link>

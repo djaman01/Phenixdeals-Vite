@@ -50,9 +50,8 @@ const Concept = () => {
           <div className="relative z-10">
             <p className="text-center text-3xl font-bold max-lg:mt-7">Activité</p>
             <p className="text-lg">
-              <b>phenixdeals.com</b> est une plateforme d'intérmédiation,
-              spécialisé dans la vente d'objets d'arts, de décoration et de
-              bijoux.
+              <b>phenixdeals.com</b> est une plateforme d'intermédiation,
+              spécialisée dans la vente d'objets d'art: tableaux, décoration, bijoux.
             </p>
             <p className="pb-5 pt-5 text-lg">
               <b>Parcourez notre site:</b> Des articles variés en rapport avec l'art et la décoration sont disponibles 
