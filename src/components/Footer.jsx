@@ -44,7 +44,7 @@ const Footer = () => {
           </Link>
           <div className="max-lg:mb-3">
           <p className="text-white-400 mt-6 w-[400px] font-mono text-base leading-7 max-lg:text-center max-lg:w-[350px] text-center ">
-            Site spécialisé dans la vente d'objets d'art, de décoration et de bijoux.
+            Site spécialisé dans la vente d'objets d'art: tableaux, décoration, bijoux.
           </p>
           </div>
         </div>
