@@ -3,8 +3,8 @@ import { globalState1 } from "../ContextComp";
 import { Link } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
-import { TfiMoney } from "react-icons/tfi";
-import { BsQuestionSquare } from "react-icons/bs";
+import { CiPhone } from "react-icons/ci";
+import { BsInfoCircle } from "react-icons/bs";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
@@ -27,12 +27,12 @@ const SideBar = () => {
         <Menu className="mt-10">
           <MenuItem
             component={<Link to="/" />}
-            icon={<IoHomeOutline size={18} />}
+            icon={<IoHomeOutline size={20} />}
           >
             Accueil
           </MenuItem>
 
-          <SubMenu icon={<SlBasket size={18} />} label="Acheter">
+          <SubMenu icon={<SlBasket size={20} />} label="Acheter">
             <MenuItem component={<Link to="/allArtists" />}>
               Tous les Artistes
             </MenuItem>
@@ -45,21 +45,21 @@ const SideBar = () => {
           </SubMenu>
 
           <MenuItem
-            icon={<TfiMoney size={18} />}
+            icon={<CiPhone size={24} />}
             component={<Link to="/vendre" />}
           >
-            Vendre
+            Contact
           </MenuItem>
 
           <MenuItem
-            icon={<BsQuestionSquare size={18} />}
+            icon={<BsInfoCircle size={20} />}
             component={<Link to="/concept" />}
           >
             Concept
           </MenuItem>
 
           <MenuItem
-            icon={<FaRegThumbsUp size={18} />}
+            icon={<FaRegThumbsUp size={19} />}
             component={<Link to="/bestDeals" />}
           >
             Best Deals
