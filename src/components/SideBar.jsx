@@ -45,6 +45,13 @@ const SideBar = () => {
           </SubMenu>
 
           <MenuItem
+            icon={<FaRegThumbsUp size={19} />}
+            component={<Link to="/bestDeals" />}
+          >
+            Best Deals
+          </MenuItem>
+
+          <MenuItem
             icon={<CiPhone size={24} />}
             component={<Link to="/vendre" />}
           >
@@ -56,13 +63,6 @@ const SideBar = () => {
             component={<Link to="/concept" />}
           >
             Concept
-          </MenuItem>
-
-          <MenuItem
-            icon={<FaRegThumbsUp size={19} />}
-            component={<Link to="/bestDeals" />}
-          >
-            Best Deals
           </MenuItem>
         </Menu>
       </Sidebar>
