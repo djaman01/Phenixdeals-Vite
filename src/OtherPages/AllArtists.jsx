@@ -56,6 +56,14 @@ const AllArtists = () => {
     return acc;
   }, {}); // !!! {} On initialise l'accumulateur comme un objet vide
 
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant"
+    })
+  }
+
   return (
     <>
       <div className="mt-3">
@@ -95,7 +103,9 @@ const AllArtists = () => {
                     {/*On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter] */}
                     {groupedArtists[letter].map((e, index) => (
                       <li key={index}>
-                        <Link to={`/pageArtist/${e.auteur}`}>{e.auteur}</Link>
+                        <Link to={`/pageArtist/${e.auteur}`} onClick={scrollToTop}>
+                          {e.auteur}
+                        </Link>
                       </li>
                     ))}
                   </ul>
