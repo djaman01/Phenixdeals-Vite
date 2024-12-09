@@ -50,7 +50,7 @@ const Concept = () => {
           <div className="relative z-10">
             <p className="text-center text-3xl font-bold max-lg:mt-7">Activité</p>
             <p className="text-lg">
-              <b>phenixdeals.com</b> est une plateforme d'intermédiation,
+              <b>phenixdeals.com</b> est une plateforme d'intermédiation Marocaine,
               spécialisée dans la vente d'objets d'art: tableaux, décoration, bijoux.
             </p>
             <p className="pb-5 pt-5 text-lg">
