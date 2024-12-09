@@ -1,5 +1,4 @@
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import { globalState1 } from "../ContextComp";
 import { Link } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
@@ -11,7 +10,6 @@ import { RxCross1 } from "react-icons/rx";
 import { FaRegThumbsUp } from "react-icons/fa";
 
 const SideBar = () => {
-  const { openSidebar, setOpenSidebar } = globalState1();
 
   const [toggled, setToggled] = useState(false);
 

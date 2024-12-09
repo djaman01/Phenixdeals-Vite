@@ -50,10 +50,11 @@ const Concept = () => {
           <div className="relative z-10">
             <p className="text-center text-3xl font-bold max-lg:mt-7">Activité</p>
             <p className="text-lg">
-              <b>Phenix-deals.com</b> est un site web Marocain spécialisé dans la vente d'objets d'art: tableaux, décoration, bijoux.
+              <b>phenixdeals.com</b> est un site web Marocain,
+              spécialisée dans la vente d'objets d'art: tableaux, décoration, bijoux.
             </p>
             <p className="pb-5 pt-5 text-lg">
-              <b>Parcourez notre site:</b>Une sélection d'articles variés est disponible à la vente.
+              <b>Parcourez notre site:</b> Des articles variés en rapport avec l'art et la décoration sont disponibles 
             </p>
             <Link to="/" className="no-underline" onClick={scrollToTop}>
             <button className=" montserrat-regular mx-auto mb-5 flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">
@@ -82,12 +83,13 @@ const Concept = () => {
               Vendez sur notre site !
             </p>
             <p className="text-lg max-lg:mt-10">
-              <b>Vous pouvez mettre vos biens en vente sur notre site web <u>sans frais</u>: </b> <br />
+              <b>Mettez vos biens en vente sur notre site web <u>sans frais</u> !</b> <br />
               <br />
-              Nous prenons notre commission après la vente: Contactez-nous pour plus de détails
+              Nous prenons notre commission après la vente de votre bien:<br/>
+              <span className="font-semibold">Contactez-nous pour plus d'informations</span>
             </p>
             <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto mt-[10.5rem] max-lg:mt-10 max-lg:mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
+              <button className=" montserrat-regular mx-auto mt-[86px] max-lg:mt-10 max-lg:mb-5 flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
                 <b>Contactez-nous</b>
                 <img
                   src={arrowRight}

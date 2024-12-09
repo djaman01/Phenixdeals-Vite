@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { globalState1 } from "../ContextComp";
 import { logoPhenix } from "../assets/images";
 import SideBar from "./SideBar";
 
 const Header = () => {
-  const { openSidebar, setOpenSidebar } = globalState1();
 
   return (
     <header className="font-roboto padding-x w-full py-1">
