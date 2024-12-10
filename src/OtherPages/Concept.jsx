@@ -51,10 +51,10 @@ const Concept = () => {
             <p className="text-center text-3xl font-bold max-lg:mt-7">Activité</p>
             <p className="text-lg">
               <b>phenixdeals.com</b> est un site web Marocain,
-              spécialisée dans la vente d'objets d'art: tableaux, décoration, bijoux.
+              spécialisé dans la vente d'objets d'art: tableaux, décorations, bijoux.
             </p>
             <p className="pb-5 pt-5 text-lg">
-              <b>Parcourez notre site:</b> Des articles variés en rapport avec l'art et la décoration sont disponibles 
+              <b>Parcourez notre site:</b> Des articles variés sont disponibles à la vente
             </p>
             <Link to="/" className="no-underline" onClick={scrollToTop}>
             <button className=" montserrat-regular mx-auto mb-5 flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">
