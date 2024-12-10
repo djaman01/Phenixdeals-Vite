@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import RangeGrid from "../components/RangeGrid";
+import { Helmet } from "react-helmet-async";
 
 const PageArtist = () => {
   const { auteur } = useParams(); //On tire le paramètre à la fin de l'url, qui est le nom de l'artiste, définit dans le component AllArtists, dans le lien quand on clique sur le nom de l'artiste
