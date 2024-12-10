@@ -37,8 +37,8 @@ const CardGrid = ({
           <p>Error: {error}</p>
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
-            {filteredArticles.map((e) => (
-              <Link to={`/ficheArticle/${e._id}`} key={e._id}>
+            {filteredArticles.map((e) => ( //Définition paramètre url pour dynamique route quand on clique sur une image
+              <Link to={`/ficheArticle/${e._id}`} key={e._id}> 
                 <div
                   key={e._id}
                   className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"

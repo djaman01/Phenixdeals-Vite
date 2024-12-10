@@ -7,6 +7,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const FicheArticle = () => {
   //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
@@ -65,6 +66,40 @@ const FicheArticle = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`$Oeuvre de ${article.auteur} | Phenix-deals`}</title>
+
+        <meta
+          name="description"
+          content={`Découvrez une oeuvre de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`}
+        />
+
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={`$Oeuvre de ${article.auteur} | Phenix-deals`}
+        />
+        <meta
+          property="og:description"
+          content={`Découvrez une oeuvre de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`}
+        />
+
+        <meta
+          property="og:image"
+          content={
+            article
+              ? article.imageUrl
+              : "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+          }
+        />
+
+        {/* Pour que le lien redirige vers la page de l'article */}
+        <meta
+          property="og:url"
+          content={`https://www.phenix-deals.com/ficheArticle/${articleId}`}
+        />
+      </Helmet>
+
       <div className="mb-5 mt-3">
         <Header />
       </div>
