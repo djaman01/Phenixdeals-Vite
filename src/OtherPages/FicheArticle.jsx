@@ -70,7 +70,7 @@ const FicheArticle = () => {
         {/* Obligé de mettre la condition de n'appliquer les différentes balises Helmet, que si la state variable "article" qui contient les données fetched existe: car comme ça prend du temps à fetch, ça peut créer des erreur et donc ne pas afficher la page, car la balise Helmet lira null dans la state article */}
         <title>
           {article
-            ? `$Oeuvre de ${article.auteur} | Phenix-deals`
+            ? `${article.type} de ${article.auteur} | Phenix-deals`
             : "Phenix-deals | Vente d'Objets d'Art au Maroc"}
         </title>
 
@@ -78,7 +78,7 @@ const FicheArticle = () => {
           name="description"
           content={
             article
-              ? `Découvrez une œuvre de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
+              ? `Découvrez un ${article.type} de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
               : "Phenix-deals | Vente d'Objets d'Art au Maroc"
           }
         />
@@ -88,7 +88,7 @@ const FicheArticle = () => {
           property="og:title"
           content={
             article
-              ? `$Oeuvre de ${article.auteur} | Phenix-deals`
+              ? `${article.type} de ${article.auteur} | Phenix-deals`
               : "Phenix-deals | Vente d'Objets d'Art au Maroc"
           }
         />
@@ -96,8 +96,8 @@ const FicheArticle = () => {
           property="og:description"
           content={
             article
-              ? `Découvrez une œuvre de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-              : "Phenix-deals | Vente d'Objets d'Art au Maroc"
+            ? `Découvrez un ${article.type} de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
+            : "Phenix-deals | Vente d'Objets d'Art au Maroc"
           }
         />
 
