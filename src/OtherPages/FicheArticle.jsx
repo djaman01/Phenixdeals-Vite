@@ -67,21 +67,38 @@ const FicheArticle = () => {
   return (
     <>
       <Helmet>
-        <title>{`$Oeuvre de ${article.auteur} | Phenix-deals`}</title>
+        {/* Obligé de mettre la condition de n'appliquer les différentes balises Helmet, que si la state variable "article" qui contient les données fetched existe: car comme ça prend du temps à fetch, ça peut créer des erreur et donc ne pas afficher la page, car la balise Helmet lira null dans la state article */}
+        <title>
+          {article
+            ? `$Oeuvre de ${article.auteur} | Phenix-deals`
+            : "Phenix-deals | Vente d'Objets d'Art au Maroc"}
+        </title>
 
         <meta
           name="description"
-          content={`Découvrez une oeuvre de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`}
+          content={
+            article
+              ? `Découvrez une œuvre de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
+              : "Phenix-deals | Vente d'Objets d'Art au Maroc"
+          }
         />
 
         <meta property="og:type" content="article" />
         <meta
           property="og:title"
-          content={`$Oeuvre de ${article.auteur} | Phenix-deals`}
+          content={
+            article
+              ? `$Oeuvre de ${article.auteur} | Phenix-deals`
+              : "Phenix-deals | Vente d'Objets d'Art au Maroc"
+          }
         />
         <meta
           property="og:description"
-          content={`Découvrez une oeuvre de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`}
+          content={
+            article
+              ? `Découvrez une œuvre de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
+              : "Phenix-deals | Vente d'Objets d'Art au Maroc"
+          }
         />
 
         <meta
@@ -93,10 +110,13 @@ const FicheArticle = () => {
           }
         />
 
-        {/* Pour que le lien redirige vers la page de l'article */}
         <meta
           property="og:url"
-          content={`https://www.phenix-deals.com/ficheArticle/${articleId}`}
+          content={
+            article
+              ? `https://www.phenix-deals.com/ficheArticle/${articleId}`
+              : "https://www.phenix-deals.com"
+          }
         />
       </Helmet>
 
