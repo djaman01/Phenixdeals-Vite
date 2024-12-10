@@ -15,7 +15,7 @@ const HomePage = () => {
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
           name="description"
-          content="Phenix-deals est un site web Marocain dédié à la vente d'objets d'art: tableaux, décoration, bijoux. Contactez-nous pour plus d'informations"
+          content="Site web dédié à la vente d'objets d'art: tableaux, décoration, bijoux. Contactez-nous pour plus d'informations"
         />
 
         {/* Open Graph pour les réseaux sociaux */}
@@ -31,7 +31,7 @@ const HomePage = () => {
         {/*Texte qui va s'afficher en-dessous du titre: mettre la même description que celle du moteur de recherche*/}
         <meta
           property="og:description"
-          content="Phenix-deals est un site web Marocain dédié à la vente d'objets d'art: tableaux, décoration, bijoux. Contactez-nous pour plus d'informations"
+          content="Site web dédié à la vente d'objets d'art: tableaux, décoration, bijoux. Contactez-nous pour plus d'informations"
         />
 
         {/* Image lors du partage sur les réseaux sociaux: mettre l'url absolue de l'image sur le site */}

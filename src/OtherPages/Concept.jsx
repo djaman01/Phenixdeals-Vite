@@ -50,8 +50,8 @@ const Concept = () => {
               Activité
             </p>
             <p className="text-lg">
-              <b>phenixdeals.com</b> est un site web Marocain, spécialisé dans
-              la vente d'objets d'art: tableaux, décorations, bijoux.
+              <b>phenixdeals.com</b> est un site web spécialisé dans
+              la vente d'objets d'art au Maroc: tableaux, décorations, bijoux.
             </p>
             <p className="pb-5 pt-5 text-lg">
               <b>Parcourez notre site:</b> Des articles variés sont disponibles
