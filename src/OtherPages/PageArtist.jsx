@@ -36,8 +36,8 @@ const PageArtist = () => {
   return (
     <>
       <Helmet>
+        {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams; donc pas besoin de condition, car le paramètre est instantanément dispo  */}
         <title>{`Oeuvres de ${auteur} | Phenix-deals`}</title>{" "}
-        {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams  */}
         <meta
           name="description"
           content={`Découvrez toutes les oeuvres de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
@@ -45,11 +45,7 @@ const PageArtist = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={
-            oeuvres
-              ? `https://www.phenix-deals.com/pageArtist/${auteur}`
-              : "https://www.phenix-deals.com"
-          }
+          content={`https://www.phenix-deals.com/pageArtist/${auteur}`}
         />
         <meta
           property="og:title"
@@ -62,6 +58,11 @@ const PageArtist = () => {
         <meta
           property="og:image"
           content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+        />
+        {/* Pour éviter tout problème de contenu dupliqué. Cela renforce encore le SEO de chaque page artiste. */}
+        <link
+          rel="canonical"
+          href={`https://www.phenix-deals.com/pageArtist/${auteur}`}
         />
       </Helmet>
 

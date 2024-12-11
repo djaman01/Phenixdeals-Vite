@@ -9,6 +9,7 @@ import { SocialIcon } from "react-social-icons";
 import { arrowRight } from "../assets/icons";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Concept = () => {
   const scrollToTop = () => {
@@ -29,6 +30,34 @@ const Concept = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Concept | Phenix-deals</title>
+
+        <meta
+          name="description"
+          content="Découvrez le concept de Phenix-deals.com: achetez et vendez des objets d'art au Maroc (Tableaux, objets de décorations et bijoux)"
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta
+          property="og:url"
+          content="https://www.phenix-deals.com/concept"
+        />
+
+        <meta property="og:title" content="Concept | Phenix-deals" />
+
+        <meta
+          property="og:decription"
+          content="Découvrez le concept de Phenix-deals.com: achetez et vendez des objets d'art au Maroc (Tableaux, objets de décorations et bijoux)"
+        />
+
+        <meta
+          property="og:image"
+          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+        />
+      </Helmet>
+
       <div className="mb-3 mt-3">
         <Header />
       </div>
@@ -45,13 +74,13 @@ const Concept = () => {
             {/* This div acts as the blue overlay */}
           </div>
           {/* This div contains the actual content and it's relative z-10 to appear above the  colored overlay */}
-          <div className="relative z-10 border border-transparent h-[350px] mb-3">
+          <div className="relative z-10 mb-3 h-[350px] border border-transparent">
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Activité
             </p>
             <p className="text-lg">
-              <b>phenixdeals.com</b> est un site web spécialisé dans
-              la vente d'objets d'art au Maroc: tableaux, décorations, bijoux.
+              <b>phenixdeals.com</b> est un site web spécialisé dans la vente
+              d'objets d'art au Maroc: tableaux, décorations, bijoux.
             </p>
             <p className="pb-5 pt-5 text-lg">
               <b>Parcourez notre site:</b> Des articles variés sont disponibles
@@ -81,7 +110,7 @@ const Concept = () => {
             {/* This div acts as the green overlay */}
           </div>
 
-          <div className="relative z-10 border border-transparent h-[350px] mb-3">
+          <div className="relative z-10 mb-3 h-[350px] border border-transparent">
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Vendez sur notre site !
             </p>
@@ -100,7 +129,7 @@ const Concept = () => {
           </div>
           <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
             <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
-            <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
+              <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
                 <b>Contactez-nous</b>
                 <img
                   src={arrowRight}
@@ -121,7 +150,7 @@ const Concept = () => {
             {/* This div acts as the green overlay */}
           </div>
 
-          <div className="relative z-10 border border-transparent h-[350px] mb-3 ">
+          <div className="relative z-10 mb-3 h-[350px] border border-transparent ">
             <p className="max-lg:text-l text-center text-3xl font-bold max-lg:mt-7 ">
               Abonnez-vous à nos réseaux sociaux
             </p>

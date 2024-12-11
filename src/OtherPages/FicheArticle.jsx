@@ -67,7 +67,8 @@ const FicheArticle = () => {
   return (
     <>
       <Helmet>
-        {/* Obligé de mettre la condition de n'appliquer les différentes balises Helmet, que si la state variable "article" qui contient les données fetched existe: car comme ça prend du temps à fetch, ça peut créer des erreur et donc ne pas afficher la page, car la balise Helmet lira null dans la state article */}
+
+        {/* Comme on met un titre dynamique par rapport aux données fetched et que ce n'est pas instantanée; il faut mettre une condition que la variable qui contient les properties utilisés soient rempleis, et donc ne soit pas vide */}
         <title>
           {article
             ? `${article.type} de ${article.auteur} | Phenix-deals`

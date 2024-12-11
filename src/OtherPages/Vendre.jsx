@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const Vendre = () => {
   useEffect(() => {
@@ -25,6 +26,27 @@ const Vendre = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact | Phenix-deals</title>
+
+        <meta
+          name="description"
+          content="Contactez-nous pour acheter ou vendre des objets d'art au Maroc. Retrouvez notre numéro de téléphone et notre adresse e-mail pour toute demande."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.phenix-deals.com/vendre" />
+        <meta property="og:title" content="Contact | Phenix-deals" />
+        <meta
+          property="og:description"
+          content="Contactez-nous pour acheter ou vendre des objets d'art au Maroc. Retrouvez notre numéro de téléphone et notre adresse e-mail pour toute demande."
+        />
+        <meta
+          property="og:image"
+          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+        />
+      </Helmet>
+
       <div className="mb-3 mt-3">
         <Header />
       </div>

@@ -3,6 +3,7 @@ import CardGrid from "../components/CardGrid";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const BestDeals = () => {
   const [articleObject, setArticleObject] = useState([]); //State variable ou on va store tous les objets représentants les articles
@@ -42,10 +43,35 @@ const BestDeals = () => {
       top: 0,
       behavior: "instant",
     });
+    a;
   };
 
   return (
     <>
+      <Helmet>
+        <title> Best Deals | Phenix-deals</title>
+        <meta
+          name="description"
+          content="Découvrez les meilleures affaires sur Phenix-deals.com. Tableaux, bijoux, et objets de décoration: trouvez des pièces uniques au meilleur prix."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://phenix-deals.com/best-deals" />
+
+        <meta property="og:title" content="Best Deals | Phenix-deals" />
+
+        <meta
+          property="og:description"
+          content="Découvrez les meilleures affaires sur Phenix-deals.com. Tableaux, bijoux, et objets de décoration: trouvez des pièces uniques au meilleur prix."
+        />
+        <meta
+          property="og:image"
+          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+        />
+
+        <link rel="canonical" href="https://phenix-deals.com/best-deals" />
+      </Helmet>
+
       <Header />
 
       <main>
