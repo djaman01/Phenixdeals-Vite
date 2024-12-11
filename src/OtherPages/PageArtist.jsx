@@ -46,7 +46,7 @@ const PageArtist = () => {
         <meta
           property="og:url"
           content={
-            article
+            oeuvres
               ? `https://www.phenix-deals.com/pageArtist/${auteur}`
               : "https://www.phenix-deals.com"
           }
