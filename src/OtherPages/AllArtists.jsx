@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SlMagnifier } from "react-icons/sl";
+import { Helmet } from "react-helmet-async";
 
 const AllArtists = () => {
   const [artists, setArtists] = useState([]);
@@ -56,16 +57,50 @@ const AllArtists = () => {
     return acc;
   }, {}); // !!! {} On initialise l'accumulateur comme un objet vide
 
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "instant"
-    })
-  }
+      behavior: "instant",
+    });
+  };
 
   return (
     <>
+      <Helmet>
+        <title>Tous les Artistes | Phenix-deals</title>
+
+        <meta
+          name="description"
+          content="Découvrez la liste complète de tous les artistes disponibles sur Phenix-deals.com. Cliquez sur un artiste pour voir ses oeuvres disponibles à la vente"
+        />
+
+        {/* <meta
+          name="keywords"
+          content="Artistes, Phenix Deals, Acheter Art, Art à vendre, Collections d'art"
+          //Balise qui n'est plus utilisé aujourd'hui par les nouveaux moteurs de recherche, qui se basent plus sur les balise title et meta description bien rédigées
+        /> */}
+
+        <meta property="og:title" content="Tous les Artistes | Phenix-deals" />
+
+        <meta property="og:type" content="website" />
+        
+        <meta
+          property="og:url"
+          content="https://www.phenix-deals.com/allArtists"
+        />
+
+        <meta
+          property="og:description"
+          content="Découvrez la liste complète de tous les artistes disponibles sur Phenix-deals.com. Cliquez sur un artiste pour voir ses oeuvres disponibles à la vente"
+        />
+        <meta
+          property="og:image"
+          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+        />
+
+        {/* Url à cliquer, lorque cette page est partagée sur les réseaux sociaux */}
+      </Helmet>
+
       <div className="mt-3">
         <Header />
       </div>
@@ -103,7 +138,10 @@ const AllArtists = () => {
                     {/*On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter] */}
                     {groupedArtists[letter].map((e, index) => (
                       <li key={index}>
-                        <Link to={`/pageArtist/${e.auteur}`} onClick={scrollToTop}>
+                        <Link
+                          to={`/pageArtist/${e.auteur}`}
+                          onClick={scrollToTop}
+                        >
                           {e.auteur}
                         </Link>
                       </li>

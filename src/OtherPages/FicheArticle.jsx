@@ -83,7 +83,17 @@ const FicheArticle = () => {
           }
         />
 
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
+
+        <meta
+          property="og:url"
+          content={
+            article
+              ? `https://www.phenix-deals.com/ficheArticle/${articleId}`
+              : "https://www.phenix-deals.com"
+          }
+        />
+        
         <meta
           property="og:title"
           content={
@@ -110,14 +120,7 @@ const FicheArticle = () => {
           }
         />
 
-        <meta
-          property="og:url"
-          content={
-            article
-              ? `https://www.phenix-deals.com/ficheArticle/${articleId}`
-              : "https://www.phenix-deals.com"
-          }
-        />
+     
       </Helmet>
 
       <div className="mb-5 mt-3">

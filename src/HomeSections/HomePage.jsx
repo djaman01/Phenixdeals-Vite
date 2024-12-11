@@ -18,7 +18,7 @@ const HomePage = () => {
           content="Site web dédié à la vente d'objets d'art: tableaux, décoration, bijoux. Contactez-nous pour plus d'informations"
         />
 
-        {/* Open Graph pour les réseaux sociaux */}
+        {/* Open Graph pour les réseaux sociauX/ Type de contenu et URL à paratgé */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.phenix-deals.com/" />
 

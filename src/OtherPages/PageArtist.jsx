@@ -36,15 +36,21 @@ const PageArtist = () => {
   return (
     <>
       <Helmet>
-
-        <title>{`Oeuvres de ${auteur} | Phenix-deals`}</title> {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams  */}
-
+        <title>{`Oeuvres de ${auteur} | Phenix-deals`}</title>{" "}
+        {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams  */}
         <meta
           name="description"
           content={`Découvrez toutes les oeuvres de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
         />
-
         <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={
+            article
+              ? `https://www.phenix-deals.com/pageArtist/${auteur}`
+              : "https://www.phenix-deals.com"
+          }
+        />
         <meta
           property="og:title"
           content={`Oeuvres de ${auteur} | Phenix-deals`}
@@ -52,6 +58,10 @@ const PageArtist = () => {
         <meta
           property="og:description"
           content={`Découvrez toutes les oeuvres de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
+        />
+        <meta
+          property="og:image"
+          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
       </Helmet>
 
