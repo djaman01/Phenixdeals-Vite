@@ -79,18 +79,17 @@ const Concept = () => {
               Activité
             </p>
             <p className="text-lg">
-              <b>phenixdeals.com</b> est un site web spécialisé dans la vente
-              d'objets d'art au Maroc: tableaux, décorations, bijoux.
+              <b>phenixdeals.com</b> est un site web Marocain, spécialisé dans la vente
+              de tableaux d'artiste peintres.
             </p>
             <p className="pb-5 pt-5 text-lg">
-              <b>Parcourez notre site:</b> Des articles variés sont disponibles
-              à la vente
+              <b>Parcourez notre site:</b> Des tableaux aux styles et thèmes variés sont disponibles à la vente
             </p>
           </div>
           <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
             <Link to="/" className="no-underline" onClick={scrollToTop}>
               <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">
-                <b>Nouveaux Articles</b>
+                <b>Nouveaux Tableaux</b>
                 <img
                   src={arrowRight}
                   alt="Right Arrow icon"
@@ -116,11 +115,11 @@ const Concept = () => {
             </p>
             <p className="text-lg max-lg:mt-10">
               <b>
-                Mettez vos biens en vente sur notre site web <u>sans frais</u> !
+                Mettez vos tableaux en vente sur notre site web <u>sans frais</u> !
               </b>{" "}
               <br />
               <br />
-              Nous prenons notre commission après la vente de votre bien:
+              Nous prenons notre commission après la vente de votre tableau:
               <br />
               <span className="font-semibold">
                 Contactez-nous pour plus d'informations

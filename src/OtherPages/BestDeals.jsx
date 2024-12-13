@@ -9,9 +9,9 @@ const BestDeals = () => {
   const [articleObject, setArticleObject] = useState([]); //State variable ou on va store tous les objets représentants les articles
   const [error, setError] = useState("");
 
-  const [articleType, setArticleType] = useState(""); //Pour searchBar: State variable qui va store la value de l'input et qui doit changer en fonction de ce qu'on écrit
+  const [auteurName, setAuteurName] = useState(""); //Pour searchBar: State variable qui va store la value de l'input et qui doit changer en fonction de ce qu'on écrit
 
-  const handleArticleType = (e) => setArticleType(e.target.value); //Event handler qui fait que la state articleType a pour valeur la value de l'input
+  const handleArticleType = (e) => setAuteurName(e.target.value); //Event handler qui fait que la state articleType a pour valeur la value de l'input
 
   useEffect(() => {
     const fetchHomeArticles = async () => {
@@ -35,7 +35,7 @@ const BestDeals = () => {
   }, []);
 
   const filteredArticles = articleObject.filter((e) =>
-    e.type.toLowerCase().includes(articleType.toLowerCase()),
+    e.auteur.toLowerCase().includes(auteurName.toLowerCase()),
   );
 
   const scrollToTop = () => {
@@ -52,7 +52,7 @@ const BestDeals = () => {
         <title> Best Deals | Phenix-deals</title>
         <meta
           name="description"
-          content="Découvrez les meilleures affaires sur Phenix-deals.com. Tableaux, bijoux, et objets de décoration: trouvez des pièces uniques au meilleur prix."
+          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres, au meilleur prix."
         />
 
         <meta property="og:type" content="website" />
@@ -62,7 +62,7 @@ const BestDeals = () => {
 
         <meta
           property="og:description"
-          content="Découvrez les meilleures affaires sur Phenix-deals.com. Tableaux, bijoux, et objets de décoration: trouvez des pièces uniques au meilleur prix."
+          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres, au meilleur prix."
         />
         <meta
           property="og:image"
@@ -77,8 +77,8 @@ const BestDeals = () => {
       <main>
         <CardGrid
           title="Les Meilleures Affaires"
-          placeholder="Tableau / Bijou / Décoration"
-          value={articleType}
+          placeholder="Nom de l'artiste"
+          value={auteurName}
           onChange={handleArticleType}
           error={error}
           filteredArticles={filteredArticles}

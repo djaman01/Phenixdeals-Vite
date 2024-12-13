@@ -37,10 +37,10 @@ const PageArtist = () => {
     <>
       <Helmet>
         {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams; donc pas besoin de condition, car le paramètre est instantanément dispo  */}
-        <title>{`Oeuvres de ${auteur} | Phenix-deals`}</title>{" "}
+        <title>{`Tableaux de ${auteur} | Phenix-deals`}</title>{" "}
         <meta
           name="description"
-          content={`Découvrez toutes les oeuvres de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
+          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
         />
         <meta property="og:type" content="website" />
         <meta
@@ -49,11 +49,11 @@ const PageArtist = () => {
         />
         <meta
           property="og:title"
-          content={`Oeuvres de ${auteur} | Phenix-deals`}
+          content={`Tableaux de ${auteur} | Phenix-deals`}
         />
         <meta
           property="og:description"
-          content={`Découvrez toutes les oeuvres de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
+          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
         />
         <meta
           property="og:image"
@@ -71,7 +71,7 @@ const PageArtist = () => {
       <RangeGrid
         title={
           <>
-            Toutes les oeuvres de{" "}
+            Tous les tableaux de{" "}
             <span style={{ color: "#000000" }}>{auteur}</span>
           </>
         }

@@ -34,12 +34,7 @@ const SideBar = () => {
             <MenuItem component={<Link to="/allArtists" />}>
               Tous les Artistes
             </MenuItem>
-            <MenuItem component={<Link to="/tableaux" />}>Tableaux</MenuItem>
-            <MenuItem component={<Link to="/decorations" />}>
-              {" "}
-              Décoration{" "}
-            </MenuItem>
-            <MenuItem component={<Link to="/bijoux" />}>Bijoux</MenuItem>
+            <MenuItem component={<Link to="/tableaux" />}>Tous les Tableaux</MenuItem>
           </SubMenu>
 
           <MenuItem

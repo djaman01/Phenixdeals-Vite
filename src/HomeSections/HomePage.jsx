@@ -10,12 +10,12 @@ const HomePage = () => {
     <main className="overflow-hidden">
       <Helmet>
         {/* Titre de la page pour les onglets et le SEO:  entre 50 et 60 caractères  */}
-        <title>Phenix-deals | Vente d'Objets d'Art au Maroc</title>
+        <title>Phenix-deals | Vente de tableaux d'artistes peintre au Maroc</title>
 
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
           name="description"
-          content="Site web dédié à la vente d'objets d'art: tableaux, décoration, bijoux. Contactez-nous pour plus d'informations"
+          content="Site web Marocain dédié à la vente de tableaux d'artistes peintres aux thèmes et styles variés. Contactez-nous pour plus d'informations"
         />
 
         {/* Open Graph pour les réseaux sociauX/ Type de contenu et URL à paratgé */}
@@ -25,13 +25,13 @@ const HomePage = () => {
         {/*Titre de la page lorsqu'elle est partagée sur les réseaux sociaux: mettre le même titre que l'onglet */}
         <meta
           property="og:title"
-          content="Phenix-deals | Vente d'Objets d'Art au Maroc"
+          content="Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"
         />
 
         {/*Texte qui va s'afficher en-dessous du titre: mettre la même description que celle du moteur de recherche*/}
         <meta
           property="og:description"
-          content="Site web dédié à la vente d'objets d'art: tableaux, décoration, bijoux. Contactez-nous pour plus d'informations"
+          content="Site web Marocain dédié à la vente de tableaux d'artistes peintres aux thèmes et styles variés. Contactez-nous pour plus d'informations"
         />
 
         {/* Image lors du partage sur les réseaux sociaux: mettre l'url absolue de l'image sur le site */}

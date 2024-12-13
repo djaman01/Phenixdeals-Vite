@@ -30,18 +30,12 @@ const Header = () => {
 
             <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 shadow-xl ring-1 ring-slate-900/5 group-hover:block">
               <Link to="/allArtists">
-                <p className="mt-2 py-1 pl-2 hover:bg-[#e4e9f1] ">
+                <p className="mt-2 py-1 mb-3 pl-2 hover:bg-[#e4e9f1] ">
                   Tous les Artistes
                 </p>
               </Link>
               <Link to="/tableaux">
-                <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Tableaux</p>
-              </Link>
-              <Link to="/decorations">
-                <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Décoration</p>
-              </Link>
-              <Link to="/bijoux">
-                <p className="mt-1 py-1 pl-2 hover:bg-[#e4e9f1] ">Bijoux</p>
+                <p className="mb-2 py-1 pl-2 hover:bg-[#e4e9f1] ">Tous les Tableaux</p>
               </Link>
             </div>
           </div>

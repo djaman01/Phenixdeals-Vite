@@ -43,9 +43,9 @@ const Footer = () => {
             />
           </Link>
           <div className="max-lg:mb-3">
-          <p className="text-white-400 mt-6 w-[400px] font-mono text-base leading-7 max-lg:text-center max-lg:w-[350px] text-center ">
-            Site spécialisé dans la vente d'objets d'art: tableaux, décoration, bijoux.
-          </p>
+            <p className="text-white-400 mt-6 w-[400px] text-center font-mono text-base leading-7 max-lg:w-[350px] max-lg:text-center ">
+              Site spécialisé dans la vente de tableaux d'artistes peintres
+            </p>
           </div>
         </div>
 
@@ -77,8 +77,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-[#b5d9db] py-2 text-xs text-center">
-       <b>Copyright<CopyrightUpdate /> - Phenixdeals</b> 
+      <div className="bg-[#b5d9db] py-2 text-center text-xs">
+        <b>
+          Copyright
+          <CopyrightUpdate /> - Phenixdeals
+        </b>
       </div>
     </footer>
   );
