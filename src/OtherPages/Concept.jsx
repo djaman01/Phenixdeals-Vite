@@ -35,7 +35,7 @@ const Concept = () => {
 
         <meta
           name="description"
-          content="Découvrez le concept de Phenix-deals.com: achetez et vendez des objets d'art au Maroc (Tableaux, objets de décorations et bijoux)"
+          content="Découvrez le concept de Phenix-deals.com : achetez et vendez des tableaux d'artistes peintres"
         />
 
         <meta property="og:type" content="website" />
@@ -49,7 +49,7 @@ const Concept = () => {
 
         <meta
           property="og:decription"
-          content="Découvrez le concept de Phenix-deals.com: achetez et vendez des objets d'art au Maroc (Tableaux, objets de décorations et bijoux)"
+          content="Découvrez le concept de Phenix-deals.com : achetez et vendez des tableaux d'artistes peintres"
         />
 
         <meta
@@ -79,11 +79,12 @@ const Concept = () => {
               Activité
             </p>
             <p className="text-lg">
-              <b>phenixdeals.com</b> est un site web Marocain, spécialisé dans la vente
-              de tableaux d'artiste peintres.
+              <b>phenixdeals.com</b> est un site web Marocain, spécialisé dans
+              la vente de tableaux d'artiste peintres.
             </p>
-            <p className="pb-5 pt-5 text-lg">
-              <b>Parcourez notre site:</b> Des tableaux aux styles et thèmes variés sont disponibles à la vente
+            <p className="pt-2 text-lg">
+              <b>Parcourez notre site:</b> Des tableaux aux styles et thèmes
+              variés sont disponibles à la vente
             </p>
           </div>
           <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
@@ -115,7 +116,8 @@ const Concept = () => {
             </p>
             <p className="text-lg max-lg:mt-10">
               <b>
-                Mettez vos tableaux en vente sur notre site web <u>sans frais</u> !
+                Mettez vos tableaux en vente sur notre site web{" "}
+                <u>sans frais</u> !
               </b>{" "}
               <br />
               <br />

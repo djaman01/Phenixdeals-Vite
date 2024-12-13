@@ -52,7 +52,7 @@ const BestDeals = () => {
         <title> Best Deals | Phenix-deals</title>
         <meta
           name="description"
-          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres, au meilleur prix."
+          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres au meilleur prix."
         />
 
         <meta property="og:type" content="website" />
@@ -62,7 +62,7 @@ const BestDeals = () => {
 
         <meta
           property="og:description"
-          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres, au meilleur prix."
+          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres au meilleur prix."
         />
         <meta
           property="og:image"

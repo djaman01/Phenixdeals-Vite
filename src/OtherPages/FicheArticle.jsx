@@ -67,20 +67,19 @@ const FicheArticle = () => {
   return (
     <>
       <Helmet>
-
         {/* Comme on met un titre dynamique par rapport aux données fetched et que ce n'est pas instantanée; il faut mettre une condition que la variable qui contient les properties utilisés soient rempleis, et donc ne soit pas vide */}
         <title>
           {article
-            ? `${article.type} de ${article.auteur} | Phenix-deals`
-            : "Phenix-deals | Vente d'Objets d'Art au Maroc"}
+            ? `Tableau de ${article.auteur} | Phenix-deals`
+            : "Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"}
         </title>
 
         <meta
           name="description"
           content={
             article
-              ? `Découvrez un ${article.type} de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-              : "Phenix-deals | Vente d'Objets d'Art au Maroc"
+              ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
+              : "Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"
           }
         />
 
@@ -94,12 +93,12 @@ const FicheArticle = () => {
               : "https://www.phenix-deals.com"
           }
         />
-        
+
         <meta
           property="og:title"
           content={
             article
-              ? `${article.type} de ${article.auteur} | Phenix-deals`
+              ? `Tableau de ${article.auteur} | Phenix-deals`
               : "Phenix-deals | Vente d'Objets d'Art au Maroc"
           }
         />
@@ -107,8 +106,8 @@ const FicheArticle = () => {
           property="og:description"
           content={
             article
-            ? `Découvrez un ${article.type} de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-            : "Phenix-deals | Vente d'Objets d'Art au Maroc"
+              ? `Découvrez un ${article.type} de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
+              : "Phenix-deals | Vente d'Objets d'Art au Maroc"
           }
         />
 
@@ -120,8 +119,6 @@ const FicheArticle = () => {
               : "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
           }
         />
-
-     
       </Helmet>
 
       <div className="mb-5 mt-3">
