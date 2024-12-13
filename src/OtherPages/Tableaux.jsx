@@ -1,4 +1,6 @@
+import { Helmet } from "react-helmet-async";
 import ArticleCategory from "./ArticleCategory";
+
 
 const Tableaux = () => {
   return (
