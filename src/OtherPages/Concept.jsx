@@ -83,8 +83,7 @@ const Concept = () => {
               la vente de tableaux d'artiste peintres.
             </p>
             <p className="pt-2 text-lg">
-              <b>Parcourez notre site:</b> Des tableaux aux styles et thèmes
-              variés sont disponibles à la vente
+              <b>Parcourez notre site:</b> Des tableaux aux styles variés sont disponibles à la vente
             </p>
           </div>
           <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
