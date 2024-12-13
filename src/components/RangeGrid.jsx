@@ -157,7 +157,7 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
                     />
                   </div>
                   <div className="h-[167px] text-center text-xl max-lg:h-[186px]">
-                    <h3 className="flex my-1 h-5 items-center justify-center font-mono font-bold text-blue-600 max-lg:text-lg ">
+                    <h3 className="flex my-1 h-4 items-center justify-center font-mono font-bold text-blue-600 max-lg:text-lg ">
                       {e.type}
                     </h3>
                     <div className="mx-auto w-1/2 border-b border-gray-300"></div>
