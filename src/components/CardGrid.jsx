@@ -66,7 +66,7 @@ const CardGrid = ({
                     </h4>
                     <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="flex h-7 items-center justify-center text-[#00A170] max-lg:mt-1 ">
+                    <h4 className="flex h-7 items-center justify-center font-bold text-[#00A170] max-lg:mt-1 ">
                       {e.prix}
                     </h4>
                   </div>
