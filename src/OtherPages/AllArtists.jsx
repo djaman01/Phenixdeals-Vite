@@ -71,7 +71,7 @@ const AllArtists = () => {
 
         <meta
           name="description"
-          content="Découvrez la liste complète de tous les artistes disponibles sur Phenix-deals.com. Cliquez sur un artiste pour voir ses oeuvres disponibles à la vente"
+          content="Découvrez la liste complète de tous les artistes disponibles sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
         />
 
         {/* <meta
@@ -80,10 +80,10 @@ const AllArtists = () => {
           //Balise qui n'est plus utilisé aujourd'hui par les nouveaux moteurs de recherche, qui se basent plus sur les balise title et meta description bien rédigées
         /> */}
 
+        <meta property="og:type" content="website" />
+
         <meta property="og:title" content="Tous les Artistes | Phenix-deals" />
 
-        <meta property="og:type" content="website" />
-        
         <meta
           property="og:url"
           content="https://www.phenix-deals.com/allArtists"
@@ -91,7 +91,7 @@ const AllArtists = () => {
 
         <meta
           property="og:description"
-          content="Découvrez la liste complète de tous les artistes disponibles sur Phenix-deals.com. Cliquez sur un artiste pour voir ses oeuvres disponibles à la vente"
+          content="Découvrez la liste complète de tous les artistes disponibles sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
         />
         <meta
           property="og:image"

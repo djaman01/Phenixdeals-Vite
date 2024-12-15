@@ -99,16 +99,16 @@ const FicheArticle = () => {
           content={
             article
               ? `Tableau de ${article.auteur} | Phenix-deals`
-              : "Phenix-deals | Vente d'Objets d'Art au Maroc"
+              : "Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"
           }
         />
         <meta
           property="og:description"
           content={
             article
-              ? `Découvrez un ${article.type} de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-              : "Phenix-deals | Vente d'Objets d'Art au Maroc"
-          }
+            ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
+            : "Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"
+        }
         />
 
         <meta

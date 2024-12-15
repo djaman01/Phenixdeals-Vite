@@ -31,7 +31,7 @@ const Vendre = () => {
 
         <meta
           name="description"
-          content="Contactez-nous pour acheter ou vendre des objets d'art au Maroc. Retrouvez notre numéro de téléphone et notre adresse e-mail pour toute demande."
+          content="Contactez-nous pour acheter ou vendre des tableaux d'artistes peintres au Maroc. Retrouvez notre téléphone et notre e-mail pour toute demande."
         />
 
         <meta property="og:type" content="website" />
@@ -39,7 +39,7 @@ const Vendre = () => {
         <meta property="og:title" content="Contact | Phenix-deals" />
         <meta
           property="og:description"
-          content="Contactez-nous pour acheter ou vendre des objets d'art au Maroc. Retrouvez notre numéro de téléphone et notre adresse e-mail pour toute demande."
+          content="Contactez-nous pour acheter ou vendre des tableaux d'artistes peintres au Maroc. Retrouvez notre téléphone et notre e-mail pour toute demande."
         />
         <meta
           property="og:image"
