@@ -71,7 +71,7 @@ const FicheArticle = () => {
         <title>
           {article
             ? `Tableau de ${article.auteur} | Phenix-deals`
-            : "Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"}
+            : "Phenix-deals | Vente tableaux d'artistes peintres au Maroc"}
         </title>
 
         <meta
@@ -79,7 +79,7 @@ const FicheArticle = () => {
           content={
             article
               ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-              : "Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"
+              : "Site web Marocain dédié à la vente de tableaux d'artistes peintres aux thèmes et styles variés. Contactez-nous pour plus d'informations"
           }
         />
 
@@ -99,16 +99,16 @@ const FicheArticle = () => {
           content={
             article
               ? `Tableau de ${article.auteur} | Phenix-deals`
-              : "Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"
+              : "Phenix-deals | Vente tableaux d'artistes peintres au Maroc"
           }
         />
         <meta
           property="og:description"
           content={
             article
-            ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-            : "Phenix-deals | Vente de tableaux d'artistes peintre au Maroc"
-        }
+              ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
+              : "Site web Marocain dédié à la vente de tableaux d'artistes peintres aux thèmes et styles variés. Contactez-nous pour plus d'informations"
+          }
         />
 
         <meta
