@@ -119,6 +119,15 @@ const FicheArticle = () => {
               : "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
           }
         />
+
+        <link
+          rel="canonical"
+          href={
+            article
+              ? `https://www.phenix-deals.com/ficheArticle/${articleId}`
+              : `https://www.phenix-deals.com/`
+          }
+        />
       </Helmet>
 
       <div className="mb-5 mt-3">

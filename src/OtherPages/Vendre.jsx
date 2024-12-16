@@ -45,6 +45,8 @@ const Vendre = () => {
           property="og:image"
           content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
+
+        <link rel="canonical" href="https://www.phenix-deals.com/vendre" />
       </Helmet>
 
       <div className="mb-3 mt-3">

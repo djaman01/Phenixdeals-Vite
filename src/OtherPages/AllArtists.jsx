@@ -98,7 +98,7 @@ const AllArtists = () => {
           content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
 
-        {/* Url à cliquer, lorque cette page est partagée sur les réseaux sociaux */}
+        <link rel="canonical" href="https://www.phenix-deals.com/allArtists" />
       </Helmet>
 
       <div className="mt-3">

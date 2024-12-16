@@ -10,7 +10,9 @@ const HomePage = () => {
     <main className="overflow-hidden">
       <Helmet>
         {/* Titre de la page pour les onglets et le SEO:  entre 50 et 60 caractères  */}
-        <title>Phenix-deals | Vente tableaux d'artistes peintres au Maroc</title>
+        <title>
+          Phenix-deals | Vente tableaux d'artistes peintres au Maroc
+        </title>
 
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
@@ -39,6 +41,9 @@ const HomePage = () => {
           property="og:image"
           content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
+
+        {/*Comme le site est accessible via www.phenix-deals.com ou juste phenix-deals.com; on choisi uen version principale à indexer pour pas qu'il y ait de duplication: ça optimise le SEO */}
+        <link rel="canonical" href="https://www.phenix-deals.com/" />
       </Helmet>
 
       <header className="mb-5 mt-3">
