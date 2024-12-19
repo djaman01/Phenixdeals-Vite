@@ -12,11 +12,13 @@ const PageArtist = () => {
   const [oeuvres, setOeuvres] = useState([]);
   const [errorText, setErrorText] = useState("");
 
+  //!!! Utiliser encodeURIComponent pour encoder le paramètre 'auteur' car il peut contenir des caractères spéciaux (espaces, &, etc.).
+  /// Cela assure une robustesse supplémentaire, même si les navigateurs modernes encodent déjà certains caractères comme l'espace en %20 par défaut
   useEffect(() => {
     const fetchPageArtist = async () => {
       try {
         const response = await axios.get(
-          `https://phenixdeals-back.onrender.com/pageArtist/${auteur}`,
+          `https://phenixdeals-back.onrender.com/pageArtist/${encodeURIComponent(auteur)}`,
         );
         setOeuvres(response.data);
         console.log("Oeuvre Fetched", response.data);
@@ -45,7 +47,7 @@ const PageArtist = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://www.phenix-deals.com/pageArtist/${auteur}`}
+          content={`https://www.phenix-deals.com/pageArtist/${encodeURIComponent(auteur)}`}
         />
         <meta
           property="og:title"
@@ -62,7 +64,7 @@ const PageArtist = () => {
         {/* Pour éviter tout problème de contenu dupliqué. Cela renforce encore le SEO de chaque page artiste. */}
         <link
           rel="canonical"
-          href={`https://www.phenix-deals.com/pageArtist/${auteur}`}
+          href={`https://www.phenix-deals.com/pageArtist/${encodeURIComponent(auteur)}`}
         />
       </Helmet>
 
