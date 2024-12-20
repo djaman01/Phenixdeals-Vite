@@ -11,7 +11,7 @@ const Sitemap = () => {
     const fetchSitemap = async () => {
       try {
         // Récupère le sitemap en utilisant l'API du back-end
-        const response = await axios.get("/sitemap.xml");
+        const response = await axios.get("https://phenixdeals-back.onrender.com/sitemap.xml");
 
         // Récupérer les données du sitemap
         setSitemapData(response.data);

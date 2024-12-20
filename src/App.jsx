@@ -14,7 +14,6 @@ import Dashboard from "./AdminPages/Dashboard";
 import SignUp from "./AdminPages/SignUp";
 import Login from "./AdminPages/Login";
 import BestDeals from "./OtherPages/BestDeals";
-import Sitemap from "./OtherPages/Sitemap";
 
 
 
@@ -37,11 +36,6 @@ export default function App() {
         <Route path="/toSignUp" element={<SignUp/>}></Route>
         <Route path="/toLogin" element={<Login/>}></Route>
         <Route path="/toDashboard" element={<Dashboard/>}></Route>
-        <Route path="/sitemap.xml" element={<Sitemap/>}></Route>
-
-        
-
-
 
       </Routes>
     </BrowserRouter>
