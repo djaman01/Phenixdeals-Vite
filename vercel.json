@@ -4,11 +4,21 @@
       "source": "/(.*)",
       "destination": "/index.html"
     },
-
-
     {
       "source": "/sitemap.xml",
       "destination": "https://phenixdeals-back.onrender.com/sitemap.xml"
+    }
+  ],
+
+  "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
+      ]
     }
   ]
 }
