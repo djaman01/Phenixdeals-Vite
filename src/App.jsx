@@ -30,8 +30,6 @@ export default function App() {
         <Route path="/allArtists" element={<AllArtists/>}></Route>
         <Route path="/pageArtist/:auteur" element={<PageArtist/>}></Route>
         <Route path="/tableaux" element={<Tableaux/>}></Route>
-        <Route path="/decorations" element={<Decoration/>}></Route>
-        <Route path="/bijoux" element={<Bijoux/>}></Route>
         <Route path="/ficheArticle/:articleId" element={<FicheArticle/>}></Route>
         <Route path="/toSignUp" element={<SignUp/>}></Route>
         <Route path="/toLogin" element={<Login/>}></Route>
