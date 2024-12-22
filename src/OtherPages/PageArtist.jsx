@@ -39,11 +39,13 @@ const PageArtist = () => {
     <>
       <Helmet>
         {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams; donc pas besoin de condition, car le paramètre est instantanément dispo  */}
-        <title>{`Tableaux de ${auteur} | Phenix-deals`}</title>{" "}
+        <title>{`Tableaux de ${auteur} | Phenix-deals`}</title>
+
         <meta
           name="description"
-          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
+          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenix-deals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
         />
+
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
@@ -55,7 +57,7 @@ const PageArtist = () => {
         />
         <meta
           property="og:description"
-          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenix-deals.com ! `}
+          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenix-deals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
         />
         <meta
           property="og:image"
