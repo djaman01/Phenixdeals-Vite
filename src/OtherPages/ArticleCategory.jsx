@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
+  const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
   useEffect(() => {
     const fecthByCategory = async () => {
@@ -23,6 +24,8 @@ const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
             : `Error: ${error.message}`, //client-side error
         );
         setError("An error occurred while fetching data");
+      } finally {
+        setSpinner(false); //Après avoir fecth les données setLoading devient false pour afficher les tableaux au lieu du spinner
       }
     };
 
@@ -41,6 +44,7 @@ const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
         error={error}
         showSearchInput={showSearchInput}
         typeObjet={typeObjet}
+        loading={spinner}
       />
 
       <div className="pt-8">

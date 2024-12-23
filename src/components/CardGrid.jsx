@@ -1,5 +1,6 @@
 import { SlMagnifier } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import { PulseLoader } from "react-spinners";
 
 const CardGrid = ({
   title,
@@ -9,6 +10,7 @@ const CardGrid = ({
   error,
   filteredArticles,
   onClick,
+  loading,
 }) => {
   return (
     <main className="padding">
@@ -35,44 +37,52 @@ const CardGrid = ({
       <div>
         {error ? (
           <p>Error: {error}</p>
+        ) : loading ? ( //Affichage du spinner si 'loading' prop = true
+          <div className="mt-5 flex items-center justify-center">
+            <PulseLoader color="#FA7A35" size={50} />
+          </div>
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
-            {filteredArticles.map((e) => ( //Définition paramètre url pour dynamique route quand on clique sur une image
-              <Link to={`/ficheArticle/${e._id}`} key={e._id}> 
-                <div
-                  key={e._id}
-                  className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
-                  onClick={onClick}
-                >
-                  <div className="h-60 w-full max-lg:h-52">
-                    <img
-                      className="h-full w-full rounded-t-lg object-cover"
-                      src={e.imageUrl}
-                      alt={e.auteur}
-                    />
-                  </div>
-                  <div className="h-[167px] text-center text-xl max-lg:h-[186px]">
-                    <h3 className="flex my-1 h-4 items-center justify-center font-mono font-bold text-blue-600 max-lg:h-5 max-lg:text-lg  ">
-                      {e.type}
-                    </h3>
-                    <div className="mx-auto w-1/2 border-b border-gray-300"></div>
-                    <h4 className=" font-roboto my-4 flex h-9 items-center justify-center leading-tight text-gray-800 max-lg:h-10 ">
-                      {e.infoArticle}
-                    </h4>
-                    <div className=" mx-auto my-1 w-1/2 border-b border-gray-300"></div>
+            {filteredArticles.map(
+              (
+                e, //Définition paramètre url pour dynamique route quand on clique sur une image
+              ) => (
+                <Link to={`/ficheArticle/${e._id}`} key={e._id}>
+                  <div
+                    key={e._id}
+                    className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
+                    onClick={onClick}
+                  >
+                    <div className="h-60 w-full max-lg:h-52">
+                      <img
+                        className="h-full w-full rounded-t-lg object-cover"
+                        src={e.imageUrl}
+                        alt={e.auteur}
+                      />
+                    </div>
+                    <div className="h-[167px] text-center text-xl max-lg:h-[186px]">
+                      <h3 className="my-1 flex h-4 items-center justify-center font-mono font-bold text-blue-600 max-lg:h-5 max-lg:text-lg  ">
+                        {e.type}
+                      </h3>
+                      <div className="mx-auto w-1/2 border-b border-gray-300"></div>
+                      <h4 className=" font-roboto my-4 flex h-9 items-center justify-center leading-tight text-gray-800 max-lg:h-10 ">
+                        {e.infoArticle}
+                      </h4>
+                      <div className=" mx-auto my-1 w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="font-roboto my-2 flex h-8 items-center justify-center leading-tight text-red-500 max-lg:h-10">
-                      {e.auteur}
-                    </h4>
-                    <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
+                      <h4 className="font-roboto my-2 flex h-8 items-center justify-center leading-tight text-red-500 max-lg:h-10">
+                        {e.auteur}
+                      </h4>
+                      <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="flex h-7 items-center justify-center font-bold text-[#00A170] max-lg:mt-1 ">
-                      {e.prix}
-                    </h4>
+                      <h4 className="flex h-7 items-center justify-center font-bold text-[#00A170] max-lg:mt-1 ">
+                        {e.prix}
+                      </h4>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ),
+            )}
           </div>
         )}
       </div>

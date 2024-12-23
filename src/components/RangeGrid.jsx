@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SlMagnifier } from "react-icons/sl";
 
-const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
+import { PulseLoader } from "react-spinners";
+
+const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet, loading }) => {
   //Pour créer un filtre par prix min et max
   const [prixMin, setPrixMin] = useState("");
   const [prixMax, setPrixMax] = useState("");
@@ -140,6 +142,10 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
       <div>
         {error ? (
           <p>Error: {error}</p>
+        ) : loading ? ( //Affichage du spinner si 'loading' prop = true
+          <div className="mt-5 flex items-center justify-center">
+            <PulseLoader color="#FA7A35" size={50} />
+          </div>
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
             {filteredArticles.map((e) => (
@@ -157,7 +163,7 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet }) => {
                     />
                   </div>
                   <div className="h-[167px] text-center text-xl max-lg:h-[186px]">
-                    <h3 className="flex my-1 h-4 items-center justify-center font-mono font-bold text-blue-600 max-lg:text-lg max-lg:h-5 ">
+                    <h3 className="my-1 flex h-4 items-center justify-center font-mono font-bold text-blue-600 max-lg:h-5 max-lg:text-lg ">
                       {e.type}
                     </h3>
                     <div className="mx-auto w-1/2 border-b border-gray-300"></div>

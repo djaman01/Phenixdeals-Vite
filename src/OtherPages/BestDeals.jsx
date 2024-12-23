@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 const BestDeals = () => {
   const [articleObject, setArticleObject] = useState([]); //State variable ou on va store tous les objets représentants les articles
   const [error, setError] = useState("");
+  const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
   const [auteurName, setAuteurName] = useState(""); //Pour searchBar: State variable qui va store la value de l'input et qui doit changer en fonction de ce qu'on écrit
 
@@ -28,6 +29,8 @@ const BestDeals = () => {
             : `Error: ${error.message}`, // Client-side error
         );
         setError("An error occurred while fetching data"); // Set the error message in case of failure
+      } finally {
+        setSpinner(false); //Après avoir fecth les données setLoading devient false pour afficher les tableaux au lieu du spinner
       }
     };
 
@@ -83,6 +86,7 @@ const BestDeals = () => {
           error={error}
           filteredArticles={filteredArticles}
           onClick={scrollToTop}
+          loading={spinner}
         />
       </main>
 

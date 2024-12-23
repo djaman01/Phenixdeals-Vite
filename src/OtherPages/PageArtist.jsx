@@ -11,6 +11,7 @@ const PageArtist = () => {
 
   const [oeuvres, setOeuvres] = useState([]);
   const [errorText, setErrorText] = useState("");
+  const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
   //!!! Utiliser encodeURIComponent pour encoder le paramètre 'auteur' car il peut contenir des caractères spéciaux (espaces, &, etc.).
   /// Cela assure une robustesse supplémentaire, même si les navigateurs modernes encodent déjà certains caractères comme l'espace en %20 par défaut
@@ -29,6 +30,8 @@ const PageArtist = () => {
             : `Error: ${error.message}`, //client-side error
         );
         setErrorText("An error occurred while fetching data");
+      } finally {
+        setSpinner(false); //Après avoir fecth les données setLoading devient false pour afficher les tableaux au lieu du spinner
       }
     };
 
@@ -81,6 +84,7 @@ const PageArtist = () => {
         }
         allValues={oeuvres}
         error={errorText}
+        loading={spinner}
       />
 
       <Footer />
