@@ -35,7 +35,7 @@ const Concept = () => {
 
         <meta
           name="description"
-          content="Phenix-deals.com est un site web Marocain qui vous propose d'acheter et de vendre des tableaux d'artistes peintres"
+          content="Phenix-deals.com est un site web Marocain qui vous propose d'acheter et de vendre des tableaux d'artistes peintres. Contactez-nous pour plus d'informations"
         />
 
         <meta property="og:type" content="website" />
@@ -49,7 +49,7 @@ const Concept = () => {
 
         <meta
           property="og:decription"
-          content="Phenix-deals.com est un site web Marocain qui vous propose d'acheter et de vendre des tableaux d'artistes peintres"
+          content="Phenix-deals.com est un site web Marocain qui vous propose d'acheter et de vendre des tableaux d'artistes peintres. Contactez-nous pour plus d'informations"
         />
 
         <meta
@@ -57,7 +57,7 @@ const Concept = () => {
           content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
 
-<link rel="canonical" href="https://www.phenix-deals.com/concept" />
+        <link rel="canonical" href="https://www.phenix-deals.com/concept" />
       </Helmet>
 
       <div className="mb-3 mt-3">
