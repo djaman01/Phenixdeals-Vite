@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 import { SlMagnifier } from "react-icons/sl";
 import { Helmet } from "react-helmet-async";
 
+import { PulseLoader } from "react-spinners";
+
 const AllArtists = () => {
   const [artists, setArtists] = useState([]);
   const [error, setError] = useState("");
+
+  const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
   useEffect(() => {
     const fetchAllArtists = async () => {
@@ -25,6 +29,8 @@ const AllArtists = () => {
             : `Error: ${error.message}`, //client-side error
         );
         setError("An error occurred while fetching data"); //apparait sur la page si erreur
+      } finally {
+        setSpinner(false); //Après avoir fecth les données setLoading devient false pour afficher les tableaux au lieu du spinner
       }
     };
 
@@ -128,6 +134,10 @@ const AllArtists = () => {
         <div className="text-center">
           {error ? (
             <p>Error: {error}</p>
+          ) : spinner ? ( //Affichage du spinner si 'spinner' state = true
+            <div className="mt-5 flex items-center justify-center">
+              <PulseLoader color="#FA7A35" size={40} />
+            </div>
           ) : (
             Object.keys(groupedArtists) //Object.keys permet de créer une array avec les properties = keys de l'objet groupedArtists crée précédemment avec .reduce
               .sort() //Même si tout est déjà dans l'ordre, ça ajoute une confirmation

@@ -9,6 +9,8 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet-async";
 
+import { PulseLoader } from "react-spinners";
+
 const FicheArticle = () => {
   //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
   //Avec useParams, on va extraire ce paramètre qui est unique, pour définir une route dynamic dans le back-end
@@ -17,6 +19,8 @@ const FicheArticle = () => {
   //State qui va store l'article désigné dans la fiche
   const [article, setArticle] = useState(null);
   const [errorText, setErrorText] = useState("");
+
+  const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
   useEffect(() => {
     const fetchFicheArticle = async () => {
@@ -33,6 +37,8 @@ const FicheArticle = () => {
             : `Error: ${error.message}`, //client-side error
         );
         setErrorText("An error occurred while fetching data");
+      } finally {
+        setSpinner(false); //Après avoir fecth les données setLoading devient false pour afficher les tableaux au lieu du spinner
       }
     };
 
@@ -137,6 +143,10 @@ const FicheArticle = () => {
 
       {errorText ? (
         <p>Error: {errorText}</p>
+      ) : spinner ? ( //Affichage du spinner si 'spinner' state = true
+        <div className="mt-5 flex items-center justify-center">
+          <PulseLoader color="#FA7A35" size={40} />
+        </div>
       ) : (
         article && (
           <div className="flex h-screen items-center justify-center gap-16 overflow-hidden bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">

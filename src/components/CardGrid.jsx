@@ -39,7 +39,7 @@ const CardGrid = ({
           <p>Error: {error}</p>
         ) : loading ? ( //Affichage du spinner si 'loading' prop = true
           <div className="mt-5 flex items-center justify-center">
-            <PulseLoader color="#FA7A35" size={50} />
+            <PulseLoader color="#FA7A35" size={40} />
           </div>
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
