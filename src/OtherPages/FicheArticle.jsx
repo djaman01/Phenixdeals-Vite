@@ -144,7 +144,7 @@ const FicheArticle = () => {
       {errorText ? (
         <p>Error: {errorText}</p>
       ) : spinner ? ( //Affichage du spinner si 'spinner' state = true
-        <div className="mt-5 flex items-center justify-center">
+        <div className="my-20 flex items-center justify-center">
           <PulseLoader color="#FA7A35" size={40} />
         </div>
       ) : (

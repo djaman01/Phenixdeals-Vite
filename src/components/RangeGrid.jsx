@@ -143,7 +143,7 @@ const RangeGrid = ({ title, error, allValues, showSearchInput, typeObjet, loadin
         {error ? (
           <p>Error: {error}</p>
         ) : loading ? ( //Affichage du spinner si 'loading' prop = true
-          <div className="mt-5 flex items-center justify-center">
+          <div className="my-20 flex items-center justify-center">
             <PulseLoader color="#FA7A35" size={40} />
           </div>
         ) : (
