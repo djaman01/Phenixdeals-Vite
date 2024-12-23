@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import ArticleCategory from "./ArticleCategory";
 
-
 const Tableaux = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex" />
         <title>Tous les Tableaux | Phenix-deals</title>
         <meta
           name="description"

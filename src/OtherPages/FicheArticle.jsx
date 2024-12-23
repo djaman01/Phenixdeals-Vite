@@ -67,6 +67,7 @@ const FicheArticle = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex" />
         {/* Comme on met un titre dynamique par rapport aux données fetched et que ce n'est pas instantanée; il faut mettre une condition que la variable qui contient les properties utilisés soient rempleis, et donc ne soit pas vide */}
         <title>
           {article

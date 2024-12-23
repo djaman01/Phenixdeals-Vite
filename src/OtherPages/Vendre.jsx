@@ -27,6 +27,10 @@ const Vendre = () => {
   return (
     <>
       <Helmet>
+        {/* Indique à Google et aux autres moteurs de recherche de ne pas indexer la page "Vendre" (mais ça suivra toujours les liens qu'elle contient car on n'a pas mis nofollow; ce qui aidera par ex au referencement de la page accueil car il y a des liens vers cette page*/}
+        {/* Mais la balise Helmet est importante pour le titre et les partages dans les réseaux sociaux */}
+        <meta name="robots" content="noindex" />
+
         <title>Contact | Phenix-deals</title>
 
         <meta

@@ -67,6 +67,7 @@ const AllArtists = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex" />
         <title>Tous les Artistes | Phenix-deals</title>
 
         <meta
