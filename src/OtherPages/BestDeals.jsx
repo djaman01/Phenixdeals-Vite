@@ -52,6 +52,7 @@ const BestDeals = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex" />
         <title> Best Deals | Phenix-deals</title>
         <meta
           name="description"
