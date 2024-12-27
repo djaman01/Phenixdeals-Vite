@@ -169,7 +169,7 @@ const FicheArticle = () => {
 
             <div
               data-aos="fade-left"
-              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[700px] max-lg:w-[360px]"
+              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[900px] max-lg:w-[360px]"
             >
               <h1 className="mt-10 text-center text-[#0072B5] ">
                 {article.auteur}
@@ -208,7 +208,7 @@ const FicheArticle = () => {
 
                 <div className="flex justify-center">
                   <a href={urlPage()} target="_blank" className="no-underline">
-                    <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white">
+                    <button className="mt-5 flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white">
                       <FaWhatsapp size={20} /> Partager
                     </button>
                   </a>
