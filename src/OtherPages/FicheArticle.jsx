@@ -207,8 +207,8 @@ const FicheArticle = () => {
                 </Link>
 
                 <div className="flex justify-center">
-                  <a href={urlPage()} target="_blank">
-                    <button className="flex h-10 w-32 cursor-pointer items-center justify-center rounded bg-[#25D366] text-white">
+                  <a href={urlPage()} target="_blank" className="no-underline">
+                    <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white">
                       <FaWhatsapp size={20} /> Partager
                     </button>
                   </a>
