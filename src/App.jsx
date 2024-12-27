@@ -5,8 +5,6 @@ import AddArticle from "./AdminPages/AddArticle";
 import Vendre from "./OtherPages/Vendre";
 import Concept from "./OtherPages/Concept";
 import Tableaux from "./OtherPages/Tableaux";
-import Decoration from "./OtherPages/Decoration";
-import Bijoux from "./OtherPages/Bijoux";
 import FicheTableau from "./OtherPages/FicheTableau";
 import AllArtists from "./OtherPages/AllArtists";
 import PageArtist from "./OtherPages/PageArtist";

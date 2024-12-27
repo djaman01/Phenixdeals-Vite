@@ -171,7 +171,7 @@ const FicheTableau = () => {
 
             <div
               data-aos="fade-left"
-              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
+              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[510px] max-lg:w-[360px]"
             >
               <h1 className="mt-10 text-center text-[#0072B5] ">
                 {article.auteur}
@@ -211,7 +211,7 @@ const FicheTableau = () => {
 
               <div className="flex justify-center">
                 <a href={urlLink()} target="_blank" className="no-underline">
-                  <button className="mt-4 flex items-center justify-center space-x-2 rounded-full bg-[#128C7E]  px-4 py-2 text-lg font-bold text-white active:bg-[#25D366] ">
+                  <button className="mt-4 max-lg:mt-2 flex items-center justify-center space-x-4 rounded-full bg-[#128C7E]  px-4 py-2 text-lg font-bold text-white active:bg-[#25D366] ">
                     <ImShare2 size={20} /> Partager
                   </button>
                 </a>
