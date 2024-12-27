@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
+import { ImShare2 } from "react-icons/im";
+
 const Concept = () => {
   const scrollToTop = () => {
     window.scrollTo({
@@ -27,6 +29,12 @@ const Concept = () => {
       easing: "ease-in-out",
     });
   });
+
+  const urlPage = () => {
+    const currentUrl = window.location.href; //Pour capturer l'url de la page
+    const phone = "+212619635336";
+    return `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
+  };
 
   return (
     <>
@@ -175,6 +183,46 @@ const Concept = () => {
                 target="_blank"
               />
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex h-screen items-center justify-center gap-16 overflow-hidden bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
+        <div
+          data-aos="fade-right"
+          className="h-[550px] w-[540px] max-lg:h-[360px] max-lg:w-[360px]"
+        ></div>
+
+        <div
+          data-aos="fade-left"
+          className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
+        >
+          <h1 className="mt-10 text-center text-[#0072B5] ">hey</h1>
+          <hr className="my-0 w-11/12 border-gray-500" />
+          <h2 className="my-3  text-center">ddddd</h2>
+          <hr className="my-0 w-11/12 border-gray-500" />
+          <h2 className="my-3 text-center text-[#00A170]">ddddddddddddd</h2>
+          <hr className="my-0 w-11/12 border-gray-500" />
+          <h3 className="martian-mono-regular my-3 text-center text-[#ff0921] ">
+            Référence: ffffffffff
+          </h3>
+          <div className="mt-3 flex h-32 w-full flex-col items-center justify-around max-lg:mt-1 ">
+            <a target="_blank" className="no-underline">
+              <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white active:bg-[#128C7E]">
+                Réserver
+              </button>
+            </a>
+            <button className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:bg-[#005F8A]">
+              Autres
+            </button>
+          </div>
+          <div className="flex justify-center">
+            <a href={urlPage()} target="_blank" className="no-underline">
+              <button className="mt-5 flex items-center justify-center space-x-2 rounded-full bg-[#128C7E] px-4 py-2 text-lg font-bold text-white active:bg-[#25D366]">
+                <ImShare2 size={20} />
+                <span>Partager</span>
+              </button>
+            </a>
           </div>
         </div>
       </div>

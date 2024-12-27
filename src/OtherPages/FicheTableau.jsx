@@ -11,7 +11,9 @@ import { Helmet } from "react-helmet-async";
 
 import { PulseLoader } from "react-spinners";
 
-const FicheArticle = () => {
+import { ImShare2 } from "react-icons/im";
+
+const FicheTableau = () => {
   //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
   //Avec useParams, on va extraire ce paramètre qui est unique, pour définir une route dynamic dans le back-end
   const { articleId } = useParams();
@@ -23,7 +25,7 @@ const FicheArticle = () => {
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
   useEffect(() => {
-    const fetchFicheArticle = async () => {
+    const fetchFicheTableau = async () => {
       try {
         const response = await axios.get(
           `https://phenixdeals-back.onrender.com/article/${articleId}`,
@@ -42,7 +44,7 @@ const FicheArticle = () => {
       }
     };
 
-    fetchFicheArticle();
+    fetchFicheTableau();
   }, [articleId]);
 
   useEffect(() => {
@@ -64,11 +66,10 @@ const FicheArticle = () => {
   };
 
   const urlLink = () => {
-    const currentUrl = window.location.href; // Get the current page URL
-    const phone = "+212619635336";
-    return `https://wa.me/${phone}?text=${encodeURIComponent(currentUrl)}`;
+    const currentUrl = window.location.href; // Get the current URL
+
+    return `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
   };
-  
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -103,7 +104,7 @@ const FicheArticle = () => {
           property="og:url"
           content={
             article
-              ? `https://www.phenix-deals.com/ficheArticle/${articleId}`
+              ? `https://www.phenix-deals.com/FicheTableau/${articleId}`
               : "https://www.phenix-deals.com"
           }
         />
@@ -138,7 +139,7 @@ const FicheArticle = () => {
           rel="canonical"
           href={
             article
-              ? `https://www.phenix-deals.com/ficheArticle/${articleId}`
+              ? `https://www.phenix-deals.com/FicheTableau/${articleId}`
               : `https://www.phenix-deals.com/`
           }
         />
@@ -191,7 +192,7 @@ const FicheArticle = () => {
                   target="_blank"
                   className="no-underline"
                 >
-                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white">
+                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white active:bg-[#128C7E]">
                     <FaWhatsapp size={20} /> Réserver
                   </button>
                 </a>
@@ -201,11 +202,19 @@ const FicheArticle = () => {
                 >
                   <button
                     onClick={scrollToTop}
-                    className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white"
+                    className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:bg-[#005F8A]"
                   >
                     Autres {article.auteur}
                   </button>
                 </Link>
+              </div>
+
+              <div className="flex justify-center">
+                <a href={urlLink()} target="_blank" className="no-underline">
+                  <button className="mt-4 flex items-center justify-center space-x-2 rounded-full bg-[#128C7E]  px-4 py-2 text-lg font-bold text-white active:bg-[#25D366] ">
+                    <ImShare2 size={20} /> Partager
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -217,4 +226,4 @@ const FicheArticle = () => {
   );
 };
 
-export default FicheArticle;
+export default FicheTableau;
