@@ -184,7 +184,7 @@ const FicheArticle = () => {
               <h3 className="martian-mono-regular my-3 text-center text-[#ff0921] ">
                 Référence: {article.code}
               </h3>
-              <div className="mt-3 flex h-40 w-full flex-col items-center justify-around max-lg:mt-1 ">
+              <div className="mt-3 flex h-36 w-full flex-col items-center justify-around max-lg:mt-1 ">
                 <a
                   href={whatsappLink()}
                   target="_blank"
