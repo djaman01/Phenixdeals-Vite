@@ -63,12 +63,11 @@ const FicheArticle = () => {
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; //The encodeURIComponent function ensures the message is URL-friendly, handling spaces, line breaks (\n), and special characters.
   };
 
-  const urlLink = () => {
-    const currentUrl = window.location.href; // Get the current page URL
+  const urlPage = () => {
+    const currentUrl = window.location.href; //Pour capturer l'url de la page
     const phone = "+212619635336";
     return `https://wa.me/${phone}?text=${encodeURIComponent(currentUrl)}`;
   };
-  
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -185,7 +184,7 @@ const FicheArticle = () => {
               <h3 className="martian-mono-regular my-3 text-center text-[#ff0921] ">
                 Référence: {article.code}
               </h3>
-              <div className="mt-3 flex h-32 w-full flex-col items-center justify-around max-lg:mt-1 ">
+              <div className="mt-3 flex h-40 w-full flex-col items-center justify-around max-lg:mt-1 ">
                 <a
                   href={whatsappLink()}
                   target="_blank"
@@ -206,6 +205,14 @@ const FicheArticle = () => {
                     Autres {article.auteur}
                   </button>
                 </Link>
+
+                <div className="flex justify-center">
+                  <a href={whatsappLink(urlPage)} target="_blank">
+                    <button className="flex h-10 w-32 cursor-pointer items-center justify-center rounded bg-[#25D366] text-white">
+                      <FaWhatsapp size={20} /> Partager sur WhatsApp
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
