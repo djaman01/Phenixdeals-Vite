@@ -63,6 +63,13 @@ const FicheArticle = () => {
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; //The encodeURIComponent function ensures the message is URL-friendly, handling spaces, line breaks (\n), and special characters.
   };
 
+  const urlLink = () => {
+    const currentUrl = window.location.href; // Get the current page URL
+    const phone = "+212619635336";
+    return `https://wa.me/${phone}?text=${encodeURIComponent(currentUrl)}`;
+  };
+  
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
