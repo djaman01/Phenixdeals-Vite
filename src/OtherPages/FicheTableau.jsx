@@ -4,14 +4,13 @@ import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaWhatsapp } from "react-icons/fa";
+import { ImShare2 } from "react-icons/im";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet-async";
 
 import { PulseLoader } from "react-spinners";
-
-import { ImShare2 } from "react-icons/im";
 
 const FicheTableau = () => {
   //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
@@ -171,9 +170,9 @@ const FicheTableau = () => {
 
             <div
               data-aos="fade-left"
-              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[520px] max-lg:w-[360px]"
+              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[510px] max-lg:w-[360px]"
             >
-              <h1 className="mt-10 text-center text-[#0072B5] ">
+              <h1 className="mt-10 text-center text-[#0072B5] max-lg:mt-4">
                 {article.auteur}
               </h1>
               <hr className="my-0 w-11/12 border-gray-500" />
@@ -186,7 +185,7 @@ const FicheTableau = () => {
               <h3 className="martian-mono-regular my-3 text-center text-[#ff0921] ">
                 Référence: {article.code}
               </h3>
-              <div className="mt-3 flex h-36 w-full flex-col items-center justify-around space-y-4 max-lg:mt-1 max-lg:space-y-2 ">
+              <div className="mt-3 flex h-40 w-full flex-col items-center justify-around space-y-5 max-lg:mt-1 max-lg:space-y-3 ">
                 <a
                   href={whatsappLink()}
                   target="_blank"
