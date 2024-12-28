@@ -170,9 +170,9 @@ const FicheTableau = () => {
 
             <div
               data-aos="fade-left"
-              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[510px] max-lg:w-[360px]"
+              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
             >
-              <h1 className="mt-10 text-center text-[#0072B5] max-lg:mt-4">
+              <h1 className="mt-10 text-center text-[#0072B5] max-lg:mt-2">
                 {article.auteur}
               </h1>
               <hr className="my-0 w-11/12 border-gray-500" />
