@@ -186,7 +186,7 @@ const FicheTableau = () => {
               <h3 className="martian-mono-regular my-3 text-center text-[#ff0921] ">
                 Référence: {article.code}
               </h3>
-              <div className="mt-3 flex h-32 w-full flex-col items-center justify-around max-lg:mt-1 ">
+              <div className="mt-3 flex h-36 w-full flex-col items-center justify-around space-y-4 max-lg:mt-1 max-lg:space-y-2 ">
                 <a
                   href={whatsappLink()}
                   target="_blank"
@@ -202,16 +202,14 @@ const FicheTableau = () => {
                 >
                   <button
                     onClick={scrollToTop}
-                    className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:bg-[#005F8A]"
+                    className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:bg-[#53b5e3]"
                   >
                     Autres {article.auteur}
                   </button>
                 </Link>
-              </div>
 
-              <div className="flex justify-center">
                 <a href={urlLink()} target="_blank" className="no-underline">
-                  <button className="mt-4 max-lg:mt-2 flex items-center justify-center space-x-4 rounded-full bg-[#128C7E]  px-4 py-2 text-lg font-bold text-white active:bg-[#25D366] ">
+                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded-full bg-[#128C7E] px-3 text-lg font-bold text-white active:bg-[#25D366]">
                     <ImShare2 size={20} /> Partager
                   </button>
                 </a>
