@@ -147,7 +147,7 @@ const AllArtists = () => {
                   <ul>
                     {/*On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter] */}
                     {groupedArtists[letter].map((e, index) => (
-                      <li key={index} className="active:text-[#25D366]">
+                      <li key={index} className="active:text-green-500">
                         <Link
                           to={`/pageArtist/${e.auteur}`}
                           onClick={scrollToTop}

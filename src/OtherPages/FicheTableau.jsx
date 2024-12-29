@@ -172,17 +172,17 @@ const FicheTableau = () => {
               data-aos="fade-left"
               className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
             >
-              <h1 className="mt-10 text-center text-[#0072B5] max-lg:mt-2">
+              <h1 className="mt-10 text-center text-[#0072B5] max-lg:mt-2 max-lg:h-14">
                 {article.auteur}
               </h1>
               <hr className="my-0 w-11/12 border-gray-500" />
-              <h2 className="my-3  text-center">{article.infoArticle}</h2>
+              <h2 className="my-3  text-center max-lg:h-14">{article.infoArticle}</h2>
               <hr className="my-0 w-11/12 border-gray-500" />
-              <h2 className="my-3 text-center text-[#00A170]">
+              <h2 className="my-3 text-center text-[#00A170] max-lg:h-6">
                 {article.prix}
               </h2>
               <hr className="my-0 w-11/12 border-gray-500" />
-              <h3 className="martian-mono-regular my-3 text-center text-[#ff0921] ">
+              <h3 className="martian-mono-regular my-3 text-center text-[#ff0921] max-lg:h-9 ">
                 Référence: {article.code}
               </h3>
               <div className="mt-3 flex h-40 w-full flex-col items-center justify-around space-y-5 max-lg:mt-1 max-lg:space-y-3 ">
