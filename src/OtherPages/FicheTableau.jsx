@@ -172,19 +172,19 @@ const FicheTableau = () => {
               data-aos="fade-left"
               className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
             >
-              <h1 className="mt-2 flex h-14 items-center justify-center text-center text-[#0072B5]">
+              <h1 className="mt-2 flex h-12 items-center justify-center text-center text-[#0072B5]">
                 {article.auteur}
               </h1>
               <hr className="my-0 w-11/12 border-gray-500" />
-              <h2 className="my-3  flex h-14 items-center justify-center text-center">
+              <h2 className="my-3  flex h-16 items-center justify-center text-center">
                 {article.infoArticle}
               </h2>
               <hr className="my-0 w-11/12 border-gray-500" />
-              <h2 className="my-3 flex h-6 items-center justify-center text-center text-[#00A170]">
+              <h2 className="my-3 flex h-7 items-center justify-center text-center text-[#00A170]">
                 {article.prix}
               </h2>
               <hr className="my-0 w-11/12 border-gray-500" />
-              <h3 className="martian-mono-regular mt-2 flex h-9 items-center  justify-center text-center text-[#ff0921] ">
+              <h3 className="martian-mono-regular mt-2 flex h-8 items-center  justify-center text-center text-[#ff0921] ">
                 Référence: {article.code}
               </h3>
               <div className="mt-3 flex h-44 w-full flex-col items-center justify-around space-y-5 max-lg:mt-1 max-lg:space-y-3 ">
