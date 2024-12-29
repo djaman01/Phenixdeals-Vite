@@ -128,7 +128,7 @@ const FicheTableau = () => {
         <meta
           property="og:image"
           content={
-            article
+            article && article.imageUrl
               ? article.imageUrl
               : "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
           }
