@@ -17,8 +17,6 @@ const FicheTableau = () => {
   //Avec useParams, on va extraire ce paramètre qui est unique, pour définir une route dynamic dans le back-end
   const { auteur, articleId } = useParams();
 
-  const encodeAuteur = encodeURIComponent(auteur); //Pour lire les espaces dans l'url
-
   //State qui va store l'article désigné dans la fiche
   const [article, setArticle] = useState(null);
   const [errorText, setErrorText] = useState("");
@@ -105,7 +103,7 @@ const FicheTableau = () => {
           property="og:url"
           content={
             article
-              ? `https://www.phenix-deals.com/${encodeAuteur}/${articleId}`
+              ? `https://www.phenix-deals.com/${auteur}/${articleId}`
               : "https://www.phenix-deals.com"
           }
         />
@@ -114,13 +112,13 @@ const FicheTableau = () => {
           property="og:title"
           content={
             article
-              ? `Tableau de ${encodeAuteur} | Phenix-deals`
+              ? `Tableau de ${article.auteur} | Phenix-deals`
               : "Phenix-deals | Vente tableaux d'artistes peintres au Maroc"
           }
         />
         <meta
           property="og:description"
-          content={`Découvrez un tableau de ${encodeAuteur}, disponible à la vente sur Phenix-deals.com.`}
+          content={`Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com.`}
         />
 
         <meta
@@ -136,7 +134,7 @@ const FicheTableau = () => {
           rel="canonical"
           href={
             article
-              ? `https://www.phenix-deals.com/${encodeAuteur}/${articleId}`
+              ? `https://www.phenix-deals.com/${auteur}/${articleId}`
               : `https://www.phenix-deals.com/`
           }
         />
