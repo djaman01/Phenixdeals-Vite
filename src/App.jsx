@@ -26,7 +26,7 @@ export default function App() {
         <Route path="/pageArtist/:auteur" element={<PageArtist />}></Route>
         <Route path="/tableaux" element={<Tableaux />}></Route>
         <Route
-          path="/FicheTableau/:articleId"
+          path="/:auteur/:articleId"
           element={<FicheTableau />}
         ></Route>
         <Route path="/toSignUp" element={<SignUp />}></Route>

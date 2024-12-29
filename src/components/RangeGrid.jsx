@@ -156,7 +156,7 @@ const RangeGrid = ({
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
             {filteredArticles.map((e) => (
-              <Link to={`/FicheTableau/${e._id}`} key={e._id}>
+              <Link to={`/${e.auteur}/${e._id}`} key={e._id}>
                 <div
                   key={e._id}
                   className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"

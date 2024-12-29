@@ -15,7 +15,9 @@ import { PulseLoader } from "react-spinners";
 const FicheTableau = () => {
   //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
   //Avec useParams, on va extraire ce paramètre qui est unique, pour définir une route dynamic dans le back-end
-  const { articleId } = useParams();
+  const { auteur, articleId } = useParams();
+
+  const encodeAuteur = encodeURIComponent(auteur); //Pour lire les espaces dans l'url
 
   //State qui va store l'article désigné dans la fiche
   const [article, setArticle] = useState(null);
@@ -103,7 +105,7 @@ const FicheTableau = () => {
           property="og:url"
           content={
             article
-              ? `https://www.phenix-deals.com/FicheTableau/${articleId}`
+              ? `https://www.phenix-deals.com/${encodeAuteur}/${articleId}`
               : "https://www.phenix-deals.com"
           }
         />
@@ -112,23 +114,19 @@ const FicheTableau = () => {
           property="og:title"
           content={
             article
-              ? `Tableau de ${article.auteur} | Phenix-deals`
+              ? `Tableau de ${encodeAuteur} | Phenix-deals`
               : "Phenix-deals | Vente tableaux d'artistes peintres au Maroc"
           }
         />
         <meta
           property="og:description"
-          content={
-            article
-              ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-              : "Site web Marocain dédié à la vente de tableaux d'artistes peintres aux thèmes et styles variés. Contactez-nous pour plus d'informations"
-          }
+          content={`Découvrez un tableau de ${encodeAuteur}, disponible à la vente sur Phenix-deals.com.`}
         />
 
         <meta
           property="og:image"
           content={
-            article && article.imageUrl
+            article
               ? article.imageUrl
               : "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
           }
@@ -138,7 +136,7 @@ const FicheTableau = () => {
           rel="canonical"
           href={
             article
-              ? `https://www.phenix-deals.com/FicheTableau/${articleId}`
+              ? `https://www.phenix-deals.com/${encodeAuteur}/${articleId}`
               : `https://www.phenix-deals.com/`
           }
         />
