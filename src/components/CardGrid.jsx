@@ -47,7 +47,7 @@ const CardGrid = ({
               (
                 e, //Définition paramètre url pour dynamique route quand on clique sur une image
               ) => (
-                <Link to={`/${encodeURIComponent(e.auteur)}/${e._id}`} key={e._id}>
+                <Link to={`/${e.auteur}/${e._id}`} key={e._id}>
                   <div
                     key={e._id}
                     className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
