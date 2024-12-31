@@ -114,13 +114,17 @@ const FicheTableau = () => {
           property="og:title"
           content={
             article
-              ? `Tableau de ${encodeAuteur} | Phenix-deals`
+              ? `Tableau de ${article.auteur} | Phenix-deals`
               : "Phenix-deals | Vente tableaux d'artistes peintres au Maroc"
           }
         />
         <meta
           property="og:description"
-          content={`Découvrez un tableau de ${encodeAuteur}, disponible à la vente sur Phenix-deals.com.`}
+          content={
+            article
+            ?`Tableau de ${article.auteur}, ${article.infoArticle}, disponible à la vente sur Phenix-deals.com.`
+            : "Découvrer des tableaux disponibles à la vente sur Phenix-deals.com"
+          }
         />
 
         <meta
