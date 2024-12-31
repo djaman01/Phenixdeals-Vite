@@ -1,8 +1,12 @@
 {
-  "builds": [
+  "rewrites": [
     {
-      "src": "dist/**/*",
-      "use": "@vercel/static"
+      "source": "/sitemap.xml",
+      "destination": "https://phenixdeals-back.onrender.com/sitemap.xml"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [

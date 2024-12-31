@@ -122,8 +122,8 @@ const FicheTableau = () => {
           property="og:description"
           content={
             article
-            ?`Tableau de ${article.auteur}, ${article.infoArticle}, disponible à la vente sur Phenix-deals.com.`
-            : "Découvrer des tableaux disponibles à la vente sur Phenix-deals.com"
+              ? `Tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com.`
+              : `Découvrez des tableaux disponibles à la vente sur Phenix-deals.com`
           }
         />
 
