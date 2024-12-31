@@ -5,16 +5,6 @@
       "use": "@vercel/static"
     }
   ],
-  "rewrites": [
-    {
-      "source": "/sitemap.xml",
-      "destination": "https://phenixdeals-back.onrender.com/sitemap.xml"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/dist/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/sitemap.xml",
