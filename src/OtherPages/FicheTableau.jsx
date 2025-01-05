@@ -82,7 +82,6 @@ const FicheTableau = () => {
   return (
     <>
       <Helmet>
-        <meta name="robots" content="noindex" />
         {/* Comme on met un titre dynamique par rapport aux données fetched et que ce n'est pas instantanée; il faut mettre une condition que la variable qui contient les properties utilisés soient rempleis, et donc ne soit pas vide */}
         <title>
           {article
@@ -95,7 +94,7 @@ const FicheTableau = () => {
           content={
             article
               ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-              : "Site web Marocain dédié à la vente de tableaux d'artistes peintres aux thèmes et styles variés. Contactez-nous pour plus d'informations"
+              : 'Découvrez un tableau disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter'
           }
         />
 
@@ -123,7 +122,7 @@ const FicheTableau = () => {
           content={
             article
               ? `Tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com.`
-              : `Découvrez des tableaux disponibles à la vente sur Phenix-deals.com`
+              : `Découvrez ce tableau disponible à la vente sur Phenix-deals.com`
           }
         />
 

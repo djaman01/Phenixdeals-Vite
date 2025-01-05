@@ -5,6 +5,7 @@ const Tableaux = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex" />
         <title>Tous les Tableaux | Phenix-deals</title>
         <meta
           name="description"
