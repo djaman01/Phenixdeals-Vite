@@ -79,6 +79,21 @@ const FicheTableau = () => {
     });
   };
 
+  //Code pour appliquer data-os de la fiche qui continet les infos du tableau, que pour les écran md ou +; comme ça sur les mobiles, la fiche d'info du tableau sera tjs présente et les visiteurs scrolleront vers le bas pour la lire
+  const [isMediumScreen, setIsMediumScreen] = useState(window.innerWidth>=768); //compare la largeur actuelle de l'écran (window.innerwidth) à 768px: donc ça retourne true ou false en fonction du résultat et j'ai mis 768px car md=768px
+
+  //On va coder un useEffect pour écouter les chgts de taille de l'écran en temps réel
+  useEffect(()=> {
+    const handleResize = () => {
+      setIsMediumScreen(window.innerWidth>=768)// Retourne true or false en comparant la taille de l'écran à 768px
+    }
+
+    window.addEventListener('resize', handleResize); //"resize" est un évenement qui écoute les chgts de taille de l'écran en temps réel: quand un utilisateur redimensionnel a taille de l'écran, l'évenement va se déclencher et appler handleResize et met donc à jour dynamiquement isMediumScreen en true or false par rapport à 768px, pour refléter la largeur de la fenêtre en temps réel
+
+    return () => window.removeEventListener('resize', handleResize) //Pour nettoyer les gestionnaires d'évenements et éviter les memory leaks: here we use it to ensure that the 'resize' event listener is properly removed when the component is unmounted
+  }, [])
+
+
   return (
     <>
       <Helmet>
@@ -170,7 +185,7 @@ const FicheTableau = () => {
             </div>
 
             <div
-              data-aos="fade-left"
+              data-aos= {isMediumScreen ? "fade-left": undefined} //Si l'écran est <md (donc pour les mobiles); l'animation ne va pas s'activer (le but est que les gens voit qu'il y a une fiche d'infos en bas sur le tel, et scroll pour voir les infos). On met udnefined au lieu de null, pour que data-os n'éxiste pas si <md alors que null il va existé avec une valeur null, ce qui pourrait créer des problèmes
               className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
             >
               <h1 className="mt-2 flex h-12 items-center justify-center text-center text-[#0072B5]">
