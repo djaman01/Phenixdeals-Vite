@@ -108,8 +108,8 @@ const FicheTableau = () => {
           name="description"
           content={
             article
-              ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter.`
-              : 'Découvrez un tableau disponible à la vente sur Phenix-deals.com: Cliquez sur "Réserver" pour nous contacter'
+              ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Contact" si intéressé.`
+              : 'Découvrez un tableau disponible à la vente sur Phenix-deals.com: Cliquez sur "Contact" si intéressé.'
           }
         />
 
@@ -210,7 +210,7 @@ const FicheTableau = () => {
                   className="no-underline"
                 >
                   <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white active:bg-[#128C7E]">
-                    <FaWhatsapp size={20} /> Réserver
+                    <FaWhatsapp size={20} /> Contact
                   </button>
                 </a>
                 <Link
