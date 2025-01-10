@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 
 const CardGrid = ({
+  auteur,
   title,
   value,
   onChange,

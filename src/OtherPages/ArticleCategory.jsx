@@ -39,7 +39,6 @@ const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
       </div>
 
       <RangeGrid
-        auteur={undefined}
         title={title}
         allValues={articles}
         error={error}
