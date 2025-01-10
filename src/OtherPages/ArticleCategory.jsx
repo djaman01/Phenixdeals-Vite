@@ -34,7 +34,7 @@ const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
 
   return (
     <>
-      <div className="mt-3">
+      <div>
         <Header />
       </div>
 
@@ -47,7 +47,7 @@ const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
         loading={spinner}
       />
 
-      <div className="pt-8">
+      <div>
         <Footer />
       </div>
     </>
