@@ -59,7 +59,7 @@
   }
 
   .padding {
-    @apply px-8 py-10 sm:px-12;
+    @apply px-8 py-10 sm:px-10;
   }
 
   .padding-x {
