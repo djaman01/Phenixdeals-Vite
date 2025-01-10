@@ -77,7 +77,7 @@ const AllArtists = () => {
 
         <meta
           name="description"
-          content="Découvrez la liste complète de tous les artistes disponibles sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
+          content="Découvrez la liste complète des artistes sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
         />
 
         {/* <meta
@@ -97,7 +97,7 @@ const AllArtists = () => {
 
         <meta
           property="og:description"
-          content="Découvrez la liste complète de tous les artistes disponibles sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
+          content="Découvrez la liste complète des artistes sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
         />
         <meta
           property="og:image"
@@ -107,13 +107,19 @@ const AllArtists = () => {
         <link rel="canonical" href="https://www.phenix-deals.com/allArtists" />
       </Helmet>
 
-      <div className="mt-3">
+      <div>
         <Header />
       </div>
 
       <div className="padding">
-        <div className="martian-mono mb-[42px] text-center text-3xl text-[#FA7A35]">
+        <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35]">
           <h1>Tous les Artistes</h1>
+        </div>
+        <div className="font-roboto mx-auto mb-[42px] w-[1000px] text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
+          <p>
+            Découvrez la liste complète des <strong className="text-[#FA7A35]">artistes</strong> présents sur notre site:<br/>
+            cliquez sur un artiste pour voir ses tableaux disponibles à la vente, ou écrivez un nom pour vérifier sa présence
+          </p>
         </div>
 
         <div className="relative mx-auto mb-9 w-1/4 max-lg:w-3/4">
@@ -163,7 +169,7 @@ const AllArtists = () => {
         </div>
       </div>
 
-      <div className="pt-8">
+      <div>
         <Footer />
       </div>
     </>
