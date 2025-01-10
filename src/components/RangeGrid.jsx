@@ -82,10 +82,10 @@ const RangeGrid = ({
         <h1>{title}</h1>
       </div>
 
-      <div className="font-roboto mx-auto mb-5 w-[1000px] border border-red-500 px-5 text-center text-xl text-gray-800 max-lg:w-auto">
+      <div className="font-roboto mx-auto mb-5 w-[1000px] px-5 text-center text-xl text-gray-800 max-lg:w-full">
         <p>
           Découvrez tous les tableaux disponibles à la vente de l'artiste{" "}
-          <strong className="text-[#FA7A35]">{auteur}</strong>. <br />
+          <strong className="text-[#FA7A35]">Sadouk Abdellah</strong>. <br />
           Cliquez sur une oeuvre pour la voir plus en détail et nous contacter
           facilement si intéressé.
         </p>
