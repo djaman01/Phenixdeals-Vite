@@ -117,8 +117,12 @@ const AllArtists = () => {
         </div>
         <div className="font-roboto mx-auto mb-[42px] w-[1000px] text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez la liste complète des <strong className="text-[#FA7A35]">artistes</strong> présents sur notre site:<br/>
-            cliquez sur un artiste pour voir ses tableaux disponibles, ou écrivez un nom pour vérifier sa présence
+            Découvrez la liste complète des{" "}
+            <strong className="text-[#FA7A35]">artistes</strong> présents sur
+            notre site:
+            <br />
+            cliquez sur un artiste pour voir ses tableaux disponibles, ou
+            écrivez un nom pour vérifier sa présence
           </p>
         </div>
 
@@ -153,10 +157,11 @@ const AllArtists = () => {
                   <ul>
                     {/*On refait un .map sur groupedArtists car avant on mapper sur une array avec que les key, alors que là on a besoin de la value auteur:"" pour chaque Key c'est pourquoi on fait groupedArtists[letter] */}
                     {groupedArtists[letter].map((e, index) => (
-                      <li key={index} className="hover:text-slate-gray active:text-green-500">
+                      <li key={index}>
                         <Link
                           to={`/pageArtist/${e.auteur}`}
                           onClick={scrollToTop}
+                          className="hover:text-slate-gray active:text-green-500"
                         >
                           {e.auteur}
                         </Link>
