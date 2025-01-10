@@ -81,15 +81,26 @@ const RangeGrid = ({
       <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35] max-lg:mx-[-10px] max-lg:mb-8 max-lg:text-[27px]">
         <h1>{title}</h1>
       </div>
-
-      <div className="font-roboto mx-auto mb-5 w-[1000px] px-5 text-center text-xl text-gray-800 max-lg:w-full">
-        <p>
-          Découvrez tous les tableaux disponibles à la vente de l'artiste{" "}
-          <strong className="text-[#FA7A35]">Sadouk Abdellah</strong>. <br />
-          Cliquez sur une oeuvre pour la voir plus en détail et nous contacter
-          facilement si intéressé.
-        </p>
-      </div>
+      
+      {auteur ? (
+        <div className="font-roboto mx-auto mb-5 w-[1000px] px-5 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
+          <p>
+            Découvrez tous les tableaux disponibles à la vente de l'artiste{" "}
+            <strong className="text-[#FA7A35]">{auteur}</strong>. <br />
+            Cliquez sur une oeuvre pour la voir plus en détail et nous contacter
+            facilement si intéressé.
+          </p>
+        </div>
+      ) : (
+        <div className="font-roboto mx-auto mb-5 w-[1000px] px-5 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
+          <p>
+            Découvrez tous les tableaux disponibles à la vente sur notre site
+            web <br />
+            Filtrez les tableaux en fonction de votre budget et cliquez sur une
+            oeuvre pour la voir plus en détail
+          </p>
+        </div>
+      )}
 
       <div className="relative mx-auto mt-4 flex justify-center max-lg:w-auto max-lg:flex-col max-lg:items-center ">
         {/* Je veux que ce 1er input n'apparaisse que pour déco et Bijoux, donc je vais faire une condition avec un props */}
