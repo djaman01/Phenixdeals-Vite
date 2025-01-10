@@ -5,6 +5,7 @@ import { SlMagnifier } from "react-icons/sl";
 import { PulseLoader } from "react-spinners";
 
 const RangeGrid = ({
+  auteur,
   title,
   error,
   allValues,
@@ -79,6 +80,15 @@ const RangeGrid = ({
     <main className="padding">
       <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35] max-lg:mx-[-10px] max-lg:mb-8 max-lg:text-[27px]">
         <h1>{title}</h1>
+      </div>
+
+      <div className="font-roboto mb-6 px-5 text-center text-base leading-relaxed text-gray-800">
+        <p>
+          Découvrez tous les tableaux disponibles à la vente de l'artiste{" "}
+          <strong className="text-[#FA7A35]">{auteur}</strong>. Cliquez sur une
+          œuvre pour la voir plus en détail et nous contacter facilement si
+          intéressé.
+        </p>
       </div>
 
       <div className="relative mx-auto mt-4 flex justify-center max-lg:w-auto max-lg:flex-col max-lg:items-center ">
@@ -156,7 +166,10 @@ const RangeGrid = ({
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
             {filteredArticles.map((e) => (
-              <Link to={`/${encodeURIComponent(e.auteur)}/${e._id}`} key={e._id}>
+              <Link
+                to={`/${encodeURIComponent(e.auteur)}/${e._id}`}
+                key={e._id}
+              >
                 <div
                   key={e._id}
                   className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"

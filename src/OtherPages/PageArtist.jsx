@@ -76,6 +76,7 @@ const PageArtist = () => {
       <Header />
 
       <RangeGrid
+        auteur={auteur}
         title={
           <>
             Tous les tableaux de{" "}
