@@ -22,7 +22,7 @@ const CardGrid = ({
       {visible ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] text-center text-xl leading-relaxed max-lg:w-full">
           <p>
-            Découvrez les 20 nouveaux tableaux disponibles à la vente <br />
+            Découvrez les 20 nouveaux tableaux disponibles à la vente ! <br />
             <strong className="text-[#FA7A35]">Cliquez</strong> sur une oeuvre
             pour la voir plus en détail et nous contacter facilement si
             intéressé.

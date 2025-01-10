@@ -119,9 +119,9 @@ const AllArtists = () => {
           <p>
             Découvrez la liste complète des{" "}
             <strong className="text-[#FA7A35]">artistes</strong> présents sur
-            notre site:
+            notre site !
             <br />
-            cliquez sur un artiste pour voir ses tableaux disponibles, ou
+            Cliquez sur un artiste pour voir ses tableaux disponibles, ou
             écrivez un nom pour vérifier sa présence
           </p>
         </div>

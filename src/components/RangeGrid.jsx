@@ -86,7 +86,7 @@ const RangeGrid = ({
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
             Découvrez tous les tableaux disponibles à la vente de l'artiste{" "}
-            <strong className="text-[#FA7A35]">{auteur}</strong>. <br />
+            <strong className="text-[#FA7A35]">{auteur}</strong> ! <br />
             Cliquez sur une oeuvre pour la voir plus en détail et nous contacter
             facilement si intéressé.
           </p>
