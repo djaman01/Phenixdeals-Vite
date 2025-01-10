@@ -48,6 +48,7 @@ const NewArticles = () => {
   return (
     <section>
       <CardGrid
+        visible={true}
         title="Les 20 Nouveaux Tableaux"
         placeholder="Nom de l'artiste"
         value={auteurName}

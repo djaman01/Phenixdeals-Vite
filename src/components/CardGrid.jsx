@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 
 const CardGrid = ({
+  visible,
   title,
   value,
   onChange,
@@ -17,14 +18,18 @@ const CardGrid = ({
       <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35]">
         <h1>{title}</h1>
       </div>
-
-      <div className="font-roboto mx-auto mb-5 w-[1000px] text-center text-xl leading-relaxed max-lg:w-full">
-        <p>
-          Découvrez les 20 nouveaux tableaux disponibles à la vente sur notre site !<br />
-          <strong className="text-[#FA7A35]">Cliquez</strong> sur une oeuvre pour la voir plus en détail et nous contacter
-          facilement si intéressé.
-        </p>
-      </div>
+      
+      {visible ? (
+        <div className="font-roboto mx-auto mb-5 w-[1000px] text-center text-xl leading-relaxed max-lg:w-full">
+          <p>
+            Découvrez les 20 nouveaux tableaux disponibles à la vente sur notre
+            site !<br />
+            <strong className="text-[#FA7A35]">Cliquez</strong> sur une oeuvre
+            pour la voir plus en détail et nous contacter facilement si
+            intéressé.
+          </p>
+        </div>
+      ) : null}
 
       <div className="relative mx-auto mt-4 w-1/4 max-lg:w-auto">
         {/* top-1/2 positionne le top du div à la moitié de son parent (donc il parait bas): c'est pourquoi on rajoute transform et -translate-y-1/2 pour le bouger en haut by the half of it's own height */}

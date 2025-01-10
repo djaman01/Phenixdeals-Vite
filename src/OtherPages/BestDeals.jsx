@@ -82,6 +82,7 @@ const BestDeals = () => {
 
       <main>
         <CardGrid
+          visible={false}
           title="Les Meilleures Affaires"
           placeholder="Nom de l'artiste"
           value={auteurName}
