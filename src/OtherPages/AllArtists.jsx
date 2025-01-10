@@ -112,13 +112,13 @@ const AllArtists = () => {
       </div>
 
       <div className="padding">
-        <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35]">
+        <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35] max-lg:mx-[-10px] max-lg:mb-8 max-lg:text-[27px]">
           <h1>Tous les Artistes</h1>
         </div>
         <div className="font-roboto mx-auto mb-[42px] w-[1000px] text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
             Découvrez la liste complète des <strong className="text-[#FA7A35]">artistes</strong> présents sur notre site:<br/>
-            cliquez sur un artiste pour voir ses tableaux disponibles à la vente, ou écrivez un nom pour vérifier sa présence
+            cliquez sur un artiste pour voir ses tableaux disponibles, ou écrivez un nom pour vérifier sa présence
           </p>
         </div>
 
