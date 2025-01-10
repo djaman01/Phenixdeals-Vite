@@ -29,12 +29,6 @@ const Concept = () => {
     });
   });
 
-  const urlPage = () => {
-    const currentUrl = window.location.href; //Pour capturer l'url de la page
-    const phone = "+212619635336";
-    return `https://wa.me/?text=${encodeURIComponent(currentUrl)}`;
-  };
-
   return (
     <>
       <Helmet>
