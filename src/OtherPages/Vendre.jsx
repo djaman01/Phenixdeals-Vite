@@ -53,7 +53,7 @@ const Vendre = () => {
         <link rel="canonical" href="https://www.phenix-deals.com/vendre" />
       </Helmet>
 
-      <div className="mb-3 mt-3">
+      <div className="mt-2 mb-3">
         <Header />
       </div>
 
@@ -132,7 +132,7 @@ const Vendre = () => {
         </div>
       </main>
 
-      <div className="mt-[-60px]">
+      <div className="mt-[-110px]">
         <Footer />
       </div>
     </>

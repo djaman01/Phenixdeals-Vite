@@ -61,7 +61,7 @@ const Concept = () => {
         <link rel="canonical" href="https://www.phenix-deals.com/concept" />
       </Helmet>
 
-      <div className="mb-3 mt-3">
+      <div className="mt-2 mb-3">
         <Header />
       </div>
 

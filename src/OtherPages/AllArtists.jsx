@@ -107,7 +107,7 @@ const AllArtists = () => {
         <link rel="canonical" href="https://www.phenix-deals.com/allArtists" />
       </Helmet>
 
-      <div>
+      <div className="mt-2">
         <Header />
       </div>
 
@@ -169,7 +169,7 @@ const AllArtists = () => {
         </div>
       </div>
 
-      <div>
+      <div className="pt-8">
         <Footer />
       </div>
     </>

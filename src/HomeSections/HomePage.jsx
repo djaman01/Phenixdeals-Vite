@@ -46,7 +46,7 @@ const HomePage = () => {
         <link rel="canonical" href="https://www.phenix-deals.com/" />
       </Helmet>
 
-      <header className="mb-5 mt-3">
+      <header className="mb-5 mt-2">
         <Header />
       </header>
 

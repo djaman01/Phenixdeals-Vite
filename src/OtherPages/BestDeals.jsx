@@ -76,7 +76,9 @@ const BestDeals = () => {
         <link rel="canonical" href="https://phenix-deals.com/best-deals" />
       </Helmet>
 
-      <Header />
+      <div className="mt-2">
+        <Header />
+      </div>
 
       <main>
         <CardGrid
@@ -90,8 +92,9 @@ const BestDeals = () => {
           loading={spinner}
         />
       </main>
-
-      <Footer />
+      <div className="pt-8">
+        <Footer />
+      </div>
     </>
   );
 };
