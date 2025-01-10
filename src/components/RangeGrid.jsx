@@ -94,7 +94,7 @@ const RangeGrid = ({
       ) : (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez tous les tableaux disponibles à la vente sur notre site web <br />
+            Découvrez tous les tableaux disponibles à la vente sur notre site ! <br />
             <strong className="text-[#FA7A35]">Filtrez</strong> les tableaux en
             fonction de votre <strong className="text-[#FA7A35]">budget</strong> et cliquez sur une oeuvre pour la voir plus
             en détail
