@@ -38,7 +38,6 @@ const Concept = () => {
   return (
     <>
       <Helmet>
-        <meta name="robots" content="noindex" />
         <title>Concept | Phenix-deals</title>
 
         <meta

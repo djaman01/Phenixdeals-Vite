@@ -210,7 +210,7 @@ const FicheTableau = () => {
                   className="no-underline"
                 >
                   <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white active:bg-[#128C7E]">
-                    <FaWhatsapp size={20} /> Contact
+                    <FaWhatsapp size={20} />Contact
                   </button>
                 </a>
                 <Link
