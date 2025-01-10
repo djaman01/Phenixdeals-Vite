@@ -14,8 +14,17 @@ const CardGrid = ({
 }) => {
   return (
     <main className="padding">
-      <div className="martian-mono mb-10 text-center text-3xl text-[#FA7A35]">
+      <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35]">
         <h1>{title}</h1>
+      </div>
+
+      <div className="font-roboto mx-auto mb-5 w-[1000px] px-5 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
+        <p>
+          Découvrez les 20 nouveaux tableaux disponibles à la vente sur notre site !
+          <strong className="text-[#FA7A35]">{auteur}</strong>. <br />
+          Cliquez sur une oeuvre pour la voir plus en détail et nous contacter
+          facilement si intéressé.
+        </p>
       </div>
 
       <div className="relative mx-auto mt-4 w-1/4 max-lg:w-auto">
@@ -47,7 +56,10 @@ const CardGrid = ({
               (
                 e, //Définition paramètre url pour dynamique route quand on clique sur une image
               ) => (
-                <Link to={`/${encodeURIComponent(e.auteur)}/${e._id}`} key={e._id}>
+                <Link
+                  to={`/${encodeURIComponent(e.auteur)}/${e._id}`}
+                  key={e._id}
+                >
                   <div
                     key={e._id}
                     className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
