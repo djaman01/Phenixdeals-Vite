@@ -83,7 +83,7 @@ const RangeGrid = ({
       </div>
 
       {auteur ? (
-        <div className="font-roboto mx-auto mb-5 w-[1000px] px-5 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
+        <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
             Découvrez tous les tableaux disponibles à la vente de l'artiste{" "}
             <strong className="text-[#FA7A35]">{auteur}</strong>. <br />
@@ -92,7 +92,7 @@ const RangeGrid = ({
           </p>
         </div>
       ) : (
-        <div className="font-roboto mx-auto mb-5 w-[1000px] px-5 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
+        <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
             Découvrez tous les tableaux disponibles à la vente sur notre site web <br />
             <strong className="text-[#FA7A35]">Filtrez</strong> les tableaux en
