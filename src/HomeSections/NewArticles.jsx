@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
-import CardGrid from "../components/CardGrid";
 import axios from "axios";
+import RangeGrid from "../components/RangeGrid";
 
 const NewArticles = () => {
   const [articleObject, setArticleObject] = useState([]); //State variable ou on va store tous les objets représentants les articles
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
-  const [auteurName, setAuteurName] = useState(""); //Pour searchBar: State variable qui va store la value de l'input et qui doit changer en fonction de ce qu'on écrit
 
-  const handleAuteurName = (e) => setAuteurName(e.target.value); //Event handler qui fait que la state articleType a pour valeur la value de l'input
 
   useEffect(() => {
     const fetchHomeArticles = async () => {
@@ -34,9 +32,7 @@ const NewArticles = () => {
     fetchHomeArticles();
   }, []);
 
-  const filteredArticles = articleObject.filter((e) =>
-    e.auteur.toLowerCase().includes(auteurName.toLowerCase()),
-  );
+
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -47,14 +43,11 @@ const NewArticles = () => {
 
   return (
     <section>
-      <CardGrid
-        visible={true}
+      <RangeGrid
+        homePage={true}
+        allValues={articleObject}
         title="Les 20 Nouveaux Tableaux"
-        placeholder="Nom de l'artiste"
-        value={auteurName}
-        onChange={handleAuteurName}
         error={error}
-        filteredArticles={filteredArticles}
         onClick={scrollToTop}
         loading={spinner}
       />
