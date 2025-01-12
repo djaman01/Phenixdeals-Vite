@@ -37,10 +37,6 @@ const BestDeals = () => {
     fetchHomeArticles();
   }, []);
 
-  const filteredArticles = articleObject.filter((e) =>
-    e.auteur.toLowerCase().includes(auteurName.toLowerCase()),
-  );
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -84,7 +80,6 @@ const BestDeals = () => {
           bestDeals={true}
           title="Les Meilleures Affaires"
           placeholder="Nom de l'artiste"
-          value={auteurName}
           onChange={handleArticleType}
           error={error}
           filteredArticles={filteredArticles}
