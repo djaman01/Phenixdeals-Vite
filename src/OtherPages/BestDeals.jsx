@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import CardGrid from "../components/CardGrid";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import RangeGrid from "../components/RangeGrid";
 
 const BestDeals = () => {
   const [articleObject, setArticleObject] = useState([]); //State variable ou on va store tous les objets représentants les articles
@@ -52,11 +52,10 @@ const BestDeals = () => {
   return (
     <>
       <Helmet>
-        <meta name="robots" content="noindex" />
         <title> Best Deals | Phenix-deals</title>
         <meta
           name="description"
-          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres au meilleur prix."
+          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres aux meilleurs prix !"
         />
 
         <meta property="og:type" content="website" />
@@ -66,7 +65,7 @@ const BestDeals = () => {
 
         <meta
           property="og:description"
-          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres au meilleur prix."
+          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres aux meilleurs prix !"
         />
         <meta
           property="og:image"
@@ -81,8 +80,8 @@ const BestDeals = () => {
       </div>
 
       <main>
-        <CardGrid
-          visible={false}
+        <RangeGrid
+          bestDeals={true}
           title="Les Meilleures Affaires"
           placeholder="Nom de l'artiste"
           value={auteurName}
