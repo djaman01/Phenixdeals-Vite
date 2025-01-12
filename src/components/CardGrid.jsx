@@ -75,8 +75,8 @@ const CardGrid = ({
                         alt={e.auteur}
                       />
                     </div>
-                    <div className="h-[167px] text-center text-xl max-lg:h-[186px]">
-                      <h3 className="my-1 flex h-[14px] items-center justify-center font-mono font-bold text-blue-600 max-lg:h-5 max-lg:text-lg  ">
+                    <div className="h-[167px] text-center text-xl max-lg:h-[184px]">
+                      <h3 className="my-1 flex h-[14px] items-center justify-center font-mono font-bold text-blue-600 max-lg:h-[18px] max-lg:text-lg  ">
                         {e.type}
                       </h3>
                       <div className="mx-auto w-1/2 border-b border-gray-300"></div>
