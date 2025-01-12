@@ -147,25 +147,25 @@ const Concept = () => {
 
         {/* Social Media Card */}
         <div
-          className="group prose relative mx-auto h-full w-4/5 overflow-hidden rounded-2xl border bg-[#FDAC53] px-5 hover:text-white"
+          className="group prose relative mx-auto h-full w-4/5 overflow-hidden rounded-2xl border bg-[#b5d9db] px-5 hover:text-white"
           data-aos="fade-down"
         >
-          <div className="absolute inset-0 translate-y-full transform bg-[#FE840E] transition-transform duration-500 ease-in-out group-hover:translate-y-0">
+          <div className="absolute inset-0 translate-y-full transform bg-[#384c6c] transition-transform duration-500 ease-in-out group-hover:translate-y-0">
             {/* This div acts as the green overlay */}
           </div>
 
           <div className="relative z-10 mb-3 h-[350px] border border-transparent ">
             <p className="max-lg:text-l text-center text-3xl font-bold max-lg:mt-7 ">
-              Abonnez-vous à nos réseaux sociaux
+              Faites votre Publicité !
             </p>
             <p className="mt-[-10px] text-lg">
-              <b> Rejoignez notre communauté</b> de passionnés d'art: <br />
-              Restez informés de nos nouveautés en temps réel, ainsi que des
-              événements artistiques à <b>Casablanca</b>
+              <b> Faites la promotion de vos événements artistiques sur notre site web et nos réseaux sociaux</b>: <br />
+              <br/>
+              Donnez une plus grande visibilité à vos expositions et autres événements artistiques auprès de notre communauté de passionnés.
             </p>
           </div>
           <div className="relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
-            <div className="mx-auto flex h-10 w-80 cursor-pointer items-center justify-around rounded-full bg-orange-500 p-7 hover:shadow-custom ">
+            <div className="mx-auto flex h-10 w-80 cursor-pointer items-center justify-around rounded-full bg-blue-500 p-7 hover:shadow-custom ">
               <SocialIcon
                 url="https://www.instagram.com/phenixdeals/"
                 target="_blank"

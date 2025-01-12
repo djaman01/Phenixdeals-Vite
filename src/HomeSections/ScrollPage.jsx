@@ -1,4 +1,9 @@
-import { phenixAchat, phenixPub, phenixVendre } from "../assets/images";
+import {
+  phenixAchat,
+  phenixPub,
+  phenixVendre,
+  gbouriArtFirst,
+} from "../assets/images";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -69,31 +74,30 @@ const ScrollPage = () => {
 
   return (
     <div>
-      <Slider {...settings} className="max-lg:mt-7 mx-auto lg:h-[700px] lg:w-[900px]">
-        <Link to="./concept">
-          <div className="lg:h-[700px] px-2">
+      <Slider
+        {...settings}
+        className="mx-auto max-lg:mt-7 lg:h-[700px] lg:w-[900px]"
+      >
+        <a
+          href="https://www.instagram.com/artfirst.galerie/"
+          target="_blank"
+          rel="noopener" // Déconnecte le nouvel onglet de l'onglet d'origine, empêchant toute interaction via window.opener. Cela protège contre des modifications malveillantes du lien de l'onglet d'origine.
+        >
+          <div className="px-2 lg:h-[700px]">
             <img
-              src={phenixVendre}
-              alt="phenix vendre"
-              className="h-full w-full object-fill rounded-2xl border-4 border-black "
+              src={gbouriArtFirst}
+              alt="Exposition Gbouri Art First"
+              className="h-full w-full rounded-2xl border-4 border-black object-fill "
             />
           </div>
-        </Link>
-        <Link to="./tableaux">
-          <div className="lg:h-[700px] px-2">
-            <img
-              src={phenixAchat}
-              alt="phenix Achat"
-              className="h-full w-full object-fill rounded-2xl border-4 border-black  "
-            />
-          </div>
-        </Link>
-        <Link to='/vendre'>
-          <div className="lg:h-[700px] px-2">
+        </a>
+
+        <Link to="./vendre">
+          <div className="px-2 lg:h-[700px]">
             <img
               src={phenixPub}
-              alt="phenix pub"
-              className="h-full w-full object-fill rounded-2xl border-4 border-black "
+              alt="phenix Pub"
+              className="h-full w-full rounded-2xl border-4 border-black object-fill  "
             />
           </div>
         </Link>
