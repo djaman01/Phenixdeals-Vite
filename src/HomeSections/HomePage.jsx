@@ -11,7 +11,7 @@ const HomePage = () => {
       <Helmet>
         {/* Titre de la page pour les onglets et le SEO:  entre 50 et 60 caractères  */}
         <title>
-          Phenix-deals | Vente tableaux d'artistes peintres au Maroc
+          Phenix-deals | Vente de tableaux d'artistes peintres au Maroc
         </title>
 
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
@@ -27,7 +27,7 @@ const HomePage = () => {
         {/*Titre de la page lorsqu'elle est partagée sur les réseaux sociaux: mettre le même titre que l'onglet */}
         <meta
           property="og:title"
-          content="Phenix-deals | Vente tableaux d'artistes peintres au Maroc"
+          content="Phenix-deals | Vente de tableaux d'artistes peintres au Maroc"
         />
 
         {/*Texte qui va s'afficher en-dessous du titre: mettre la même description que celle du moteur de recherche*/}

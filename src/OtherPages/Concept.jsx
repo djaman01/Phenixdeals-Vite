@@ -82,7 +82,7 @@ const Concept = () => {
               Activité
             </p>
             <p className="text-lg">
-              <b>phenixdeals.com</b> est un site web Marocain, spécialisé dans
+              <b>phenix-deals.com</b> est un site web Marocain, spécialisé dans
               la vente de tableaux d'artiste peintres.
             </p>
             <p className="pt-2 text-lg">
