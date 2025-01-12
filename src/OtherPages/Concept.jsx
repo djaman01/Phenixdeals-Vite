@@ -77,7 +77,7 @@ const Concept = () => {
             {/* This div acts as the blue overlay */}
           </div>
           {/* This div contains the actual content and it's relative z-10 to appear above the  colored overlay */}
-          <div className="relative z-10 mb-3 h-[350px] border border-transparent">
+          <div className="relative z-10 mb-3 h-[350px] border border-transparent max-lg:h-auto">
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Activité
             </p>
@@ -113,7 +113,7 @@ const Concept = () => {
             {/* This div acts as the green overlay */}
           </div>
 
-          <div className="relative z-10 mb-3 h-[350px] border border-transparent">
+          <div className="relative z-10 mb-3 h-[350px] border border-transparent max-lg:h-auto">
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Vendez sur notre site !
             </p>
@@ -154,7 +154,7 @@ const Concept = () => {
             {/* This div acts as the green overlay */}
           </div>
 
-          <div className="relative z-10 mb-3 h-[350px] border border-transparent ">
+          <div className="relative z-10 mb-3 h-[350px] border border-transparent max-lg:h-auto ">
             <p className="max-lg:text-l text-center text-3xl font-bold max-lg:mt-7 ">
               Faites votre Publicité !
             </p>
