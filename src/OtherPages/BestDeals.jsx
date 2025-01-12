@@ -10,9 +10,7 @@ const BestDeals = () => {
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
-  const [auteurName, setAuteurName] = useState(""); //Pour searchBar: State variable qui va store la value de l'input et qui doit changer en fonction de ce qu'on écrit
 
-  const handleArticleType = (e) => setAuteurName(e.target.value); //Event handler qui fait que la state articleType a pour valeur la value de l'input
 
   useEffect(() => {
     const fetchHomeArticles = async () => {
@@ -78,11 +76,10 @@ const BestDeals = () => {
       <main>
         <RangeGrid
           bestDeals={true}
+          allValues={articleObject}
           title="Les Meilleures Affaires"
           placeholder="Nom de l'artiste"
-          onChange={handleArticleType}
           error={error}
-          filteredArticles={filteredArticles}
           onClick={scrollToTop}
           loading={spinner}
         />
