@@ -30,7 +30,7 @@ const SideBar = () => {
             Accueil
           </MenuItem>
 
-          <SubMenu icon={<SlBasket size={20} />} label="Acheter">
+          <SubMenu icon={<SlBasket size={20} />} label="Oeuvres">
             <MenuItem component={<Link to="/allArtists" />}>
               Tous les Artistes
             </MenuItem>

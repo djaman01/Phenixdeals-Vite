@@ -25,7 +25,7 @@ const Header = () => {
           </Link>
           <div className="group relative">
             <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] ">
-              Acheter
+              Oeuvres
             </p>
 
             <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 shadow-xl ring-1 ring-slate-900/5 group-hover:block">
