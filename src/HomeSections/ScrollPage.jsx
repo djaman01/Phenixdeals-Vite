@@ -72,6 +72,14 @@ const ScrollPage = () => {
     ],
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  };
+
+
   return (
     <div>
       <Slider
@@ -92,7 +100,7 @@ const ScrollPage = () => {
           </div>
         </a>
 
-        <Link to="./vendre">
+        <Link to="./concept" onClick={scrollToTop}>
           <div className="px-2 lg:h-[700px]">
             <img
               src={phenixPub}
