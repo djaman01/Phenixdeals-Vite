@@ -70,6 +70,26 @@ const AllArtists = () => {
     });
   };
 
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Tous les Artistes | Phenix-deals.com",
+    url: "https://www.phenix-deals.com/allArtists",
+    description:
+      "Découvrez la liste complète des artistes sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente",
+    publisher: {
+      "@type": "Organization",
+      name: "Phenix-deals", //ici on met le nom de qui gère le site (moi c'est la marque phenix-deals)
+      url: "https://www.phenix-deals.com/allArtists",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png",
+        width: 512,
+        height: 512,
+      },
+    },
+  };
+
   return (
     <>
       <Helmet>
@@ -105,6 +125,9 @@ const AllArtists = () => {
         />
 
         <link rel="canonical" href="https://www.phenix-deals.com/allArtists" />
+
+        {/* JSON-LD structured data */}
+        <script type="application/ld+json">{JSON.stringify(jsonLdData)}</script>
       </Helmet>
 
       <div className="mt-2">
