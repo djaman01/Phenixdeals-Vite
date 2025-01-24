@@ -76,7 +76,7 @@ const HomePage = () => {
 
       <section className="mb-10 border-b border-t border-indigo-300 py-5 text-center max-lg:mb-5 ">
         <h1 className="playwrite text-3xl text-gray-800 max-lg:text-2xl">
-          Achat et Vente de Tableaux d'artistes peintres
+          Achat et Vente d'oeuvres d'Art
         </h1>
       </section>
 
