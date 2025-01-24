@@ -104,7 +104,7 @@ const RangeGrid = ({
       ) : homePage ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez les 20 nouvelles oeuvres d'arts disponibles à la vente !{" "}
+            Découvrez les 20 nouveaux tableaux disponibles à la vente !{" "}
             <br />
             <strong className="text-[#FA7A35]">Filtrez</strong> les tableaux en
             fonction de votre <strong className="text-[#FA7A35]">budget</strong>{" "}
