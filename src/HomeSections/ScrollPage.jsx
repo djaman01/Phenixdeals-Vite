@@ -79,14 +79,13 @@ const ScrollPage = () => {
     });
   };
 
-
   return (
     <div>
       <Slider
         {...settings}
         className="mx-auto max-lg:mt-7 lg:h-[700px] lg:w-[900px]"
       >
-        <a
+        {/* <a
           href="https://www.instagram.com/artfirst.galerie/"
           target="_blank"
           rel="noopener" // Déconnecte le nouvel onglet de l'onglet d'origine, empêchant toute interaction via window.opener. Cela protège contre des modifications malveillantes du lien de l'onglet d'origine.
@@ -98,7 +97,17 @@ const ScrollPage = () => {
               className="h-full w-full rounded-2xl border-4 border-black object-fill "
             />
           </div>
-        </a>
+        </a> */}
+
+        <Link to="./concept" onClick={scrollToTop}>
+          <div className="px-2 lg:h-[700px]">
+            <img
+              src={phenixPub}
+              alt="phenix Pub"
+              className="h-full w-full rounded-2xl border-4 border-black object-fill  "
+            />
+          </div>
+        </Link>
 
         <Link to="./concept" onClick={scrollToTop}>
           <div className="px-2 lg:h-[700px]">
