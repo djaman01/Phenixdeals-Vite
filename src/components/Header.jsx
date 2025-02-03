@@ -19,7 +19,7 @@ const Header = () => {
 
         <div className="text-slate-gray mr-24 mt-2 flex flex-1 items-center justify-center gap-14 text-lg leading-normal max-lg:hidden">
           <Link to="/">
-            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#00ff7f] active:px-2 active:py-1">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#3b82f6] active:text-white active:px-2 active:py-1 ">
               Accueil
             </p>
           </Link>
@@ -30,30 +30,30 @@ const Header = () => {
 
             <div className="font-roboto absolute z-10 hidden w-52 cursor-pointer rounded-lg bg-white font-serif text-gray-700 shadow-xl ring-1 ring-slate-900/5 group-hover:block">
               <Link to="/allArtists">
-                <p className="mt-2 py-1 mb-3 pl-2 hover:bg-[#e4e9f1] active:bg-[#00ff7f]">
+                <p className="mt-2 py-1 mb-3 pl-2 hover:bg-[#e4e9f1] active:bg-[#3b82f6] active:text-white">
                   Tous les Artistes
                 </p>
               </Link>
               <Link to="/tableaux">
-                <p className="mb-2 py-1 pl-2 hover:bg-[#e4e9f1] active:bg-[#00ff7f] ">Tous les Tableaux</p>
+                <p className="mb-2 py-1 pl-2 hover:bg-[#e4e9f1] active:bg-[#3b82f6] active:text-white ">Tous les Tableaux</p>
               </Link>
             </div>
           </div>
 
           <Link to="/bestDeals">
-            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl text-[#ff5722] hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#00ff7f] active:px-2 active:py-1 ">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl text-[#ff5722] hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#3b82f6] active:text-white active:px-2 active:py-1 ">
               Best Deals
             </p>
           </Link>
 
           <Link to="/vendre">
-            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#00ff7f] active:px-2 active:py-1 ">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#3b82f6] active:text-white active:px-2 active:py-1 ">
               Contact
             </p>
           </Link>
           
           <Link to="/concept">
-            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#00ff7f] active:px-2 active:py-1">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#3b82f6] active:text-white active:px-2 active:py-1">
               Concept
             </p>
           </Link>
