@@ -30,10 +30,15 @@ const HomePage = () => {
     //overflow-hidden pour ne pas avoir de scrollbar horizontale
     <main className="overflow-hidden">
       <Helmet>
+        
         {/* Titre de la page pour les onglets et le SEO:  entre 50 et 60 caractères  */}
         <title>
           Phenix-deals | Vente de tableaux d'artistes peintres au Maroc
         </title>
+
+        {/* Pour empecher les autres navigateurs de changer le responsive ex: quand on ouvre un lien par instagram, ça l'ouvre sur webview et non chrome, ce qui affecte la version responsive du site */}
+        {/* shrink-to-fit=no prevents WebView from auto-resizing. / user-scalable=no prevents unwanted zooming that may affect layout. */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" />
 
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
