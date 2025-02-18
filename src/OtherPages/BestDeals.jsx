@@ -10,8 +10,6 @@ const BestDeals = () => {
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
-
-
   useEffect(() => {
     const fetchHomeArticles = async () => {
       try {
@@ -46,6 +44,13 @@ const BestDeals = () => {
   return (
     <>
       <Helmet>
+        
+        {/* Balise pour gérer le responsive quelque soit la taille de l'écran:  */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
         <title> Best Deals | Phenix-deals</title>
         <meta
           name="description"

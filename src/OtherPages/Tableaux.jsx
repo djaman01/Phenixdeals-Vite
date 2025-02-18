@@ -25,6 +25,12 @@ const Tableaux = () => {
   return (
     <>
       <Helmet>
+        {/* Balise pour gérer le responsive quelque soit la taille de l'écran:  */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
         <title>Tous les Tableaux | Phenix-deals</title>
         <meta
           name="description"

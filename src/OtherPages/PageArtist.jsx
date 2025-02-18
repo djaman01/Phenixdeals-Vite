@@ -41,6 +41,12 @@ const PageArtist = () => {
   return (
     <>
       <Helmet>
+        {/* Balise pour gérer le responsive quelque soit la taille de l'écran:  */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
         {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams; donc pas besoin de condition, car le paramètre est instantanément dispo  */}
         <title>{`Tableaux de ${auteur} | Phenix-deals`}</title>
 

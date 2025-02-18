@@ -30,7 +30,12 @@ const HomePage = () => {
     //overflow-hidden pour ne pas avoir de scrollbar horizontale
     <main className="overflow-hidden">
       <Helmet>
-        
+        {/* Balise pour gérer le responsive quelque soit la taille de l'écran:  */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
         {/* Titre de la page pour les onglets et le SEO:  entre 50 et 60 caractères  */}
         <title>
           Phenix-deals | Vente de tableaux d'artistes peintres au Maroc

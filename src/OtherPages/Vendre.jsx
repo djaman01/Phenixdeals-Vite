@@ -31,6 +31,12 @@ const Vendre = () => {
         {/* Mais la balise Helmet est importante pour le titre et les partages dans les réseaux sociaux */}
         <meta name="robots" content="noindex" />
 
+        {/* Balise pour gérer le responsive quelque soit la taille de l'écran:  */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
         <title>Contact | Phenix-deals</title>
 
         <meta
@@ -53,7 +59,7 @@ const Vendre = () => {
         <link rel="canonical" href="https://www.phenix-deals.com/vendre" />
       </Helmet>
 
-      <div className="mt-2 mb-3">
+      <div className="mb-3 mt-2">
         <Header />
       </div>
 

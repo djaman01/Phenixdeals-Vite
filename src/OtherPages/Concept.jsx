@@ -11,7 +11,6 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-
 const Concept = () => {
   const scrollToTop = () => {
     window.scrollTo({
@@ -32,6 +31,12 @@ const Concept = () => {
   return (
     <>
       <Helmet>
+        {/* Balise pour gérer le responsive quelque soit la taille de l'écran:  */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
         <title>Concept | Phenix-deals</title>
 
         <meta
@@ -61,7 +66,7 @@ const Concept = () => {
         <link rel="canonical" href="https://www.phenix-deals.com/concept" />
       </Helmet>
 
-      <div className="mt-2 mb-3">
+      <div className="mb-3 mt-2">
         <Header />
       </div>
 
@@ -159,9 +164,15 @@ const Concept = () => {
               Faites votre Publicité !
             </p>
             <p className="mt-[-10px] text-lg">
-              <b> Faites la promotion de vos événements artistiques sur notre site web et nos réseaux sociaux</b>: <br />
-              <br/>
-              Donnez une plus grande visibilité à vos expositions et autres événements artistiques auprès de notre communauté de passionnés.
+              <b>
+                {" "}
+                Faites la promotion de vos événements artistiques sur notre site
+                web et nos réseaux sociaux
+              </b>
+              : <br />
+              <br />
+              Donnez une plus grande visibilité à vos expositions et autres
+              événements artistiques auprès de notre communauté de passionnés.
             </p>
           </div>
           <div className="relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
