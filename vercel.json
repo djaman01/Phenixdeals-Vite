@@ -1,4 +1,3 @@
-//I've changed the domain name; so i've added the "redirects" rule to redirect the old domain to the new one / permanent: true makes it a 301 redirect / /$1 matches everything after the domain name/...
 {
   "redirects": [
     {
