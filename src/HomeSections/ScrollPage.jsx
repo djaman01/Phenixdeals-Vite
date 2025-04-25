@@ -1,14 +1,11 @@
-import {
-  phenixAchat,
-  phenixPub,
-  phenixVendre,
-  gbouriArtFirst,
-} from "../assets/images";
 import Slider from "react-slick";
+import {
+  phenixPub
+} from "../assets/images";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 function Arrow(props) {
   const { className, style, onClick } = props;
