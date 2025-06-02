@@ -51,27 +51,27 @@ const BestDeals = () => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
-        <title> Best Deals | Phenix-deals</title>
+        <title> Best Deals | Phenix Deals</title>
         <meta
           name="description"
-          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres aux meilleurs prix !"
+          content="Découvrez les meilleures affaires sur Phenixdeals.com. Une collection de tableaux uniques d'artistes peintres aux meilleurs prix !"
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://phenix-deals.com/best-deals" />
+        <meta property="og:url" content="https://phenixdeals.com/best-deals" />
 
-        <meta property="og:title" content="Best Deals | Phenix-deals" />
+        <meta property="og:title" content="Best Deals | Phenix Deals" />
 
         <meta
           property="og:description"
-          content="Découvrez les meilleures affaires sur Phenix-deals.com. Une collection de tableaux uniques d'artistes peintres aux meilleurs prix !"
+          content="Découvrez les meilleures affaires sur Phenixdeals.com. Une collection de tableaux uniques d'artistes peintres aux meilleurs prix !"
         />
         <meta
           property="og:image"
-          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
 
-        <link rel="canonical" href="https://phenix-deals.com/best-deals" />
+        <link rel="canonical" href="https://phenixdeals.com/best-deals" />
       </Helmet>
 
       <div className="mt-2">

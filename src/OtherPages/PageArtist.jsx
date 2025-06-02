@@ -48,34 +48,34 @@ const PageArtist = () => {
         />
 
         {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams; donc pas besoin de condition, car le paramètre est instantanément dispo  */}
-        <title>{`Tableaux de ${auteur} | Phenix-deals`}</title>
+        <title>{`Tableaux de ${auteur} | Phenix Deals`}</title>
 
         <meta
           name="description"
-          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenix-deals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
+          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenixdeals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
         />
 
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://www.phenix-deals.com/pageArtist/${encodeURIComponent(auteur)}`}
+          content={`https://www.phenixdeals.com/pageArtist/${encodeURIComponent(auteur)}`}
         />
         <meta
           property="og:title"
-          content={`Tableaux de ${auteur} | Phenix-deals`}
+          content={`Tableaux de ${auteur} | Phenix Deals`}
         />
         <meta
           property="og:description"
-          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenix-deals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
+          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenixdeals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
         />
         <meta
           property="og:image"
-          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
         {/* Pour éviter tout problème de contenu dupliqué. Cela renforce encore le SEO de chaque page artiste. */}
         <link
           rel="canonical"
-          href={`https://www.phenix-deals.com/pageArtist/${encodeURIComponent(auteur)}`}
+          href={`https://www.phenixdeals.com/pageArtist/${encodeURIComponent(auteur)}`}
         />
       </Helmet>
 

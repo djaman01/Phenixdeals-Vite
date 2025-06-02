@@ -37,33 +37,33 @@ const Concept = () => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
-        <title>Concept | Phenix-deals</title>
+        <title>Concept | Phenix Deals</title>
 
         <meta
           name="description"
-          content="Phenix-deals.com est un site web Marocain qui vous propose d'acheter et de vendre des tableaux d'artistes peintres, aussi présent sur les réseaux sociaux"
+          content="Phenixdeals.com est un site web Marocain qui vous propose d'acheter et de vendre des tableaux d'artistes peintres, aussi présent sur les réseaux sociaux"
         />
 
         <meta property="og:type" content="website" />
 
         <meta
           property="og:url"
-          content="https://www.phenix-deals.com/concept"
+          content="https://www.phenixdeals.com/concept"
         />
 
-        <meta property="og:title" content="Concept | Phenix-deals" />
+        <meta property="og:title" content="Concept | Phenix Deals" />
 
         <meta
           property="og:decription"
-          content="Phenix-deals.com est un site web Marocain qui vous propose d'acheter et de vendre des tableaux d'artistes peintres, aussi présent sur les réseaux sociaux"
+          content="Phenixdeals.com est un site web Marocain qui vous propose d'acheter et de vendre des tableaux d'artistes peintres, aussi présent sur les réseaux sociaux"
         />
 
         <meta
           property="og:image"
-          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
 
-        <link rel="canonical" href="https://www.phenix-deals.com/concept" />
+        <link rel="canonical" href="https://www.phenixdeals.com/concept" />
       </Helmet>
 
       <div className="mb-3 mt-2">
@@ -87,7 +87,7 @@ const Concept = () => {
               Activité
             </p>
             <p className="text-lg">
-              <b>phenix-deals.com</b> est un site web Marocain, spécialisé dans
+              <b>Phenixdeals.com</b> est un site web Marocain, spécialisé dans
               la vente de tableaux d'artiste peintres.
             </p>
             <p className="pt-2 text-lg">

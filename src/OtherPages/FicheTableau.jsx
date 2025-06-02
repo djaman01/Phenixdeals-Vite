@@ -60,7 +60,7 @@ const FicheTableau = () => {
 
   //\n= retour à la ligne \n\n = retour à la ligne + espace entre les 2 paragraphes
   const whatsappLink = () => {
-    const message = `De phenix-deals.com,\n\nJe suis intéressé par le ${article.type} de ${article.auteur}, référence N°${article.code}`;
+    const message = `De phenixdeals.com,\n\nJe suis intéressé par le ${article.type} de ${article.auteur}, référence N°${article.code}`;
     const phone = "+212619635336";
 
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; //The encodeURIComponent function ensures the message is URL-friendly, handling spaces, line breaks (\n), and special characters.
@@ -107,16 +107,16 @@ const FicheTableau = () => {
         {/* Comme on met un titre dynamique par rapport aux données fetched et que ce n'est pas instantanée; il faut mettre une condition que la variable qui contient les properties utilisés soient rempleis, et donc ne soit pas vide */}
         <title>
           {article
-            ? `Tableau de ${article.auteur} | Phenix-deals`
-            : "Phenix-deals | Vente tableaux d'artistes peintres au Maroc"}
+            ? `Tableau de ${article.auteur} | Phenix Deals`
+            : "Phenix Deals | Vente tableaux d'artistes peintres au Maroc"}
         </title>
 
         <meta
           name="description"
           content={
             article
-              ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com: Cliquez sur "Contact" si intéressé.`
-              : 'Découvrez un tableau disponible à la vente sur Phenix-deals.com: Cliquez sur "Contact" si intéressé.'
+              ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenixdeals.com: Cliquez sur "Contact" si intéressé.`
+              : 'Découvrez un tableau disponible à la vente sur Phenixdeals.com: Cliquez sur "Contact" si intéressé.'
           }
         />
 
@@ -126,8 +126,8 @@ const FicheTableau = () => {
           property="og:url"
           content={
             article
-              ? `https://www.phenix-deals.com/${encodeAuteur}/${articleId}`
-              : "https://www.phenix-deals.com"
+              ? `https://www.phenixdeals.com/${encodeAuteur}/${articleId}`
+              : "https://www.phenixdeals.com"
           }
         />
 
@@ -135,16 +135,16 @@ const FicheTableau = () => {
           property="og:title"
           content={
             article
-              ? `Tableau de ${article.auteur} | Phenix-deals`
-              : "Phenix-deals | Vente tableaux d'artistes peintres au Maroc"
+              ? `Tableau de ${article.auteur} | Phenix Deals`
+              : "Phenix Deals | Vente tableaux d'artistes peintres au Maroc"
           }
         />
         <meta
           property="og:description"
           content={
             article
-              ? `Tableau de ${article.auteur}, disponible à la vente sur Phenix-deals.com.`
-              : `Découvrez ce tableau disponible à la vente sur Phenix-deals.com`
+              ? `Tableau de ${article.auteur}, disponible à la vente sur Phenixdeals.com.`
+              : `Découvrez ce tableau disponible à la vente sur Phenixdeals.com`
           }
         />
 
@@ -153,7 +153,7 @@ const FicheTableau = () => {
           content={
             article
               ? article.imageUrl
-              : "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+              : "https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
           }
         />
 
@@ -161,8 +161,8 @@ const FicheTableau = () => {
           rel="canonical"
           href={
             article
-              ? `https://www.phenix-deals.com/${encodeAuteur}/${articleId}`
-              : `https://www.phenix-deals.com/`
+              ? `https://www.phenixdeals.com/${encodeAuteur}/${articleId}`
+              : `https://www.phenixdeals.com/`
           }
         />
       </Helmet>

@@ -37,7 +37,7 @@ const Vendre = () => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
-        <title>Contact | Phenix-deals</title>
+        <title>Contact | Phenix Deals</title>
 
         <meta
           name="description"
@@ -45,18 +45,18 @@ const Vendre = () => {
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.phenix-deals.com/vendre" />
-        <meta property="og:title" content="Contact | Phenix-deals" />
+        <meta property="og:url" content="https://www.phenixdeals.com/vendre" />
+        <meta property="og:title" content="Contact | Phenix Deals" />
         <meta
           property="og:description"
           content="Contactez-nous pour acheter ou vendre des tableaux d'artistes peintres au Maroc. Retrouvez notre téléphone et notre e-mail pour toute demande."
         />
         <meta
           property="og:image"
-          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
 
-        <link rel="canonical" href="https://www.phenix-deals.com/vendre" />
+        <link rel="canonical" href="https://www.phenixdeals.com/vendre" />
       </Helmet>
 
       <div className="mb-3 mt-2">

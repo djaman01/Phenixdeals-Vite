@@ -73,17 +73,17 @@ const AllArtists = () => {
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Tous les Artistes | Phenix-deals.com",
-    url: "https://www.phenix-deals.com/allArtists",
+    name: "Tous les Artistes | Phenixdeals.com",
+    url: "https://www.phenixdeals.com/allArtists",
     description:
-      "Découvrez la liste complète des artistes sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente",
+      "Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente",
     publisher: {
       "@type": "Organization",
-      name: "Phenix-deals", //ici on met le nom de qui gère le site (moi c'est la marque phenix-deals)
-      url: "https://www.phenix-deals.com/allArtists",
+      name: "Phenix Deals", //ici on met le nom de qui gère le site (moi c'est la marque phenix Deals)
+      url: "https://www.phenixdeals.com/allArtists",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png",
+        url: "https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png",
         width: 512,
         height: 512,
       },
@@ -99,11 +99,11 @@ const AllArtists = () => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
-        <title>Tous les Artistes | Phenix-deals</title>
+        <title>Tous les Artistes | Phenix Deals</title>
 
         <meta
           name="description"
-          content="Découvrez la liste complète des artistes sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
+          content="Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
         />
 
         {/* <meta
@@ -114,23 +114,23 @@ const AllArtists = () => {
 
         <meta property="og:type" content="website" />
 
-        <meta property="og:title" content="Tous les Artistes | Phenix-deals" />
+        <meta property="og:title" content="Tous les Artistes | Phenix Deals" />
 
         <meta
           property="og:url"
-          content="https://www.phenix-deals.com/allArtists"
+          content="https://www.phenixdeals.com/allArtists"
         />
 
         <meta
           property="og:description"
-          content="Découvrez la liste complète des artistes sur Phenix-deals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
+          content="Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
         />
         <meta
           property="og:image"
-          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
 
-        <link rel="canonical" href="https://www.phenix-deals.com/allArtists" />
+        <link rel="canonical" href="https://www.phenixdeals.com/allArtists" />
 
         {/* JSON-LD structured data */}
         <script type="application/ld+json">{JSON.stringify(jsonLdData)}</script>

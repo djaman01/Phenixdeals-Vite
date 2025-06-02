@@ -5,17 +5,17 @@ const Tableaux = () => {
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Tous les Tableaux | Phenix-deals.com",
-    url: "https://www.phenix-deals.com/tableaux",
+    name: "Tous les Tableaux | Phenixdeals.com",
+    url: "https://www.phenixdeals.com/tableaux",
     description:
-      "Découvrez tous les tableaux disponibles sur Phenix-deals.com et utilisez nos filtres pour trouver une oeuvre en fonction de votre budget.",
+      "Découvrez tous les tableaux disponibles sur Phenixdeals.com et utilisez nos filtres pour trouver une oeuvre en fonction de votre budget.",
     publisher: {
       "@type": "Organization",
-      name: "Phenix-deals", //ici on met le nom de qui gère le site (moi c'est la marque phenix-deals)
-      url: "https://www.phenix-deals.com/tableaux",
+      name: "Phenix Deals", //ici on met le nom de qui gère le site (moi c'est la marque Phenix Deals)
+      url: "https://www.phenixdeals.com/tableaux",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png",
+        url: "https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png",
         width: 512,
         height: 512,
       },
@@ -31,26 +31,26 @@ const Tableaux = () => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
-        <title>Tous les Tableaux | Phenix-deals</title>
+        <title>Tous les Tableaux | Phenix Deals</title>
         <meta
           name="description"
-          content="Découvrez tous les tableaux disponibles sur Phenix-deals.com et utilisez nos filtres pour trouver une oeuvre en fonction de votre budget."
+          content="Découvrez tous les tableaux disponibles sur Phenixdeals.com et utilisez nos filtres pour trouver une oeuvre en fonction de votre budget."
         />
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://www.phenix-deals.com/tableaux"
+          content="https://www.phenixdeals.com/tableaux"
         />
-        <meta property="og:title" content="Tous les Tableaux | Phenix-deals" />
+        <meta property="og:title" content="Tous les Tableaux | Phenix Deals" />
         <meta
           property="og:description"
-          content="Découvrez tous les tableaux disponibles sur Phenix-deals.com et utilisez nos filtres pour trouver une oeuvre en fonction de votre budget."
+          content="Découvrez tous les tableaux disponibles sur Phenixdeals.com et utilisez nos filtres pour trouver une oeuvre en fonction de votre budget."
         />
         <meta
           property="og:image"
-          content="https://www.phenix-deals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
-        <link rel="canonical" href="https://www.phenix-deals.com/tableaux" />
+        <link rel="canonical" href="https://www.phenixdeals.com/tableaux" />
 
         {/* JSON-LD structured data */}
         <script type="application/ld+json">{JSON.stringify(jsonLdData)}</script>
