@@ -1,10 +1,10 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import RangeGrid from "../components/RangeGrid";
-import { Helmet } from "react-helmet-async";
 
 const PageArtist = () => {
   const { auteur } = useParams(); //On tire le paramètre à la fin de l'url, qui est le nom de l'artiste, définit dans le component AllArtists, dans le lien quand on clique sur le nom de l'artiste
@@ -48,11 +48,11 @@ const PageArtist = () => {
         />
 
         {/*On prend le nom de l'auteur tiré de l'url et stocké dans la variable auteur grâce à useParams; donc pas besoin de condition, car le paramètre est instantanément dispo  */}
-        <title>{`Tableaux de ${auteur} | Phenix Deals`}</title>
+        <title>{`Oeuvres de ${auteur} | Phenix Deals`}</title>
 
         <meta
           name="description"
-          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenixdeals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
+          content={`Découvrez toutes les oeuvres de ${auteur} disponibles à la vente sur Phenixdeals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
         />
 
         <meta property="og:type" content="website" />
@@ -66,7 +66,7 @@ const PageArtist = () => {
         />
         <meta
           property="og:description"
-          content={`Découvrez tous les tableaux de ${auteur} disponibles à la vente sur Phenixdeals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
+          content={`Découvrez toutes les oeuvres de ${auteur} disponibles à la vente sur Phenixdeals.com: Cliquez sur une oeuvre pour la voir plus en détail !`}
         />
         <meta
           property="og:image"
@@ -85,7 +85,7 @@ const PageArtist = () => {
         auteur={auteur}
         title={
           <>
-            Tous les tableaux de{" "}
+            Toutes les oeuvres de{" "}
             <span style={{ color: "#000000" }}>{auteur}</span>
           </>
         }
