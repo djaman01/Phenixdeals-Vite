@@ -91,7 +91,7 @@ const Concept = () => {
               la vente d'oeuvres d'art.
             </p>
             <p className="pt-2 text-lg">
-              <b>Parcourez notre site:</b> Des tableaux aux styles variés sont
+              <b>Parcourez notre site:</b> Des oeuvres aux styles variés sont
               disponibles à la vente
             </p>
           </div>
