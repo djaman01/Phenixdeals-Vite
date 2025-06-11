@@ -87,7 +87,7 @@ const RangeGrid = ({
       {auteur ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez tous les tableaux disponibles à la vente de l'artiste{" "}
+            Découvrez toutes les oeuvres disponibles à la vente de l'artiste{" "}
             <strong className="text-[#FA7A35]">{auteur}</strong> ! <br />
             Cliquez sur une oeuvre pour la voir plus en détail et nous contacter
             facilement si intéressé.
@@ -97,28 +97,28 @@ const RangeGrid = ({
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
             Découvrez les meilleures affaires sur notre site ! <br />
-            Une collection de tableaux uniques d'artistes peintres aux{" "}
+            Une collection d'oeuvres d'art uniques aux{" "}
             <strong className="text-[#FA7A35]">meilleurs prix</strong>
           </p>
         </div>
       ) : homePage ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez les 20 nouveaux tableaux disponibles à la vente !{" "}
+            Découvrez les 20 nouvelles oeuvres disponibles à la vente !{" "}
             <br />
-            <strong className="text-[#FA7A35]">Filtrez</strong> les tableaux en
+            <strong className="text-[#FA7A35]">Filtrez</strong> les en
             fonction de votre <strong className="text-[#FA7A35]">budget</strong>{" "}
-            et cliquez sur une oeuvre pour la voir plus en détail
+            et cliquez sur une oeuvre pour la voir en détail
           </p>
         </div>
       ) : (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez tous les tableaux disponibles à la vente sur notre site !{" "}
+            Découvrez toutes les oeuvres disponibles à la vente sur notre site !{" "}
             <br />
-            <strong className="text-[#FA7A35]">Filtrez</strong> les tableaux en
+            <strong className="text-[#FA7A35]">Filtrez</strong> les en
             fonction de votre <strong className="text-[#FA7A35]">budget</strong>{" "}
-            et cliquez sur une oeuvre pour la voir plus en détail
+            et cliquez sur une oeuvre pour la voir en détail
           </p>
         </div>
       )}

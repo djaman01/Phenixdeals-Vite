@@ -12,7 +12,7 @@ import { Helmet } from "react-helmet-async";
 
 import { PulseLoader } from "react-spinners";
 
-const FicheTableau = () => {
+const FicheOeuvre = () => {
   //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
   //Avec useParams, on va extraire ce paramètre qui est unique, pour définir une route dynamic dans le back-end
   const { auteur, articleId } = useParams();
@@ -60,7 +60,7 @@ const FicheTableau = () => {
 
   //\n= retour à la ligne \n\n = retour à la ligne + espace entre les 2 paragraphes
   const whatsappLink = () => {
-    const message = `De phenixdeals.com,\n\nJe suis intéressé par le ${article.type} de ${article.auteur}, référence N°${article.code}`;
+    const message = `De phenixdeals.com,\n\nJe suis intéressé par l'oeuvre de ${article.auteur}, référence N°${article.code}`;
     const phone = "+212619635336";
 
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; //The encodeURIComponent function ensures the message is URL-friendly, handling spaces, line breaks (\n), and special characters.
@@ -107,16 +107,16 @@ const FicheTableau = () => {
         {/* Comme on met un titre dynamique par rapport aux données fetched et que ce n'est pas instantanée; il faut mettre une condition que la variable qui contient les properties utilisés soient rempleis, et donc ne soit pas vide */}
         <title>
           {article
-            ? `Tableau de ${article.auteur} | Phenix Deals`
-            : "Phenix Deals | Vente tableaux d'artistes peintres au Maroc"}
+            ? `Oeuvre de ${article.auteur} | Phenix Deals`
+            : "Phenix Deals | Vente d'oeuvres d'art au Maroc"}
         </title>
 
         <meta
           name="description"
           content={
             article
-              ? `Découvrez un tableau de ${article.auteur}, disponible à la vente sur Phenixdeals.com: Cliquez sur "Contact" si intéressé.`
-              : 'Découvrez un tableau disponible à la vente sur Phenixdeals.com: Cliquez sur "Contact" si intéressé.'
+              ? `Découvrez une oeuvre de ${article.auteur}, disponible à la vente sur Phenixdeals.com: Cliquez sur "Contact" si intéressé.`
+              : 'Découvrez une oeuvre disponible à la vente sur Phenixdeals.com: Cliquez sur "Contact" si intéressé.'
           }
         />
 
@@ -135,16 +135,16 @@ const FicheTableau = () => {
           property="og:title"
           content={
             article
-              ? `Tableau de ${article.auteur} | Phenix Deals`
-              : "Phenix Deals | Vente tableaux d'artistes peintres au Maroc"
+              ? `Oeuvre de ${article.auteur} | Phenix Deals`
+              : "Phenix Deals | Vente d'oeuvres d'art au Maroc"
           }
         />
         <meta
           property="og:description"
           content={
             article
-              ? `Tableau de ${article.auteur}, disponible à la vente sur Phenixdeals.com.`
-              : `Découvrez ce tableau disponible à la vente sur Phenixdeals.com`
+              ? `Oeuvre de ${article.auteur}, disponible à la vente sur Phenixdeals.com.`
+              : `Découvrez cette oeuvre disponible à la vente sur Phenixdeals.com`
           }
         />
 
@@ -249,4 +249,4 @@ const FicheTableau = () => {
   );
 };
 
-export default FicheTableau;
+export default FicheOeuvre;

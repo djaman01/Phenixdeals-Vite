@@ -46,7 +46,7 @@ const NewArticles = () => {
       <RangeGrid
         homePage={true}
         allValues={articleObject}
-        title="Les 20 Nouveaux Tableaux"
+        title="Les 20 Nouvelles oeuvres d'art"
         error={error}
         onClick={scrollToTop}
         loading={spinner}

@@ -1,8 +1,8 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import axios from "axios";
-import { Helmet } from "react-helmet-async";
 import RangeGrid from "../components/RangeGrid";
 
 const BestDeals = () => {
@@ -38,13 +38,11 @@ const BestDeals = () => {
       top: 0,
       behavior: "instant",
     });
-    a;
   };
 
   return (
     <>
       <Helmet>
-        
         {/* Balise pour gérer le responsive quelque soit la taille de l'écran:  */}
         <meta
           name="viewport"
@@ -54,24 +52,24 @@ const BestDeals = () => {
         <title> Best Deals | Phenix Deals</title>
         <meta
           name="description"
-          content="Découvrez les meilleures affaires sur Phenixdeals.com. Une collection de tableaux uniques d'artistes peintres aux meilleurs prix !"
+          content="Découvrez les meilleures affaires sur Phenixdeals.com: une collection d'oeuvres d'art uniques et aux meilleurs prix !"
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://phenixdeals.com/best-deals" />
+        <meta property="og:url" content="https://phenixdeals.com/bestDeals" />
 
         <meta property="og:title" content="Best Deals | Phenix Deals" />
 
         <meta
           property="og:description"
-          content="Découvrez les meilleures affaires sur Phenixdeals.com. Une collection de tableaux uniques d'artistes peintres aux meilleurs prix !"
+          content="Découvrez les meilleures affaires sur Phenixdeals.com: une collection d'oeuvres d'art uniques et aux meilleurs prix !"
         />
         <meta
           property="og:image"
           content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
 
-        <link rel="canonical" href="https://phenixdeals.com/best-deals" />
+        <link rel="canonical" href="https://phenixdeals.com/bestDeals" />
       </Helmet>
 
       <div className="mt-2">

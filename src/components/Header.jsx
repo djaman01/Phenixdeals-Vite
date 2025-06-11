@@ -34,8 +34,8 @@ const Header = () => {
                   Tous les Artistes
                 </p>
               </Link>
-              <Link to="/tableaux">
-                <p className="mb-2 py-1 pl-2 hover:bg-[#e4e9f1] active:bg-[#3b82f6] active:text-white ">Tous les Tableaux</p>
+              <Link to="/oeuvres">
+                <p className="mb-2 py-1 pl-2 hover:bg-[#e4e9f1] active:bg-[#3b82f6] active:text-white ">Toutes les oeuvres</p>
               </Link>
             </div>
           </div>

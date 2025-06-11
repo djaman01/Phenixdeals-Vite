@@ -1,16 +1,14 @@
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import { Link } from "react-router-dom";
-import { IoHomeOutline } from "react-icons/io5";
-import { SlBasket } from "react-icons/sl";
-import { CiPhone } from "react-icons/ci";
-import { BsInfoCircle } from "react-icons/bs";
 import { useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { RxCross1 } from "react-icons/rx";
+import { BsInfoCircle } from "react-icons/bs";
+import { CiPhone } from "react-icons/ci";
 import { FaRegThumbsUp } from "react-icons/fa";
+import { FaRegImage } from "react-icons/fa6";
+import { IoHomeOutline } from "react-icons/io5";
+import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
+import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
-
   const [toggled, setToggled] = useState(false);
 
   return (
@@ -30,11 +28,13 @@ const SideBar = () => {
             Accueil
           </MenuItem>
 
-          <SubMenu icon={<SlBasket size={20} />} label="Oeuvres">
+          <SubMenu icon={<FaRegImage size={22} />} label="Oeuvres">
             <MenuItem component={<Link to="/allArtists" />}>
               Tous les Artistes
             </MenuItem>
-            <MenuItem component={<Link to="/tableaux" />}>Tous les Tableaux</MenuItem>
+            <MenuItem component={<Link to="/oeuvres" />}>
+              Toutes les oeuvres
+            </MenuItem>
           </SubMenu>
 
           <MenuItem
