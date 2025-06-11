@@ -76,7 +76,7 @@ const AllArtists = () => {
     name: "Tous les Artistes | Phenixdeals.com",
     url: "https://www.phenixdeals.com/allArtists",
     description:
-      "Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente",
+      "Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses oeuvres disponibles à la vente",
     publisher: {
       "@type": "Organization",
       name: "Phenix Deals", //ici on met le nom de qui gère le site (moi c'est la marque phenix Deals)
@@ -103,7 +103,7 @@ const AllArtists = () => {
 
         <meta
           name="description"
-          content="Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
+          content="Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses oeuvres disponibles à la vente"
         />
 
         {/* <meta
@@ -123,7 +123,7 @@ const AllArtists = () => {
 
         <meta
           property="og:description"
-          content="Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses tableaux disponibles à la vente"
+          content="Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses oeuvres disponibles à la vente"
         />
         <meta
           property="og:image"
@@ -150,8 +150,7 @@ const AllArtists = () => {
             <strong className="text-[#FA7A35]">artistes</strong> présents sur
             notre site !
             <br />
-            Cliquez sur un artiste pour voir ses tableaux disponibles, ou
-            écrivez un nom pour vérifier sa présence
+            Cliquez sur un nom d'artiste pour voir toutes ses oeuvres disponibles à la vente
           </p>
         </div>
 
