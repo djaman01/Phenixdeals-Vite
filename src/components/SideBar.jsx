@@ -46,7 +46,7 @@ const SideBar = () => {
 
           <MenuItem
             icon={<CiPhone size={24} />}
-            component={<Link to="/vendre" />}
+            component={<Link to="/contact" />}
           >
             Contact
           </MenuItem>

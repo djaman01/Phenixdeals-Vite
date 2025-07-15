@@ -13,7 +13,7 @@ import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
 
-const Vendre = () => {
+const Contact = () => {
   useEffect(() => {
     Aos.init({
       once: true,
@@ -45,7 +45,7 @@ const Vendre = () => {
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.phenixdeals.com/vendre" />
+        <meta property="og:url" content="https://www.phenixdeals.com/contact" />
         <meta property="og:title" content="Contact | Phenix Deals" />
         <meta
           property="og:description"
@@ -56,7 +56,7 @@ const Vendre = () => {
           content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
         />
 
-        <link rel="canonical" href="https://www.phenixdeals.com/vendre" />
+        <link rel="canonical" href="https://www.phenixdeals.com/contact" />
       </Helmet>
 
       <div className="mb-3 mt-2">
@@ -145,4 +145,4 @@ const Vendre = () => {
   );
 };
 
-export default Vendre;
+export default Contact;

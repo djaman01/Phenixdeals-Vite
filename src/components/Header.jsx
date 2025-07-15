@@ -46,7 +46,7 @@ const Header = () => {
             </p>
           </Link>
 
-          <Link to="/vendre">
+          <Link to="/contact">
             <p className="cursor-pointer rounded-lg px-2 py-1 text-xl hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#3b82f6] active:text-white active:px-2 active:py-1 ">
               Contact
             </p>

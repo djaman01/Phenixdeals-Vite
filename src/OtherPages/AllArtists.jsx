@@ -1,10 +1,10 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { SlMagnifier } from "react-icons/sl";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { SlMagnifier } from "react-icons/sl";
-import { Helmet } from "react-helmet-async";
 
 import { PulseLoader } from "react-spinners";
 
@@ -70,26 +70,6 @@ const AllArtists = () => {
     });
   };
 
-  const jsonLdData = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Tous les Artistes | Phenixdeals.com",
-    url: "https://www.phenixdeals.com/allArtists",
-    description:
-      "Découvrez la liste complète des artistes sur Phenixdeals.com. Cliquez sur un artiste pour voir ses oeuvres disponibles à la vente",
-    publisher: {
-      "@type": "Organization",
-      name: "Phenix Deals", //ici on met le nom de qui gère le site (moi c'est la marque phenix Deals)
-      url: "https://www.phenixdeals.com/allArtists",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png",
-        width: 512,
-        height: 512,
-      },
-    },
-  };
-
   return (
     <>
       <Helmet>
@@ -131,9 +111,6 @@ const AllArtists = () => {
         />
 
         <link rel="canonical" href="https://www.phenixdeals.com/allArtists" />
-
-        {/* JSON-LD structured data */}
-        <script type="application/ld+json">{JSON.stringify(jsonLdData)}</script>
       </Helmet>
 
       <div className="mt-2">
@@ -150,7 +127,8 @@ const AllArtists = () => {
             <strong className="text-[#FA7A35]">artistes</strong> présents sur
             notre site !
             <br />
-            Cliquez sur un nom d'artiste pour voir toutes ses oeuvres disponibles à la vente
+            Cliquez sur un nom d'artiste pour voir toutes ses oeuvres
+            disponibles à la vente
           </p>
         </div>
 

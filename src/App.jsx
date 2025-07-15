@@ -10,14 +10,14 @@ import Concept from "./OtherPages/Concept";
 import FicheOeuvre from "./OtherPages/FicheOeuvre";
 import Oeuvres from "./OtherPages/Oeuvres";
 import PageArtist from "./OtherPages/PageArtist";
-import Vendre from "./OtherPages/Vendre";
+import Contact from "./OtherPages/Contact";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/vendre" element={<Vendre />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
         <Route path="/addArticle" element={<AddArticle />}></Route>
         <Route path="/concept" element={<Concept />}></Route>
         <Route path="/bestDeals" element={<BestDeals />}></Route>
