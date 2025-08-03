@@ -1,14 +1,11 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import LoginForm from "../components/LoginForm";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import LoginForm from "../components/LoginForm";
 
 const Login = () => {
-  //!!!!!!!!!!!!!!! Pour activer le code qui store le token dans le cookie
-  axios.defaults.withCredentials = true;
-
   //State variable pour stocker les valeurs des inputs email et password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,8 +25,9 @@ const Login = () => {
       try {
         //On utilise aussi .post pour le login car: The POST method is used to send data to the server to be processed. Even though you're not creating or modifying database records, you are sending login credentials for the server to verify. The POST method is appropriate for this kind of operation
         const response = await axios.post(
-          `https://phenixdeals-back.onrender.com/logIn`,
+          "https://phenixdeals-back.onrender.com/logIn",
           { email, password },
+          { withCredentials: true }, //Pour n'envoyer les cookies que quand on fait un .post et que ça ne bloque pas sur mobile
         );
         console.log(response.data);
         response.data.status === "Success"
