@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import RangeGrid from "../components/RangeGrid";
 
 const NewArticles = () => {
@@ -7,14 +7,14 @@ const NewArticles = () => {
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
-
+  // Access API base URL from env (import.meta.env.name => To call .env variable in Vite, with a name that must start with "VITE")
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchHomeArticles = async () => {
       try {
-        const response = await axios.get(
-          "https://phenixdeals-back.onrender.com/homeArticles?limit=20",
-        ); // Add the query parameter for limiting the results
+        //prettier-ignore
+        const response = await axios.get(`${API_BASE_URL}/homeArticles?limit=20`,);
         console.log("Last 20 articles fetched", response.data);
         setArticleObject(response.data);
       } catch (error) {
@@ -31,8 +31,6 @@ const NewArticles = () => {
 
     fetchHomeArticles();
   }, []);
-
-
 
   const scrollToTop = () => {
     window.scrollTo({

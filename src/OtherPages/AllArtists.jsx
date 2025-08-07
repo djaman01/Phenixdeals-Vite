@@ -14,12 +14,13 @@ const AllArtists = () => {
 
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
+  // Access API base URL from env
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchAllArtists = async () => {
       try {
-        const response = await axios.get(
-          `https://phenixdeals-back.onrender.com/allArtists`,
-        );
+        const response = await axios.get(`${API_BASE_URL}/allArtists`);
         setArtists(response.data);
         console.log("All artists fetched", response.data);
       } catch (error) {
@@ -35,7 +36,7 @@ const AllArtists = () => {
     };
 
     fetchAllArtists();
-  }, []);
+  }, [API_BASE_URL]);
 
   //state qui va store la value de l'input
   const [artistName, setArtistName] = useState("");

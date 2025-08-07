@@ -1,20 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import RangeGrid from "../components/RangeGrid";
-import Footer from "../components/Footer";
 
 const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
+  // Access API base URL from env
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fecthByCategory = async () => {
       try {
-        const response = await axios.get(
-          `https://phenixdeals-back.onrender.com/${type}`,
-        );
+        const response = await axios.get(`${API_BASE_URL}/${type}`);
         setArticles(response.data);
         console.log(`${title} articles fetched`, response.data);
       } catch (error) {
@@ -30,7 +31,7 @@ const ArticleCategory = ({ type, title, showSearchInput, typeObjet }) => {
     };
 
     fecthByCategory();
-  }, [type, title]);
+  }, [API_BASE_URL, type, title]);
 
   return (
     <>

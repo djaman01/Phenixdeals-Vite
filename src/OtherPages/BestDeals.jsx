@@ -10,12 +10,13 @@ const BestDeals = () => {
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
+  // Access API base URL from env
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchHomeArticles = async () => {
       try {
-        const response = await axios.get(
-          "https://phenixdeals-back.onrender.com/bestDeals",
-        ); // Add the query parameter for limiting the results
+        const response = await axios.get(`${API_BASE_URL}/bestDeals`); // Add the query parameter for limiting the results
         console.log("Best Deals fetched", response.data);
         setArticleObject(response.data);
       } catch (error) {
@@ -31,7 +32,7 @@ const BestDeals = () => {
     };
 
     fetchHomeArticles();
-  }, []);
+  }, [API_BASE_URL]);
 
   const scrollToTop = () => {
     window.scrollTo({
