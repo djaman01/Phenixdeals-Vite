@@ -1,9 +1,9 @@
 import axios from "axios";
-import Dropzone from "react-dropzone";
-import Header from "../components/Header";
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer";
+import Dropzone from "react-dropzone";
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const AddArticle = () => {
   axios.defaults.withCredentials = true; //To include the cookies in the request globally (pour ne pas avoir à écrire; {withCredentials: true} dans chaque axios.get, car on en a besoin pour la requete de authenticate et de logout pour que ça puisse logout même si on part sur une autre page et qu'on revient sur dashboard)
@@ -97,18 +97,18 @@ const AddArticle = () => {
   return (
     <>
       <Header />
-      <div className="bg-[#e8e8e8]">
-        <div className="flex h-screen flex-col items-center justify-center">
-          <div className="w-3/4 rounded-lg border border-gray-300 bg-white p-6 shadow-md">
-            <h2 className="mb-4 ml-10 text-2xl font-bold text-gray-900">
+      <div className="bg-[#e8e8e8] ">
+        <div className=" flex h-screen flex-col items-center justify-center max-lg:h-auto">
+          <div className=" w-3/4 rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:mt-20 max-lg:mb-20">
+            <h2 className=" mb-4 text-center text-2xl font-bold text-gray-900 max-lg:ml-0 max-lg:text-center">
               Add Article
             </h2>
-            <div className="grid grid-cols-2  ">
-              <form className="ml-10 flex flex-col">
+            <div className="grid grid-cols-2 max-lg:grid-cols-1 ">
+              <form className="ml-10 flex flex-col max-lg:mx-auto">
                 <input
                   required
                   type="text"
-                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
                   placeholder="Type de l'article"
                   value={type}
                   onChange={(e) => setType(e.target.value)}
@@ -116,7 +116,7 @@ const AddArticle = () => {
                 <input
                   required
                   type="text"
-                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
                   placeholder="Auteur"
                   value={auteur}
                   onChange={(e) => setAuteur(e.target.value)}
@@ -124,7 +124,7 @@ const AddArticle = () => {
                 <input
                   required
                   type="text"
-                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
                   placeholder="Info Article"
                   value={infoArticle}
                   onChange={(e) => setInfoArticle(e.target.value)}
@@ -132,7 +132,7 @@ const AddArticle = () => {
                 <input
                   required
                   type="text"
-                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
                   placeholder="Prix"
                   value={prix}
                   onChange={(e) => setPrix(e.target.value)}
@@ -140,7 +140,7 @@ const AddArticle = () => {
                 <input
                   required
                   type="text"
-                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
                   placeholder="Achat ou Dépôt"
                   value={etat}
                   onChange={(e) => setEtat(e.target.value)}
@@ -148,7 +148,7 @@ const AddArticle = () => {
                 <input
                   required
                   type="text"
-                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
                   placeholder="Best Deal ?"
                   value={bestDeal}
                   onChange={(e) => setBestDeal(e.target.value)}
@@ -156,7 +156,7 @@ const AddArticle = () => {
                 <input
                   required
                   type="text"
-                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
                   placeholder="Code Article"
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
@@ -168,24 +168,27 @@ const AddArticle = () => {
                 >
                   {({ getRootProps, getInputProps }) => (
                     <div
-                      className="flex h-16 items-center justify-center border border-slate-400"
+                      className="flex h-16 items-center justify-center border border-slate-400 max-lg:mt-5 max-lg:w-max"
                       {...getRootProps()}
                     >
                       <input {...getInputProps()} />
-                      <p>Drag & drop an image here, or click to select one</p>
+                      <p>
+                        Drag & drop an image here, <br />
+                        Or click to select one
+                      </p>
                     </div>
                   )}
                 </Dropzone>
 
-                <div className="flex justify-center">
+                <div className="flex justify-center max-lg:flex-col max-lg:items-center">
                   <Link to="/toDashboard">
-                    <button className="mt-4 w-32 rounded-md bg-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-blue-600">
+                    <button className=" mt-4 w-32 rounded-md bg-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-blue-600">
                       Dashboard
                     </button>
                   </Link>
 
                   <button
-                    className="ml-10 mt-4 w-32 rounded-md bg-green-500 bg-gradient-to-r px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600"
+                    className="lg:ml-10 mt-4 w-32 rounded-md bg-green-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600"
                     onClick={handleSubmit}
                   >
                     Send Article
@@ -193,7 +196,7 @@ const AddArticle = () => {
                 </div>
               </form>
 
-              <div className="ml-16 mt-6 flex h-96 w-96 items-center justify-center border border-gray-400 ">
+              <div className="ml-16 mt-6 flex h-96 w-96 items-center justify-center border border-gray-400 max-lg:ml-0 max-lg:h-48 max-lg:w-auto">
                 {/*Pour que l'image n'apparaisse que si imageFile contient une image */}
                 {imageFile && (
                   <img

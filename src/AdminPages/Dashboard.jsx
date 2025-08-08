@@ -4,10 +4,10 @@ import DataTable from "react-data-table-component";
 
 import { StyleSheetManager } from "styled-components"; //Pour eviter les erreurs de styled props dans la console
 
-import { FaRegPenToSquare } from "react-icons/fa6";
 import { FaRegTrashAlt } from "react-icons/fa";
-import Header from "../components/Header";
+import { FaRegPenToSquare } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 export default function Dashboard() {
   axios.defaults.withCredentials = true; //To include the cookies in the request globally (pour ne pas avoir à écrire; {withCredentials: true} dans chaque axios.get, car on en a besoin pour la requete de authenticate et de logout pour que ça puisse logout même si on part sur une autre page et qu'on revient sur dashboard)
@@ -323,21 +323,21 @@ export default function Dashboard() {
     <>
       <Header />
 
-      <div className="mt-5 flex justify-center text-lg">
+      <div className="mt-5 flex justify-center text-lg  max-lg:mt-1 max-lg:flex-col max-lg:items-center max-lg:gap-4">
         <Link to="/">
-          <button className="mr-52 w-[115px] rounded-md border bg-blue-500 px-3 py-1 text-white active:bg-blue-600">
+          <button className="mr-52 w-[115px] rounded-md border bg-blue-500 px-3 py-1 text-white active:bg-blue-600 max-lg:mr-0">
             Accueil
           </button>
         </Link>
 
         <Link to="/addArticle">
-          <button className="mr-52 w-[115px] rounded-md border bg-green-500 px-3 py-1 text-white active:bg-green-600">
+          <button className="mr-52 w-[115px] rounded-md border bg-green-500 px-3 py-1 text-white active:bg-green-600 max-lg:mr-0">
             Add Article
           </button>
         </Link>
 
         <button
-          className="w-[115px] rounded-md border bg-red-500 px-3 py-1 text-white active:bg-red-800"
+          className="w-[115px] rounded-md border bg-red-500 px-3 py-1 text-white active:bg-red-800 max-lg:mr-0"
           onClick={handleLogout}
         >
           Log Out
