@@ -124,12 +124,13 @@ const AllArtists = () => {
         </div>
         <div className="font-roboto mx-auto mb-[42px] w-[1000px] text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez la liste complète des{" "}
-            <strong className="text-[#FA7A35]">artistes</strong> présents sur
+            Découvrez{" "}
+            <strong className="text-[#FA7A35]">la liste complète</strong> des
+            <strong className="text-[#FA7A35]"> artistes</strong> présents sur
             notre site !
             <br />
-            Cliquez sur un nom d'artiste pour voir toutes ses oeuvres
-            disponibles à la vente
+            <strong className="text-[#FA7A35]">Cliquez</strong> sur un nom
+            d'artiste pour découvrir toutes ses oeuvres disponibles à la vente
           </p>
         </div>
 

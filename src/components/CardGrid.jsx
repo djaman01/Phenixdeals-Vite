@@ -18,7 +18,7 @@ const CardGrid = ({
       <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35]">
         <h1>{title}</h1>
       </div>
-      
+
       {visible ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] text-center text-xl leading-relaxed max-lg:w-full">
           <p>
@@ -54,7 +54,7 @@ const CardGrid = ({
             <PulseLoader color="#FA7A35" size={40} />
           </div>
         ) : (
-          <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
+          <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
             {filteredArticles.map(
               (
                 e, //Définition paramètre url pour dynamique route quand on clique sur une image

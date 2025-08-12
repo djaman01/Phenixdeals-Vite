@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { SlMagnifier } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 import { PulseLoader } from "react-spinners";
 
@@ -89,26 +89,26 @@ const RangeGrid = ({
           <p>
             Découvrez toutes les oeuvres disponibles à la vente de l'artiste{" "}
             <strong className="text-[#FA7A35]">{auteur}</strong> ! <br />
-            Cliquez sur une oeuvre pour la voir plus en détail et nous contacter
-            facilement si intéressé.
+            Cliquez sur une oeuvre pour la voir en détail et nous contacter si
+            intéressé.
           </p>
         </div>
       ) : bestDeals ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez les meilleures affaires sur notre site ! <br />
-            Une collection d'oeuvres d'art uniques aux{" "}
-            <strong className="text-[#FA7A35]">meilleurs prix</strong>
+            Découvrez notre selection d'oeuvres d'art uniques aux{" "}
+            <strong className="text-[#FA7A35]">meilleurs prix !</strong> <br />
+            Utilisez le <strong className="text-[#FA7A35]">filtre </strong>
+            pour découvrir les oeuvres adaptées à votre{" "}
+            <strong className="text-[#FA7A35]">budget</strong>
           </p>
         </div>
       ) : homePage ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez les 20 nouvelles oeuvres disponibles à la vente !{" "}
-            <br />
-            <strong className="text-[#FA7A35]">Filtrez</strong> les en
-            fonction de votre <strong className="text-[#FA7A35]">budget</strong>{" "}
-            et cliquez sur une oeuvre pour la voir en détail
+            Utilisez le <strong className="text-[#FA7A35]">filtre</strong> pour
+            découvrir les nouvelles oeuvres adaptées à votre{" "}
+            <strong className="text-[#FA7A35]">budget</strong>
           </p>
         </div>
       ) : (
@@ -116,9 +116,9 @@ const RangeGrid = ({
           <p>
             Découvrez toutes les oeuvres disponibles à la vente sur notre site !{" "}
             <br />
-            <strong className="text-[#FA7A35]">Filtrez</strong> les en
-            fonction de votre <strong className="text-[#FA7A35]">budget</strong>{" "}
-            et cliquez sur une oeuvre pour la voir en détail
+            Utilisez le <strong className="text-[#FA7A35]">filtre </strong>
+            pour découvrir les oeuvres adaptées à votre{" "}
+            <strong className="text-[#FA7A35]">budget</strong>
           </p>
         </div>
       )}
@@ -196,7 +196,7 @@ const RangeGrid = ({
             <PulseLoader color="#FA7A35" size={40} />
           </div>
         ) : (
-          <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-20px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
+          <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
             {filteredArticles.map((e) => (
               <Link
                 to={`/${encodeURIComponent(e.auteur)}/${e._id}`}

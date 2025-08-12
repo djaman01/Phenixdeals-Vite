@@ -30,7 +30,7 @@ const NewArticles = () => {
     };
 
     fetchHomeArticles();
-  }, []);
+  }, [API_BASE_URL]);
 
   const scrollToTop = () => {
     window.scrollTo({
