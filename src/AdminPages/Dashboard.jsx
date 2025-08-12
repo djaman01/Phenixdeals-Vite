@@ -40,7 +40,7 @@ export default function Dashboard() {
     };
 
     authenticate();
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const fetchAllArticles = async () => {
@@ -288,9 +288,15 @@ export default function Dashboard() {
           </div>
         ) : (
           <div className="flex w-[70px] cursor-pointer justify-around">
-            <FaRegPenToSquare size={17} onClick={() => handleEditClick(row)} />{" "}
+            <FaRegPenToSquare size={17} onClick={() => handleEditClick(row)} />
             {/* Click sur stylo= appel function handleEditClick avec argument row selectionnée*/}
-            <FaRegTrashAlt size={17} onClick={() => handleDelete(row._id)} />
+            {/* prettier-ignore */}
+            <FaRegTrashAlt
+              size={17}
+              onClick={() => {
+                window.confirm("Are you sur you want to delete this article ?") && handleDelete(row._id);
+              }}
+            />
           </div>
         ),
     },

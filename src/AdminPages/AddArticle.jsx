@@ -32,7 +32,7 @@ const AddArticle = () => {
     };
 
     authenticate();
-  }, []);
+  }, [navigate]);
 
   //Comme il y a l'image, faire un state avec un objet comme dans contact ne va pas marcher
   const [imageFile, setImageFile] = useState(null); //setImage dans dropzone
