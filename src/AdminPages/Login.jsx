@@ -34,7 +34,16 @@ const Login = () => {
           ? navigate("/toDashboard")
           : alert("Error during login");
       } catch (error) {
-        console.error("Erreur lors du login", error);
+        if (error.response) {
+          const err = error.response.data.error;
+          if (err === "Email not found" || err === "Invalid password") {
+            alert("Identifiants invalides");
+          } else {
+            alert("Erreur lors de la connexion."); //ex: pas d'internet, server down
+          }
+        } else {
+          alert("Erreur réseau. Veuillez réessayer.");
+        }
       }
     }
   };
