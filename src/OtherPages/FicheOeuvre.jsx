@@ -232,7 +232,7 @@ const FicheOeuvre = () => {
                     onClick={scrollToTop}
                     className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:bg-[#53b5e3]"
                   >
-                    Autres {article.auteur}
+                    Autres oeuvres de {article.auteur}
                   </button>
                 </Link>
 
