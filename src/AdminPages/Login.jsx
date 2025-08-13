@@ -36,7 +36,7 @@ const Login = () => {
       } catch (error) {
         if (error.response) {
           const err = error.response.data.error;
-          if (err === "Email not found" || err === "Invalid password") {
+          if (err === "Email not found" || err === "Invalid credentials") {
             alert("Identifiants invalides");
           } else {
             alert("Erreur lors de la connexion."); //ex: pas d'internet, server down
