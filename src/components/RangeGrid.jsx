@@ -80,7 +80,7 @@ const RangeGrid = ({
 
   return (
     <main className="padding">
-      <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35] max-lg:mx-[-10px] max-lg:mb-8 max-lg:text-[27px]">
+      <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35] max-lg:mx-[-10px] max-lg:mb-4 max-lg:text-[27px]">
         <h1>{title}</h1>
       </div>
 
@@ -114,7 +114,7 @@ const RangeGrid = ({
       ) : (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez toutes les oeuvres disponibles à la vente sur notre site !{" "}
+            Découvrez toutes les oeuvres disponibles à la vente sur le site !{" "}
             <br />
             Utilisez le <strong className="text-[#FA7A35]">filtre </strong>
             pour découvrir les oeuvres adaptées à votre{" "}
