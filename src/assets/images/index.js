@@ -1,7 +1,6 @@
-import logoPhenix from "./logo-phenix-nobg.png"
-import phenixAchat from "./phenix-achat.jpg"
-import phenixVendre from "./phenix-vendre.jpg"
-import phenixPub from "./phenix-deals.jpg"
-import gbouriArtFirst from "./Gbouri-ArtFirst.jpg"
+import logoPhenix from "./logo-phenix-nobg.png";
 
-export {logoPhenix, phenixAchat, phenixVendre, phenixPub, gbouriArtFirst}
+import phenixAffiche from "./phenix-deals.jpg";
+import phenixPub from "./phenix-pub.jpg";
+
+export { logoPhenix, phenixAffiche, phenixPub };

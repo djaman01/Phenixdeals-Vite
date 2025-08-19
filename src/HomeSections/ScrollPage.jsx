@@ -1,7 +1,5 @@
 import Slider from "react-slick";
-import {
-  phenixPub
-} from "../assets/images";
+import { phenixAffiche, phenixPub } from "../assets/images";
 
 import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
@@ -99,8 +97,8 @@ const ScrollPage = () => {
         <Link to="./concept" onClick={scrollToTop}>
           <div className="px-2 lg:h-[700px]">
             <img
-              src={phenixPub}
-              alt="phenix Pub"
+              src={phenixAffiche}
+              alt="phenix Affiche"
               className="h-full w-full rounded-2xl border-4 border-black object-fill  "
             />
           </div>
