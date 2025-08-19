@@ -99,7 +99,7 @@ const ScrollPage = () => {
             <img
               src={phenixAffiche}
               alt="phenix Affiche"
-              className="h-full w-full rounded-2xl border-4 border-black object-fill  "
+              className="h-full w-full rounded-2xl object-fill  "
             />
           </div>
         </Link>
@@ -109,7 +109,7 @@ const ScrollPage = () => {
             <img
               src={phenixPub}
               alt="phenix Pub"
-              className="h-full w-full rounded-2xl border-4 border-black object-fill  "
+              className="h-full w-full rounded-2xl object-fill  "
             />
           </div>
         </Link>
