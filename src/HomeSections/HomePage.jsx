@@ -84,7 +84,7 @@ const HomePage = () => {
         </h1>
       </section>
 
-      <section className="rounded-2xl bg-[#EDF1FF] max-lg:h-64">
+      <section className="rounded-2xl bg-[#EDF1FF] max-lg:h-[254px]">
         <ScrollPage />
       </section>
 

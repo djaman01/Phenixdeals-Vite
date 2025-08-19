@@ -104,7 +104,7 @@ const ScrollPage = () => {
           </div>
         </Link>
 
-        <Link to="./concept" onClick={scrollToTop}>
+        <Link to="./contact" onClick={scrollToTop}>
           <div className="px-2 lg:h-[700px]">
             <img
               src={phenixPub}

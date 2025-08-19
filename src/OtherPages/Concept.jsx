@@ -137,7 +137,7 @@ const Concept = () => {
             </p>
           </div>
           <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
-            <Link to="/vendre" className="no-underline" onClick={scrollToTop}>
+            <Link to="/contact" className="no-underline" onClick={scrollToTop}>
               <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
                 <b>Contactez-nous</b>
                 <img
