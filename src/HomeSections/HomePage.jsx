@@ -78,10 +78,17 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="mb-10 border-b border-t border-indigo-300 py-5 text-center max-lg:mb-5 ">
-        <h1 className="playwrite text-3xl text-gray-800 max-lg:text-2xl">
-          Achat et Vente d'oeuvres d'Art
-        </h1>
+      <section className="mb-10 py-5 text-center max-lg:mb-5">
+        <div className="flex items-center justify-center">
+          {/* Ligne gauche */}
+          <div className="w-52 border-t-2 border-indigo-300 "></div>{" "}
+          {/* Texte */}
+          <h1 className="playwrite whitespace-nowrap bg-white px-6 text-3xl text-gray-800 max-lg:px-2 max-lg:text-xl">
+            Achat et Vente d'oeuvres d'Art{" "}
+          </h1>
+          {/* Ligne droite */}
+          <div className="w-52 border-t-2 border-indigo-300"></div>{" "}
+        </div>
       </section>
 
       <section className="rounded-2xl bg-[#EDF1FF] max-lg:h-[254px]">
