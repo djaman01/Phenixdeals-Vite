@@ -78,7 +78,7 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="mb-10 py-5 text-center max-lg:mb-5">
+      <section className="mb-8 py-5 text-center max-lg:py-2 max-lg:mb-0">
         <div className="flex items-center justify-center">
           {/* Ligne gauche */}
           <div className="w-52 border-t-2 border-indigo-300 "></div>{" "}
