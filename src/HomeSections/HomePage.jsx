@@ -83,7 +83,7 @@ const HomePage = () => {
           {/* Ligne gauche */}
           <div className="w-52 border-t-2 border-indigo-300 "></div>{" "}
           {/* Texte */}
-          <h1 className="playwrite whitespace-nowrap bg-white px-6 text-3xl text-gray-800 max-lg:px-2 max-lg:text-xl">
+          <h1 className="playwrite whitespace-nowrap bg-white px-6 text-3xl text-gray-800 max-lg:px-2 max-lg:text-[22px]">
             Achat et Vente d'oeuvres d'Art{" "}
           </h1>
           {/* Ligne droite */}
