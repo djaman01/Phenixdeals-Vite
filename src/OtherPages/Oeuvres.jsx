@@ -33,7 +33,7 @@ const Oeuvres = () => {
 
       <ArticleCategory
         type="oeuvre"
-        title="Toutes les oeuvres d'art"
+        title="Toutes les oeuvres"
         searchKey="auteur"
       />
     </>
