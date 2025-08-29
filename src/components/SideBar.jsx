@@ -45,17 +45,17 @@ const SideBar = () => {
           </MenuItem>
 
           <MenuItem
-            icon={<CiPhone size={24} />}
-            component={<Link to="/contact" />}
-          >
-            Contact
-          </MenuItem>
-
-          <MenuItem
             icon={<BsInfoCircle size={20} />}
             component={<Link to="/concept" />}
           >
             Concept
+          </MenuItem>
+
+          <MenuItem
+            icon={<CiPhone size={24} />}
+            component={<Link to="/contact" />}
+          >
+            Contact
           </MenuItem>
         </Menu>
       </Sidebar>

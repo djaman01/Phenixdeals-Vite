@@ -5,11 +5,11 @@ import "aos/dist/aos.css";
 
 import { useEffect } from "react";
 
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
 import { arrowRight } from "../assets/icons";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 
 const Concept = () => {
   const scrollToTop = () => {
@@ -46,10 +46,7 @@ const Concept = () => {
 
         <meta property="og:type" content="website" />
 
-        <meta
-          property="og:url"
-          content="https://www.phenixdeals.com/concept"
-        />
+        <meta property="og:url" content="https://www.phenixdeals.com/concept" />
 
         <meta property="og:title" content="Concept | Phenix Deals" />
 
@@ -160,21 +157,23 @@ const Concept = () => {
           </div>
 
           <div className="relative z-10 mb-3 h-[350px] border border-transparent max-lg:h-auto ">
-            <p className="max-lg:text-l text-center text-3xl font-bold max-lg:mt-7 ">
-              Faites votre Publicité !
+            <p className="text-center text-3xl font-bold max-lg:mt-7">
+              Réseaux Sociaux
             </p>
-            <p className="mt-[-10px] text-lg">
+            <p className="text-lg max-lg:mt-10">
               <b>
-                {" "}
-                Faites la promotion de vos événements artistiques sur notre site
-                web et nos réseaux sociaux
+                Rejoignez notre communauté et suivez l'actualité de l'art à
+                Casablanca !
               </b>
-              : <br />
               <br />
-              Donnez une plus grande visibilité à vos expositions et autres
-              événements artistiques auprès de notre communauté de passionnés.
+              <br />
+              <span>
+                Découvrez nos sélections d'oeuvres et d'événements artistiques à
+                ne pas manquer !
+              </span>
             </p>
           </div>
+
           <div className="relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
             <div className="mx-auto flex h-10 w-80 cursor-pointer items-center justify-around rounded-full bg-blue-500 p-7 hover:shadow-custom ">
               <SocialIcon
