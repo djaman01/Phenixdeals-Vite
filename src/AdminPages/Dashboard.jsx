@@ -65,6 +65,7 @@ export default function Dashboard() {
 
   //Pour PUT request et modifier certains élements selectionnés
   const [auteurName, setAuteurName] = useState("");
+  const [articleType, setArticleType] = useState("");
   const [articlePrice, setArticlePrice] = useState("");
   const [articleInfos, setArticleInfos] = useState("");
   const [bestDeal, setBestDeal] = useState("");
@@ -77,6 +78,7 @@ export default function Dashboard() {
   const handleEditClick = (row) => {
     setArticleId(row._id); //Pour voir un input pour modifier les valeurs, après avoir cliquer sur le stylo ou cancel
     setAuteurName(row.auteur); //Pour corriger le nom de l'auteur en cas d'erreur
+    setArticleType(row.type); //Modification type article
     setArticleInfos(row.infoArticle); //Modification de infoArticle
     setArticlePrice(row.prix); //Modification du prix
     setBestDeal(row.bestDeal); //Modification de la valeur de bestDeal
@@ -86,6 +88,7 @@ export default function Dashboard() {
   //On donne aux VALEURS de la propriété auteur, prix, infoArticle..etc de la database, les states variables précédentes que l'on va changer
   const updatedProductData = {
     auteur: auteurName,
+    type: articleType,
     prix: articlePrice,
     infoArticle: articleInfos,
     bestDeal: bestDeal,
@@ -179,6 +182,19 @@ export default function Dashboard() {
       name: "Type",
       selector: (row) => row.type,
       sortable: true,
+      cell: (row) =>
+        articleId === row._id ? (
+          <div>
+            <input
+              placeholder="New Type"
+              value={articleType}
+              onChange={(e) => setArticleType(e.target.value)}
+              className="w-full rounded-md border-2 border-black text-center"
+            />
+          </div>
+        ) : (
+          row.type
+        ),
     },
 
     {

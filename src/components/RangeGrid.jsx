@@ -80,16 +80,14 @@ const RangeGrid = ({
 
   return (
     <main className="padding">
-      <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35] max-lg:mx-[-10px] max-lg:mb-4 max-lg:text-[27px]">
+      <div className="martian-mono mb-5 text-center text-3xl bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-transparent max-lg:mx-[-10px] max-lg:mb-4 max-lg:text-[27px]">
         <h1>{title}</h1>
       </div>
 
       {auteur ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Découvrez toutes les oeuvres disponibles à la vente de l'artiste{" "}
-            <strong className="text-[#FA7A35]">{auteur}</strong> ! <br />
-            Cliquez sur une oeuvre pour la voir en détail et nous contacter si
+            <strong>Cliquez </strong> sur une oeuvre pour la voir en détail et nous contacter si
             intéressé.
           </p>
         </div>
@@ -97,23 +95,23 @@ const RangeGrid = ({
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
             Découvrez notre selection d'oeuvres d'art uniques aux{" "}
-            <strong className="text-[#FA7A35]">meilleurs prix !</strong>
+            <strong>meilleurs prix !</strong>
           </p>
         </div>
       ) : homePage ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Utilisez le <strong className="text-[#FA7A35]">filtre</strong> pour
+            Utilisez le <strong>filtre</strong> pour
             découvrir les nouvelles oeuvres adaptées à votre{" "}
-            <strong className="text-[#FA7A35]">budget</strong>
+            <strong>budget</strong>
           </p>
         </div>
       ) : (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Utilisez le <strong className="text-[#FA7A35]">filtre </strong>
+            Utilisez le <strong>filtre </strong>
             pour découvrir les oeuvres adaptées à votre{" "}
-            <strong className="text-[#FA7A35]">budget</strong>
+            <strong>budget</strong>
           </p>
         </div>
       )}

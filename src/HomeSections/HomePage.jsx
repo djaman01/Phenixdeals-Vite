@@ -78,12 +78,12 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="mb-8 py-5 text-center max-lg:py-2 max-lg:mb-0">
+      <section className="mb-8 pb-5 pt-2 text-center max-lg:mb-0 max-lg:py-2">
         <div className="flex items-center justify-center">
           {/* Ligne gauche */}
           <div className="w-52 border-t-2 border-indigo-300 "></div>{" "}
           {/* Texte */}
-          <h1 className="playwrite whitespace-nowrap bg-white px-6 text-3xl text-gray-800 max-lg:px-2 max-lg:text-[22px]">
+          <h1 className="playwrite whitespace-nowrap bg-white bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text px-6 text-3xl text-transparent max-lg:px-2 max-lg:text-[22px]">
             Achat et Vente d'oeuvres d'Art{" "}
           </h1>
           {/* Ligne droite */}

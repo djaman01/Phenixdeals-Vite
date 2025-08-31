@@ -119,12 +119,12 @@ const AllArtists = () => {
       </div>
 
       <div className="padding">
-        <div className="martian-mono mb-5 text-center text-3xl text-[#FA7A35] max-lg:mx-[-10px] max-lg:mb-4 max-lg:text-[27px]">
+        <div className="martian-mono mb-5 text-center text-3xl bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-transparent max-lg:mx-[-10px] max-lg:mb-4 max-lg:text-[27px]">
           <h1>Tous les Artistes</h1>
         </div>
         <div className="font-roboto mx-auto mb-[42px] w-[1000px] text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            <strong className="text-[#FA7A35]">Cliquez</strong> sur un nom
+            <strong>Cliquez</strong> sur un nom
             d'artiste pour découvrir toutes ses oeuvres disponibles à la vente
           </p>
         </div>
