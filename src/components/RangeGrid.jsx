@@ -80,15 +80,15 @@ const RangeGrid = ({
 
   return (
     <main className="padding">
-      <div className="martian-mono mb-5 text-center text-3xl bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-transparent max-lg:mx-[-10px] max-lg:mb-4 max-lg:text-[27px]">
+      <div className="martian-mono mb-5 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-center text-3xl text-transparent max-lg:mx-[-12px] max-lg:mb-4 max-lg:text-[27px]">
         <h1>{title}</h1>
       </div>
 
       {auteur ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            <strong>Cliquez </strong> sur une oeuvre pour la voir en détail et nous contacter si
-            intéressé.
+            <strong>Cliquez </strong> sur une oeuvre pour la voir en détail et
+            nous contacter si intéressé.
           </p>
         </div>
       ) : bestDeals ? (
@@ -101,17 +101,15 @@ const RangeGrid = ({
       ) : homePage ? (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
-            Utilisez le <strong>filtre</strong> pour
-            découvrir les nouvelles oeuvres adaptées à votre{" "}
-            <strong>budget</strong>
+            Utilisez le <strong>filtre</strong> pour découvrir les nouvelles
+            oeuvres adaptées à votre <strong>budget</strong>
           </p>
         </div>
       ) : (
         <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
           <p>
             Utilisez le <strong>filtre </strong>
-            pour découvrir les oeuvres adaptées à votre{" "}
-            <strong>budget</strong>
+            pour découvrir les oeuvres adaptées à votre <strong>budget</strong>
           </p>
         </div>
       )}
