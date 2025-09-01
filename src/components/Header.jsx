@@ -42,7 +42,7 @@ const Header = () => {
           </div>
 
           <Link to="/bestDeals">
-            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl text-[#ff5722] hover:bg-[#e4e9f1] active:rounded-lg active:bg-[#3b82f6] active:px-2 active:py-1 active:text-white ">
+            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-center text-transparent active:text-[#B5121B] ">
               Best Deals
             </p>
           </Link>

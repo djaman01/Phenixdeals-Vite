@@ -36,7 +36,7 @@ const ScrollPage = () => {
     autoplay: true,
     autoplaySpeed: 5000,
     centerMode: true,
-    centerPadding: "60px",
+    centerPadding: "0px",
     draggable: true,
     pauseOnFocus: true,
     responsive: [
@@ -47,6 +47,7 @@ const ScrollPage = () => {
           slidesToScroll: 1, //ça marche comme ça, si on met plus que 1 ça fait une erreur
           infinite: true,
           dots: true,
+          centerPadding: "0px",
         },
       },
       {
@@ -55,6 +56,7 @@ const ScrollPage = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 2,
+          centerPadding: "60px",
         },
       },
       {
@@ -62,6 +64,7 @@ const ScrollPage = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerPadding: "60px",
         },
       },
     ],
@@ -99,7 +102,7 @@ const ScrollPage = () => {
             <img
               src={phenixAffiche}
               alt="phenix Affiche"
-              className="h-full w-full rounded-2xl object-fill  "
+              className="h-full w-full rounded-2xl object-contain  "
             />
           </div>
         </Link>
@@ -109,7 +112,7 @@ const ScrollPage = () => {
             <img
               src={phenixPub}
               alt="phenix Pub"
-              className="h-full w-full rounded-2xl object-fill  "
+              className="h-full w-full rounded-2xl object-contain  "
             />
           </div>
         </Link>

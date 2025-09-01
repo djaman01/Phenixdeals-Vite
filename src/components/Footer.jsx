@@ -44,7 +44,7 @@ const Footer = () => {
           </Link>
           <div className="max-lg:mb-3">
             <p className="text-white-400 mt-6 w-[400px] text-center font-mono text-base leading-7 max-lg:w-[350px] max-lg:text-center ">
-              Site spécialisé dans la vente de tableaux d'artistes peintres
+              Site spécialisé dans la vente d'oeuvres d'art
             </p>
           </div>
         </div>
