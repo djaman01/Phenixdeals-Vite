@@ -1,6 +1,7 @@
 import Slider from "react-slick";
-import { phenixAffiche, phenixPub } from "../assets/images";
 
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -24,6 +25,22 @@ function Arrow(props) {
 }
 
 const ScrollPage = () => {
+  const [sliderImages, setSliderImages] = useState([]);
+
+  useEffect(() => {
+    const fetchSliderImages = async () => {
+      try {
+        const response = await axios.get(
+          "https://phenixdeals-back.onrender.com/slider",
+        );
+        setSliderImages(response.data);
+      } catch (error) {
+        console.error("Error fetching slider images:", error);
+      }
+    };
+    fetchSliderImages();
+  }, []);
+
   const settings = {
     nextArrow: <Arrow />,
     prevArrow: <Arrow />,
@@ -36,7 +53,7 @@ const ScrollPage = () => {
     autoplay: true,
     autoplaySpeed: 5000,
     centerMode: true,
-    centerPadding: "0px",
+    centerPadding: "60px",
     draggable: true,
     pauseOnFocus: true,
     responsive: [
@@ -47,7 +64,6 @@ const ScrollPage = () => {
           slidesToScroll: 1, //ça marche comme ça, si on met plus que 1 ça fait une erreur
           infinite: true,
           dots: true,
-          centerPadding: "0px",
         },
       },
       {
@@ -56,7 +72,6 @@ const ScrollPage = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 2,
-          centerPadding: "60px",
         },
       },
       {
@@ -64,7 +79,6 @@ const ScrollPage = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: "60px",
         },
       },
     ],
@@ -83,39 +97,17 @@ const ScrollPage = () => {
         {...settings}
         className="mx-auto max-lg:mt-7 lg:h-[700px] lg:w-[900px]"
       >
-        {/* <a
-          href="https://www.instagram.com/artfirst.galerie/"
-          target="_blank"
-          rel="noopener" // Déconnecte le nouvel onglet de l'onglet d'origine, empêchant toute interaction via window.opener. Cela protège contre des modifications malveillantes du lien de l'onglet d'origine.
-        >
-          <div className="px-2 lg:h-[700px]">
-            <img
-              src={gbouriArtFirst}
-              alt="Exposition Gbouri Art First"
-              className="h-full w-full rounded-2xl border-4 border-black object-fill "
-            />
-          </div>
-        </a> */}
-
-        <Link to="./concept" onClick={scrollToTop}>
-          <div className="px-2 lg:h-[700px]">
-            <img
-              src={phenixAffiche}
-              alt="phenix Affiche"
-              className="h-full w-full rounded-2xl object-contain  "
-            />
-          </div>
-        </Link>
-
-        <Link to="./contact" onClick={scrollToTop}>
-          <div className="px-2 lg:h-[700px]">
-            <img
-              src={phenixPub}
-              alt="phenix Pub"
-              className="h-full w-full rounded-2xl object-contain  "
-            />
-          </div>
-        </Link>
+        {sliderImages.map((slide) => (
+          <Link key={slide._id}>
+            <div className="px-2 lg:h-[700px]">
+              <img
+                src={slide.imageUrl}
+                alt="slider"
+                className="h-full w-full rounded-2xl object-cover"
+              />
+            </div>
+          </Link>
+        ))}
       </Slider>
     </div>
   );

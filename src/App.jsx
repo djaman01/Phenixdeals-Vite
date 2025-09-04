@@ -11,6 +11,7 @@ import FicheOeuvre from "./OtherPages/FicheOeuvre";
 import Oeuvres from "./OtherPages/Oeuvres";
 import PageArtist from "./OtherPages/PageArtist";
 import Contact from "./OtherPages/Contact";
+import AddImageSlider from "./AdminPages/AddImageSlider";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/addArticle" element={<AddArticle />}></Route>
+        <Route path="/addImageSlider" element={<AddImageSlider />}></Route>
         <Route path="/concept" element={<Concept />}></Route>
         <Route path="/bestDeals" element={<BestDeals />}></Route>
         <Route path="/allArtists" element={<AllArtists />}></Route>

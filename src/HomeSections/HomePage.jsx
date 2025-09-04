@@ -78,7 +78,7 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="mb-8 pb-5 pt-2 text-center max-lg:py-2 max-lg:mb-0">
+      <section className="mb-5 pt-2 text-center max-lg:mb-0 max-lg:py-2">
         <div className="flex items-center justify-center">
           {/* Ligne gauche */}
           <div className="w-52 border-t-2 border-indigo-300 "></div>{" "}
@@ -90,6 +90,12 @@ const HomePage = () => {
           <div className="w-52 border-t-2 border-indigo-300"></div>{" "}
         </div>
       </section>
+
+      <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
+        <p>
+          <strong>Cliquez</strong> sur une oeuvre pour plus d'informations
+        </p>
+      </div>
 
       <section className="rounded-2xl ">
         <ScrollPage />

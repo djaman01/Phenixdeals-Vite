@@ -358,6 +358,12 @@ export default function Dashboard() {
           </button>
         </Link>
 
+        <Link to="/addImageSlider">
+          <button className="mr-52 w-[130px] rounded-md border bg-yellow-500 px-3 py-1 text-white active:bg-yellow-600 max-lg:mr-0">
+            Add to Slider
+          </button>
+        </Link>
+
         <button
           className="w-[115px] rounded-md border bg-red-500 px-3 py-1 text-white active:bg-red-800 max-lg:mr-0"
           onClick={handleLogout}
