@@ -190,7 +190,7 @@ const RangeGrid = ({
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
             {filteredArticles.map((e) => (
               <Link
-                to={`/${encodeURIComponent(e.auteur)}/${e._id}`}
+                to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
                 key={e._id}
               >
                 <div

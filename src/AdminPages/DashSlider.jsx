@@ -93,6 +93,12 @@ const DashSlider = () => {
       sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
       cell: (row) => row.auteur,
     },
+     {
+      name: "Code",
+      selector: (row) => row.code,
+      sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
+      cell: (row) => row.code,
+    },
 
     {
       name: "Actions",

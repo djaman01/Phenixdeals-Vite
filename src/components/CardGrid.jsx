@@ -60,7 +60,7 @@ const CardGrid = ({
                 e, //Définition paramètre url pour dynamique route quand on clique sur une image
               ) => (
                 <Link
-                  to={`/${encodeURIComponent(e.auteur)}/${e._id}`}
+                  to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
                   key={e._id}
                 >
                   <div

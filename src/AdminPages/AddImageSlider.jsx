@@ -38,7 +38,10 @@ const AddImageSlider = () => {
   //setImage dans dropzone
   const [imageFile, setImageFile] = useState(null);
 
-  const [auteur, setAuteur] = useState("");
+  const [auteur, setAuteur] = useState('');
+
+  const[code, setCode]= useState('');
+  
 
   //To submit all form data to the server with .post
   const handleSubmit = async (e) => {
@@ -48,7 +51,8 @@ const AddImageSlider = () => {
     if (imageFile && auteur) {
       const formData = new FormData(); //FormData: This is useful when you need to handle file uploads: FormData() crée un objet avec key-values pour tout envoyer en 1 fois
       formData.append("file", imageFile); //'file"=property / imageFile= Value qui est une state variable
-      formData.append("auteur", auteur);
+      formData.append("auteur", auteur); //On a besoin du nom de l'auteur et du code pour pouvoir aller vers le lien /auteur/code du tableau à partir du diaporama
+      formData.append("code", code);
 
       try {
         const response = await axios.post(
@@ -89,6 +93,14 @@ const AddImageSlider = () => {
                   placeholder="Auteur"
                   value={auteur}
                   onChange={(e) => setAuteur(e.target.value)}
+                />
+                <input
+                  required
+                  type="text"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
+                  placeholder="Code"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
                 />
                 {/* Dropping the image will store it in the imageFile state variable */}
                 <Dropzone
