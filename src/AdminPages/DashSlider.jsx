@@ -45,7 +45,7 @@ const DashSlider = () => {
         const response = await axios.get(
           "https://phenixdeals-back.onrender.com/slider",
         );
-        setSliderImages(response.data);
+        setSliderImages(response.data); //on a l'image + le nom de l'auteur + date d'ajout dans sliderImages state
         console.log("All articles fetched", response.data);
       } catch (error) {
         console.error(
@@ -78,13 +78,20 @@ const DashSlider = () => {
     }
   };
 
-  //Création database avec npm react data table component--------------------------------------
+  //Création database avec npm react data table component---------comme data={sliderImages} dans <DataTable/> alors toutes les properties imageUrl et auteur fetch au début sont disponibles
 
   const columns = [
+   
     {
       name: "Image",
       selector: (row) => row.imageUrl, //même nom que dans base de donnée pour extraire info
       cell: (row) => <img className="my-3" src={row.imageUrl} />,
+    },
+     {
+      name: "Auteur",
+      selector: (row) => row.auteur,
+      sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
+      cell: (row) => row.auteur,
     },
 
     {
@@ -141,7 +148,7 @@ const DashSlider = () => {
         </Link>
 
         <Link to="/toDashboard">
-          <button className="mr-52 w-[115px] rounded-md border bg-green-500 px-3 py-1 text-white active:bg-green-600 max-lg:mr-0">
+          <button className="mr-52 w-[200px] rounded-md border bg-green-500 px-3 py-1 text-white active:bg-green-600 max-lg:mr-0">
             Dashboard articles
           </button>
         </Link>

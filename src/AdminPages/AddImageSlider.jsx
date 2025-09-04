@@ -38,14 +38,17 @@ const AddImageSlider = () => {
   //setImage dans dropzone
   const [imageFile, setImageFile] = useState(null);
 
+  const [auteur, setAuteur] = useState("");
+
   //To submit all form data to the server with .post
   const handleSubmit = async (e) => {
     e.preventDefault(); //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
 
     //Pour interdire l'envoie si on ne rempli pas un champ
-    if (imageFile) {
+    if (imageFile && auteur) {
       const formData = new FormData(); //FormData: This is useful when you need to handle file uploads: FormData() crée un objet avec key-values pour tout envoyer en 1 fois
       formData.append("file", imageFile); //'file"=property / imageFile= Value qui est une state variable
+      formData.append("auteur", auteur);
 
       try {
         const response = await axios.post(
@@ -56,6 +59,7 @@ const AddImageSlider = () => {
         alert("Article submitted to DataBase");
         // Réinitialisation des états du formulaire pour que les champs se vident
         setImageFile(null);
+        setAuteur("");
       } catch (error) {
         console.error("Error uploading file:", error);
       }
@@ -74,8 +78,18 @@ const AddImageSlider = () => {
             <h2 className=" mb-4 text-center text-2xl font-bold text-gray-900 max-lg:ml-0 max-lg:text-center">
               Add Image to Slider
             </h2>
+
+         
             <div className="grid grid-cols-2 max-lg:grid-cols-1 ">
               <form className="ml-10 mt-10 flex flex-col max-lg:mx-auto">
+                <input
+                  required
+                  type="text"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
+                  placeholder="Auteur"
+                  value={auteur}
+                  onChange={(e) => setAuteur(e.target.value)}
+                />
                 {/* Dropping the image will store it in the imageFile state variable */}
                 <Dropzone
                   onDrop={(acceptedFiles) => setImageFile(acceptedFiles[0])}
@@ -95,9 +109,9 @@ const AddImageSlider = () => {
                 </Dropzone>
 
                 <div className="flex justify-center max-lg:flex-col max-lg:items-center">
-                  <Link to="/toDashboard">
+                  <Link to="/dashboardSlider">
                     <button className=" mt-4 w-32 rounded-md bg-blue-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-blue-600">
-                      Dashboard
+                      Dashboard Slider
                     </button>
                   </Link>
 

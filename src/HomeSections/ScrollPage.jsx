@@ -97,11 +97,14 @@ const ScrollPage = () => {
         {...settings}
         className="mx-auto max-lg:mt-7 lg:h-[700px] lg:w-[900px]"
       >
-        {sliderImages.map((slide) => (
-          <Link key={slide._id}>
+        {sliderImages.map((e) => (
+          <Link
+            to={`/${encodeURIComponent(e.auteur)}/${e._id}`}
+            key={e._id}
+          >
             <div className="px-2 lg:h-[700px]">
               <img
-                src={slide.imageUrl}
+                src={e.imageUrl}
                 alt="slider"
                 className="h-full w-full rounded-2xl object-cover"
               />
