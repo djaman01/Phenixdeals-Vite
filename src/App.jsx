@@ -27,7 +27,7 @@ export default function App() {
         <Route path="/allArtists" element={<AllArtists />}></Route>
         <Route path="/pageArtist/:auteur" element={<PageArtist />}></Route>
         <Route path="/oeuvres" element={<Oeuvres />}></Route>
-        <Route path="/:auteur/:articleId" element={<FicheOeuvre />}></Route>
+        <Route path="/:auteur/:code" element={<FicheOeuvre />}></Route>
         <Route path="/toSignUp" element={<SignUp />}></Route>
         <Route path="/toLogin" element={<Login />}></Route>
         <Route path="/toDashboard" element={<Dashboard />}></Route>

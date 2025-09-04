@@ -13,9 +13,9 @@ import { Helmet } from "react-helmet-async";
 import { PulseLoader } from "react-spinners";
 
 const FicheOeuvre = () => {
-  //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est _id du produit, donc unique
+  //Dans Card.jsx on a définit une dynamix route = URL avec un parmètre qui change en fonction du produit et qui est code du produit, donc unique
   //Avec useParams, on va extraire ce paramètre qui est unique, pour définir une route dynamic dans le back-end
-  const { auteur, articleId } = useParams();
+  const { auteur, code } = useParams();
 
   const encodeAuteur = encodeURIComponent(auteur); //Pour lire les espaces dans l'url
 
@@ -32,7 +32,7 @@ const FicheOeuvre = () => {
     const fetchFicheTableau = async () => {
       try {
         const response = await axios.get(
-          `${API_BASE_URL}/article/${articleId}`,
+          `${API_BASE_URL}/article/${code}`,
         );
         setArticle(response.data);
         console.log("Article Fetched", response.data);
@@ -49,7 +49,7 @@ const FicheOeuvre = () => {
     };
 
     fetchFicheTableau();
-  }, [API_BASE_URL, articleId]);
+  }, [API_BASE_URL, code]);
 
   useEffect(() => {
     Aos.init({
@@ -129,7 +129,7 @@ const FicheOeuvre = () => {
           property="og:url"
           content={
             article
-              ? `https://www.phenixdeals.com/${encodeAuteur}/${articleId}`
+              ? `https://www.phenixdeals.com/${encodeAuteur}/${code}`
               : "https://www.phenixdeals.com"
           }
         />
@@ -164,7 +164,7 @@ const FicheOeuvre = () => {
           rel="canonical"
           href={
             article
-              ? `https://www.phenixdeals.com/${encodeAuteur}/${articleId}`
+              ? `https://www.phenixdeals.com/${encodeAuteur}/${code}`
               : `https://www.phenixdeals.com/`
           }
         />

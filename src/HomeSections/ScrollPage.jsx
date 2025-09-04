@@ -99,7 +99,7 @@ const ScrollPage = () => {
       >
         {sliderImages.map((e) => (
           <Link
-            to={`/${encodeURIComponent(e.auteur)}/${e._id}`}
+            to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
             key={e._id}
           >
             <div className="px-2 lg:h-[700px]">
