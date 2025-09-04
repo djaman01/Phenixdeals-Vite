@@ -45,7 +45,7 @@ const ScrollPage = () => {
     nextArrow: <Arrow />,
     prevArrow: <Arrow />,
     dots: true,
-    infinite: true,
+    infinite: sliderImages.length > 1, //Pour que si je ne rajoute qu'1 image dans le slider, le carrousel ne la montre pas plusieurs fois et en plus de Haute en abs
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,

@@ -12,6 +12,7 @@ import Oeuvres from "./OtherPages/Oeuvres";
 import PageArtist from "./OtherPages/PageArtist";
 import Contact from "./OtherPages/Contact";
 import AddImageSlider from "./AdminPages/AddImageSlider";
+import DashSlider from "./AdminPages/DashSlider";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/toSignUp" element={<SignUp />}></Route>
         <Route path="/toLogin" element={<Login />}></Route>
         <Route path="/toDashboard" element={<Dashboard />}></Route>
+        <Route path="/dashboardSlider" element={<DashSlider />}></Route>
       </Routes>
     </BrowserRouter>
   );
