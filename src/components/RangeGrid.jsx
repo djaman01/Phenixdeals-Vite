@@ -85,22 +85,22 @@ const RangeGrid = ({
           {title}
         </h1>
         {auteur ? (
-          <p className="font-roboto mx-1 text-xl text-gray-800">
+          <p className="font-roboto mx-2 text-xl text-gray-800">
             <strong>Cliquez </strong> sur une oeuvre pour la voir en détail et
             nous contacter si intéressé.
           </p>
         ) : bestDeals ? (
-          <p className="font-roboto mx-1 text-xl text-gray-800">
+          <p className="font-roboto mx-2 text-xl text-gray-800">
             Découvrez notre selection d'oeuvres d'art uniques aux{" "}
             <strong>meilleurs prix !</strong>
           </p>
         ) : homePage ? (
-          <p className="font-roboto mx-1 text-xl text-gray-800">
+          <p className="font-roboto mx-2 text-xl text-gray-800">
             Utilisez le <strong>filtre</strong> pour découvrir les nouvelles
             oeuvres adaptées à votre <strong>budget</strong>
           </p>
         ) : (
-          <p className="font-roboto mx-1 text-xl text-gray-800">
+          <p className="font-roboto mx-2 text-xl text-gray-800">
             Utilisez le <strong>filtre </strong>
             pour découvrir les oeuvres adaptées à votre <strong>budget</strong>
           </p>

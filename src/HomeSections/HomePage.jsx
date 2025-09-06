@@ -82,7 +82,7 @@ const HomePage = () => {
         <h1 className="martian-mono mb-2 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mb-1 max-lg:text-[27px]">
           Sélection du Mois
         </h1>
-        <p className="font-roboto text-xl  text-gray-800">
+        <p className="font-roboto mx-2 text-xl text-gray-800">
           <strong>Cliquez</strong> sur une oeuvre pour plus d'informations
         </p>
       </section>
@@ -91,7 +91,7 @@ const HomePage = () => {
         <ScrollPage />
       </section>
 
-      <section className="mt-14">
+      <section className="mt-16">
         <NewArticles />
       </section>
 
