@@ -79,42 +79,35 @@ const RangeGrid = ({
   };
 
   return (
-    <main className="padding">
-      <div className="martian-mono mb-5 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-center text-3xl text-transparent max-lg:mx-[-12px] max-lg:mb-4 max-lg:text-[27px]">
-        <h1>{title}</h1>
-      </div>
-
-      {auteur ? (
-        <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
-          <p>
+    <>
+      <section className="mb-4 mt-6 text-center">
+        <h1 className="martian-mono mb-2 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mb-1 max-lg:text-[27px]">
+          {title}
+        </h1>
+        {auteur ? (
+          <p className="font-roboto mx-1 text-xl text-gray-800">
             <strong>Cliquez </strong> sur une oeuvre pour la voir en détail et
             nous contacter si intéressé.
           </p>
-        </div>
-      ) : bestDeals ? (
-        <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
-          <p>
+        ) : bestDeals ? (
+          <p className="font-roboto mx-1 text-xl text-gray-800">
             Découvrez notre selection d'oeuvres d'art uniques aux{" "}
             <strong>meilleurs prix !</strong>
           </p>
-        </div>
-      ) : homePage ? (
-        <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
-          <p>
+        ) : homePage ? (
+          <p className="font-roboto mx-1 text-xl text-gray-800">
             Utilisez le <strong>filtre</strong> pour découvrir les nouvelles
             oeuvres adaptées à votre <strong>budget</strong>
           </p>
-        </div>
-      ) : (
-        <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
-          <p>
+        ) : (
+          <p className="font-roboto mx-1 text-xl text-gray-800">
             Utilisez le <strong>filtre </strong>
             pour découvrir les oeuvres adaptées à votre <strong>budget</strong>
           </p>
-        </div>
-      )}
+        )}
+      </section>
 
-      <div className="relative mx-auto mt-4 flex justify-center max-lg:w-auto max-lg:flex-col max-lg:items-center ">
+      <div className="relative mx-auto flex justify-center max-lg:w-auto max-lg:flex-col max-lg:items-center ">
         {/* Je veux que ce 1er input n'apparaisse que pour déco et Bijoux, donc je vais faire une condition avec un props */}
 
         {showSearchInput && (
@@ -230,7 +223,7 @@ const RangeGrid = ({
           </div>
         )}
       </div>
-    </main>
+    </>
   );
 };
 
