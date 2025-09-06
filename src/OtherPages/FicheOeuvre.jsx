@@ -182,15 +182,15 @@ const FicheOeuvre = () => {
         </div>
       ) : (
         article && (
-          <div className="flex h-screen items-center justify-center gap-16 overflow-hidden bg-[#e8e8e8] max-lg:h-[1050px] max-lg:w-full max-lg:flex-col max-lg:gap-11">
+          <div className="flex min-h-screen items-center justify-center gap-16 overflow-hidden bg-[#e8e8e8]  max-lg:w-full max-lg:flex-col max-lg:gap-5 pb-8">
             <div
               data-aos="fade-right"
-              className="h-[550px] w-[540px] max-lg:h-[360px] max-lg:w-[360px]"
+              className="h-[670px] w-[700px] max-lg:h-[360px] max-lg:w-[360px] max-lg:mt-5"
             >
               <img
                 src={article.imageUrl} //pas besoin de src={`https://phenixdeals-back.onrender.com/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
                 alt={article.infoArticle}
-                className="h-full w-full rounded-lg border border-gray-300 bg-white object-contain shadow-md max-lg:object-contain"
+                className="h-full w-full object-contain max-lg:object-contain"
               />
             </div>
 

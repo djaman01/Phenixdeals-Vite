@@ -66,7 +66,7 @@
 
   /* Ecran tel est < à sm Donc: max-sm = ecran telephone et px-12 pour > à ecran telephone */
   .padding {
-    @apply px-12 max-sm:px-5;
+    @apply px-12 max-sm:px-8 pb-8;
   }
 
   .padding-x {
