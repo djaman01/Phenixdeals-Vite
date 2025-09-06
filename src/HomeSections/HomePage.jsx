@@ -78,24 +78,16 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="mb-5 pt-2 text-center max-lg:mb-0 max-lg:py-2">
-        <div className="flex items-center justify-center">
-          {/* Ligne gauche */}
-          <div className="w-52 border-t-2 border-indigo-300 "></div>{" "}
-          {/* Texte */}
-          <h1 className="playwrite whitespace-nowrap bg-white px-6 text-3xl text-gray-800 max-lg:px-2 max-lg:text-[27px]">
-            Sélection du Mois
-          </h1>
-          {/* Ligne droite */}
-          <div className="w-52 border-t-2 border-indigo-300"></div>{" "}
-        </div>
-      </section>
-
-      <div className="font-roboto mx-auto mb-5 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full">
-        <p>
+      <section className="mt-6 text-center">
+        <h1 className="martian-mono mb-2 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:text-[27px]">
+          Sélection du Mois
+        </h1>
+        <p className="font-roboto text-xl  text-gray-800">
           <strong>Cliquez</strong> sur une oeuvre pour plus d'informations
         </p>
-      </div>
+      </section>
+
+      <div className="font-roboto mx-auto mb-4 w-[1000px] px-3 text-center text-xl leading-relaxed text-gray-800 max-lg:w-full"></div>
 
       <section className="rounded-2xl ">
         <ScrollPage />

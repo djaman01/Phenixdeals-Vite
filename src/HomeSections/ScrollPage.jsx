@@ -95,12 +95,13 @@ const ScrollPage = () => {
     <div>
       <Slider
         {...settings}
-        className="mx-auto max-lg:mt-7 lg:h-[700px] lg:w-[900px]"
+        className="mx-auto lg:h-[700px] lg:w-[900px]"
       >
         {sliderImages.map((e) => (
           <Link
             to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
             key={e._id}
+            onClick={scrollToTop}
           >
             <div className="px-2 lg:h-[700px]">
               <img
