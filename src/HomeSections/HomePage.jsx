@@ -91,7 +91,7 @@ const HomePage = () => {
         <ScrollPage />
       </section>
 
-      <section className="mt-16">
+      <section className="mt-20">
         <NewArticles />
       </section>
 

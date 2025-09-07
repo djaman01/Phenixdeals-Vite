@@ -138,7 +138,7 @@ const Contact = () => {
         </div>
       </main>
 
-      <div className="mt-[-110px]">
+      <div className="mt-[-80px]">
         <Footer />
       </div>
     </>

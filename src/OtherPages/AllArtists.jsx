@@ -120,7 +120,7 @@ const AllArtists = () => {
 
       <div className="padding">
         <section className="mb-4 mt-6 text-center">
-          <h1 className="martian-mono mb-2 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mb-1 max-lg:text-[27px]">
+          <h1 className="martian-mono mb-2 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mb-1 max-lg:text-[27px] max-lg:mx-[-10px] ">
             Tous les Artistes
           </h1>
           <p className="mx-2 font-roboto text-xl text-gray-800">

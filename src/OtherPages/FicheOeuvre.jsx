@@ -1,10 +1,10 @@
-import { Link, useParams } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { ImShare2 } from "react-icons/im";
+import { Link, useParams } from "react-router-dom";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -31,9 +31,7 @@ const FicheOeuvre = () => {
   useEffect(() => {
     const fetchFicheTableau = async () => {
       try {
-        const response = await axios.get(
-          `${API_BASE_URL}/article/${code}`,
-        );
+        const response = await axios.get(`${API_BASE_URL}/article/${code}`);
         setArticle(response.data);
         console.log("Article Fetched", response.data);
       } catch (error) {
@@ -182,10 +180,10 @@ const FicheOeuvre = () => {
         </div>
       ) : (
         article && (
-          <div className="flex min-h-screen items-center justify-center gap-16 overflow-hidden bg-[#e8e8e8]  max-lg:w-full max-lg:flex-col max-lg:gap-5 pb-8">
+          <div className="flex min-h-screen items-center justify-center gap-16 overflow-hidden bg-[#e8e8e8]  max-lg:w-full max-lg:flex-col max-lg:gap-5 max-lg:pb-16">
             <div
               data-aos="fade-right"
-              className="h-[670px] w-[700px] max-lg:h-[360px] max-lg:w-[360px] max-lg:mt-5"
+              className="h-[670px] w-[700px] max-lg:mt-5 max-lg:h-[360px] max-lg:w-[360px]"
             >
               <img
                 src={article.imageUrl} //pas besoin de src={`https://phenixdeals-back.onrender.com/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
