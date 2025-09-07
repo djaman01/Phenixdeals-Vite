@@ -78,7 +78,7 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="mb-4 mt-6 text-center">
+      <section className="mb-4 mt-6 max-lg:mt-14 text-center">
         <h1 className="martian-mono mb-2 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mb-1 max-lg:text-[27px]">
           Sélection du Mois
         </h1>
