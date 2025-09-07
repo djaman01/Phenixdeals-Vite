@@ -180,7 +180,7 @@ const FicheOeuvre = () => {
         </div>
       ) : (
         article && (
-          <div className="flex min-h-screen items-center justify-center gap-16 overflow-hidden bg-[#e8e8e8]  max-lg:w-full max-lg:flex-col max-lg:gap-5 max-lg:pb-16">
+          <div className="flex min-h-screen items-center justify-center gap-16 overflow-hidden bg-[#f5f5f5]  max-lg:w-full max-lg:flex-col max-lg:gap-5 max-lg:pb-16">
             <div
               data-aos="fade-right"
               className="h-[670px] w-[700px] max-lg:mt-5 max-lg:h-[360px] max-lg:w-[360px]"
