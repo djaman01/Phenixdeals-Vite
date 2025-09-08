@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { logoPhenix } from "../assets/images";
 import { SocialIcon } from "react-social-icons";
+import { logoPhenix } from "../assets/images";
 import CopyrightUpdate from "./CopyrightUpdate";
 
 const Footer = () => {
@@ -32,14 +32,13 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center max-lg:order-1">
-          <Link to="/">
+          <Link to="/" onClick={scrollToTop}>
             <img
               src={logoPhenix}
               alt="Phenix logo"
               width={150}
               height={46}
               className="cursor-pointer rounded-lg bg-white px-2 py-2"
-              onClick={scrollToTop}
             />
           </Link>
           <div className="max-lg:mb-3">

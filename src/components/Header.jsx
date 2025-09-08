@@ -3,10 +3,17 @@ import { logoPhenix } from "../assets/images";
 import SideBar from "./SideBar";
 
 const Header = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  };
+
   return (
     <header className="font-roboto padding-x w-full py-1">
       <nav className="max-container flex items-center justify-between">
-        <Link to="/">
+        <Link to="/" onClick={scrollToTop}>
           <img
             className="cursor-pointer"
             src={logoPhenix}
@@ -42,7 +49,7 @@ const Header = () => {
           </div>
 
           <Link to="/bestDeals">
-            <p className="cursor-pointer rounded-lg px-2 py-1 text-xl bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-center text-transparent active:text-[#B5121B] ">
+            <p className="cursor-pointer rounded-lg bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text px-2 py-1 text-center text-xl text-transparent active:text-[#B5121B] ">
               Best Deals
             </p>
           </Link>
