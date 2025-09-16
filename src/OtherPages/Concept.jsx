@@ -63,11 +63,11 @@ const Concept = () => {
         <link rel="canonical" href="https://www.phenixdeals.com/concept" />
       </Helmet>
 
-      <div className="mb-3 mt-2">
+      <div className="mb-3 mt-2 lg:mb-16">
         <Header />
       </div>
 
-      <div className=" padding grid grid-cols-3 items-center justify-center max-lg:grid-cols-1 max-lg:gap-y-5 max-lg:px-0 max-lg:py-10">
+      <div className=" padding grid grid-cols-3 items-center justify-center max-lg:grid-cols-1 max-lg:gap-y-10 max-lg:px-0 max-lg:py-10">
         {/* Activity card: overflow-hidden cache l'overlay bleu, car avec transform translate-y-full, on l'a placer à l'exterieur du container, pour que quand on hover, il revient à sa place */}
         <div
           className="group prose relative mx-auto w-4/5 overflow-hidden rounded-2xl border bg-[#b5d9db] px-5 hover:text-white"
@@ -189,7 +189,7 @@ const Concept = () => {
         </div>
       </div>
 
-      <footer className="pt-8">
+      <footer className="pt-8 lg:pt-16">
         <Footer />
       </footer>
     </>
