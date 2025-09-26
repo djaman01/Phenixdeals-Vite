@@ -22,14 +22,23 @@ const RangeGrid = ({
   const handlePrixMin = (e) => setPrixMin(e.target.value);
   const handlePrixMax = (e) => setPrixMax(e.target.value);
 
-  //State pour store les values de l'input où le visiteur va écrire le type d'objet qu'il cherche et qu'on va comparer pa rapport à la valeur infoArticle de l'élément
+  //State pour store les values de l'input où le visiteur va écrire le prix du tableau qu'il chercher
   const [inputSearch, setInputSearch] = useState("");
 
   const [filteredArticles, setFilteredArticles] = useState(allValues); //On va map sur filteredArticles
 
+  const [itemsToShow, setItemsToShow] = useState(20);
+  const ITEMS_PER_PAGE = 20; //I put 20 in a variable, so that if i want to increase or lower the default items that are visible, i'll change only this value and not all the value of the page
+
+  //creating the function to add a button "Charger plus d'oeuvres"
+  const handleLoadMore = () => {
+    setItemsToShow((e) => e + ITEMS_PER_PAGE); //By convention the parameter e = current value of the state before the update (here the current number of items being shown )
+  };
+
   //Quand on utilise un "props" dans le initial value d'une state variable, on est obligé d'utiliser useEffect, pour que la state variable se mette à jour quand le props change, sinon React ne comprend pas
   useEffect(() => {
     setFilteredArticles(allValues);
+    setItemsToShow(ITEMS_PER_PAGE);
   }, [allValues]);
 
   const handleFilter = () => {
@@ -62,6 +71,7 @@ const RangeGrid = ({
     });
 
     setFilteredArticles(sortedFiltered);
+    setItemsToShow(ITEMS_PER_PAGE); // After filtering, it shows 20 items per 20 items
   };
 
   const handleReset = () => {
@@ -69,6 +79,7 @@ const RangeGrid = ({
     setPrixMax("");
     setInputSearch("");
     setFilteredArticles(allValues); //Pour revoir tous les éléments sans filtre
+    setItemsToShow(ITEMS_PER_PAGE);
   };
 
   const scrollToTop = () => {
@@ -181,7 +192,7 @@ const RangeGrid = ({
           </div>
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
-            {filteredArticles.map((e) => (
+            {filteredArticles.slice(0, itemsToShow).map((e) => (
               <Link
                 to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
                 key={e._id}
@@ -223,6 +234,18 @@ const RangeGrid = ({
           </div>
         )}
       </div>
+
+      {/* Load more Button: We want to show the button ONLY IF there is more than 20 items fetch from the database; then when all we have all the items, itemstoShow = filteredArticles.lenght => So the button disappears*/}
+      {itemsToShow < filteredArticles.length && (
+        <div className="mt-10 flex justify-center">
+          <button
+            onClick={handleLoadMore}
+            className="rounded-full bg-blue-600 px-6 py-3 font-bold text-white shadow-md hover:bg-blue-700 active:bg-green-500"
+          >
+            Charger plus d'oeuvres
+          </button>
+        </div>
+      )}
     </div>
   );
 };
