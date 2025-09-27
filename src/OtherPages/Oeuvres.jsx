@@ -32,7 +32,7 @@ const Oeuvres = () => {
       </Helmet>
 
       <ArticleCategory
-        type="oeuvre"
+        type="oeuvres"
         title="Toutes les oeuvres"
         searchKey="auteur"
       />

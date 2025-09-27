@@ -242,7 +242,7 @@ const RangeGrid = ({
             onClick={handleLoadMore}
             className="rounded-full bg-blue-600 px-6 py-3 font-bold text-white shadow-md hover:bg-blue-700 active:bg-green-500"
           >
-            Charger plus d'oeuvres
+            Voir plus d'oeuvres
           </button>
         </div>
       )}
