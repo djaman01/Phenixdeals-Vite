@@ -1,7 +1,41 @@
 import { Helmet } from "react-helmet-async";
-import ArticleCategory from "./ArticleCategory";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import RangeGrid from "../components/RangeGrid";
+
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const Oeuvres = () => {
+  const [articles, setArticles] = useState([]);
+  const [error, setError] = useState("");
+  const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
+
+  // Access API base URL from env
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    const fecthByCategory = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/oeuvres`);
+        setArticles(response.data);
+        console.log(`oeuvres fetched`, response.data);
+      } catch (error) {
+        console.error(
+          error.response
+            ? `${error.response.status}: ${error.response.data.message}` //server-side error
+            : `Error: ${error.message}`, //client-side error
+        );
+        setError("An error occurred while fetching data");
+      } finally {
+        setSpinner(false); //Après avoir fecth les données setLoading devient false pour afficher les tableaux au lieu du spinner
+      }
+    };
+
+    fecthByCategory();
+  }, [API_BASE_URL]);
+
   return (
     <>
       <Helmet>
@@ -31,11 +65,20 @@ const Oeuvres = () => {
         <link rel="canonical" href="https://www.phenixdeals.com/oeuvres" />
       </Helmet>
 
-      <ArticleCategory
-        type="oeuvres"
-        title="Toutes les oeuvres"
-        searchKey="auteur"
+      <div className="mt-2">
+        <Header />
+
+      </div>
+      <RangeGrid
+        title="Toutes les oeuvres d'art"
+        allValues={articles}
+        error={error}
+        loading={spinner}
       />
+
+      <div className="pt-8">
+        <Footer />
+      </div>
     </>
   );
 };
