@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import { Link } from "react-router-dom";
 
 import { PulseLoader } from "react-spinners";
 
-const RangeGrid = ({
+const FilterGrid = ({
   auteur,
   bestDeals,
   homePage,
@@ -12,61 +11,17 @@ const RangeGrid = ({
   error,
   allValues,
   loading,
+  prixMin,
+  prixMax,
+  setPrixMin,
+  setPrixMax,
+  onFilter,
 }) => {
-  //Pour créer un filtre par prix min et max
-  const [prixMin, setPrixMin] = useState("");
-  const [prixMax, setPrixMax] = useState("");
-
-  const handlePrixMin = (e) => setPrixMin(e.target.value);
-  const handlePrixMax = (e) => setPrixMax(e.target.value);
-
-  //State pour store les values de l'input où le visiteur va écrire le prix du tableau qu'il chercher
-  const [inputSearch, setInputSearch] = useState("");
-
-  const [filteredArticles, setFilteredArticles] = useState(allValues); //On va map sur filteredArticles
-
-  //Quand on utilise un "props" dans le initial value d'une state variable, on est obligé d'utiliser useEffect, pour que la state variable se mette à jour quand le props change, sinon React ne comprend pas
-  useEffect(() => {
-    setFilteredArticles(allValues);
-  }, [allValues]);
-
-  const handleFilter = () => {
-    //Quand on va cliquer sur le bouton filtrer, ça va activer ce code qui au final va changer la valeur de filteredArticles qui est l'array sur laquel on map, et donc va filtrer les élemenst en fonction de la selection faite
-
-    //To replace the number written by the visitor, with another number with no space, so we can compare them
-    const minPrice = prixMin
-      ? parseFloat(prixMin.replace(/\s+/g, "")) //Transform the number written by the visitor with a string with no spaces so we can compare numbers / then convert the cleaned string back into a number using parseFloat
-      : -Infinity; //If prixMin is not provided, set minPrice to -Infinity to ensure any comparison will succeed
-
-    const maxPrice = prixMax
-      ? parseFloat(prixMax.replace(/\s+/g, ""))
-      : Infinity;
-
-    const filtered = allValues.filter((e) => {
-      const price = parseFloat(e.prix.replace(/\s+/g, "")); //Prix de l'élément qu'on remplace au même format que les prix min et max précédents
-      const filterByPrice = price >= minPrice && price <= maxPrice;
-      const filterByInfoArticle = e.infoArticle
-        .toLowerCase()
-        .includes(inputSearch.toLowerCase());
-
-      return filterByPrice && filterByInfoArticle;
-    });
-
-    // Sort filtered articles by price in ascending order
-    const sortedFiltered = filtered.sort((a, b) => {
-      const priceA = parseFloat(a.prix.replace(/\s+/g, ""));
-      const priceB = parseFloat(b.prix.replace(/\s+/g, ""));
-      return priceA - priceB;
-    });
-
-    setFilteredArticles(sortedFiltered);
-  };
+  //Je fais le filtre par prix dans le component Oeuvres et je le pass avec le propx OnFilter
 
   const handleReset = () => {
     setPrixMin("");
     setPrixMax("");
-    setInputSearch("");
-    setFilteredArticles(allValues); //Pour revoir tous les éléments sans filtre
   };
 
   const scrollToTop = () => {
@@ -82,27 +37,11 @@ const RangeGrid = ({
         <h1 className="martian-mono mb-3 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mx-[-15px] max-lg:mb-2 max-lg:text-[27px]">
           {title}
         </h1>
-        {auteur ? (
-          <p className="font-roboto text-xl text-gray-800">
-            <strong>Cliquez </strong> sur une oeuvre pour la voir en détail et
-            nous contacter si intéressé.
-          </p>
-        ) : bestDeals ? (
-          <p className="font-roboto text-xl text-gray-800">
-            Découvrez notre selection d'oeuvres d'art uniques aux{" "}
-            <strong>meilleurs prix !</strong>
-          </p>
-        ) : homePage ? (
-          <p className="font-roboto text-xl text-gray-800">
-            Utilisez le <strong>filtre</strong> pour découvrir les oeuvres
-            adaptées à votre <strong>budget</strong>
-          </p>
-        ) : (
-          <p className="font-roboto text-xl text-gray-800">
-            Utilisez le <strong>filtre </strong>
-            pour découvrir les oeuvres adaptées à votre <strong>budget</strong>
-          </p>
-        )}
+        <p className="font-roboto text-xl text-gray-800">
+          Entrez un <strong>prix minimum</strong> et un{" "}
+          <strong> prix maximum</strong> pour voir les oeuvres adaptées à
+          votre <strong>budget</strong>
+        </p>
       </section>
 
       <div className="relative mx-auto flex justify-center max-lg:w-auto max-lg:flex-col max-lg:items-center ">
@@ -116,7 +55,7 @@ const RangeGrid = ({
             className="relative mr-10 rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:mr-0 max-lg:pl-10"
             placeholder="Prix minimum"
             value={prixMin}
-            onChange={handlePrixMin}
+            onChange={(e) => setPrixMin(e.target.value)}
           />
         </div>
 
@@ -130,14 +69,14 @@ const RangeGrid = ({
             className="relative rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:pl-10"
             placeholder="Prix Maximum"
             value={prixMax}
-            onChange={handlePrixMax}
+            onChange={(e) => setPrixMax(e.target.value)}
           />
         </div>
 
         <div className=" max-lg:mt-4 max-lg:flex max-lg:flex-row-reverse max-lg:justify-between">
           <button
             className="ml-4 rounded-full bg-green-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md"
-            onClick={handleFilter}
+            onClick={onFilter}
           >
             Filtrer
           </button>
@@ -159,7 +98,7 @@ const RangeGrid = ({
           </div>
         ) : (
           <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
-            {filteredArticles.map((e) => (
+            {allValues.map((e) => (
               <Link
                 to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
                 key={e._id}
@@ -204,4 +143,4 @@ const RangeGrid = ({
   );
 };
 
-export default RangeGrid;
+export default FilterGrid;

@@ -1,40 +1,61 @@
 import { Helmet } from "react-helmet-async";
 
-import axios from "axios";
-import { useEffect, useState } from "react";
-import RangeGrid from "../components/RangeGrid";
+import { useState } from "react";
 
+import axios from "axios";
+import FilterGrid from "../components/FilterGrid";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const Oeuvres = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
-  const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
+  const [spinner, setSpinner] = useState(false); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
   // Access API base URL from env
   const API_BASE_URL = import.meta.env.VITE_API_URL;
 
-  useEffect(() => {
-    const fecthByCategory = async () => {
-      try {
-        const response = await axios.get(`${API_BASE_URL}/oeuvres`);
-        setArticles(response.data);
-        console.log(`oeuvres fetched`, response.data);
-      } catch (error) {
-        console.error(
-          error.response
-            ? `${error.response.status}: ${error.response.data.message}` //server-side error
-            : `Error: ${error.message}`, //client-side error
-        );
-        setError("An error occurred while fetching data");
-      } finally {
-        setSpinner(false); //Après avoir fecth les données setLoading devient false pour afficher les tableaux au lieu du spinner
-      }
-    };
+  //state to fetch with Price filters
+  const [prixMin, setPrixMin] = useState("");
+  const [prixMax, setPrixMax] = useState("");
 
-    fecthByCategory();
-  }, [API_BASE_URL]);
+  //Fetch only when user click "Filter" Button
+  const handleFilter = async () => {
+    try {
+      setSpinner(true);
+
+      // 🧹 Sanitize user inputs (remove spaces, "DHS", etc.)
+      const cleanPrixMin = prixMin
+        ? parseFloat(prixMin.replace(/[^\d.]/g, "")) // keep only numbers + dot
+        : undefined;
+
+      const cleanPrixMax = prixMax
+        ? parseFloat(prixMax.replace(/[^\d.]/g, ""))
+        : undefined;
+
+      const response = await axios.get(`${API_BASE_URL}/oeuvres`, {
+        params: {
+          prixMin: cleanPrixMin || undefined,
+          prixMax: cleanPrixMax || undefined,
+        },
+      });
+      setArticles(response.data);
+      setError("");
+    } catch (error) {
+      console.error(error);
+      // If backend sends a response with error message (ex: 400, 500, etc.)
+      if (error.response) {
+        setError(
+          `${error.response.status}: ${error.response.data.message || "Server error"}`,
+        );
+      } else {
+        // If the error is frontend-related (network, axios, etc.)
+        setError(`Error: ${error.message}`);
+      }
+    } finally {
+      setSpinner(false);
+    }
+  };
 
   return (
     <>
@@ -67,13 +88,17 @@ const Oeuvres = () => {
 
       <div className="mt-2">
         <Header />
-
       </div>
-      <RangeGrid
+      <FilterGrid
         title="Toutes les oeuvres d'art"
         allValues={articles}
         error={error}
         loading={spinner}
+        onFilter={handleFilter}
+        prixMin={prixMin} //On prend la valeur de FilterGrid.jsx puis on enlève le texte et les espaces quand on clique sur Filtrer grace au code ici
+        setPrixMin={setPrixMin}
+        prixMax={prixMax}
+        setPrixMax={setPrixMax}
       />
 
       <div className="pt-8">
