@@ -49,33 +49,48 @@ const Oeuvres = () => {
     fecthByCategory();
   }, [API_BASE_URL]);
 
-  const handleFilter = () => {
-    //Quand on va cliquer sur le bouton filtrer, ça va activer ce code qui au final va changer la valeur de filteredArticles qui est l'array sur laquel on map, et donc va filtrer les élemenst en fonction de la selection faite
+  const handleFilter = async () => {
+   
+    try {
+      setSpinner(true);
 
-    //To replace the number written by the visitor, with another number with no space, so we can compare them
-    const minPrice = prixMin
-      ? parseFloat(prixMin.replace(/\s+/g, "")) //Transform the number written by the visitor with a string with no spaces so we can compare numbers / then convert the cleaned string back into a number using parseFloat
-      : -Infinity; //If prixMin is not provided, set minPrice to -Infinity to ensure any comparison will succeed
+      //For server-side filtering: Sanitize user inputs by removing spaces, texts, etc. and keeps only digits
+      const cleanPrixMin = prixMin
+        ? parseInt(prixMin.replace(/[^\d]/g, ""), 10)
+        : undefined;
 
-    const maxPrice = prixMax
-      ? parseFloat(prixMax.replace(/\s+/g, ""))
-      : Infinity;
+      const cleanPrixMax = prixMax
+        ? parseInt(prixMax.replace(/[^\d]/g, ""), 10)
+        : undefined;
 
-    const filtered = articles.filter((e) => {
-      const price = parseFloat(e.prix.replace(/\s+/g, "")); //Prix de l'élément qu'on remplace au même format que les prix min et max précédents
-      const filterByPrice = price >= minPrice && price <= maxPrice;
+      // Log values before sending
+      console.log("Sending filter request with:", {
+        prixMin: cleanPrixMin,
+        prixMax: cleanPrixMax,
+      });
 
-      return filterByPrice;
-    });
+      const response = await axios.get(`${API_BASE_URL}/oeuvres`, {
+        params: {
+          prixMin: cleanPrixMin,
+          prixMax: cleanPrixMax,
+        },
+      });
 
-    // Sort filtered articles by price in ascending order
-    const sortedFiltered = filtered.sort((a, b) => {
-      const priceA = parseFloat(a.prix.replace(/\s+/g, ""));
-      const priceB = parseFloat(b.prix.replace(/\s+/g, ""));
-      return priceA - priceB;
-    });
-
-    setFilteredArticles(sortedFiltered);
+      setArticles(response.data);
+      setFilteredArticles(response.data) //because we map on filteredArticles
+      setError("");
+    } catch (error) {
+      console.error(error);
+      if (error.response) {
+        setError(
+          `${error.response.status}: ${error.response.data.message || "Server-side error"}`,
+        );
+      } else {
+        setError(`Client-side error: ${error.message}`);
+      }
+    } finally {
+      setSpinner(false);
+    }
   };
 
   const handleReset = () => {
