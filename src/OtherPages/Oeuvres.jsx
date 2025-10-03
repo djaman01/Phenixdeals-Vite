@@ -193,7 +193,6 @@ const Oeuvres = () => {
                 <Link
                   to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
                   key={e._id}
-                  target="_blank"
                 >
                   <div
                     className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
