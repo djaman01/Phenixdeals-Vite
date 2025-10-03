@@ -22,7 +22,7 @@ const RangeGrid = ({
   const handlePrixMin = (e) => setPrixMin(e.target.value);
   const handlePrixMax = (e) => setPrixMax(e.target.value);
 
-  //State pour store les values de l'input où le visiteur va écrire le type d'objet qu'il cherche et qu'on va comparer pa rapport à la valeur infoArticle de l'élément
+  //State pour store les values de l'input où le visiteur va écrire le prix du tableau qu'il chercher
   const [inputSearch, setInputSearch] = useState("");
 
   const [filteredArticles, setFilteredArticles] = useState(allValues); //On va map sur filteredArticles
@@ -187,7 +187,6 @@ const RangeGrid = ({
                 key={e._id}
               >
                 <div
-                  key={e._id}
                   className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
                   onClick={scrollToTop}
                 >
