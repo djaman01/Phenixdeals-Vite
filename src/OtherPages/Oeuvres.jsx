@@ -76,7 +76,6 @@ const Oeuvres = () => {
         },
       });
 
-      setArticles(response.data);
       setFilteredArticles(response.data) //because we map on filteredArticles
       setError("");
     } catch (error) {
