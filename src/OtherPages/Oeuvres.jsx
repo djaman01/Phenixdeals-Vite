@@ -31,7 +31,7 @@ const Oeuvres = () => {
   useEffect(() => {
     const fecthByCategory = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/oeuvres`);
+        const response = await axios.get(`${API_BASE_URL}/allOeuvres`);
         setArticles(response.data);
         setFilteredArticles(response.data);
       } catch (error) {
@@ -69,7 +69,7 @@ const Oeuvres = () => {
         prixMax: cleanPrixMax,
       });
 
-      const response = await axios.get(`${API_BASE_URL}/oeuvres`, {
+      const response = await axios.get(`${API_BASE_URL}//filterOeuvres`, {
         params: {
           prixMin: cleanPrixMin,
           prixMax: cleanPrixMax,
