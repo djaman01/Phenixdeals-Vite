@@ -69,7 +69,7 @@ const Oeuvres = () => {
         prixMax: cleanPrixMax,
       });
 
-      const response = await axios.get(`${API_BASE_URL}//filterOeuvres`, {
+      const response = await axios.get(`${API_BASE_URL}/filterOeuvres`, {
         params: {
           prixMin: cleanPrixMin,
           prixMax: cleanPrixMax,
