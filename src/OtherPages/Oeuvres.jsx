@@ -13,10 +13,10 @@ import { PulseLoader } from "react-spinners";
 
 const Oeuvres = () => {
   const [articles, setArticles] = useState([]);
+  const [resetArticles, setResetArticles] = useState([]);
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
-  const [filteredArticles, setFilteredArticles] = useState([]);
 
   // Access API base URL from env
   const API_BASE_URL = import.meta.env.VITE_API_URL;
@@ -33,7 +33,7 @@ const Oeuvres = () => {
       try {
         const response = await axios.get(`${API_BASE_URL}/allOeuvres`);
         setArticles(response.data);
-        setFilteredArticles(response.data);
+        setResetArticles(response.data)
       } catch (error) {
         console.error(
           error.response
@@ -76,7 +76,7 @@ const Oeuvres = () => {
         },
       });
 
-      setFilteredArticles(response.data) //because we map on filteredArticles
+      setArticles(response.data)
       setError("");
     } catch (error) {
       console.error(error);
@@ -95,7 +95,7 @@ const Oeuvres = () => {
   const handleReset = () => {
     setPrixMin("");
     setPrixMax("");
-    setFilteredArticles(articles); //Pour revoir tous les éléments sans filtre
+    setArticles(resetArticles); //Pour revoir tous les éléments sans filtre
   };
 
   const scrollToTop = () => {
@@ -203,7 +203,7 @@ const Oeuvres = () => {
             </div>
           ) : (
             <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
-              {filteredArticles.map((e) => (
+              {articles.map((e) => (
                 <Link
                   to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
                   key={e._id}
