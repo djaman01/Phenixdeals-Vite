@@ -19,6 +19,9 @@ export default function Dashboard() {
 
   const [refreshKey, setRefreshKey] = useState(0);
 
+   // Access API base URL from env
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const authenticate = async () => {
       try {
@@ -46,7 +49,7 @@ export default function Dashboard() {
     const fetchAllArticles = async () => {
       try {
         const response = await axios.get(
-          "https://phenixdeals-back.onrender.com/allArticles",
+          `${API_BASE_URL}/allArticles`,
         );
         setArticles(response.data);
         console.log("All articles fetched", response.data);
@@ -61,7 +64,7 @@ export default function Dashboard() {
     };
 
     fetchAllArticles();
-  }, [refreshKey]); // The effect will run whenever refreshKey changes
+  }, [refreshKey, API_BASE_URL]); // The effect will run whenever refreshKey changes
 
   //Pour PUT request et modifier certains élements selectionnés
   const [auteurName, setAuteurName] = useState("");
