@@ -9,17 +9,15 @@ import Header from "../components/Header";
 import { SlMagnifier } from "react-icons/sl";
 import { Link } from "react-router-dom";
 
-import { PulseLoader } from "react-spinners";
+import { FadeLoader, PulseLoader } from "react-spinners";
 
 const Oeuvres = () => {
   const [articles, setArticles] = useState([]);
-  const [resetArticles, setResetArticles] = useState([]);
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
 
-
-  // Access API base URL from env
-  const API_BASE_URL = import.meta.env.VITE_API_URL;
+  const [isFiltering, setIsFiltering] = useState(false); //So that the useEffect don't run when i use teh filter
+  const [filteredArticles, setFilteredArticles] = useState([]); //To store on filtered articles and map on int if isFiltering === true
 
   //Pour créer un filtre par prix min et max
   const [prixMin, setPrixMin] = useState("");
@@ -28,12 +26,33 @@ const Oeuvres = () => {
   const handlePrixMin = (e) => setPrixMin(e.target.value);
   const handlePrixMax = (e) => setPrixMax(e.target.value);
 
+  // Access API base URL from env
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+  //To fetch 40 articles then when i scroll to the bottom of the page it fetches 40 more automatically
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true); //In the beginning there is more articles so it has to be true => then when there is no more articles it'll turn false
+  const [loadingMore, setLoadingMore] = useState(false); //New Spinner for loading more articles in the bottom
+
   useEffect(() => {
-    const fecthByCategory = async () => {
+    if (isFiltering) return; //If filtering, don't reFecth articles
+
+    const fecthAndAppend = async () => {
+      if (!hasMore && page > 1) {
+        return;
+      } else if (hasMore && page > 1) {
+        setLoadingMore(true);
+      }
       try {
-        const response = await axios.get(`${API_BASE_URL}/allOeuvres`);
-        setArticles(response.data);
-        setResetArticles(response.data)
+        const response = await axios.get(
+          `${API_BASE_URL}/allOeuvres?page=${page}&limit=40`,
+        );
+        const newArticles = response.data; // les 40 oeuvres ou - si on arrive à la fin
+
+        setArticles((prev) =>
+          page === 1 ? newArticles : [...prev, ...newArticles],
+        );
+        setHasMore(newArticles.length > 0); // To turn hasMore to false if there is no more article when we reach the bottom of the page
       } catch (error) {
         console.error(
           error.response
@@ -43,32 +62,53 @@ const Oeuvres = () => {
         setError("An error occurred while fetching data");
       } finally {
         setSpinner(false); //Après avoir fecth les données setLoading devient false pour afficher les tableaux au lieu du spinner
+        setLoadingMore(false);
       }
     };
 
-    fecthByCategory();
-  }, [API_BASE_URL]);
+    fecthAndAppend();
+  }, [API_BASE_URL, page]); //Pour relancer la function quand on change de page (arrive en bas de page et qu'il y a plus d'articles)
+
+  //Scroll Detection to know that the user hass arrived to the bottom of the page
+  useEffect(() => {
+    const handleScroll = () => {
+      //Object destructuring différent de Array destructuting / Here const scrollTop = document.documentElement.scrollTop Et non pas scrollTop = document.documentEleme,nt like in array destructuring
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
+      // scrollTop → how many pixels the user has scrolled down already / clientHeight → the visible height of the viewport / scrollHeight → the total height of the document including what's not visible
+      if (
+        //If the user arrive at 200px before the bottom of the page And we're not loading more articles and there are more articles, add +1 to the value of the state page, so that it activates the first useEffect to fetch more articles
+        scrollTop + clientHeight >= scrollHeight - 700 &&
+        !loadingMore &&
+        hasMore
+      ) {
+        setPage((prev) => prev + 1);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loadingMore, hasMore]);
 
   const handleFilter = async () => {
-   
     try {
-      setSpinner(true);
+      setSpinner(true); // show loader
+      setIsFiltering(true); //To prevent the useEffect Fetch
 
-      //For server-side filtering: Sanitize user inputs by removing spaces, texts, etc. and keeps only digits
+      // Sanitize user inputs: keep only digits
       const cleanPrixMin = prixMin
         ? parseInt(prixMin.replace(/[^\d]/g, ""), 10)
         : undefined;
-
       const cleanPrixMax = prixMax
         ? parseInt(prixMax.replace(/[^\d]/g, ""), 10)
         : undefined;
 
-      // Log values before sending
-      console.log("Sending filter request with:", {
+      // Log values for debugging
+      console.log("Filtering with:", {
         prixMin: cleanPrixMin,
         prixMax: cleanPrixMax,
       });
 
+      // Call back-end filter endpoint
       const response = await axios.get(`${API_BASE_URL}/filterOeuvres`, {
         params: {
           prixMin: cleanPrixMin,
@@ -76,8 +116,9 @@ const Oeuvres = () => {
         },
       });
 
-      setArticles(response.data)
-      setError("");
+      // Set articles to filtered results
+      setFilteredArticles(response.data);
+      setError(""); // clear previous errors
     } catch (error) {
       console.error(error);
       if (error.response) {
@@ -92,10 +133,13 @@ const Oeuvres = () => {
     }
   };
 
-  const handleReset = () => {
+  const handleReset = async () => {
+    setIsFiltering(false); //Si that whe have articles.map and not filetredArticles.map thanks to the condition on the JSX
+    setFilteredArticles([]); // clear filtered
     setPrixMin("");
     setPrixMax("");
-    setArticles(resetArticles); //Pour revoir tous les éléments sans filtre
+    setPage(1); // reset to first page
+    setSpinner(true);
   };
 
   const scrollToTop = () => {
@@ -104,6 +148,8 @@ const Oeuvres = () => {
       behavior: "instant",
     });
   };
+
+  const articlesToDisplay = isFiltering ? filteredArticles : articles;
 
   return (
     <>
@@ -185,12 +231,14 @@ const Oeuvres = () => {
             >
               Filtrer
             </button>
-            <button
-              className="ml-4 rounded-full bg-red-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md max-lg:ml-0"
-              onClick={handleReset}
-            >
-              Reset
-            </button>
+            {isFiltering && (
+              <button
+                className="ml-4 rounded-full bg-red-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md max-lg:ml-0"
+                onClick={handleReset}
+              >
+                Reset
+              </button>
+            )}
           </div>
         </div>
 
@@ -203,7 +251,7 @@ const Oeuvres = () => {
             </div>
           ) : (
             <div className="mx-20 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
-              {articles.map((e) => (
+              {articlesToDisplay.map((e) => (
                 <Link
                   to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
                   key={e._id}
@@ -244,6 +292,11 @@ const Oeuvres = () => {
             </div>
           )}
         </div>
+        {loadingMore && (
+          <div className="my-10 flex items-center justify-center">
+            <FadeLoader color="#FA7A35" size={40} />
+          </div>
+        )}
       </div>
 
       <div className="pt-8">

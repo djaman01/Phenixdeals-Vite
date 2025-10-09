@@ -18,6 +18,7 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
+    "react-hooks/exhaustive-deps": "off",// disable the warning about missing dependencies in useEffect globally
     "react/no-unescaped-entities": "off", //Pour enlever les soulignements rouges quand j'écris des apostrophes
     "react/prop-types": "off", //Pour enlever les soulignements rouges dans les props
   },
