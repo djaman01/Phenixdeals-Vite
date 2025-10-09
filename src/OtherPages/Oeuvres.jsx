@@ -10,8 +10,12 @@ import { SlMagnifier } from "react-icons/sl";
 import { Link } from "react-router-dom";
 
 import { FadeLoader, PulseLoader } from "react-spinners";
+import { Slide, ToastContainer, toast } from "react-toastify";
 
 const Oeuvres = () => {
+  const notifyError = () =>
+    toast.error("Entrez un prix minimum et/ou maximum avant de filtrer");
+
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(true); //State pour afficher le spinner lors du chargement des données à partir de la base de donnée
@@ -90,6 +94,10 @@ const Oeuvres = () => {
   }, [loadingMore, hasMore]);
 
   const handleFilter = async () => {
+    if (!prixMin && !prixMax) {
+      notifyError();
+      return;
+    }
     try {
       setSpinner(true); // show loader
       setIsFiltering(true); //To prevent the useEffect Fetch
@@ -180,6 +188,17 @@ const Oeuvres = () => {
         <link rel="canonical" href="https://www.phenixdeals.com/oeuvres" />
       </Helmet>
 
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        closeOnClick={true}
+        pauseOnHover={true}
+        draggable={false}
+        progress={undefined}
+        theme="colored"
+        transition={Slide}
+      />
       <div className="mt-2">
         <Header />
       </div>
