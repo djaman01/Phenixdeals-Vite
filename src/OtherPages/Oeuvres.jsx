@@ -49,9 +49,9 @@ const Oeuvres = () => {
       }
       try {
         const response = await axios.get(
-          `${API_BASE_URL}/allOeuvres?page=${page}&limit=40`,
+          `${API_BASE_URL}/allOeuvres?page=${page}&limit=20`,
         );
-        const newArticles = response.data; // les 40 oeuvres ou - si on arrive à la fin
+        const newArticles = response.data; // les 20 oeuvres ou - si on arrive à la fin
 
         setArticles((prev) =>
           page === 1 ? newArticles : [...prev, ...newArticles],
@@ -81,8 +81,8 @@ const Oeuvres = () => {
         document.documentElement;
       // scrollTop → how many pixels the user has scrolled down already / clientHeight → the visible height of the viewport / scrollHeight → the total height of the document including what's not visible
       if (
-        //If the user arrive at 200px before the bottom of the page And we're not loading more articles and there are more articles, add +1 to the value of the state page, so that it activates the first useEffect to fetch more articles
-        scrollTop + clientHeight >= scrollHeight - 700 &&
+        //If the user arrive at 800px before the bottom of the page And we're not loading more articles and there are more articles, add +1 to the value of the state page, so that it activates the first useEffect to fetch more articles
+        scrollTop + clientHeight >= scrollHeight - 800 &&
         !loadingMore &&
         hasMore
       ) {
