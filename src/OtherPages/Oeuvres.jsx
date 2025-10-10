@@ -48,9 +48,9 @@ const Oeuvres = () => {
         setLoadingMore(true);
       }
       try {
-        const response = await axios.get(
-          `${API_BASE_URL}/allOeuvres?page=${page}&limit=20`,
-        );
+        const response = await axios.get(`${API_BASE_URL}/allOeuvres`, {
+          params: { page: page, limit: 20 },
+        });
         const newArticles = response.data; // les 20 oeuvres ou - si on arrive à la fin
 
         setArticles((prev) =>
