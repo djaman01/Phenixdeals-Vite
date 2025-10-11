@@ -33,10 +33,15 @@ const Oeuvres = () => {
   // Access API base URL from env
   const API_BASE_URL = import.meta.env.VITE_API_URL;
 
-  //To fetch 40 articles then when i scroll to the bottom of the page it fetches 40 more automatically
+  //To fetch 20 articles then when i scroll to the bottom of the page it fetches 40 more automatically
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true); //In the beginning there is more articles so it has to be true => then when there is no more articles it'll turn false
   const [loadingMore, setLoadingMore] = useState(false); //New Spinner for loading more articles in the bottom
+
+  //Scroll infinote after filtering
+  const [pageFiltered, setPageFiltered] = useState(1);
+  const [hasMoreFiltered, setHasMoreFiltered] = useState(true); //In the beginning there is more articles so it has to be true => then when there is no more articles it'll turn false
+  const [loadingMoreFiltered, setLoadingMoreFiltered] = useState(false); //New Spinner for loading more articles in the bottom
 
   useEffect(() => {
     if (isFiltering) return; //If filtering, don't reFecth articles
@@ -93,16 +98,13 @@ const Oeuvres = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loadingMore, hasMore]);
 
-  const handleFilter = async () => {
+  //For Infinite Scroll: I will call this function inside a useEffect so that the code can re-run when the user scroll down to the bottom and the "pagination" change
+  const handleFilter = async (page = 1, newFilter = false) => {
     if (!prixMin && !prixMax) {
       notifyError();
       return;
     }
     try {
-      setSpinner(true); // show loader
-      setIsFiltering(true); //To prevent the useEffect Fetch
-
-      // Sanitize user inputs: keep only digits
       const cleanPrixMin = prixMin
         ? parseInt(prixMin.replace(/[^\d]/g, ""), 10)
         : undefined;
@@ -110,44 +112,80 @@ const Oeuvres = () => {
         ? parseInt(prixMax.replace(/[^\d]/g, ""), 10)
         : undefined;
 
-      // Log values for debugging
-      console.log("Filtering with:", {
-        prixMin: cleanPrixMin,
-        prixMax: cleanPrixMax,
-      });
-
-      // Call back-end filter endpoint
       const response = await axios.get(`${API_BASE_URL}/filterOeuvres`, {
         params: {
           prixMin: cleanPrixMin,
           prixMax: cleanPrixMax,
+          page,
+          limit: 20,
         },
       });
-
-      // Set articles to filtered results
-      setFilteredArticles(response.data);
-      setError(""); // clear previous errors
+      const filterResult = response.data;
+      //Now when we apply a new filter handleFilter(1, true) we are saying: "I'm starting a new filter, so replace the list." / When we scroll down the bottom of the page and call handleFilter(pageFiltered, false), we say: "I'm loading more, so append to the list."
+      setFilteredArticles((prev) =>
+        newFilter ? filterResult : [...prev, ...filterResult],
+      );
+      setHasMoreFiltered(filterResult.length > 0);
+      setError("");
     } catch (error) {
-      console.error(error);
-      if (error.response) {
-        setError(
-          `${error.response.status}: ${error.response.data.message || "Server-side error"}`,
-        );
-      } else {
-        setError(`Client-side error: ${error.message}`);
-      }
+      setError("Erreur lors du filtrage");
     } finally {
-      setSpinner(false);
+      setSpinner(false); ///////////////////////
+      setLoadingMoreFiltered(false);
     }
   };
 
-  const handleReset = async () => {
-    setIsFiltering(false); //Si that whe have articles.map and not filetredArticles.map thanks to the condition on the JSX
-    setFilteredArticles([]); // clear filtered
+  // A mettre dans le onClick du bouton "Filtrer" pour appeler handleFilter avec pageFiltered = 1 et newFilter === true
+  const onApplyFilter = async () => {
+    if (!prixMin && !prixMax) { //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
+      notifyError();
+      return;
+    }
+    setSpinner(true);
+    setIsFiltering(true);
+    setPageFiltered(1);
+    setHasMoreFiltered(true);
+    setLoadingMoreFiltered(false);
+    await handleFilter(1, true); // Fetch first page directly and set teh apram newFilter to true
+  };
+
+  //In the filtered page: when the user scroll until the bottom of th page -800px, it add +1 to the state pageFiltered, that will activate the useEffect below to re-run the handleFilter
+  useEffect(() => {
+    const handleScrollFilter = () => {
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
+      if (
+        scrollTop + clientHeight >= scrollHeight - 800 &&
+        !loadingMoreFiltered &&
+        hasMoreFiltered &&
+        isFiltering
+      ) {
+        setLoadingMoreFiltered(true);
+        setPageFiltered((prev) => prev + 1);
+      }
+    };
+    window.addEventListener("scroll", handleScrollFilter);
+    return () => window.removeEventListener("scroll", handleScrollFilter);
+  }, [loadingMoreFiltered, hasMoreFiltered, isFiltering]);
+
+  //Re-runs the handleFilter when pageFiltered > 1
+  useEffect(() => {
+    if (!isFiltering) return;
+    if (pageFiltered === 1) return; // Already fetched in onApplyFilter
+    handleFilter(pageFiltered, false); // pageFiltered +1 when scroll to the bottom + newFilter === false, to append the results to the old results (infinite scroll) => voir function handleFilter après response.data
+    // eslint-disable-next-line
+  }, [pageFiltered]);
+
+  const handleReset = () => {
+    setIsFiltering(false);
+    setFilteredArticles([]);
     setPrixMin("");
     setPrixMax("");
-    setPage(1); // reset to first page
+    setPage(1);
     setSpinner(true);
+    setLoadingMoreFiltered(false);
+    setPageFiltered(1);
+    setHasMoreFiltered(true);
   };
 
   const scrollToTop = () => {
@@ -246,7 +284,7 @@ const Oeuvres = () => {
           <div className=" max-lg:mt-4 max-lg:flex max-lg:flex-row-reverse max-lg:justify-between">
             <button
               className="ml-4 rounded-full bg-green-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md"
-              onClick={handleFilter}
+              onClick={onApplyFilter}
             >
               Filtrer
             </button>
@@ -311,7 +349,8 @@ const Oeuvres = () => {
             </div>
           )}
         </div>
-        {loadingMore && (
+
+        {(loadingMore || loadingMoreFiltered) && (
           <div className="my-10 flex items-center justify-center">
             <FadeLoader color="#FA7A35" size={40} />
           </div>
