@@ -30,6 +30,8 @@ const Oeuvres = () => {
   const handlePrixMin = (e) => setPrixMin(e.target.value);
   const handlePrixMax = (e) => setPrixMax(e.target.value);
 
+  const [resetKey, setResetKey] = useState(0); //To trigger the fetching after reset
+
   // Access API base URL from env
   const API_BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -76,7 +78,7 @@ const Oeuvres = () => {
     };
 
     fecthAndAppend();
-  }, [API_BASE_URL, page]); //Pour relancer la function quand on change de page (arrive en bas de page et qu'il y a plus d'articles)
+  }, [API_BASE_URL, page, resetKey]); //Pour relancer la function quand on change de page (arrive en bas de page et qu'il y a plus d'articles)
 
   //Scroll Detection to know that the user hass arrived to the bottom of the page
   useEffect(() => {
@@ -130,14 +132,15 @@ const Oeuvres = () => {
     } catch (error) {
       setError("Erreur lors du filtrage");
     } finally {
-      setSpinner(false); ///////////////////////
+      setSpinner(false);
       setLoadingMoreFiltered(false);
     }
   };
 
   // A mettre dans le onClick du bouton "Filtrer" pour appeler handleFilter avec pageFiltered = 1 et newFilter === true
   const onApplyFilter = async () => {
-    if (!prixMin && !prixMax) { //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
+    if (!prixMin && !prixMax) {
+      //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
       notifyError();
       return;
     }
@@ -174,14 +177,15 @@ const Oeuvres = () => {
     if (pageFiltered === 1) return; // Already fetched in onApplyFilter
     handleFilter(pageFiltered, false); // pageFiltered +1 when scroll to the bottom + newFilter === false, to append the results to the old results (infinite scroll) => voir function handleFilter après response.data
     // eslint-disable-next-line
-  }, [pageFiltered]);
+  }, [API_BASE_URL, pageFiltered]);
 
   const handleReset = () => {
     setIsFiltering(false);
     setFilteredArticles([]);
     setPrixMin("");
     setPrixMax("");
-    setPage(1);
+    setPage(1); //If we filter and reset directly, it'll not work, because the value of page stay 1 if we don't scroll down to the bottom and load new articles
+    setResetKey((prev) => prev + 1); //To trigger the 1st useEffect after Reset
     setSpinner(true);
     setLoadingMoreFiltered(false);
     setPageFiltered(1);
