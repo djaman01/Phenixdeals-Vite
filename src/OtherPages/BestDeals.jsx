@@ -119,7 +119,7 @@ const BestDeals = () => {
           prixMin: cleanPrixMin,
           prixMax: cleanPrixMax,
           page,
-          limit: 20,
+          limit: 4,
           BestDeal: true, //So that it can find it and filter it from the server
         },
       });
