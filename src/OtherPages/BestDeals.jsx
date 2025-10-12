@@ -56,7 +56,7 @@ const BestDeals = () => {
       }
       try {
         const response = await axios.get(`${API_BASE_URL}/bestDeals`, {
-          params: { page: page, limit: 4 },
+          params: { page: page, limit: 20 },
         });
         const newArticles = response.data; // les 20 oeuvres ou - si on arrive à la fin
 
