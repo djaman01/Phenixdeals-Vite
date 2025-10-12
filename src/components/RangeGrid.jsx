@@ -11,8 +11,6 @@ const RangeGrid = ({
   title,
   error,
   allValues,
-  showSearchInput,
-  typeObjet,
   loading,
 }) => {
   //Pour créer un filtre par prix min et max
@@ -110,23 +108,6 @@ const RangeGrid = ({
       <div className="relative mx-auto flex justify-center max-lg:w-auto max-lg:flex-col max-lg:items-center ">
         {/* Je veux que ce 1er input n'apparaisse que pour déco et Bijoux, donc je vais faire une condition avec un props */}
 
-        {showSearchInput && (
-          <div className="relative max-lg:mb-3">
-            {/* top-1/2 positionne le top du div à la moitié de son parent (donc il parait bas): c'est pourquoi on rajoute transform et -translate-y-1/2 pour le bouger en haut by the half of it's own height */}
-            <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
-              <SlMagnifier color="black" />
-            </div>
-
-            {/*!!! pl-12 dans input, permet de déplacer le départ pour écrire*/}
-            <input
-              type="text"
-              className="relative mr-10 rounded-full border border-gray-400 py-3 pl-12 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:mr-0 max-lg:pl-10"
-              placeholder={typeObjet}
-              value={inputSearch}
-              onChange={(e) => setInputSearch(e.target.value)}
-            />
-          </div>
-        )}
 
         <div className="relative max-lg:mb-3">
           <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
