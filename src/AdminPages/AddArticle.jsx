@@ -99,7 +99,7 @@ const AddArticle = () => {
       <Header />
       <div className="bg-[#e8e8e8] ">
         <div className=" flex h-screen flex-col items-center justify-center max-lg:h-auto">
-          <div className=" w-3/4 rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:mt-20 max-lg:mb-20">
+          <div className=" w-3/4 rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:mb-20 max-lg:mt-20">
             <h2 className=" mb-4 text-center text-2xl font-bold text-gray-900 max-lg:ml-0 max-lg:text-center">
               Add Article
             </h2>
@@ -165,6 +165,7 @@ const AddArticle = () => {
                 {/* Dropping the image will store it in the imageFile state variable */}
                 <Dropzone
                   onDrop={(acceptedFiles) => setImageFile(acceptedFiles[0])}
+                  useFsAccessApi={false} //required to work on all mobile devices
                 >
                   {({ getRootProps, getInputProps }) => (
                     <div
@@ -188,7 +189,7 @@ const AddArticle = () => {
                   </Link>
 
                   <button
-                    className="lg:ml-10 mt-4 w-32 rounded-md bg-green-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600"
+                    className="mt-4 w-32 rounded-md bg-green-500 px-4 py-2 font-bold text-white transition duration-150 ease-in-out hover:bg-green-600 lg:ml-10"
                     onClick={handleSubmit}
                   >
                     Send Article
