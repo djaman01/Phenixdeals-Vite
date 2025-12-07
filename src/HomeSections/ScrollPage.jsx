@@ -27,47 +27,19 @@ function Arrow(props) {
 const ScrollPage = () => {
   const [sliderImages, setSliderImages] = useState([]);
 
-  //State to show the slider only when the images are ready, so that i don't have blank sliders
-  const [ready, setReady] = useState(false);
-
   useEffect(() => {
     const fetchSliderImages = async () => {
       try {
         const response = await axios.get(
           "https://phenixdeals-back.onrender.com/slider",
         );
-        const images = response.data;
-        //Promise.all() => To make sure all images are fully loaded before going further in the code and setting the state "ready" to true, so that the sliders appear
-        await Promise.all(
-          images.map((img) => {
-            //For each image, we create a new promise that resolves ONLY WHEN that particular image has finished loading
-            return new Promise((resolve) => {
-              const image = new Image(); //Create a new HTML image Element in JavaScript
-              image.src = img.imageUrl; //Starts loading the image in memory
-              image.onload = resolve; // If the image finishes loading successfully, the promises resolves
-              image.onerror = resolve; //If the image fails to load, the promises will still resolves (so we'll have a blank slider instead of a crash of all the sliders)
-            });
-          }),
-        );
-
-        setSliderImages(images);
-        setReady(true);
+        setSliderImages(response.data);
       } catch (error) {
-        console.error(
-          "Error Fetching images:",
-          error.response
-            ? `${error.response.status}: ${error.response.data.message}` // Server-side error
-            : error.message, // Client-side error
-        );
+        console.error("Error fetching slider images:", error);
       }
     };
     fetchSliderImages();
   }, []);
-
-  //Pour ARRETER la function et la REDEMARRER DU DEBUT si les states ready = false ou pas de sliderImages fetched => To prevent Slider from rendering too early before the images, so that i don't have blank sliders
-  if (!ready || sliderImages.length === 0) {
-    return null;
-  }
 
   const settings = {
     nextArrow: <Arrow />,
@@ -77,7 +49,7 @@ const ScrollPage = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true, //Slider adujsts to each image height
+    adaptativeHeight: true,
     autoplay: true,
     autoplaySpeed: 5000,
     centerMode: true,
@@ -131,7 +103,7 @@ const ScrollPage = () => {
             <div className="px-2 lg:h-[700px]">
               <img
                 src={e.imageUrl}
-                alt={`oeuvre de ${e.auteur}`}
+                alt="slider"
                 className="h-full w-full rounded-2xl object-cover"
               />
             </div>
