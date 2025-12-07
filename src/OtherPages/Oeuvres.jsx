@@ -130,7 +130,12 @@ const Oeuvres = () => {
       setHasMoreFiltered(filterResult.length > 0);
       setError("");
     } catch (error) {
-      setError("Erreur lors du filtrage");
+      console.error(
+        "Error Fetching oeuvres:",
+        error.response
+          ? `${error.response.status}: ${error.response.data.message}` // Server-side error
+          : error.message, // Client-side error
+      );
     } finally {
       setSpinner(false);
       setLoadingMoreFiltered(false);
