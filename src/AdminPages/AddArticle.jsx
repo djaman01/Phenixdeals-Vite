@@ -39,6 +39,7 @@ const AddArticle = () => {
   const [auteur, setAuteur] = useState(""); //setAuteur dans onChange
   const [type, setType] = useState("");
   const [infoArticle, setInfoArticle] = useState("");
+  const [allDescription, setAllDescription] = useState("");
   const [prix, setPrix] = useState("");
   const [etat, setEtat] = useState("");
   const [bestDeal, setBestDeal] = useState("");
@@ -54,6 +55,7 @@ const AddArticle = () => {
       auteur &&
       type &&
       infoArticle &&
+      allDescription&&
       prix &&
       etat &&
       bestDeal &&
@@ -64,6 +66,7 @@ const AddArticle = () => {
       formData.append("auteur", auteur);
       formData.append("type", type);
       formData.append("infoArticle", infoArticle);
+      formData.append("allDescription", allDescription);
       formData.append("prix", prix);
       formData.append("etat", etat);
       formData.append("bestDeal", bestDeal);
@@ -81,6 +84,7 @@ const AddArticle = () => {
         setAuteur("");
         setType("");
         setInfoArticle("");
+        setAllDescription("");
         setPrix("");
         setEtat("");
         setBestDeal("");
@@ -128,6 +132,14 @@ const AddArticle = () => {
                   placeholder="Info Article"
                   value={infoArticle}
                   onChange={(e) => setInfoArticle(e.target.value)}
+                />
+                <input
+                  required
+                  type="text"
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
+                  placeholder="All Description"
+                  value={allDescription}
+                  onChange={(e) => setAllDescription(e.target.value)}
                 />
                 <input
                   required

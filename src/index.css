@@ -31,6 +31,12 @@
     font-style: normal;
   }
 
+  .font-roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
   .playwrite {
     font-family: "Playwrite AU SA", serif;
     font-optical-sizing: auto;

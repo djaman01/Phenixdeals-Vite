@@ -108,7 +108,6 @@ const RangeGrid = ({
       <div className="relative mx-auto flex justify-center max-lg:w-auto max-lg:flex-col max-lg:items-center ">
         {/* Je veux que ce 1er input n'apparaisse que pour déco et Bijoux, donc je vais faire une condition avec un props */}
 
-
         <div className="relative max-lg:mb-3">
           <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">
             <SlMagnifier color="black" />
@@ -178,22 +177,23 @@ const RangeGrid = ({
                       alt={e.auteur}
                     />
                   </div>
-                  <div className="h-[167px] text-center text-xl max-lg:h-[184px]">
-                    <h3 className="my-1 flex h-[14px] items-center justify-center font-mono font-bold text-blue-600 max-lg:h-[18px] max-lg:text-lg ">
+                  {/* j'utilise une fixed height en responsive, pour ne pas que les cards aient des longueurs différentes */}
+                  <div className="h-[150px] text-center text-xl max-lg:h-[175px]">
+                    <h3 className="font-roboto-bold my-1 flex items-center justify-center text-[#2660cb] ">
                       {e.type}
                     </h3>
                     <div className="mx-auto w-1/2 border-b border-gray-300"></div>
-                    <h4 className=" font-roboto my-4 flex h-9 items-center justify-center leading-tight text-gray-800 max-lg:h-10 ">
+                    <h4 className=" font-roboto my-2 flex items-center justify-center leading-tight text-gray-800 max-lg:h-10 ">
                       {e.infoArticle}
                     </h4>
                     <div className=" mx-auto my-1 w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="font-roboto my-2 flex h-8 items-center justify-center leading-tight text-red-500 max-lg:h-10">
+                    <h4 className="max-lg:h-8 font-roboto my-2 flex items-center justify-center leading-tight text-[#ce0e18]">
                       {e.auteur}
                     </h4>
                     <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="font-roboto flex h-8 items-center justify-center text-[#00A170]">
+                    <h4 className=" h-9 font-roboto flex items-center justify-center text-[#027254]">
                       {e.prix}
                     </h4>
                   </div>

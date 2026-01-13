@@ -19,7 +19,10 @@ export default function Dashboard() {
 
   const [refreshKey, setRefreshKey] = useState(0);
 
-   // Access API base URL from env
+  const [articleId, setArticleId] = useState(null); //Pour que quand on clique sur stylo ou cancel, apporte des changements
+  const [editedValues, setEditedValues] = useState({});
+
+  // Access API base URL from env
   const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
@@ -48,9 +51,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchAllArticles = async () => {
       try {
-        const response = await axios.get(
-          `${API_BASE_URL}/allArticles`,
-        );
+        const response = await axios.get(`${API_BASE_URL}/allArticles`);
         setArticles(response.data);
         console.log("All articles fetched", response.data);
       } catch (error) {
@@ -67,42 +68,32 @@ export default function Dashboard() {
   }, [refreshKey, API_BASE_URL]); // The effect will run whenever refreshKey changes
 
   //Pour PUT request et modifier certains élements selectionnés
-  const [auteurName, setAuteurName] = useState("");
-  const [articleType, setArticleType] = useState("");
-  const [articlePrice, setArticlePrice] = useState("");
-  const [articleInfos, setArticleInfos] = useState("");
-  const [bestDeal, setBestDeal] = useState("");
-  const [articleCode, setArticleCode] = useState("");
 
-  //Pour que quand on clique sur stylo ou cancel, apporte des changements
-  const [articleId, setArticleId] = useState(null);
-
-  //Pour changer la valeur de l'id, la valeur de infoArticle, le prix ...etc.
+  //When clicking on the pen: To change the values of each column in each row
+  //C'est ici qu'on donne les valeurs par défaut à la state "editedValues" => Car on ne peut connaitre le row._id selectionné qu'après avoir cliqué sur le stylo
   const handleEditClick = (row) => {
-    setArticleId(row._id); //Pour voir un input pour modifier les valeurs, après avoir cliquer sur le stylo ou cancel
-    setAuteurName(row.auteur); //Pour corriger le nom de l'auteur en cas d'erreur
-    setArticleType(row.type); //Modification type article
-    setArticleInfos(row.infoArticle); //Modification de infoArticle
-    setArticlePrice(row.prix); //Modification du prix
-    setBestDeal(row.bestDeal); //Modification de la valeur de bestDeal
-    setArticleCode(row.code);
+    setArticleId(row._id);
+    setEditedValues({
+      [row._id]: {
+        auteur: row.auteur || "",
+        type: row.type || "",
+        prix: row.prix || "",
+        infoArticle: row.infoArticle || "",
+        allDescription: row.allDescription || "",
+        bestDeal: row.bestDeal || "",
+        code: row.code || "",
+      },
+    });
   };
 
-  //On donne aux VALEURS de la propriété auteur, prix, infoArticle..etc de la database, les states variables précédentes que l'on va changer
-  const updatedProductData = {
-    auteur: auteurName,
-    type: articleType,
-    prix: articlePrice,
-    infoArticle: articleInfos,
-    bestDeal: bestDeal,
-    code: articleCode,
-  };
+  //
 
-  //PUT Request: Pour appliquer les modification dans updatedProductData; le paramètre articleId aura pour valeur row._id
+  //PUT Request: pour appliquer les changements après avoir cliquer sur "update"
   const handleUpdates = async (articleId) => {
+    const updatedProductData = editedValues[articleId];
     try {
       const response = await axios.put(
-        `https://phenixdeals-back.onrender.com/putDash/${articleId}`,
+        `${API_BASE_URL}/putDash/${articleId}`,
         updatedProductData,
       );
       console.log(response.data); // Show what was sent from the server: res.json({message:'', stateProduct}), in the browser console
@@ -120,6 +111,10 @@ export default function Dashboard() {
 
   //Pour DELETE request et supprimer un élement selectionné; donc stocker l'arrow function dans une variable qu'on va appeler avec un paramètre pour cibler le produit
   const handleDelete = async (articleId) => {
+    //Si on repond NO => arrete la handleDelete function et ne supprime pas l'article
+    if (!window.confirm("Are you sure you want to delete this article?")) {
+      return;
+    }
     try {
       const response = await axios.delete(
         `https://phenixdeals-back.onrender.com/deleteArticle/${articleId}`,
@@ -154,132 +149,56 @@ export default function Dashboard() {
   };
 
   //Création database avec npm react data table component--------------------------------------
+  
+  //Array avec les Noms des colonnes modifiables
+  const fields = [
+    "auteur",
+    "type",
+    "infoArticle",
+    "allDescription",
+    "prix",
+    "bestDeal",
+    "code",
+  ];
+
+  //Use of the array function .map, to transform each element of the array, into a column with the first letter in upper case, and an editable value
+  const editableColumns = fields.map((element) => ({
+    name: element.charAt(0).toUpperCase() + element.slice(1), //1st letter in upperCase + adding the rest of the word from the letter with the index = 1, which is the 2nd letter ex: A + uteur
+    selector: (row) => row[element], // Value de la row de la colonne "e" => row[auteur]=> nom de l'artiste sur lequel on map
+    sortable: true,
+    cell: (row) =>
+      articleId === row._id ? (
+        <input
+          value={editedValues[row._id]?.[element] || ""}
+          onChange={(e) =>
+            setEditedValues({
+              ...editedValues,
+              [row._id]: {
+                ...editedValues[row._id],
+                [element]: e.target.value,
+              },
+            })
+          }
+          className="w-full rounded-md border-2 border-black text-center"
+        />
+      ) : (
+        row[element]
+      ),
+  }));
 
   const columns = [
     {
       name: "Image",
-      selector: (row) => row.imageUrl, //même nom que dans base de donnée pour extraire info
+      selector: (row) => row.imageUrl, //Value de la row de la colonne image => même nom que dans base de donnée pour extraire info
       cell: (row) => (
         <img className="my-3" src={row.imageUrl} alt={row.auteur} />
       ),
     },
-    {
-      name: "Auteur",
-      selector: (row) => row.auteur,
-      sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
-      cell: (row) =>
-        articleId === row._id ? (
-          <div>
-            <input
-              placeholder="Correct Name"
-              value={auteurName}
-              onChange={(e) => setAuteurName(e.target.value)}
-              className="w-full rounded-md border-2 border-black text-center"
-            />
-          </div>
-        ) : (
-          row.auteur
-        ),
-    },
-    {
-      name: "Type",
-      selector: (row) => row.type,
-      sortable: true,
-      cell: (row) =>
-        articleId === row._id ? (
-          <div>
-            <input
-              placeholder="New Type"
-              value={articleType}
-              onChange={(e) => setArticleType(e.target.value)}
-              className="w-full rounded-md border-2 border-black text-center"
-            />
-          </div>
-        ) : (
-          row.type
-        ),
-    },
-
-    {
-      name: "info Article",
-      selector: (row) => row.infoArticle,
-      cell: (row) =>
-        articleId === row._id ? (
-          <div>
-            <input
-              placeholder="New infos"
-              value={articleInfos}
-              onChange={(e) => setArticleInfos(e.target.value)}
-              className="w-full rounded-md border-2 border-black text-center"
-            />
-          </div>
-        ) : (
-          row.infoArticle
-        ),
-    },
-
+    ...editableColumns,
     {
       name: "Propriété",
       selector: (row) => row.etat,
       sortable: true,
-    },
-
-    {
-      name: "Prix",
-      selector: (row) => row.prix,
-      sortable: true,
-      //Objectif: Quand on clique sur stylo: articleId===row._id => Donc si articleId===row._id fait apparaitre un input pour changer la valeur, sinon on ne voit que le prix
-      cell: (row) =>
-        articleId === row._id ? (
-          <div>
-            <input
-              placeholder="New Price"
-              value={articlePrice}
-              onChange={(e) => setArticlePrice(e.target.value)} //productPrice se met à jour en même temps que ce qu'on écrit dans l'input
-              className="w-full rounded-md border-2 border-black text-center"
-            />
-          </div>
-        ) : (
-          row.prix
-        ),
-    },
-
-    {
-      name: "Best Deal ?",
-      selector: (row) => row.bestDeal,
-      sortable: true,
-      cell: (row) =>
-        articleId === row._id ? (
-          <div>
-            <input
-              placeholder="Best Deal ?"
-              value={bestDeal}
-              onChange={(e) => setBestDeal(e.target.value)}
-              className="w-full rounded-md border-2 border-black text-center"
-            />
-          </div>
-        ) : (
-          row.bestDeal
-        ),
-    },
-
-    {
-      name: "Code",
-      selector: (row) => row.code,
-      sortable: true,
-      cell: (row) =>
-        articleId === row._id ? (
-          <div>
-            <input
-              placeholder="New Code"
-              value={articleCode}
-              onChange={(e) => setArticleCode(e.target.value)}
-              className="w-full rounded-md border-2 border-black text-center"
-            />
-          </div>
-        ) : (
-          row.code
-        ),
     },
 
     {
@@ -308,14 +227,7 @@ export default function Dashboard() {
         ) : (
           <div className="flex w-[70px] cursor-pointer justify-around">
             <FaRegPenToSquare size={17} onClick={() => handleEditClick(row)} />
-            {/* Click sur stylo= appel function handleEditClick avec argument row selectionnée*/}
-            {/* prettier-ignore */}
-            <FaRegTrashAlt
-              size={17}
-              onClick={() => {
-                window.confirm("Are you sur you want to delete this article ?") && handleDelete(row._id);
-              }}
-            />
+            <FaRegTrashAlt size={17} onClick={() => handleDelete(row._id)} />
           </div>
         ),
     },

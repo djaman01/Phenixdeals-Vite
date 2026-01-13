@@ -201,7 +201,7 @@ const FicheOeuvre = () => {
               </h1>
               <hr className="my-0 w-11/12 border-gray-500" />
               <h2 className="my-3  flex h-16 items-center justify-center text-center">
-                {article.infoArticle}
+                {article.allDescription}
               </h2>
               <hr className="my-0 w-11/12 border-gray-500" />
               <h2 className="my-3 flex h-7 items-center justify-center text-center text-[#00A170]">
