@@ -217,7 +217,7 @@ const FicheOeuvre = () => {
                   target="_blank"
                   className="no-underline"
                 >
-                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white active:bg-[#128C7E]">
+                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white active:scale-105">
                     <FaWhatsapp size={20} />
                     Contact
                   </button>
@@ -228,14 +228,14 @@ const FicheOeuvre = () => {
                 >
                   <button
                     onClick={scrollToTop}
-                    className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:bg-[#53b5e3]"
+                    className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:scale-105"
                   >
                     Autres oeuvres de {article.auteur}
                   </button>
                 </Link>
 
                 <a href={urlLink()} target="_blank" className="no-underline">
-                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded-full bg-[#128C7E] px-3 text-lg font-bold text-white active:bg-[#25D366]">
+                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded-full bg-[#128C7E] px-3 text-lg font-bold text-white active:scale-105">
                     <ImShare2 size={20} /> Partager
                   </button>
                 </a>

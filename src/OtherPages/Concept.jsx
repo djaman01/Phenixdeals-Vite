@@ -94,7 +94,7 @@ const Concept = () => {
           </div>
           <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
             <Link to="/" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 ">
+              <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 active:scale-105 ">
                 <b>Nouvelles oeuvres</b>
                 <img
                   src={arrowRight}
@@ -135,7 +135,7 @@ const Concept = () => {
           </div>
           <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
             <Link to="/contact" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 ">
+              <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 active:scale-105 ">
                 <b>Contactez-nous</b>
                 <img
                   src={arrowRight}
@@ -179,10 +179,12 @@ const Concept = () => {
               <SocialIcon
                 url="https://www.instagram.com/phenixdeals/"
                 target="_blank"
+                className="active:scale-105"
               />
               <SocialIcon
                 url="https://web.facebook.com/profile.php?id=100090243464213"
                 target="_blank"
+                className="active:scale-105"
               />
             </div>
           </div>

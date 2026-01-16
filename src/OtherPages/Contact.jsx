@@ -105,13 +105,13 @@ const Contact = () => {
                   href="https://www.instagram.com/phenixdeals/"
                   target="_blank"
                 >
-                  <BiLogoInstagramAlt size={32} className="cursor-pointer" />
+                  <BiLogoInstagramAlt size={32} className="cursor-pointer active:scale-105" />
                 </a>
                 <a
                   href="https://web.facebook.com/profile.php?id=100090243464213"
                   target="_blank"
                 >
-                  <FaFacebook size={28} className="cursor-pointer" />
+                  <FaFacebook size={28} className="cursor-pointer active:scale-105" />
                 </a>
               </div>
             </div>
