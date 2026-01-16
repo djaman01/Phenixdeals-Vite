@@ -52,25 +52,12 @@ const PageArtist = () => {
     setPage(1); //If we filter and reset directly, it'll not work, because the value of page stay 1 if we don't scroll down to the bottom and load new articles
     setResetKey((prev) => prev + 1); //To trigger the 1st useEffect after Reset
     setSpinner(true);
-    setPageFiltered(1);
-    setHasMoreFiltered(true);
-  };
-
-  // A mettre dans le onClick du bouton "Filtrer" pour appeler handleFilter avec pageFiltered = 1 et newFilter === true
-  const onApplyFilter = async () => {
-    if (!prixMin && !prixMax) {
-      //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
-      notifyError();
-      return;
-    }
-    setSpinner(true);
-    setIsFiltering(true);
-    setPageFiltered(1);
-    setHasMoreFiltered(true);
     setLoadingMoreFiltered(false);
-    await handleFilter(1, true); // Fetch first page directly and set the param newFilter to true
+    setPageFiltered(1);
+    setHasMoreFiltered(true);
   };
 
+  //For Infinite Scroll: I will call this function inside a useEffect so that the code can re-run when the user scroll down to the bottom and the "pagination" change
   const handleFilter = async (page = 1, newFilter = false) => {
     if (!prixMin && !prixMax) {
       notifyError();
@@ -103,16 +90,26 @@ const PageArtist = () => {
       setHasMoreFiltered(filterResult.length > 0);
       setError("");
     } catch (error) {
-      console.error(
-        "Error Fetching oeuvres:",
-        error.response
-          ? `${error.response.status}: ${error.response.data.message}` // Server-side error
-          : error.message, // Client-side error
-      );
+      setError("Erreur lors du filtrage");
     } finally {
       setSpinner(false);
       setLoadingMoreFiltered(false);
     }
+  };
+
+  // A mettre dans le onClick du bouton "Filtrer" pour appeler handleFilter avec pageFiltered = 1 et newFilter === true
+  const onApplyFilter = async () => {
+    if (!prixMin && !prixMax) {
+      //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
+      notifyError();
+      return;
+    }
+    setSpinner(true);
+    setIsFiltering(true);
+    setPageFiltered(1);
+    setHasMoreFiltered(true);
+    setLoadingMoreFiltered(false);
+    await handleFilter(1, true); // Fetch first page directly and set teh apram newFilter to true
   };
 
   const articlesToDisplay = isFiltering ? filteredArticles : articles;
@@ -154,10 +151,9 @@ const PageArtist = () => {
     };
 
     fecthAndAppend();
-  }, [API_BASE_URL, page, auteur, resetKey]); //Pour relancer la function quand on change de page (arrive en bas de page et qu'il y a plus d'articles)
+  }, [API_BASE_URL, page, resetKey]); //Pour relancer la function quand on change de page (arrive en bas de page et qu'il y a plus d'articles)
 
-  //Scroll Detection to know that the user hass arrived to the bottom of the page
-  //“If we are NOT filtering, AND the user is close to the bottom, AND we are not already loading, AND there is still data to load → then load the next page.”
+  //Scroll Detection to know that the user has arrived to the bottom of the page
   useEffect(() => {
     const handleScroll = () => {
       //Object destructuring différent from Array destructuting / Here const scrollTop = document.documentElement.scrollTop (scrollTop is the key of the object)

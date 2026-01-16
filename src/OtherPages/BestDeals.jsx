@@ -57,13 +57,6 @@ const BestDeals = () => {
     setHasMoreFiltered(true);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
-  };
-
   //For Infinite Scroll: I will call this function inside a useEffect so that the code can re-run when the user scroll down to the bottom and the "pagination" change
   const handleFilter = async (page = 1, newFilter = false) => {
     if (!prixMin && !prixMax) {
@@ -157,7 +150,7 @@ const BestDeals = () => {
   //Scroll Detection to know that the user hass arrived to the bottom of the page
   useEffect(() => {
     const handleScroll = () => {
-      //Object destructuring différent de Array destructuting / Here const scrollTop = document.documentElement.scrollTop Et non pas scrollTop = document.documentEleme,nt like in array destructuring
+      //Object destructuring différent from Array destructuting / Here const scrollTop = document.documentElement.scrollTop (scrollTop is the key of the object)
       const { scrollTop, scrollHeight, clientHeight } =
         document.documentElement;
       // scrollTop → how many pixels the user has scrolled down already / clientHeight → the visible height of the viewport / scrollHeight → the total height of the document including what's not visible
@@ -262,7 +255,6 @@ const BestDeals = () => {
           showReset={isFiltering} //To show the reset Button only after applying filter
           handleReset={handleReset}
           error={error}
-          onClick={scrollToTop}
           loading={spinner}
         />
 

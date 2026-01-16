@@ -57,13 +57,6 @@ const Oeuvres = () => {
     setHasMoreFiltered(true);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
-  };
-
   //For Infinite Scroll: I will call this function inside a useEffect so that the code can re-run when the user scroll down to the bottom and the "pagination" change
   const handleFilter = async (page = 1, newFilter = false) => {
     if (!prixMin && !prixMax) {
@@ -262,7 +255,6 @@ const Oeuvres = () => {
           showReset={isFiltering} //To show the reset Button only after applying filter
           handleReset={handleReset}
           error={error}
-          onClick={scrollToTop}
           loading={spinner}
         />
 
