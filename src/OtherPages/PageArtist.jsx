@@ -25,6 +25,8 @@ const PageArtist = () => {
   const [prixMin, setPrixMin] = useState("");
   const [prixMax, setPrixMax] = useState("");
 
+  const [resetKey, setResetKey] = useState(0); //To trigger the fetching after reset
+
   //To fetch 20 articles then when i scroll to the bottom of the page it fetches 40 more automatically
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true); //In the beginning there is more articles so it has to be true => then when there is no more articles it'll turn false
@@ -48,8 +50,25 @@ const PageArtist = () => {
     setPrixMin("");
     setPrixMax("");
     setPage(1); //If we filter and reset directly, it'll not work, because the value of page stay 1 if we don't scroll down to the bottom and load new articles
+    setResetKey((prev) => prev + 1); //To trigger the 1st useEffect after Reset
+    setSpinner(true);
     setPageFiltered(1);
     setHasMoreFiltered(true);
+  };
+
+  // A mettre dans le onClick du bouton "Filtrer" pour appeler handleFilter avec pageFiltered = 1 et newFilter === true
+  const onApplyFilter = async () => {
+    if (!prixMin && !prixMax) {
+      //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
+      notifyError();
+      return;
+    }
+    setSpinner(true);
+    setIsFiltering(true);
+    setPageFiltered(1);
+    setHasMoreFiltered(true);
+    setLoadingMoreFiltered(false);
+    await handleFilter(1, true); // Fetch first page directly and set the param newFilter to true
   };
 
   const handleFilter = async (page = 1, newFilter = false) => {
@@ -96,20 +115,6 @@ const PageArtist = () => {
     }
   };
 
-  // A mettre dans le onClick du bouton "Filtrer" pour appeler handleFilter avec pageFiltered = 1 et newFilter === true
-  const onApplyFilter = async () => {
-    if (!prixMin && !prixMax) {
-      //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
-      notifyError();
-      return;
-    }
-    setIsFiltering(true);
-    setPageFiltered(1);
-    setHasMoreFiltered(true);
-    setLoadingMoreFiltered(false);
-    await handleFilter(1, true); // Fetch first page directly and set teh apram newFilter to true
-  };
-
   const articlesToDisplay = isFiltering ? filteredArticles : articles;
 
   //!!! Utiliser encodeURIComponent pour encoder le paramètre 'auteur' car il peut contenir des caractères spéciaux (espaces, &, etc.) => Cela assure une robustesse supplémentaire, même si les navigateurs modernes encodent déjà certains caractères comme l'espace en %20 par défaut
@@ -149,7 +154,7 @@ const PageArtist = () => {
     };
 
     fecthAndAppend();
-  }, [API_BASE_URL, page, auteur]); //Pour relancer la function quand on change de page (arrive en bas de page et qu'il y a plus d'articles)
+  }, [API_BASE_URL, page, auteur, resetKey]); //Pour relancer la function quand on change de page (arrive en bas de page et qu'il y a plus d'articles)
 
   //Scroll Detection to know that the user hass arrived to the bottom of the page
   //“If we are NOT filtering, AND the user is close to the bottom, AND we are not already loading, AND there is still data to load → then load the next page.”

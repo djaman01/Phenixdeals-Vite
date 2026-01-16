@@ -78,7 +78,7 @@ const RangeGrid = ({
           </button>
           {showReset && (
             <button
-              className="ml-4 rounded-full bg-red-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md max-lg:ml-0 active:scale-105"
+              className="ml-4 rounded-full bg-red-500 px-4 py-2 text-white transition duration-150 ease-in-out hover:shadow-md active:scale-105 max-lg:ml-0"
               onClick={handleReset}
             >
               Reset
@@ -95,7 +95,7 @@ const RangeGrid = ({
           <div className="my-20 flex items-center justify-center">
             <PulseLoader color="#FA7A35" size={40} />
           </div>
-        ) : articles.length === 0 ? (
+        ) : !loading && articles.length === 0 ? ( //If loading is over and still no articles founs => show the message
           <div className="flex flex-col items-center justify-center gap-2">
             <p className=" font-roboto mt-10 text-center text-lg text-gray-500">
               Aucune oeuvre disponible dans cette fourchette de prix
@@ -138,7 +138,7 @@ const RangeGrid = ({
                     </h4>
                     <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className=" font-roboto flex my-1 items-center justify-center text-[#027254]">
+                    <h4 className=" font-roboto my-1 flex items-center justify-center text-[#027254]">
                       {e.prix}
                     </h4>
                   </div>
