@@ -159,7 +159,7 @@ const Oeuvres = () => {
         document.documentElement;
       // scrollTop → how many pixels the user has scrolled down already / clientHeight → the visible height of the viewport / scrollHeight → the total height of the document including what's not visible
       if (
-        //If the user arrive at 800px before the bottom of the page And we're not loading more articles and there are more articles, add +1 to the value of the state page, so that it activates the first useEffect to fetch more articles
+        //If the user arrive at 800px before the bottom of the page And we're not loading more articles and there are more articles, add +1 to the value of the state page, so that it activates the useEffect below to fetch more articles
         scrollTop + clientHeight >= scrollHeight - 800 &&
         !loadingMore &&
         hasMore
