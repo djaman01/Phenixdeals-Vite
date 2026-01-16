@@ -322,38 +322,38 @@ const Oeuvres = () => {
                   to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
                   key={e._id}
                 >
-                   <div
-                  className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
-                  onClick={scrollToTop}
-                >
-                  <div className="h-60 w-full max-lg:h-52">
-                    <img
-                      className="h-full w-full rounded-t-lg object-cover"
-                      src={e.imageUrl}
-                      alt={e.auteur}
-                    />
-                  </div>
-                  {/* j'utilise une fixed height en responsive, pour ne pas que les cards aient des longueurs différentes */}
-                  <div className="h-[150px] text-center text-xl max-lg:h-[175px]">
-                    <h3 className="font-roboto-bold my-1 flex items-center justify-center text-[#2660cb] ">
-                      {e.type}
-                    </h3>
-                    <div className="mx-auto w-1/2 border-b border-gray-300"></div>
-                    <h4 className=" font-roboto my-2 flex items-center justify-center leading-tight text-gray-800 max-lg:h-10 ">
-                      {e.infoArticle}
-                    </h4>
-                    <div className=" mx-auto my-1 w-1/2 border-b border-gray-300"></div>
+                  <div
+                    className=" w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
+                    onClick={scrollToTop}
+                  >
+                    <div className="h-60 w-full max-lg:h-52">
+                      <img
+                        className="h-full w-full rounded-t-lg object-cover"
+                        src={e.imageUrl}
+                        alt={e.auteur}
+                      />
+                    </div>
+                    {/* j'utilise une fixed height en responsive, pour ne pas que les cards aient des longueurs différentes */}
+                    <div className="h-[144px] text-center text-xl max-lg:h-[163px]">
+                      <h3 className="font-roboto-bold mt-1 flex items-center justify-center text-[#2660cb] ">
+                        {e.type}
+                      </h3>
+                      <div className="mx-auto w-1/2 border-b border-gray-300"></div>
+                      <h4 className=" font-roboto my-[6px] flex items-center justify-center leading-tight text-gray-800 max-lg:my-2  ">
+                        {e.infoArticle}
+                      </h4>
+                      <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className="max-lg:h-8 font-roboto my-2 flex items-center justify-center leading-tight text-[#ce0e18]">
-                      {e.auteur}
-                    </h4>
-                    <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
+                      <h4 className="font-roboto my-2 flex items-center justify-center leading-tight text-[#ce0e18] max-lg:my-3 max-lg:h-8">
+                        {e.auteur}
+                      </h4>
+                      <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
-                    <h4 className=" h-9 font-roboto flex items-center justify-center text-[#027254]">
-                      {e.prix}
-                    </h4>
+                      <h4 className=" font-roboto flex h-9 items-center justify-center text-[#027254]">
+                        {e.prix}
+                      </h4>
+                    </div>
                   </div>
-                </div>
                 </Link>
               ))}
             </div>
