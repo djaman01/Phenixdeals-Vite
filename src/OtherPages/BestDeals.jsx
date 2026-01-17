@@ -57,61 +57,10 @@ const BestDeals = () => {
     setHasMoreFiltered(true);
   };
 
-  //For Infinite Scroll: I will call this function inside a useEffect so that the code can re-run when the user scroll down to the bottom and the "pagination" change
-  const handleFilter = async (page = 1, newFilter = false) => {
-    if (!prixMin && !prixMax) {
-      notifyError();
-      return;
-    }
-    try {
-      const cleanPrixMin = prixMin
-        ? parseInt(prixMin.replace(/[^\d]/g, ""), 10)
-        : undefined;
-      const cleanPrixMax = prixMax
-        ? parseInt(prixMax.replace(/[^\d]/g, ""), 10)
-        : undefined;
-
-      const response = await axios.get(`${API_BASE_URL}/filterBestDeals`, {
-        params: {
-          prixMin: cleanPrixMin,
-          prixMax: cleanPrixMax,
-          page,
-          limit: 20,
-          BestDeal: true, //So that it can find it and filter it from the server
-        },
-      });
-      const filterResult = response.data;
-      //Now when we apply a new filter handleFilter(1, true) we are saying: "I'm starting a new filter, so replace the list." / When we scroll down the bottom of the page and call handleFilter(pageFiltered, false), we say: "I'm loading more, so append to the list."
-      setFilteredArticles((prev) =>
-        newFilter ? filterResult : [...prev, ...filterResult],
-      );
-      setHasMoreFiltered(filterResult.length > 0);
-      setError("");
-    } catch (error) {
-      setError("Erreur lors du filtrage");
-    } finally {
-      setSpinner(false);
-      setLoadingMoreFiltered(false);
-    }
-  };
-
-  // A mettre dans le onClick du bouton "Filtrer" pour appeler handleFilter avec pageFiltered = 1 et newFilter === true
-  const onApplyFilter = async () => {
-    if (!prixMin && !prixMax) {
-      //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
-      notifyError();
-      return;
-    }
-    setSpinner(true);
-    setIsFiltering(true);
-    setPageFiltered(1);
-    setHasMoreFiltered(true);
-    setLoadingMoreFiltered(false);
-    await handleFilter(1, true); // Fetch first page directly and set teh apram newFilter to true
-  };
-
+  //If isFiltering = true on map sur filteredArticles, sinon articles => Important à retenir pour la suite du code et savoir sur quoi on map
   const articlesToDisplay = isFiltering ? filteredArticles : articles;
 
+  //1st Render of the articles when the user get to the page
   useEffect(() => {
     if (isFiltering) return; //If filtering, don't reFecth articles
 
@@ -147,15 +96,15 @@ const BestDeals = () => {
     fecthAndAppend();
   }, [API_BASE_URL, page, resetKey]); //Pour relancer la function quand on change de page (arrive en bas de page et qu'il y a plus d'articles)
 
-  //Scroll Detection to know that the user hass arrived to the bottom of the page
+  //Scroll Detection: to know that the user has arrived to the bottom of the page + add +1 to the statePage to re-run the first useEffect and fetch 20 newArticles if available
   useEffect(() => {
     const handleScroll = () => {
-      //Object destructuring différent from Array destructuting / Here const scrollTop = document.documentElement.scrollTop (scrollTop is the key of the object)
+      //Object destructuring différent de Array destructuting / Here const scrollTop = document.documentElement.scrollTop Et non pas scrollTop = document.documentEleme,nt like in array destructuring
       const { scrollTop, scrollHeight, clientHeight } =
         document.documentElement;
       // scrollTop → how many pixels the user has scrolled down already / clientHeight → the visible height of the viewport / scrollHeight → the total height of the document including what's not visible
       if (
-        //If the user arrive at 800px before the bottom of the page And we're not loading more articles and there are more articles, add +1 to the value of the state page, so that it activates the useEffect below to fetch more articles
+        //If the user arrive at 800px before the bottom of the page And we're not loading more articles and there are more articles, add +1 to the value of the state page
         scrollTop + clientHeight >= scrollHeight - 800 &&
         !loadingMore &&
         hasMore
@@ -167,7 +116,65 @@ const BestDeals = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loadingMore, hasMore]);
 
-  //In the filtered page: when the user scroll until the bottom of th page -800px, it add +1 to the state pageFiltered, that will activate the useEffect below to re-run the handleFilter
+  //To apply filter and make infinite scroll work with filtered results => isFiltering === true donc on map sur filteredArticles
+  const handleFilter = async (page = 1, newFilter = false) => {
+    if (!prixMin && !prixMax) {
+      notifyError();
+      return;
+    }
+    try {
+      const cleanPrixMin = prixMin
+        ? parseInt(prixMin.replace(/[^\d]/g, ""), 10)
+        : undefined;
+      const cleanPrixMax = prixMax
+        ? parseInt(prixMax.replace(/[^\d]/g, ""), 10)
+        : undefined;
+
+      const response = await axios.get(`${API_BASE_URL}/filterBestDeals`, {
+        params: {
+          prixMin: cleanPrixMin,
+          prixMax: cleanPrixMax,
+          page,
+          limit: 20,
+          BestDeal: true, //So that it can find it and filter it from the server
+        },
+      });
+      const filterResult = response.data;
+      //If handleFilter(1, true) = When the user click on Filtrer = "Replace the list in the first render with the filtered articles." / handleFilter(pageFiltered, false) = scroll down = "I'm loading more not filtering again, so append more filtered Articles if available."
+      setFilteredArticles((prev) =>
+        newFilter ? filterResult : [...prev, ...filterResult],
+      );
+      setHasMoreFiltered(filterResult.length > 0);
+      setError("");
+    } catch (error) {
+      console.error(
+        "Error Fetching oeuvres:",
+        error.response
+          ? `${error.response.status}: ${error.response.data.message}` // Server-side error
+          : error.message, // Client-side error
+      );
+    } finally {
+      setSpinner(false);
+      setLoadingMoreFiltered(false);
+    }
+  };
+
+  //To filter by price when we clik on "Filtrer" => call the handleFilter function with new params (1, true) and isFiltering=== true to map on filteredArticles state
+  const onApplyFilter = async () => {
+    if (!prixMin && !prixMax) {
+      //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
+      notifyError();
+      return;
+    }
+    setSpinner(true);
+    setIsFiltering(true);
+    setPageFiltered(1);
+    setHasMoreFiltered(true);
+    setLoadingMoreFiltered(false);
+    await handleFilter(1, true); // Fetch first page directly and set the param newFilter to true
+  };
+
+  //Scroll detection for the filtered page => add +1 to the state pageFiltered to call the useEffect below
   useEffect(() => {
     const handleScrollFilter = () => {
       const { scrollTop, scrollHeight, clientHeight } =
@@ -186,7 +193,7 @@ const BestDeals = () => {
     return () => window.removeEventListener("scroll", handleScrollFilter);
   }, [loadingMoreFiltered, hasMoreFiltered, isFiltering]);
 
-  //Re-runs the handleFilter when pageFiltered > 1
+  // Infinite scroll for filtered results => call the handleFilter function with new params (numOfPage, false) => to append new filteredArticles on the old ones (voir handleFilter)
   useEffect(() => {
     if (!isFiltering) return;
     if (pageFiltered === 1) return; // Already fetched in onApplyFilter
