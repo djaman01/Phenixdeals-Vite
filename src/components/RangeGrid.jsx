@@ -112,7 +112,7 @@ const RangeGrid = ({
                 key={e._id}
               >
                 <div
-                  className="w-full rounded-lg border border-gray-400 transition-transform hover:translate-y-[-5px] hover:cursor-pointer hover:shadow-custom"
+                  className="w-full rounded-lg border border-gray-400 transition-transform hover:scale-[1.03] active:scale-100 hover:cursor-pointer hover:shadow-custom"
                   onClick={scrollToTop}
                 >
                   <div className="h-64 w-full max-lg:h-52">
