@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import NewArticles from "./NewArticles";
 import ScrollPage from "./ScrollPage";
 
 const HomePage = () => {
@@ -90,7 +91,9 @@ const HomePage = () => {
         <ScrollPage />
       </section>
 
-      <section className="mt-20"></section>
+      <section className="mt-20">
+        <NewArticles />
+      </section>
 
       <footer className="pt-8">
         <Footer />
