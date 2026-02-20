@@ -112,14 +112,18 @@ const RangeGrid = ({
                 key={e._id}
               >
                 <div
-                  className="w-full rounded-lg border border-gray-400 transition-transform hover:scale-[1.03] active:scale-100 hover:cursor-pointer hover:shadow-custom"
+                  className="w-full rounded-lg border border-gray-400 transition-transform hover:scale-[1.03] hover:cursor-pointer hover:shadow-custom active:scale-100"
                   onClick={scrollToTop}
                 >
                   <div className="h-64 w-full max-lg:h-52">
+                    {/* Tjs mettre height et width à l'image pour améliroer les performance: 1) Mettre la console google en bas de page pour que les images gardent la bonne taille 2) cliquer sur inspect et hover sur l'image 3) Copier les même Largeur x Longueurs ecrites */}
                     <img
                       className="h-full w-full rounded-t-lg object-cover"
                       src={e.imageUrl}
                       alt={e.auteur}
+                      width={287}
+                      height={256}
+                      loading="lazy"
                     />
                   </div>
                   {/* j'utilise une fixed height en responsive, pour ne pas que les cards aient des longueurs différentes */}

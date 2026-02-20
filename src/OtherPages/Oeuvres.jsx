@@ -9,7 +9,7 @@ import RangeGrid from "../components/RangeGrid";
 import useRangeGrid from "../components/useRangeGrid";
 
 const Oeuvres = () => {
-  //Exporting variables and handlers from useRangGrid.js Hook by using Destructure, and defining the 2 endpoints in the parameters
+  //For infinite Scroll: Exporting variables and handlers from useRangGrid.js Hook by using Destructure, and defining the 2 endpoints in the parameters
   const {
     articlesToDisplay,
     error,
