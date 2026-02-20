@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import NewArticles from "./NewArticles";
 import ScrollPage from "./ScrollPage";
 
 const HomePage = () => {
@@ -78,7 +77,7 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="mb-4 mt-6 max-lg:mt-14 text-center">
+      <section className="mb-4 mt-6 text-center max-lg:mt-14">
         <h1 className="martian-mono mb-3 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mb-2 max-lg:text-[27px]">
           Sélection du Mois
         </h1>
@@ -91,9 +90,7 @@ const HomePage = () => {
         <ScrollPage />
       </section>
 
-      <section className="mt-20">
-        <NewArticles />
-      </section>
+      <section className="mt-20"></section>
 
       <footer className="pt-8">
         <Footer />
