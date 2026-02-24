@@ -143,7 +143,7 @@ const AllArtists = () => {
           />
         </div>
 
-        <div className="text-center">
+        <div className={`text-center ${spinner ? "min-h-screen" : ""}`}>
           {error ? (
             <p>Error: {error}</p>
           ) : spinner ? ( //Affichage du spinner si 'spinner' state = true
