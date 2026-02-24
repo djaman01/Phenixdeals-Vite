@@ -93,14 +93,14 @@ const RangeGrid = ({
         className={`mx-10 mt-14 grid grid-cols-4 gap-16
     max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2
     max-lg:gap-x-3 max-lg:gap-y-6
-    ${loading ? "min-h-[2400px] max-lg:min-h-[2000px]" : ""}
+    ${loading ? "min-h-screen" : ""}
   `}
       >
         {" "}
         {error ? (
           <p>Error: {error}</p>
         ) : loading ? ( //Affichage du spinner si 'loading' prop = true
-          <div className="col-span-4 flex items-center justify-center py-20">
+          <div className="col-span-4 flex items-start justify-center">
             <PulseLoader color="#FA7A35" size={40} />
           </div>
         ) : !loading && articles.length === 0 ? ( //If loading is over and still no articles founs => show the message
