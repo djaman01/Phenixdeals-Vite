@@ -172,78 +172,85 @@ const FicheOeuvre = () => {
         <Header />
       </div>
 
-      {errorText ? (
-        <p>Error: {errorText}</p>
-      ) : spinner ? ( //Affichage du spinner si 'spinner' state = true
-        <div className="my-20 flex items-center justify-center">
-          <PulseLoader color="#FA7A35" size={40} />
-        </div>
-      ) : (
-        article && (
-          <div className="flex min-h-screen items-center justify-center gap-16 overflow-hidden bg-[#f5f5f5]  max-lg:w-full max-lg:flex-col max-lg:gap-5 max-lg:pb-16">
-            <div
-              data-aos="fade-right"
-              className="h-[670px] w-[700px] max-lg:mt-5 max-lg:h-[360px] max-lg:w-[360px]"
-            >
-              <img
-                src={article.imageOriginal} //pas besoin de src={`https://phenixdeals-back.onrender.com/${article.imageOriginal}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
-                alt={article.infoArticle}
-                className="h-full w-full object-contain max-lg:object-contain"
-              />
-            </div>
+      <div
+        className={`flex items-center justify-center bg-[#f5f5f5]
+    ${spinner ? "min-h-[800px] max-lg:min-h-[900px]" : "min-h-screen"}
+  `}
+      >
+        {" "}
+        {errorText ? (
+          <p>Error: {errorText}</p>
+        ) : spinner ? ( //Affichage du spinner si 'spinner' state = true
+          <div className="my-20 flex items-center justify-center">
+            <PulseLoader color="#FA7A35" size={40} />
+          </div>
+        ) : (
+          article && (
+            <div className="flex items-center justify-center gap-16 overflow-hidden bg-[#f5f5f5]  max-lg:w-full max-lg:flex-col max-lg:gap-5 max-lg:pb-16">
+              <div
+                data-aos="fade-right"
+                className="h-[670px] w-[700px] max-lg:mt-5 max-lg:h-[360px] max-lg:w-[360px]"
+              >
+                <img
+                  src={article.imageOriginal} //pas besoin de src={`https://phenixdeals-back.onrender.com/${article.imageOriginal}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
+                  alt={article.infoArticle}
+                  className="h-full w-full object-contain max-lg:object-contain"
+                />
+              </div>
 
-            <div
-              data-aos={isMediumScreen ? "fade-left" : undefined} //Si l'écran est <md (donc pour les mobiles); l'animation ne va pas s'activer (le but est que les gens voit qu'il y a une fiche d'infos en bas sur le tel, et scroll pour voir les infos). On met udnefined au lieu de null, pour que data-os n'éxiste pas si <md alors que null il va existé avec une valeur null, ce qui pourrait créer des problèmes
-              className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
-            >
-              <h1 className="mt-2 flex h-12 items-center justify-center text-center text-[#0072B5]">
-                {article.auteur}
-              </h1>
-              <hr className="my-0 w-11/12 border-gray-500" />
-              <h2 className="my-3  flex h-16 items-center justify-center text-center">
-                {article.allDescription}
-              </h2>
-              <hr className="my-0 w-11/12 border-gray-500" />
-              <h2 className="my-3 flex h-7 items-center justify-center text-center text-[#00A170]">
-                {article.prix}
-              </h2>
-              <hr className="my-0 w-11/12 border-gray-500" />
-              <h3 className="martian-mono-regular mt-2 flex h-8 items-center  justify-center text-center text-[#ff0921] ">
-                Référence: {article.code}
-              </h3>
-              <div className="mt-3 flex h-44 w-full flex-col items-center justify-around space-y-5 max-lg:mt-1 max-lg:space-y-3 ">
-                <a
-                  href={whatsappLink()}
-                  target="_blank"
-                  className="no-underline"
-                >
-                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white active:scale-105">
-                    <FaWhatsapp size={20} />
-                    Contact
-                  </button>
-                </a>
-                <Link
-                  to={`/pageArtist/${article.auteur}`}
-                  className="no-underline"
-                >
-                  <button
-                    onClick={scrollToTop}
-                    className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:scale-105"
+              <div
+                data-aos={isMediumScreen ? "fade-left" : undefined} //Si l'écran est <md (donc pour les mobiles); l'animation ne va pas s'activer (le but est que les gens voit qu'il y a une fiche d'infos en bas sur le tel, et scroll pour voir les infos). On met udnefined au lieu de null, pour que data-os n'éxiste pas si <md alors que null il va existé avec une valeur null, ce qui pourrait créer des problèmes
+                className="prose flex h-[550px] w-[540px]  flex-col items-center rounded-lg border border-gray-300 bg-white p-6 shadow-md max-lg:h-[500px] max-lg:w-[360px]"
+              >
+                <h1 className="mt-2 flex h-12 items-center justify-center text-center text-[#0072B5]">
+                  {article.auteur}
+                </h1>
+                <hr className="my-0 w-11/12 border-gray-500" />
+                <h2 className="my-3  flex h-16 items-center justify-center text-center">
+                  {article.allDescription}
+                </h2>
+                <hr className="my-0 w-11/12 border-gray-500" />
+                <h2 className="my-3 flex h-7 items-center justify-center text-center text-[#00A170]">
+                  {article.prix}
+                </h2>
+                <hr className="my-0 w-11/12 border-gray-500" />
+                <h3 className="martian-mono-regular mt-2 flex h-8 items-center  justify-center text-center text-[#ff0921] ">
+                  Référence: {article.code}
+                </h3>
+                <div className="mt-3 flex h-44 w-full flex-col items-center justify-around space-y-5 max-lg:mt-1 max-lg:space-y-3 ">
+                  <a
+                    href={whatsappLink()}
+                    target="_blank"
+                    className="no-underline"
                   >
-                    Autres oeuvres de {article.auteur}
-                  </button>
-                </Link>
+                    <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded bg-[#25D366] px-3 text-lg font-bold text-white active:scale-105">
+                      <FaWhatsapp size={20} />
+                      Contact
+                    </button>
+                  </a>
+                  <Link
+                    to={`/pageArtist/${article.auteur}`}
+                    className="no-underline"
+                  >
+                    <button
+                      onClick={scrollToTop}
+                      className="flex h-10 w-auto cursor-pointer items-center justify-around rounded bg-[#0072B5] px-3 text-lg font-bold leading-5 text-white active:scale-105"
+                    >
+                      Autres oeuvres de {article.auteur}
+                    </button>
+                  </Link>
 
-                <a href={urlLink()} target="_blank" className="no-underline">
-                  <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded-full bg-[#128C7E] px-3 text-lg font-bold text-white active:scale-105">
-                    <ImShare2 size={20} /> Partager
-                  </button>
-                </a>
+                  <a href={urlLink()} target="_blank" className="no-underline">
+                    <button className="flex h-10 w-32 cursor-pointer items-center justify-around rounded-full bg-[#128C7E] px-3 text-lg font-bold text-white active:scale-105">
+                      <ImShare2 size={20} /> Partager
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      )}
+          )
+        )}
+      </div>
 
       <Footer />
     </>
