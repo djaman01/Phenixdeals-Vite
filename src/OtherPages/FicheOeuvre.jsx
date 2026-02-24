@@ -174,7 +174,7 @@ const FicheOeuvre = () => {
 
       <div
         className={`flex items-center justify-center bg-[#f5f5f5]
-    ${spinner ? "min-h-[800px] max-lg:min-h-[900px]" : "min-h-screen"}
+    ${spinner ? "min-h-[1500px]" : ""}
   `}
       >
         {" "}
