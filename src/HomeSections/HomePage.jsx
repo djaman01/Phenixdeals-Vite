@@ -87,7 +87,7 @@ const HomePage = () => {
         </p>
       </section>
 
-      <section className="rounded-2xl ">
+      <section className="mt-10 rounded-2xl ">
         <ScrollPage />
       </section>
 

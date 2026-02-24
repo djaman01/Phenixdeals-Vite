@@ -25,14 +25,15 @@ function Arrow(props) {
 }
 
 const ScrollPage = () => {
+  // Access API base URL from env (import.meta.env.name => To call .env variable in Vite, with a name that must start with "VITE")
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   const [sliderImages, setSliderImages] = useState([]);
 
   useEffect(() => {
     const fetchSliderImages = async () => {
       try {
-        const response = await axios.get(
-          "https://phenixdeals-back.onrender.com/slider",
-        );
+        const response = await axios.get(`${API_BASE_URL}/slider`);
+        console.log("Slider data", response.data);
         setSliderImages(response.data);
       } catch (error) {
         console.error("Error fetching slider images:", error);
@@ -93,16 +94,16 @@ const ScrollPage = () => {
 
   return (
     <div>
-      <Slider {...settings} className="mx-auto lg:h-[700px] lg:w-[900px]">
+      <Slider {...settings} className="mx-auto lg:h-[600px] lg:w-[900px]">
         {sliderImages.map((e) => (
           <Link
             to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
             key={e._id}
             onClick={scrollToTop}
           >
-            <div className="px-2 lg:h-[700px]">
+            <div className="px-2 lg:h-[600px]">
               <img
-                src={e.imageUrl}
+                src={e.imageSlider}
                 alt="slider"
                 className="h-full w-full rounded-2xl object-cover"
               />

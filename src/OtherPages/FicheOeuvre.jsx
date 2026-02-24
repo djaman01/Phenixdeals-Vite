@@ -153,7 +153,7 @@ const FicheOeuvre = () => {
           property="og:image"
           content={
             article
-              ? article.imageUrl
+              ? article.imageOriginal
               : "https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
           }
         />
@@ -186,7 +186,7 @@ const FicheOeuvre = () => {
               className="h-[670px] w-[700px] max-lg:mt-5 max-lg:h-[360px] max-lg:w-[360px]"
             >
               <img
-                src={article.imageUrl} //pas besoin de src={`https://phenixdeals-back.onrender.com/${article.imageUrl}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
+                src={article.imageOriginal} //pas besoin de src={`https://phenixdeals-back.onrender.com/${article.imageOriginal}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
                 alt={article.infoArticle}
                 className="h-full w-full object-contain max-lg:object-contain"
               />

@@ -119,7 +119,7 @@ const RangeGrid = ({
                     {/* Tjs mettre height et width à l'image pour améliroer les performance: 1) Mettre la console google en bas de page pour que les images gardent la bonne taille 2) cliquer sur inspect et hover sur l'image 3) Copier les même Largeur x Longueurs ecrites */}
                     <img
                       className="h-full w-full rounded-t-lg object-cover"
-                      src={e.imageUrl}
+                      src={e.imageCard}
                       alt={e.auteur}
                       width={287}
                       height={256}
