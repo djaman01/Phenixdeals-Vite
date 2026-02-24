@@ -87,17 +87,25 @@ const RangeGrid = ({
         </div>
       </div>
 
-      {/* Content */}
-      <div>
+      {/* Content: we have to wrap it all on a a parent div with a min-h- defined, to avoid CLS = Cumulative Layout Shift !! que pendant le loading */}
+      {/* i chose lg:min-h-[2400px] because image h-64 = 256px + text-block: h-[148px] + border & padding = 20px (environ) => so each card = 420px et comme je fais apparait 20 cartes en 1 fois et qu'il y a 4 colonnes (donc 4 cartes par lignes) il y aura donc 20/4=5 lignes donc 5x420=  2100px = 2500px min for large screen / for small screen: image h-52=208px; text block h-[163px]; border and padding = 20px= 391px; gap-y-6=24px for 9 spaces = 216px => 430px / 2cards/row for 20 cards = 10 rows => 430px X 10 = 4300px for small screen / but we can put min-h-2500px because the CLS count the viewport*/}
+      <div
+        className={`mx-10 mt-14 grid grid-cols-4 gap-16
+    max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2
+    max-lg:gap-x-3 max-lg:gap-y-6
+    ${loading ? "min-h-[2400px] max-lg:min-h-[2000px]" : ""}
+  `}
+      >
+        {" "}
         {error ? (
           <p>Error: {error}</p>
         ) : loading ? ( //Affichage du spinner si 'loading' prop = true
-          <div className="my-20 flex items-center justify-center">
+          <div className="col-span-4 flex items-center justify-center py-20">
             <PulseLoader color="#FA7A35" size={40} />
           </div>
         ) : !loading && articles.length === 0 ? ( //If loading is over and still no articles founs => show the message
-          <div className="flex flex-col items-center justify-center gap-2">
-            <p className=" font-roboto mt-10 text-center text-lg text-gray-500">
+          <div className="col-span-4 flex flex-col items-center justify-center py-20">
+            <p className=" font-roboto text-center text-lg text-gray-500">
               Aucune oeuvre disponible dans cette fourchette de prix
             </p>
             <p className=" font-roboto text-center text-lg text-gray-500">
@@ -105,51 +113,45 @@ const RangeGrid = ({
             </p>
           </div>
         ) : (
-          <div className="mx-10 mt-14 grid grid-cols-4 gap-16 max-lg:mx-[-25px] max-lg:mt-10 max-lg:grid-cols-2 max-lg:gap-x-3 max-lg:gap-y-6 ">
-            {articles.map((e) => (
-              <Link
-                to={`/${encodeURIComponent(e.auteur)}/${e.code}`}
-                key={e._id}
+          articles.map((e) => (
+            <Link to={`/${encodeURIComponent(e.auteur)}/${e.code}`} key={e._id}>
+              <div
+                className="w-full rounded-lg border border-gray-400 transition-transform hover:scale-[1.03] hover:cursor-pointer hover:shadow-custom active:scale-100"
+                onClick={scrollToTop}
               >
-                <div
-                  className="w-full rounded-lg border border-gray-400 transition-transform hover:scale-[1.03] hover:cursor-pointer hover:shadow-custom active:scale-100"
-                  onClick={scrollToTop}
-                >
-                  <div className="h-64 w-full max-lg:h-52">
-                    {/* Tjs mettre height et width à l'image pour améliroer les performance: 1) Mettre la console google en bas de page pour que les images gardent la bonne taille 2) cliquer sur inspect et hover sur l'image 3) Copier les même Largeur x Longueurs ecrites */}
-                    <img
-                      className="h-full w-full rounded-t-lg object-cover"
-                      src={e.imageCard}
-                      alt={e.auteur}
-                      width={287}
-                      height={256}
-                      loading="lazy"
-                    />
-                  </div>
-                  {/* j'utilise une fixed height en responsive, pour ne pas que les cards aient des longueurs différentes */}
-                  <div className="h-[148px] text-center text-xl max-lg:h-[163px]">
-                    <h3 className="font-roboto-bold mt-1 flex items-center justify-center text-[#2660cb] ">
-                      {e.type}
-                    </h3>
-                    <div className="mx-auto w-1/2 border-b border-gray-300"></div>
-                    <h4 className=" font-roboto my-2 flex items-center justify-center leading-tight text-gray-800 max-lg:my-2  ">
-                      {e.infoArticle}
-                    </h4>
-                    <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
-
-                    <h4 className="font-roboto my-2 flex items-center justify-center leading-tight text-[#ce0e18] max-lg:my-3 max-lg:h-8">
-                      {e.auteur}
-                    </h4>
-                    <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
-
-                    <h4 className=" font-roboto my-1 flex items-center justify-center text-[#027254]">
-                      {e.prix}
-                    </h4>
-                  </div>
+                <div className="h-64 w-full max-lg:h-52">
+                  {/* Tjs mettre height et width à l'image pour améliroer les performance: 1) Mettre la console google en bas de page pour que les images gardent la bonne taille 2) cliquer sur inspect et hover sur l'image 3) Copier les même Largeur x Longueurs ecrites */}
+                  <img
+                    className="h-full w-full rounded-t-lg object-cover"
+                    src={e.imageCard}
+                    alt={e.auteur}
+                    width={287}
+                    height={256}
+                  />
                 </div>
-              </Link>
-            ))}
-          </div>
+                {/* j'utilise une fixed height en responsive, pour ne pas que les cards aient des longueurs différentes */}
+                <div className="h-[148px] text-center text-xl max-lg:h-[163px]">
+                  <h3 className="font-roboto-bold mt-1 flex items-center justify-center text-[#2660cb] ">
+                    {e.type}
+                  </h3>
+                  <div className="mx-auto w-1/2 border-b border-gray-300"></div>
+                  <h4 className=" font-roboto my-2 flex items-center justify-center leading-tight text-gray-800 max-lg:my-2  ">
+                    {e.infoArticle}
+                  </h4>
+                  <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
+
+                  <h4 className="font-roboto my-2 flex items-center justify-center leading-tight text-[#ce0e18] max-lg:my-3 max-lg:h-8">
+                    {e.auteur}
+                  </h4>
+                  <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
+
+                  <h4 className=" font-roboto my-1 flex items-center justify-center text-[#027254]">
+                    {e.prix}
+                  </h4>
+                </div>
+              </div>
+            </Link>
+          ))
         )}
       </div>
     </div>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
+//Custom React Hook for implementing infinite scroll: it returns state and logic not JSX
 function useRangeGrid({ endpoint, filterEndpoint }) {
   const API_BASE_URL = import.meta.env.VITE_API_URL;
 
