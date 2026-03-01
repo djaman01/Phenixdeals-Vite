@@ -42,24 +42,24 @@ const AddArticle = () => {
   const [allDescription, setAllDescription] = useState("");
   const [prix, setPrix] = useState("");
   const [etat, setEtat] = useState("");
-  const [bestDeal, setBestDeal] = useState("");
+  const [bestDeal, setBestDeal] = useState(false);
   const [code, setCode] = useState("");
+  const [priceStatus, setPriceStatus] = useState("available");
 
   //To submit all form data to the server with .post
   const handleSubmit = async (e) => {
     e.preventDefault(); //pour que le formulaire ne se rafraichisse pas automatiquement et que l'alert et console.log fonctionnent (on réinitialise le tout manuellement après soumission plus bas)
 
-    //Pour interdire l'envoie si on ne rempli pas un champ de addArticle
+    //Pour interdire l'envoie si on ne rempli pas un champ de addArticle | prix can be empty depending on the status, so we add a condition +  bestDeal can be false so we don't add it here
     if (
       imageFile &&
       auteur &&
       type &&
       infoArticle &&
-      allDescription&&
-      prix &&
+      allDescription &&
       etat &&
-      bestDeal &&
-      code
+      code &&
+      (priceStatus !== "available" || prix) //Si le priceStatus est différent de available, ok Ou si available, voi s'il y a un prix alors ok
     ) {
       const formData = new FormData(); //FormData: This is useful when you need to handle file uploads: FormData() crée un objet avec key-values pour tout envoyer en 1 fois
       formData.append("file", imageFile); //'file"=property / imageFile= Value qui est une state variable
@@ -67,7 +67,8 @@ const AddArticle = () => {
       formData.append("type", type);
       formData.append("infoArticle", infoArticle);
       formData.append("allDescription", allDescription);
-      formData.append("prix", prix);
+      formData.append("priceStatus", priceStatus);
+      formData.append("prix", priceStatus === "available" ? prix : null);
       formData.append("etat", etat);
       formData.append("bestDeal", bestDeal);
       formData.append("code", code);
@@ -87,7 +88,7 @@ const AddArticle = () => {
         setAllDescription("");
         setPrix("");
         setEtat("");
-        setBestDeal("");
+        setBestDeal(false);
         setCode("");
       } catch (error) {
         console.error("Error uploading file:", error);
@@ -141,12 +142,30 @@ const AddArticle = () => {
                   value={allDescription}
                   onChange={(e) => setAllDescription(e.target.value)}
                 />
+
+                <select
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2"
+                  value={priceStatus}
+                  onChange={(e) => {
+                    setPriceStatus(e.target.value);
+                    //Pour supprimer le prix écrit dans la state, si on change de priceStatus
+                    if (e.target.value !== "available") {
+                      setPrix("");
+                    }
+                  }}
+                >
+                  <option value="available">Disponible</option>
+                  <option value="onRequest">Prix sur demande</option>
+                  <option value="sold">Vendu</option>
+                </select>
+
                 <input
-                  required
-                  type="text"
+                  //no required because if priceStatus !== available, their is no price
+                  type="number"
                   className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
                   placeholder="Prix"
                   value={prix}
+                  disabled={priceStatus !== "available"} //Impossible de mettre un prix si le status n'est pas available
                   onChange={(e) => setPrix(e.target.value)}
                 />
                 <input
@@ -159,12 +178,12 @@ const AddArticle = () => {
                 />
                 <input
                   required
-                  type="text"
-                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2 text-gray-900 transition duration-150 ease-in-out focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:w-max"
-                  placeholder="Best Deal ?"
-                  value={bestDeal}
-                  onChange={(e) => setBestDeal(e.target.value)}
+                  type="checkbox"
+                  checked={bestDeal} //= si bestDeal=== true alors it will be checked
+                  onChange={(e) => setBestDeal(e.target.checked)}
                 />
+                <label className="mb-4">Best Deal ?</label>
+
                 <input
                   required
                   type="text"
