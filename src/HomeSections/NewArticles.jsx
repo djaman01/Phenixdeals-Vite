@@ -27,49 +27,6 @@ const NewArticles = () => {
     setPrixMax(e.target.value);
   };
 
-  //Quand on clique sur le bouton Filtrer
-  const handleFilter = () => {
-    //To replace the number written by the visitor, with another number with no space, so we can compare them
-    const minPrice = prixMin
-      ? parseFloat(prixMin.replace(/\s+/g, "")) //Transform the number written by the visitor with a string with no spaces so we can compare numbers / then convert the cleaned string back into a number using parseFloat
-      : -Infinity; //If prixMin is not provided, set minPrice to -Infinity to ensure any comparison will succeed
-
-    const maxPrice = prixMax
-      ? parseFloat(prixMax.replace(/\s+/g, ""))
-      : Infinity;
-
-    const filtered = articleObject.filter((e) => {
-      const price = parseFloat(e.prix.replace(/\s+/g, "")); //Prix de l'élément qu'on remplace au même format que les prix min et max précédents
-      const filterByPrice = price >= minPrice && price <= maxPrice;
-
-      return filterByPrice;
-    });
-
-    // Sort filtered articles by price in ascending order / [...filtered] => we create a copy of filtered variable to avoid mutation and preserve immutability of states, because .sort() is a mutating method that change the original state like .reverse() .splice() and not like .map(), .filter() .slice()
-    const sortedFiltered = [...filtered].sort((a, b) => {
-      const priceA = parseFloat(a.prix.replace(/\s+/g, ""));
-      const priceB = parseFloat(b.prix.replace(/\s+/g, ""));
-      return priceA - priceB;
-    });
-
-    setFilteredArticles(sortedFiltered);
-    setIsFiltering(true); //To show the articles in the state filteredArticles
-  };
-
-  const handleReset = () => {
-    setPrixMin("");
-    setPrixMax("");
-    setFilteredArticles([]);
-    setIsFiltering(false);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
-  };
-
   useEffect(() => {
     const fetchHomeArticles = async () => {
       try {
@@ -91,6 +48,49 @@ const NewArticles = () => {
 
     fetchHomeArticles();
   }, [API_BASE_URL]);
+
+  //Quand on clique sur le bouton Filtrer
+  const handleFilter = () => {
+    //In the front-end, the number written by users are type "String": so we have to convert them to number and put them in the same format as the price that comes from the back-end
+    const minPrice = prixMin
+      ? parseFloat(prixMin.replace(/\s+/g, "")) //Transform the number written by the visitor with a string with no spaces / then convert the cleaned string into a number using parseFloat
+      : -Infinity; //If prixMin is not provided, set minPrice to -Infinity to ensure any comparison will succeed
+
+    const maxPrice = prixMax
+      ? parseFloat(prixMax.replace(/\s+/g, ""))
+      : Infinity;
+
+    const filtered = articleObject.filter((e) => {
+      const price = e.prix; //prix is the price coming from the database and is already type Number
+      const filterByPrice = price >= minPrice && price <= maxPrice;
+
+      return filterByPrice;
+    });
+
+    // Sort filtered articles by price in ascending order / [...filtered] => we create a copy of filtered variable to avoid mutation and preserve immutability of states, because .sort() is a mutating method that change the original state like .reverse() .splice() and not like .map(), .filter() .slice()
+    const sortedFiltered = [...filtered].sort((a, b) => {
+      const priceA = a.prix;
+      const priceB = b.prix;
+      return priceA - priceB;
+    });
+
+    setFilteredArticles(sortedFiltered);
+    setIsFiltering(true); //To show the articles in the state filteredArticles
+  };
+
+  const handleReset = () => {
+    setPrixMin("");
+    setPrixMax("");
+    setFilteredArticles([]);
+    setIsFiltering(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  };
 
   return (
     <section>
