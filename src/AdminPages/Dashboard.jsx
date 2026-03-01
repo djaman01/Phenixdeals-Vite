@@ -155,10 +155,10 @@ export default function Dashboard() {
   const columns = [
     {
       name: "Image", //Column title
-      selector: (row) => row.imageUrl, //selector=display text values/ cell= custom JSX rendering for images, button or to modify a cell + allow sorting => row.databaseName ex: if we don't use cell to display the image, we would just see the URL of the image
+      selector: (row) => row.imageCard, //selector=display text values/ cell= custom JSX rendering for images, button or to modify a cell + allow sorting => row.databaseName ex: if we don't use cell to display the image, we would just see the URL of the image
       width: "160px",
       cell: (row) => (
-        <img className="my-3" src={row.imageUrl} alt={row.auteur} />
+        <img className="my-3" src={row.imageCard} alt={row.auteur} />
       ),
     },
 
