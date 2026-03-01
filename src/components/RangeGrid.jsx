@@ -146,7 +146,14 @@ const RangeGrid = ({
                   <div className=" mx-auto w-1/2 border-b border-gray-300"></div>
 
                   <h4 className=" font-roboto my-1 flex items-center justify-center text-[#027254]">
-                    {e.prix}
+                    {/* When i select priceStatus = "sold" or "onRequest", it clears the value of prix, so we have to add this conditions in the front-end to show the value depending on the status */}
+                    {e.priceStatus === "sold"
+                      ? "Vendu"
+                      : e.priceStatus === "onRequest"
+                        ? "Prix sur demande"
+                        : typeof e.prix === "number"
+                          ? `${e.prix} Dhs`
+                          : ""}
                   </h4>
                 </div>
               </div>

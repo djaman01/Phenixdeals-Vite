@@ -15,16 +15,19 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const [articles, setArticles] = useState([]); //A mettre dans data attribute du <DataTable /> Component dans return
-  const [error, setError] = useState("");
+
+  const [articleId, setArticleId] = useState(null); //Pour que quand on clique sur stylo ou cancel, apporte des changements
+
+  const [editedValues, setEditedValues] = useState({}); //Pour changer les valeus de colonnes spécifiques
 
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const [articleId, setArticleId] = useState(null); //Pour que quand on clique sur stylo ou cancel, apporte des changements
-  const [editedValues, setEditedValues] = useState({});
+  const [error, setError] = useState("");
 
-  // Access API base URL from env
   const API_BASE_URL = import.meta.env.VITE_API_URL;
+  console.log("API base Url", API_BASE_URL);
 
+  //Authentification: je hardcode l'url https://phenideals-back.. car localhost est en http et ça ne marche pas pour l'authentification
   useEffect(() => {
     const authenticate = async () => {
       try {
@@ -46,8 +49,9 @@ export default function Dashboard() {
     };
 
     authenticate();
-  }, [navigate]);
+  }, [navigate, API_BASE_URL]);
 
+  //Fetch all Articles
   useEffect(() => {
     const fetchAllArticles = async () => {
       try {
@@ -67,21 +71,20 @@ export default function Dashboard() {
     fetchAllArticles();
   }, [refreshKey, API_BASE_URL]); // The effect will run whenever refreshKey changes
 
-  //Pour PUT request et modifier certains élements selectionnés
-
-  //When clicking on the pen: To change the values of each column in each row
-  //C'est ici qu'on donne les valeurs par défaut à la state "editedValues" => Car on ne peut connaitre le row._id selectionné qu'après avoir cliqué sur le stylo
+  //PUT request: When clickink on the pen, it enables us to change the values of the columns
+  //"editedValues" stores the values that we want to be able to modify. The value of [row._id] is given swhen we click on the pen so that we know each line we select
   const handleEditClick = (row) => {
     setArticleId(row._id);
     setEditedValues({
       [row._id]: {
-        auteur: row.auteur || "",
         type: row.type || "",
-        prix: row.prix || "",
+        auteur: row.auteur || "",
         infoArticle: row.infoArticle || "",
         allDescription: row.allDescription || "",
-        bestDeal: row.bestDeal || "",
-        code: row.code || "",
+        priceStatus: row.priceStatus || "available",
+        prix: row.prix ?? "", //??== If the value is missing on the left (null or undefined), use the value on the right / ||= if the value on the left is falsy, use the value on the right. But if price === 0 it's considered falsy and the column value will be ""; that's why we use ??
+        etat: row.etat || "",
+        bestDeal: row.bestDeal ?? false, //I don't use || because if bestDeals === false, it'll be treated as falsy, and replace it with the default false. It'll not create a problem, but it's conceptually wrong
       },
     });
   };
@@ -117,7 +120,7 @@ export default function Dashboard() {
     }
     try {
       const response = await axios.delete(
-        `https://phenixdeals-back.onrender.com/deleteArticle/${articleId}`,
+        `${API_BASE_URL}/deleteArticle/${articleId}`,
       );
       setArticles(articles.filter((article) => article._id !== articleId)); // Remove the deleted article from the state
       console.log(response.data); // Log the server's response message
@@ -132,7 +135,6 @@ export default function Dashboard() {
   };
 
   //Get Request to logout
-
   const handleLogout = async () => {
     try {
       const response = await axios.get(
@@ -149,57 +151,238 @@ export default function Dashboard() {
   };
 
   //Création database avec npm react data table component--------------------------------------
-  
-  //Array avec les Noms des colonnes modifiables
-  const fields = [
-    "auteur",
-    "type",
-    "infoArticle",
-    "allDescription",
-    "prix",
-    "bestDeal",
-    "code",
-  ];
-
-  //Use of the array function .map, to transform each element of the array, into a column with the first letter in upper case, and an editable value
-  const editableColumns = fields.map((element) => ({
-    name: element.charAt(0).toUpperCase() + element.slice(1), //1st letter in upperCase + adding the rest of the word from the letter with the index = 1, which is the 2nd letter ex: A + uteur
-    selector: (row) => row[element], // Value de la row de la colonne "e" => row[auteur]=> nom de l'artiste sur lequel on map
-    sortable: true,
-    cell: (row) =>
-      articleId === row._id ? (
-        <input
-          value={editedValues[row._id]?.[element] || ""}
-          onChange={(e) =>
-            setEditedValues({
-              ...editedValues,
-              [row._id]: {
-                ...editedValues[row._id],
-                [element]: e.target.value,
-              },
-            })
-          }
-          className="w-full rounded-md border-2 border-black text-center"
-        />
-      ) : (
-        row[element]
-      ),
-  }));
 
   const columns = [
     {
-      name: "Image",
-      selector: (row) => row.imageUrl, //Value de la row de la colonne image => même nom que dans base de donnée pour extraire info
+      name: "Image", //Column title
+      selector: (row) => row.imageUrl, //selector=display text values/ cell= custom JSX rendering for images, button or to modify a cell + allow sorting => row.databaseName ex: if we don't use cell to display the image, we would just see the URL of the image
+      width: "160px",
       cell: (row) => (
         <img className="my-3" src={row.imageUrl} alt={row.auteur} />
       ),
     },
-    ...editableColumns,
+
+    //Auteur column
+    {
+      name: "Auteur",
+      selector: (row) => row.auteur,
+      width: "160px",
+      cell: (row) =>
+        articleId === row._id ? ( //Si on clique sur le stylo => articleId === row._id donc on peut modifier les valeurs des cases de la row selectionnée
+          <input
+            value={editedValues[row._id]?.auteur || ""} //editedValues[row._id].auteur === give me the auteur for the row with this _id / We add ?. to protect => If editedValues[row._id] does not exist yet (while re-rendering)
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id], //keep all the properties of this row
+                  auteur: e.target.value, //We override the previous auteur value
+                },
+              })
+            }
+            className="w-full rounded-md border-2 border-black text-center"
+          />
+        ) : (
+          row.auteur
+        ),
+    },
+
+    // Type column
+    {
+      name: "Type",
+      selector: (row) => row.type,
+      cell: (row) =>
+        articleId === row._id ? (
+          <input
+            value={editedValues[row._id]?.type || ""}
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id],
+                  type: e.target.value,
+                },
+              })
+            }
+            className="w-full rounded-md border-2 border-black text-center"
+          />
+        ) : (
+          row.type
+        ),
+    },
+
+    //Dimensions columns for card grid
+    {
+      name: "Dimensions",
+      selector: (row) => row.infoArticle,
+      width: "140px",
+      cell: (row) =>
+        articleId === row._id ? (
+          <input
+            value={editedValues[row._id]?.infoArticle || ""}
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id],
+                  infoArticle: e.target.value,
+                },
+              })
+            }
+            className="w-full rounded-md border-2 border-black text-center"
+          />
+        ) : (
+          row.infoArticle
+        ),
+    },
+
+    //All description column for fiche tableau
+    {
+      name: "All Infos",
+      selector: (row) => row.allDescription,
+      width: "180px",
+      cell: (row) =>
+        articleId === row._id ? (
+          <textarea
+            rows={3}
+            value={editedValues[row._id]?.allDescription || ""}
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id],
+                  allDescription: e.target.value,
+                },
+              })
+            }
+            className="w-full rounded-md border-2 border-black text-center"
+          />
+        ) : (
+          row.allDescription
+        ),
+    },
+
+    // Price Status column
+    {
+      name: "Status",
+      selector: (row) => row.priceStatus,
+      width: "120px",
+      cell: (row) =>
+        articleId === row._id ? (
+          <select
+            value={editedValues[row._id]?.priceStatus ?? "available"} //Because in DB priceStatus is available by default
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id],
+                  priceStatus: e.target.value,
+                  prix:
+                    e.target.value === "available"
+                      ? editedValues[row._id].prix ?? ""
+                      : "",
+                },
+              })
+            }
+          >
+            <option value="available">Disponible</option>
+            <option value="sold">Vendu</option>
+            <option value="onRequest">Prix sur demande</option>
+          </select>
+        ) : row.priceStatus === "onRequest" ? ( //Obligé pour convertir les value des options en un texte que je veux
+          "Prix sur demande"
+        ) : row.priceStatus === "sold" ? (
+          "Vendu"
+        ) : (
+          "Disponible"
+        ),
+    },
+
+    //Prix column
+    {
+      name: "Prix",
+      selector: (row) => row.prix,
+      width: "120px",
+      sortable: true,
+      cell: (row) =>
+        articleId === row._id ? (
+          <input
+            type="number"
+            value={editedValues[row._id]?.prix ?? ""} // ?? nullish operator and not || falsy opeartor, because if price === 0 we want to keep it
+            disabled={editedValues[row._id]?.priceStatus !== "available"} //Pas de possibilité d'écrire un prix si l'oeuvre n'est pas available
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id],
+                  prix: e.target.value,
+                },
+              })
+            }
+            className="w-full rounded-md border-2 border-black text-center"
+          />
+        ) : row.priceStatus === "onRequest" ? (
+          "Prix sur demande"
+        ) : row.priceStatus == "sold" ? (
+          "Vendu"
+        ) : (
+          row.prix
+        ),
+    },
+
+    //Best Deal column
+    {
+      name: "Best Deal",
+      selector: (row) => row.bestDeal,
+      sortable: true,
+      width: "150px",
+      cell: (row) =>
+        articleId === row._id ? (
+          <input
+            type="checkbox"
+            checked={editedValues[row._id]?.bestDeal ?? false} //"false" = truthy in JS
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id],
+                  bestDeal: e.target.checked,
+                },
+              })
+            }
+          />
+        ) : row.bestDeal ? (
+          "Oui"
+        ) : (
+          "Non"
+        ),
+    },
+
+    //Etat columns to know if it's Acheter or dépot
     {
       name: "Propriété",
       selector: (row) => row.etat,
+      width: "180px",
       sortable: true,
+      cell: (row) =>
+        articleId === row._id ? (
+          <input
+            value={editedValues[row._id]?.etat || ""}
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id],
+                  etat: e.target.value,
+                },
+              })
+            }
+            className="w-full rounded-md border-2 border-black text-center"
+          />
+        ) : (
+          row.etat
+        ),
     },
+
+    // Code column without modifications
+    {
+      name: "Code",
+      selector: (row) => row.code,
+    },
+
+    //Code column is unique so i'll not make it editable to avoid mistakes
 
     {
       name: "Actions",

@@ -189,7 +189,7 @@ const FicheOeuvre = () => {
             <div className="flex items-center justify-center gap-16 overflow-hidden bg-[#f5f5f5]  max-lg:w-full max-lg:flex-col max-lg:gap-5 max-lg:pb-16">
               <div
                 data-aos="fade-right"
-                className="py-5 h-[670px] w-[700px] max-lg:mt-5 max-lg:h-[360px] max-lg:w-[360px]"
+                className="h-[670px] w-[700px] py-5 max-lg:mt-5 max-lg:h-[360px] max-lg:w-[360px]"
               >
                 <img
                   src={article.imageOriginal} //pas besoin de src={`https://phenixdeals-back.onrender.com/${article.imageOriginal}`}, car l'image est dans cloudinary et non plus sur mon pc, donc on prend l'url de cloudinary comme écrit sur la database
@@ -211,7 +211,14 @@ const FicheOeuvre = () => {
                 </h2>
                 <hr className="my-0 w-11/12 border-gray-500" />
                 <h2 className="my-3 flex h-7 items-center justify-center text-center text-[#00A170]">
-                  {article.prix}
+                  {/* When i select priceStatus = "sold" or "onRequest", it clears the value of prix, so we have to add this conditions in the front-end to show the value depending on the status */}
+                  {article.priceStatus === "sold"
+                    ? "Vendu"
+                    : article.priceStatus === "onRequest"
+                      ? "Prix sur demande"
+                      : typeof article.prix === "number"
+                        ? `${article.prix} Dhs`
+                        : ""}
                 </h2>
                 <hr className="my-0 w-11/12 border-gray-500" />
                 <h3 className="martian-mono-regular mt-2 flex h-8 items-center  justify-center text-center text-[#ff0921] ">
