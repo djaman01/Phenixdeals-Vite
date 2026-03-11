@@ -37,12 +37,12 @@ const HomePage = () => {
         />
 
         {/* Titre de la page pour les onglets et le SEO:  entre 50 et 60 caractères  */}
-        <title>Phenix Deals | Vente d'oeuvres d'art au Maroc</title>
+        <title>Phenix Deals | Achat et vente d'oeuvres d'art au Maroc </title>
 
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
           name="description"
-          content="Phenixdeals.com est un site web marocain où vous pouvez acheter et vendre des oeuvres d'art en toute simplicité !"
+          content="Phenixdeals.com est un site marocain dédié à l'achat et à la vente d'oeuvres d'art."
         />
 
         {/* Open Graph pour les réseaux sociauX/ Type de contenu et URL à paratgé */}
@@ -52,13 +52,13 @@ const HomePage = () => {
         {/*Titre de la page lorsqu'elle est partagée sur les réseaux sociaux: mettre le même titre que l'onglet */}
         <meta
           property="og:title"
-          content="Phenix Deals | Vente de tableaux d'artistes peintres au Maroc"
+          content="Phenix Deals | Achat et vente d'oeuvres d'art au Maroc"
         />
 
         {/*Texte qui va s'afficher en-dessous du titre: mettre la même description que celle du moteur de recherche*/}
         <meta
           property="og:description"
-          content="Phenixdeals.com est un site web marocain où vous pouvez acheter et vendre des oeuvres d'art en toute simplicité !"
+          content="Phenixdeals.com est un site marocain dédié à l'achat et à la vente d'oeuvres d'art."
         />
 
         {/* Image lors du partage sur les réseaux sociaux: mettre l'url absolue de l'image sur le site */}
