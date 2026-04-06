@@ -4,6 +4,8 @@ import puppeteer from "puppeteer";
 
 const BASE_URL = "http://localhost:4173"; // Vite preview
 
+console.log("Starting prerender...");
+
 // Fetch all artists from backend
 async function getArtistRoutes() {
   try {
