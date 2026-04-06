@@ -81,19 +81,21 @@ const DashSlider = () => {
   //Création database avec npm react data table component---------comme data={sliderImages} dans <DataTable/> alors toutes les properties imageUrl et auteur fetch au début sont disponibles
 
   const columns = [
-   
     {
       name: "Image",
-      selector: (row) => row.imageUrl, //même nom que dans base de donnée pour extraire info
-      cell: (row) => <img className="my-3" src={row.imageUrl} />,
+      selector: (row) => row.imageCard, //même nom que dans base de donnée pour extraire info
+      width: "160px",
+      cell: (row) => (
+        <img className="my-3" src={row.imageCard} alt={row.auteur} />
+      ),
     },
-     {
+    {
       name: "Auteur",
       selector: (row) => row.auteur,
       sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
       cell: (row) => row.auteur,
     },
-     {
+    {
       name: "Code",
       selector: (row) => row.code,
       sortable: true, //Pour ordonner par ordre alphabétic ou l'inverse
