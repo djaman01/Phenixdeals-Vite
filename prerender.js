@@ -4,16 +4,14 @@ import puppeteer from "puppeteer";
 
 const BASE_URL = "http://localhost:4173"; // Vite preview
 
-//Fetch all artist from the backend and generate /pageArtist/:auteur URLs
+// Fetch all artists from backend
 async function getArtistRoutes() {
   try {
-    const res = await fetch(
-      "https://phenixdeals-back.onrender.com/allArtists"
-    );
+    const res = await fetch("https://phenixdeals-back.onrender.com/allArtists");
     const data = await res.json();
 
     return data.map(
-      (artist) => `/pageArtist/${encodeURIComponent(artist.auteur)}`
+      (artist) => `/pageArtist/${encodeURIComponent(artist.auteur)}`,
     );
   } catch (error) {
     console.error("Error fetching artist routes:", error);
@@ -21,17 +19,21 @@ async function getArtistRoutes() {
   }
 }
 
-//npm puppeteer open each page in the browser / wait for React + API to add JS / Save full HTML for each page into /dist
 async function prerender() {
-  // Static pages
   const staticRoutes = ["/"];
-
-  // Dynamic pages
   const dynamicRoutes = await getArtistRoutes();
-
   const routes = [...staticRoutes, ...dynamicRoutes];
 
-  const browser = await puppeteer.launch();
+  // IMPORTANT FIX FOR VERCEL
+  // Vercel runs in a restricted environment (no sandbox, no GUI)
+  const browser = await puppeteer.launch({
+    headless: "new", // ensures headless mode works properly
+    args: [
+      "--no-sandbox", // REQUIRED on Vercel
+      "--disable-setuid-sandbox", // REQUIRED on Vercel
+    ],
+  });
+
   const page = await browser.newPage();
 
   for (const route of routes) {
@@ -42,10 +44,10 @@ async function prerender() {
     try {
       await page.goto(url, { waitUntil: "networkidle0" });
 
-      // Wait for your content (RangeGrid → grid)
+      // Wait for your React content (important for SEO)
       await page.waitForSelector(".grid");
 
-      // Small delay for Render (API cold start safety)
+      // Small delay to ensure API data is fully loaded (Render cold start)
       await new Promise((r) => setTimeout(r, 2000));
 
       const html = await page.content();
