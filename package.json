@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node prerender.js",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prerender": "node prerender.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
@@ -16,6 +17,7 @@
     "axios": "^1.6.8",
     "copyright-update": "^1.19.0",
     "formik": "^2.4.6",
+    "puppeteer": "^24.40.0",
     "react": "^18.2.0",
     "react-alice-carousel": "^2.9.1",
     "react-data-table-component": "^7.6.2",
