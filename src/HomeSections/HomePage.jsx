@@ -12,14 +12,14 @@ const HomePage = () => {
     name: "Phenix Deals | Vente d'oeuvres d'art au Maroc",
     url: "https://www.phenixdeals.com",
     description:
-      "Phenixdeals.com est un site marocain où vous pouvez acheter et vendre des oeuvres d'art en toute simplicité !",
+      "Achetez et vendez des oeuvres d'art au Maroc sur Phenix Deals : tableaux, photographies et sculptures d'artistes marocains.",
     publisher: {
       "@type": "Organization",
       name: "Phenix Deals", //ici on met le nom de qui gère le site (moi c'est la marque phenixdeals)
       url: "https://www.phenixdeals.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png",
+        url: "https://www.phenixdeals.com/logo-phenix-deals-media.jpeg",
         width: 512,
         height: 512,
       },
@@ -37,12 +37,12 @@ const HomePage = () => {
         />
 
         {/* Titre de la page pour les onglets et le SEO:  entre 50 et 60 caractères  */}
-        <title>Phenix Deals | Achat et vente d'oeuvres d'art au Maroc </title>
+        <title>Phenix Deals | Vente d'oeuvres d'art au Maroc </title>
 
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
           name="description"
-          content="Phenixdeals.com est un site marocain dédié à l'achat et à la vente d'oeuvres d'art."
+          content="Achetez et vendez des oeuvres d'art au Maroc sur Phenix Deals : tableaux, photographies et sculptures d'artistes marocains."
         />
 
         {/* Open Graph pour les réseaux sociauX/ Type de contenu et URL à paratgé */}
@@ -52,19 +52,19 @@ const HomePage = () => {
         {/*Titre de la page lorsqu'elle est partagée sur les réseaux sociaux: mettre le même titre que l'onglet */}
         <meta
           property="og:title"
-          content="Phenix Deals | Achat et vente d'oeuvres d'art au Maroc"
+          content="Phenix Deals | Vente d'oeuvres d'art au Maroc"
         />
 
         {/*Texte qui va s'afficher en-dessous du titre: mettre la même description que celle du moteur de recherche*/}
         <meta
           property="og:description"
-          content="Phenixdeals.com est un site marocain dédié à l'achat et à la vente d'oeuvres d'art."
+          content="Achetez et vendez des oeuvres d'art au Maroc sur Phenix Deals : tableaux, photographies et sculptures d'artistes marocains."
         />
 
         {/* Image lors du partage sur les réseaux sociaux: mettre l'url absolue de l'image sur le site */}
         <meta
           property="og:image"
-          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/logo-phenix-deals-media.jpeg"
         />
 
         {/*Comme le site est accessible via www.phenixdeals.com ou juste phenixdeals.com; on choisi uen version principale à indexer pour pas qu'il y ait de duplication: ça optimise le SEO */}

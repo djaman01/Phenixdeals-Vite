@@ -239,7 +239,7 @@ const PageArtist = () => {
         />
         <meta
           property="og:image"
-          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/logo-phenix-deals-media.jpeg"
         />
         {/* Pour éviter tout problème de contenu dupliqué. Cela renforce encore le SEO de chaque page artiste. */}
         <link

@@ -108,7 +108,7 @@ const AllArtists = () => {
         />
         <meta
           property="og:image"
-          content="https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
+          content="https://www.phenixdeals.com/logo-phenix-deals-media.jpeg"
         />
 
         <link rel="canonical" href="https://www.phenixdeals.com/allArtists" />

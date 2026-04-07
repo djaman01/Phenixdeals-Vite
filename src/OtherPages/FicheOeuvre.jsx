@@ -154,7 +154,7 @@ const FicheOeuvre = () => {
           content={
             article
               ? article.imageOriginal
-              : "https://www.phenixdeals.com/assets/phenix-nobg-gGMQJlPS.png"
+              : "https://www.phenixdeals.com/logo-phenix-deals-media.jpeg"
           }
         />
 
