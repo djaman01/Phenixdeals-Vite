@@ -81,7 +81,7 @@ const HomePage = () => {
       </header>
 
       <section className="mb-4 mt-12 text-center max-lg:mx-2 max-lg:mt-14">
-        <h1 className="martian-mono mb-3 text-3xl text-black max-lg:mb-2 max-lg:text-[27px]">
+        <h1 className="martian-mono mb-3 text-3xl text-[#B5121B] max-lg:mb-2 max-lg:text-[27px]">
           Vente de tableaux et d'oeuvres d'art
         </h1>
         <p className="font-roboto mx-auto max-w-4xl text-xl text-gray-800">
