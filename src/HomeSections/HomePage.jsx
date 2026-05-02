@@ -37,7 +37,9 @@ const HomePage = () => {
         />
 
         {/* Titre de la page pour les onglets et le SEO:  entre 50 et 60 caractères  */}
-        <title>Phenix Deals | Vente de tableaux & d'oeuvres d'art au Maroc</title>
+        <title>
+          Phenix Deals | Vente de tableaux & d'oeuvres d'art au Maroc
+        </title>
 
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
@@ -78,10 +80,21 @@ const HomePage = () => {
         <Header />
       </header>
 
-      <section className="mb-4 mt-6 text-center max-lg:mt-14">
-        <h1 className="martian-mono mb-3 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mb-2 max-lg:text-[27px]">
-          Sélection du Mois
+      <section className="mb-4 mt-12 text-center max-lg:mx-2 max-lg:mt-14">
+        <h1 className="martian-mono mb-3 text-3xl text-black max-lg:mb-2 max-lg:text-[27px]">
+          Vente de tableaux et d'oeuvres d'art
         </h1>
+        <p className="font-roboto mx-auto max-w-4xl text-xl text-gray-800">
+          Découvrez une sélection unique de <strong>tableaux</strong>,
+          <strong> photographies</strong> et <strong>sculptures</strong>{" "}
+          d'artistes au Maroc
+        </p>
+      </section>
+
+      <section className="mb-4 mt-20 text-center max-lg:mt-14">
+        <h2 className=" martian-mono mb-3 bg-gradient-to-r from-[#B5121B] via-[#FA7A35] to-[#F7C331] bg-clip-text text-3xl text-transparent max-lg:mb-2 max-lg:text-[27px]">
+          Sélection du Mois
+        </h2>
         <p className="font-roboto mx-2 text-xl text-gray-800">
           <strong>Cliquez</strong> sur une oeuvre pour plus d'informations
         </p>
