@@ -8,8 +8,10 @@ const RangeGrid = ({
   subtitle,
   prixMin,
   prixMax,
+  style,
   handlePrixMin,
   handlePrixMax,
+  handleStyle,
   handleFilter,
   handleReset,
   showReset,
@@ -39,6 +41,21 @@ const RangeGrid = ({
 
       {/* Filters */}
       <div className="relative mx-auto flex justify-center max-lg:w-auto max-lg:flex-col max-lg:items-center ">
+        {/* style filter: i do the condition to make it disappear for the Artist page, where i want only price filters */}
+        {handleStyle && (
+          <select
+            className="mr-10 cursor-pointer rounded-full border border-gray-400 px-10 py-3 transition duration-150 ease-in-out hover:shadow-md focus:outline-none focus:ring-1 focus:ring-blue-500 max-lg:mb-3 max-lg:mr-0"
+            value={style}
+            onChange={handleStyle}
+          >
+            <option value="">Tous les styles</option>
+            <option value="Abstrait">Abstrait</option>
+            <option value="Figuratif">Figuratif</option>
+            <option value="Figuratif libre">Figuratif libre</option>
+            <option value="Naif">Naif</option>
+          </select>
+        )}
+
         {/* Prix Min */}
         <div className="relative max-lg:mb-3">
           <div className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-gray-500">

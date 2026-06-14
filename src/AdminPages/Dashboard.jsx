@@ -79,6 +79,7 @@ export default function Dashboard() {
       [row._id]: {
         type: row.type || "",
         auteur: row.auteur || "",
+        style: row.style || "",
         infoArticle: row.infoArticle || "",
         allDescription: row.allDescription || "",
         priceStatus: row.priceStatus || "available",
@@ -206,6 +207,35 @@ export default function Dashboard() {
           />
         ) : (
           row.type
+        ),
+    },
+
+    //STyle column
+    {
+      name: "Style",
+      selector: (row) => row.style,
+      width: "150px",
+      cell: (row) =>
+        articleId === row._id ? (
+          <select
+            value={editedValues[row._id]?.style || ""}
+            onChange={(e) =>
+              setEditedValues({
+                [row._id]: {
+                  ...editedValues[row._id],
+                  style: e.target.value,
+                },
+              })
+            }
+          >
+            <option value="">Aucun</option>
+            <option value="Abstrait">Abstrait</option>
+            <option value="Figuratif">Figuratif</option>
+            <option value="Figuratif libre">Figuratif libre</option>
+            <option value="Naif">Naif</option>
+          </select>
+        ) : (
+          row.style || "-"
         ),
     },
 

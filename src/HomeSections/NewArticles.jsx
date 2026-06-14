@@ -17,6 +17,8 @@ const NewArticles = () => {
 
   const [prixMax, setPrixMax] = useState("");
 
+  const [style, setStyle] = useState("");
+
   const articlesToDisplay = isFiltering ? filteredArticles : articleObject;
 
   const handlePrixMin = (e) => {
@@ -25,6 +27,10 @@ const NewArticles = () => {
 
   const handlePrixMax = (e) => {
     setPrixMax(e.target.value);
+  };
+
+  const handleStyle = (e) => {
+    setStyle(e.target.value);
   };
 
   useEffect(() => {
@@ -63,8 +69,9 @@ const NewArticles = () => {
     const filtered = articleObject.filter((e) => {
       const price = e.prix; //prix is the price coming from the database and is already type Number
       const filterByPrice = price >= minPrice && price <= maxPrice;
+      const filterByStyle = !style || e.style === style; //=> !style means style="" and e.style === style means style="style selected byt he user"
 
-      return filterByPrice;
+      return filterByPrice && filterByStyle;
     });
 
     // Sort filtered articles by price in ascending order / [...filtered] => we create a copy of filtered variable to avoid mutation and preserve immutability of states, because .sort() is a mutating method that change the original state like .reverse() .splice() and not like .map(), .filter() .slice()
@@ -81,6 +88,7 @@ const NewArticles = () => {
   const handleReset = () => {
     setPrixMin("");
     setPrixMax("");
+    setStyle("");
     setFilteredArticles([]);
     setIsFiltering(false);
   };
@@ -100,8 +108,10 @@ const NewArticles = () => {
         subtitle="Utilisez le filtre pour découvrir les oeuvres adaptées à votre budget"
         prixMin={prixMin}
         prixMax={prixMax}
+        style={style}
         handlePrixMin={handlePrixMin}
         handlePrixMax={handlePrixMax}
+        handleStyle={handleStyle}
         handleFilter={handleFilter}
         showReset={isFiltering} //To show the reset Button only after applying filter
         handleReset={handleReset}

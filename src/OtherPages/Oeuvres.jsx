@@ -17,9 +17,11 @@ const Oeuvres = () => {
     isBottomLoading,
     prixMin,
     prixMax,
+    style,
     isFiltering,
     handlePrixMin,
     handlePrixMax,
+    handleStyle,
     handleReset,
     onApplyFilter,
   } = useRangeGrid({
@@ -77,8 +79,10 @@ const Oeuvres = () => {
           subtitle="Utilisez le filtre pour découvrir les oeuvres adaptées à votre budget"
           prixMin={prixMin}
           prixMax={prixMax}
+          style={style}
           handlePrixMin={handlePrixMin}
           handlePrixMax={handlePrixMax}
+          handleStyle={handleStyle}
           handleFilter={onApplyFilter}
           showReset={isFiltering} //To show the reset Button only after applying filter
           handleReset={handleReset}

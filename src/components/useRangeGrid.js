@@ -17,9 +17,10 @@ function useRangeGrid({ endpoint, filterEndpoint }) {
 
   const [isFiltering, setIsFiltering] = useState(false); //So that the useEffect don't run when i use teh filter
 
-  //Pour créer un filtre par prix min et max
+  //Pour créer un filtre par prix min et max et un filtre par style
   const [prixMin, setPrixMin] = useState("");
   const [prixMax, setPrixMax] = useState("");
+  const [style, setStyle] = useState("");
 
   const [resetKey, setResetKey] = useState(0); //To trigger the fetching after reset
 
@@ -35,15 +36,17 @@ function useRangeGrid({ endpoint, filterEndpoint }) {
     toast.error("Entrez un prix minimum et/ou maximum avant de filtrer");
   };
 
-  //To catch the values entered from the price inputs
+  //To catch the values entered from the price inputs and the style input
   const handlePrixMin = (e) => setPrixMin(e.target.value);
   const handlePrixMax = (e) => setPrixMax(e.target.value);
+  const handleStyle = (e) => setStyle(e.target.value);
 
   const handleReset = () => {
     setIsFiltering(false);
     setFilteredArticles([]);
     setPrixMin("");
     setPrixMax("");
+    setStyle("");
     setPage(1); //If we filter and reset directly, it'll not work, because the value of page stay 1 if we don't scroll down to the bottom and load new articles
     setResetKey((prev) => prev + 1); //To trigger the 1st useEffect after Reset
     setPageFiltered(1);
@@ -112,9 +115,9 @@ function useRangeGrid({ endpoint, filterEndpoint }) {
 
   //-----------------------Fetching Articles And Infinite scroll: When Filters-----------------------------
 
-  //To apply filter => isFiltering === true on map sur filteredArticles
+  //To apply filter => isFiltering === true on map sur filteredArticles / if (!prixMin && !prixMax & !style) So that it can't filter if the user don't put any values in any input
   const handleFilter = async (page = 1, newFilter = false) => {
-    if (!prixMin && !prixMax) {
+    if (!prixMin && !prixMax && !style) {
       notifyError();
       return;
     }
@@ -130,6 +133,7 @@ function useRangeGrid({ endpoint, filterEndpoint }) {
         params: {
           prixMin: cleanPrixMin,
           prixMax: cleanPrixMax,
+          style,
           page,
           limit: 20,
           BestDeal: true, //So that it can find it and filter it from the server
@@ -157,7 +161,7 @@ function useRangeGrid({ endpoint, filterEndpoint }) {
 
   //To filter by price when we clik on "Filtrer" => call the handleFilter function with new params (1, true) and isFiltering=== true to map on filteredArticles state
   const onApplyFilter = async () => {
-    if (!prixMin && !prixMax) {
+    if (!prixMin && !prixMax && !style) {
       //Obligé de le réecrire ici, sinon ca va mettre setSpinner(true) et on va le voir sans rien fetch
       notifyError();
       return;
@@ -218,11 +222,13 @@ function useRangeGrid({ endpoint, filterEndpoint }) {
     //filter States
     prixMin,
     prixMax,
+    style,
     isFiltering,
 
     //handlers
     handlePrixMin,
     handlePrixMax,
+    handleStyle,
     handleReset,
     onApplyFilter,
   };

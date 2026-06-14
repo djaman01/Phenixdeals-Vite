@@ -38,6 +38,7 @@ const AddArticle = () => {
   const [imageFile, setImageFile] = useState(null); //setImage dans dropzone
   const [auteur, setAuteur] = useState(""); //setAuteur dans onChange
   const [type, setType] = useState("");
+  const [style, setStyle] = useState("");
   const [infoArticle, setInfoArticle] = useState("");
   const [allDescription, setAllDescription] = useState("");
   const [prix, setPrix] = useState("");
@@ -55,6 +56,7 @@ const AddArticle = () => {
       imageFile &&
       auteur &&
       type &&
+      style &&
       infoArticle &&
       allDescription &&
       etat &&
@@ -65,6 +67,7 @@ const AddArticle = () => {
       formData.append("file", imageFile); //'file"=property / imageFile= Value qui est une state variable
       formData.append("auteur", auteur);
       formData.append("type", type);
+      formData.append("style", style);
       formData.append("infoArticle", infoArticle);
       formData.append("allDescription", allDescription);
       formData.append("priceStatus", priceStatus);
@@ -84,6 +87,7 @@ const AddArticle = () => {
         setImageFile(null);
         setAuteur("");
         setType("");
+        setStyle("");
         setInfoArticle("");
         setAllDescription("");
         setPrix("");
@@ -118,6 +122,17 @@ const AddArticle = () => {
                   value={type}
                   onChange={(e) => setType(e.target.value)}
                 />
+                <select
+                  className="mb-4 rounded-md border border-gray-400 bg-gray-100 p-2"
+                  value={style}
+                  onChange={(e) => setStyle(e.target.value)}
+                >
+                  <option value="">Choisir un thème</option>
+                  <option value="Abstrait">Abstrait</option>
+                  <option value="Figuratif">Figuratif</option>
+                  <option value="Figuratif libre">Figuratif libre</option>
+                  <option value="Naif">Naif</option>
+                </select>
                 <input
                   required
                   type="text"
