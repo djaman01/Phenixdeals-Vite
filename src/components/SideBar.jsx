@@ -31,14 +31,14 @@ const SideBar = () => {
 
           <MenuItem
             icon={<FaRegImage size={22} />}
-            component={<Link to="/concept" />}
+            component={<Link to="/oeuvres" />}
           >
             Oeuvres
           </MenuItem>
 
           <MenuItem
             icon={<FaUserGraduate size={22} />}
-            component={<Link to="/concept" />}
+            component={<Link to="/allArtists" />}
           >
             Artistes
           </MenuItem>
