@@ -119,19 +119,27 @@ const Concept = () => {
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Vendez sur notre site !
             </p>
-            <p className="text-lg max-lg:mt-10">
-              <b>
+            <div className="text-lg max-lg:mt-10">
+              <p className="font-bold">
                 Mettez en vente vos oeuvres d'art sur notre site web{" "}
                 <u>sans frais</u> !
-              </b>{" "}
-              <br />
-              <br />
-              Nous prenons notre commission après la vente:
-              <br />
-              <span className="font-semibold">
-                Contactez-nous pour plus d'informations
-              </span>
-            </p>
+              </p>{" "}
+              <div className="flex flex-col gap-1">
+                <p className="m-0 font-semibold">
+                  Nous prenons notre commission après la vente:
+                </p>
+
+                <p className="m-0">
+                  <span className="font-semibold">20%</span> sur les oeuvres{" "}
+                  <span className="underline">d'artistes</span>
+                </p>
+
+                <p className="m-0">
+                  <span className="font-semibold">15%</span> sur les oeuvres de{" "}
+                  <span className="underline">particuliers</span>
+                </p>
+              </div>
+            </div>
           </div>
           <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
             <Link to="/contact" className="no-underline" onClick={scrollToTop}>
