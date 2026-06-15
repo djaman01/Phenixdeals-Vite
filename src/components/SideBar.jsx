@@ -7,6 +7,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
+import { FaUserGraduate } from "react-icons/fa6";
 
 const SideBar = () => {
   const [toggled, setToggled] = useState(false);
@@ -23,36 +24,41 @@ const SideBar = () => {
         <Menu className="mt-10">
           <MenuItem
             component={<Link to="/" />}
-            icon={<IoHomeOutline size={20} />}
+            icon={<IoHomeOutline size={22} />}
           >
             Accueil
           </MenuItem>
 
-          <SubMenu icon={<FaRegImage size={22} />} label="Oeuvres">
-            <MenuItem component={<Link to="/allArtists" />}>
-              Tous les Artistes
-            </MenuItem>
-            <MenuItem component={<Link to="/oeuvres" />}>
-              Toutes les oeuvres
-            </MenuItem>
-          </SubMenu>
+          <MenuItem
+            icon={<FaRegImage size={22} />}
+            component={<Link to="/concept" />}
+          >
+            Oeuvres
+          </MenuItem>
 
           <MenuItem
-            icon={<FaRegThumbsUp size={19} />}
+            icon={<FaUserGraduate size={22} />}
+            component={<Link to="/concept" />}
+          >
+            Artistes
+          </MenuItem>
+
+          <MenuItem
+            icon={<FaRegThumbsUp size={21} />}
             component={<Link to="/bestDeals" />}
           >
             Best Deals
           </MenuItem>
 
           <MenuItem
-            icon={<BsInfoCircle size={20} />}
+            icon={<BsInfoCircle size={21} />}
             component={<Link to="/concept" />}
           >
             Concept
           </MenuItem>
 
           <MenuItem
-            icon={<CiPhone size={24} />}
+            icon={<CiPhone size={25} />}
             component={<Link to="/contact" />}
           >
             Contact
