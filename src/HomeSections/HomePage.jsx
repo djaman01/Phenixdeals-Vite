@@ -44,7 +44,7 @@ const HomePage = () => {
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
           name="description"
-          content="Achetez et vendez des oeuvres d'art au Maroc sur Phenix Deals : tableaux, photographies et sculptures d'artistes marocains."
+          content="Achetez et vendez des oeuvres d'art au Maroc: tableaux, photographies et sculptures d'artistes marocains."
         />
 
         {/* Open Graph pour les réseaux sociauX/ Type de contenu et URL à paratgé */}
@@ -60,7 +60,7 @@ const HomePage = () => {
         {/*Texte qui va s'afficher en-dessous du titre: mettre la même description que celle du moteur de recherche*/}
         <meta
           property="og:description"
-          content="Achetez et vendez des oeuvres d'art au Maroc sur Phenix Deals : tableaux, photographies et sculptures d'artistes marocains."
+          content="Achetez et vendez des oeuvres d'art au Maroc: tableaux, photographies et sculptures d'artistes marocains."
         />
 
         {/* Image lors du partage sur les réseaux sociaux: mettre l'url absolue de l'image sur le site */}
@@ -81,7 +81,7 @@ const HomePage = () => {
       </header>
 
       <section className="mb-4 mt-12 text-center max-lg:mx-2 max-lg:mt-14">
-        <h1 className="martian-mono mb-3 text-3xl text-[#B5121B] max-lg:mb-2 max-lg:text-[27px]">
+        <h1 className="playwrite mb-3 text-4xl text-[#ee2932] max-lg:mb-2 max-lg:text-[30px]">
           Vente de tableaux et d'oeuvres d'art
         </h1>
         <p className="font-roboto mx-auto max-w-4xl text-xl text-gray-800">
