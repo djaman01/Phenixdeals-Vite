@@ -126,17 +126,18 @@ const Concept = () => {
               </p>{" "}
               <div className="flex flex-col gap-1">
                 <p className="m-0 font-semibold">
-                  Nous prenons notre commission après la vente:
+                  Nous prenons notre commission après la vente :
                 </p>
 
                 <p className="m-0">
-                  <span className="font-semibold">20%</span> sur les oeuvres{" "}
-                  <span className="underline">d'artistes</span>
+                  <span className="font-semibold">20%</span> pour les artistes
+                  qui déposent leurs <span className="underline">oeuvres</span>
                 </p>
 
                 <p className="m-0">
-                  <span className="font-semibold">15%</span> sur les oeuvres de{" "}
-                  <span className="underline">particuliers</span>
+                  <span className="font-semibold">15%</span> pour les
+                  particuliers qui souhaitent revendre leurs{" "}
+                  <span className="underline">oeuvres</span>
                 </p>
               </div>
             </div>
