@@ -79,7 +79,7 @@ const Concept = () => {
             {/* This div acts as the blue overlay */}
           </div>
           {/* This div contains the actual content and it's relative z-10 to appear above the  colored overlay */}
-          <div className="relative z-10 mb-3 h-[350px] border border-transparent max-lg:h-auto">
+          <div className="relative z-10 mb-3 h-[370px] border border-transparent max-lg:h-auto">
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Activité
             </p>
@@ -92,9 +92,9 @@ const Concept = () => {
               disponibles à la vente
             </p>
           </div>
-          <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
+          <div className=" relative mb-5 flex items-center justify-center border border-transparent">
             <Link to="/" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-blue-500 px-4 active:scale-105 ">
+              <button className=" montserrat-regular mx-auto flex h-12 items-center gap-2 rounded-full bg-blue-500 px-4 active:scale-105 ">
                 <b>Nouvelles oeuvres</b>
                 <img
                   src={arrowRight}
@@ -115,7 +115,7 @@ const Concept = () => {
             {/* This div acts as the green overlay */}
           </div>
 
-          <div className="relative z-10 mb-3 h-[350px] border border-transparent max-lg:h-auto">
+          <div className="relative z-10 mb-3 h-[370px] border border-transparent max-lg:h-auto">
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Vendez sur notre site !
             </p>
@@ -130,21 +130,22 @@ const Concept = () => {
                 </p>
 
                 <p className="m-0">
-                  <span className="font-semibold">20%</span> pour les artistes
-                  qui déposent leurs <span className="underline">oeuvres</span>
+                  <span className="font-semibold">20%</span> pour les{" "}
+                  <span className="underline">artistes</span> qui déposent leurs{" "}
+                  oeuvres
                 </p>
 
                 <p className="m-0">
-                  <span className="font-semibold">15%</span> pour les
-                  particuliers qui souhaitent revendre leurs{" "}
-                  <span className="underline">oeuvres</span>
+                  <span className="font-semibold">15%</span> pour les{" "}
+                  <span className="underline">particuliers</span> qui souhaitent
+                  revendre leurs oeuvres
                 </p>
               </div>
             </div>
           </div>
-          <div className=" relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
+          <div className=" relative mb-5 flex items-center justify-center border border-transparent">
             <Link to="/contact" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto flex h-14 items-center gap-2 rounded-full bg-green-500 px-4 active:scale-105 ">
+              <button className=" montserrat-regular mx-auto flex h-12 items-center gap-2 rounded-full bg-green-500 px-4 active:scale-105 ">
                 <b>Contactez-nous</b>
                 <img
                   src={arrowRight}
@@ -165,7 +166,7 @@ const Concept = () => {
             {/* This div acts as the green overlay */}
           </div>
 
-          <div className="relative z-10 mb-3 h-[350px] border border-transparent max-lg:h-auto ">
+          <div className="relative z-10 mb-3 h-[370px] border border-transparent max-lg:h-auto ">
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Réseaux Sociaux
             </p>
@@ -183,8 +184,8 @@ const Concept = () => {
             </p>
           </div>
 
-          <div className="relative mb-5 mt-[-10px] flex items-center justify-center border border-transparent">
-            <div className="mx-auto flex h-10 w-80 cursor-pointer items-center justify-around rounded-full bg-blue-500 p-7 hover:shadow-custom ">
+          <div className="relative mb-5  flex items-center justify-center border border-transparent">
+            <div className="mx-auto flex h-12 w-80 cursor-pointer items-center justify-around rounded-full bg-blue-500 p-7 hover:shadow-custom ">
               <SocialIcon
                 url="https://www.instagram.com/phenixdeals/"
                 target="_blank"
