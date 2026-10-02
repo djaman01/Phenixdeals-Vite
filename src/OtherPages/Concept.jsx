@@ -41,7 +41,7 @@ const Concept = () => {
 
         <meta
           name="description"
-          content="Achetez et vendez des oeuvres d'art au Maroc sur Phenix Deals : tableaux, photographies et sculptures d'artistes marocains."
+          content="Site web marocain spécialisé dans la vente de tableaux et d'oeuvres d'art."
         />
 
         <meta property="og:type" content="website" />
@@ -51,8 +51,8 @@ const Concept = () => {
         <meta property="og:title" content="Concept | Phenix Deals" />
 
         <meta
-          property="og:decription"
-          content="Achetez et vendez des oeuvres d'art au Maroc sur Phenix Deals : tableaux, photographies et sculptures d'artistes marocains."
+          property="og:description"
+          content="Site web marocain spécialisé dans la vente de tableaux et d'oeuvres d'art."
         />
 
         <meta

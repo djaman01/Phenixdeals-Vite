@@ -5,27 +5,6 @@ import NewArticles from "./NewArticles";
 import ScrollPage from "./ScrollPage";
 
 const HomePage = () => {
-  // JSON-LD (Linked Data) permet à Google de mieux comprendre le type de contenu de la page, pour améliorer le référencement dans google
-  const jsonLdData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Phenix Deals | Vente d'oeuvres d'art au Maroc",
-    url: "https://www.phenixdeals.com",
-    description:
-      "Achetez et vendez des oeuvres d'art au Maroc sur Phenix Deals : tableaux, photographies et sculptures d'artistes marocains.",
-    publisher: {
-      "@type": "Organization",
-      name: "Phenix Deals", //ici on met le nom de qui gère le site (moi c'est la marque phenixdeals)
-      url: "https://www.phenixdeals.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.phenixdeals.com/logo-phenix-deals-media.jpeg",
-        width: 512,
-        height: 512,
-      },
-    },
-  };
-
   return (
     //overflow-hidden pour ne pas avoir de scrollbar horizontale
     <main className="overflow-hidden">
@@ -44,9 +23,8 @@ const HomePage = () => {
         {/*Résumé qui va apparaitre dans les moteurs de recherche: 150 à 160 caractères*/}
         <meta
           name="description"
-          content="Achetez et vendez des oeuvres d'art au Maroc: tableaux, photographies et sculptures d'artistes marocains."
+          content="Phenix Deals est un espace dédié à l'achat et à la vente d'oeuvres d'art au Maroc : tableaux, sculptures et photographies."
         />
-
         {/* Open Graph pour les réseaux sociauX/ Type de contenu et URL à paratgé */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.phenixdeals.com/" />
@@ -60,7 +38,7 @@ const HomePage = () => {
         {/*Texte qui va s'afficher en-dessous du titre: mettre la même description que celle du moteur de recherche*/}
         <meta
           property="og:description"
-          content="Achetez et vendez des oeuvres d'art au Maroc: tableaux, photographies et sculptures d'artistes marocains."
+          content="Phenix Deals est un espace dédié à l'achat et à la vente d'oeuvres d'art au Maroc : tableaux, sculptures et photographies."
         />
 
         {/* Image lors du partage sur les réseaux sociaux: mettre l'url absolue de l'image sur le site */}
@@ -71,9 +49,6 @@ const HomePage = () => {
 
         {/*Comme le site est accessible via www.phenixdeals.com ou juste phenixdeals.com; on choisi uen version principale à indexer pour pas qu'il y ait de duplication: ça optimise le SEO */}
         <link rel="canonical" href="https://www.phenixdeals.com/" />
-
-        {/* JSON-LD structured data: permet aux moteurs de recherche de comprendre le contenu de la page et d'améliorer le référencement. */}
-        <script type="application/ld+json">{JSON.stringify(jsonLdData)}</script>
       </Helmet>
 
       <header className="mb-5 mt-2">
