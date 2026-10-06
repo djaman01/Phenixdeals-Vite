@@ -83,18 +83,21 @@ const Concept = () => {
             <p className="text-center text-3xl font-bold max-lg:mt-7">
               Activité
             </p>
+
             <p className="text-lg">
-              <b>Phenixdeals.com</b> est un site web Marocain, spécialisé dans
-              la vente d'oeuvres d'art.
+              <b>Phenixdeals.com</b> est une plateforme dédiée à<b> l'achat </b>{" "}
+              et à la <b>vente</b> d'oeuvres d'art au Maroc: tableaux,
+              sculptures et photographies.
             </p>
+
             <p className="pt-2 text-lg">
-              <b>Parcourez notre site:</b> Des oeuvres aux styles variés sont
-              disponibles à la vente
+              <b>Parcourez notre sélection :</b> des oeuvres aux styles variés
+              sont disponibles à la vente.
             </p>
           </div>
-          <div className=" relative mb-5 flex items-center justify-center border border-transparent">
+          <div className=" relative mb-6 flex items-center justify-center border border-transparent">
             <Link to="/" className="no-underline" onClick={scrollToTop}>
-              <button className=" montserrat-regular mx-auto flex h-12 items-center gap-2 rounded-full bg-blue-500 px-4 active:scale-105 ">
+              <button className=" montserrat-regular mx-auto flex h-[50px] items-center gap-2 rounded-full bg-blue-500 px-4 active:scale-105 ">
                 <b>Nouvelles oeuvres</b>
                 <img
                   src={arrowRight}
@@ -121,7 +124,7 @@ const Concept = () => {
             </p>
             <div className="text-lg max-lg:mt-10">
               <p className="font-bold">
-                Mettez en vente vos oeuvres d'art sur notre site web{" "}
+                Mettez en vente vos oeuvres sur notre site web{" "}
                 <u>sans frais</u> !
               </p>{" "}
               <div className="flex flex-col gap-1">

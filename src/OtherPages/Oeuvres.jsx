@@ -75,7 +75,7 @@ const Oeuvres = () => {
       <section>
         <RangeGrid
           articles={articlesToDisplay}
-          title="Toutes les oeuvres d'art"
+          title="Toutes les oeuvres"
           subtitle="Utilisez le filtre pour découvrir les oeuvres adaptées à votre budget"
           prixMin={prixMin}
           prixMax={prixMax}

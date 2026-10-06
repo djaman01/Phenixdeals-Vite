@@ -56,14 +56,9 @@ const HomePage = () => {
       </header>
 
       <section className="mb-4 mt-12 text-center max-lg:mx-2 max-lg:mt-14">
-        <h1 className="playwrite mb-3 text-4xl text-[#dd2630] max-lg:mb-2 max-lg:text-[30px]">
+        <h1 className="playwrite text-4xl text-[#dd2630] max-lg:text-[30px]">
           Vente de tableaux et d'oeuvres d'art
         </h1>
-        <p className="font-roboto mx-auto max-w-4xl text-xl text-gray-800">
-          <strong>Achetez</strong> et <strong>vendez</strong> des œuvres d'art
-          au Maroc : <strong>tableaux</strong>, <strong>sculptures</strong> et{" "}
-          <strong>photographies</strong>.
-        </p>
       </section>
 
       <section className="mb-4 mt-20 text-center max-lg:mt-14">

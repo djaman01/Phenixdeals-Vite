@@ -104,7 +104,7 @@ const NewArticles = () => {
     <section>
       <RangeGrid
         articles={articlesToDisplay}
-        title="Les 20 Nouvelles oeuvres d'art"
+        title="Les 20 Nouvelles oeuvres"
         subtitle="Utilisez le filtre pour découvrir les oeuvres adaptées à votre budget"
         prixMin={prixMin}
         prixMax={prixMax}
