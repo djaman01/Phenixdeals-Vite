@@ -60,9 +60,9 @@ const HomePage = () => {
           Vente de tableaux et d'oeuvres d'art
         </h1>
         <p className="font-roboto mx-auto max-w-4xl text-xl text-gray-800">
-          Découvrez une sélection unique de <strong>tableaux</strong>,
-          <strong> photographies</strong> et <strong>sculptures</strong>{" "}
-          d'artistes au Maroc
+          <strong>Achetez</strong> et <strong>vendez</strong> des œuvres d'art
+          au Maroc : <strong>tableaux</strong>, <strong>sculptures</strong> et{" "}
+          <strong>photographies</strong>.
         </p>
       </section>
 
