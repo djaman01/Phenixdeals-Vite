@@ -57,7 +57,7 @@ const HomePage = () => {
 
       <section className="mb-4 mt-12 text-center max-lg:mx-2 max-lg:mt-14">
         <h1 className="playwrite text-4xl text-[#dd2630] max-lg:text-[30px]">
-          Vente de tableaux et d'oeuvres d'art
+          Vente d'oeuvres d'art
         </h1>
       </section>
 
